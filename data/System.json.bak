@@ -1,13 +1,13 @@
 {
   "advanced": {
     "gameId": 10000000,
-    "screenWidth": 816,
-    "screenHeight": 624,
-    "uiAreaWidth": 816,
-    "uiAreaHeight": 624,
+    "screenWidth": 1920,
+    "screenHeight": 1080,
+    "uiAreaWidth": 1920,
+    "uiAreaHeight": 1080,
     "numberFontFilename": "mplus-2p-bold-sub.woff",
     "fallbackFonts": "Verdana, sans-serif",
-    "fontSize": 26,
+    "fontSize": 28,
     "mainFontFilename": "mplus-1m-regular.woff",
     "screenScale": 1,
     "windowOpacity": 192,
@@ -120,7 +120,7 @@
     "pitch": 100,
     "volume": 90
   },
-  "editMapId": 2,
+  "editMapId": 25,
   "elements": [
     "",
     "Physical",
@@ -367,7 +367,22 @@
     "",
     "",
     "",
-    ""
+    "",
+    "Mine Authorized",
+    "Mine Cleared / Relay Offline",
+    "",
+    "",
+    "Iron Foreman Defeated",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Signal Tower Authorized",
+    "Athenaeum Node Offline",
+    "",
+    "",
+    "Broadcast Engine Defeated"
   ],
   "terms": {
     "basic": [
@@ -437,7 +452,7 @@
       "loadMessage": "Which file would you like to load?",
       "file": "File",
       "autosave": "Autosave",
-      "partyName": "%1’s Party",
+      "partyName": "%1â€™s Party",
       "emerge": "%1 emerged!",
       "preemptive": "%1 got the upper hand!",
       "surprise": "%1 was surprised!",
@@ -472,9 +487,9 @@
       "magicReflection": "%1 reflected the magic!",
       "counterAttack": "%1 made a counterattack!",
       "substitute": "%1 protected %2!",
-      "buffAdd": "%1’s %2 went up!",
-      "debuffAdd": "%1’s %2 went down!",
-      "buffRemove": "%1’s %2 returned to normal!",
+      "buffAdd": "%1â€™s %2 went up!",
+      "debuffAdd": "%1â€™s %2 went down!",
+      "buffRemove": "%1â€™s %2 returned to normal!",
       "actionFailure": "There was no effect on %1!"
     }
   },
@@ -561,7 +576,7 @@
     "",
     ""
   ],
-  "versionId": 94727312,
+  "versionId": 54881354,
   "victoryMe": {
     "name": "Victory1",
     "pan": 0,

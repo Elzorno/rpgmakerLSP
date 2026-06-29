@@ -73,7 +73,7 @@ The hero's ancestor, known in legend only as **The Architect**, was the chief en
 
 #### Scene 1 — The Village of Ashford
 
-Kai lives in Ashford, a small settlement built inside the skeleton of an old-world factory. Steam vents heat the homes. The village elder speaks of the hill to the east as forbidden ground — cursed by the old world. Kai has been having the same dream for weeks: a glowing blue sword on a stone pedestal, a voice whispering his name.
+Kai lives in Ashford, a small settlement built inside the skeleton of an old-world factory. Steam vents heat the homes. The village elder speaks of the hill to the north as forbidden ground — cursed by the old world. Kai has been having the same dream for weeks: a glowing blue sword on a stone pedestal, a voice whispering his name.
 
 #### Scene 2 — The Hidden Cave
 

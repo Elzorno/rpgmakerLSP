@@ -16,3 +16,5 @@ Use this table to claim work before editing project files.
 - Keep active tasks small enough that ownership is clear.
 - Move completed task details into the relevant outbox handoff instead of overloading this board.
 | T006 | Codex | Done | data/System.json, data/Map002.json, .agents/ | Diagnosed ship visibility at overworld 89,83 | 2026-06-28 16:18 ET |
+| T007 | Codex | Done | LastSwordProtocol_StoryBible.md, data/Map007.json, data/Map008.json, data/Map009.json, data/Map017.json, data/Map018.json, .agents/ | Act I polish pass: cave direction, story consistency, playability review | 2026-06-29 09:17 ET |
+| T008 | Codex | Done | data/Map008.json, data/Map015.json, data/Map019.json, data/Map021.json, data/Map022.json, data/Map028.json, data/Map029.json, .agents/ | Add character face portraits to dialogue message events | 2026-06-29 09:24 ET |

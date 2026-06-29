@@ -195,3 +195,87 @@ Verification:
 Suggested next step:
 
 - Test with New Game on map 2 or transfer to `World 1`; do not use Continue for this specific vehicle-placement check.
+
+## 2026-06-29 09:17 ET - Codex handoff - T007
+
+Task:
+
+- Ran an Act I polish pass focused on cave direction consistency, story coherence, and early playability.
+
+Changed:
+
+- Updated story bible Act I setup so Ashford's forbidden hill is north, not east.
+- Updated Ashford village and Kai's house event text to point the cave/hill north.
+- Updated one Ashford NPC warning from the east side to the north side to avoid conflicting player guidance.
+- Removed random encounters from the Stone Cave hub so Act I stays focused on the three deliberate trials.
+- Retargeted Chamber 1 battles from beast-like troops to old-world construct/surveyor troops.
+- Retargeted Chamber 2 wrong-answer countermeasure battles away from default `Goblin*2` to `Virus-Warped Surveyor`.
+
+Files touched:
+
+- `LastSwordProtocol_StoryBible.md`
+- `data/Map007.json`
+- `data/Map008.json`
+- `data/Map009.json`
+- `data/Map017.json`
+- `data/Map018.json`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Parsed Act I map JSON files with Node: `Map002`, `Map007`, `Map008`, `Map009`, `Map015`, `Map017`, `Map018`, `Map019`.
+- Rescanned for cave/east references; only unrelated non-Act-I town text remains, such as Vera's Workshop being on Coalmouth's east side.
+- Rechecked Act I transfers and trial battle troop IDs from event commands.
+
+Known risks:
+
+- This was data and event inspection only; no in-engine RPG Maker playtest was run.
+- Existing dirty backup files and generated/untracked assets were present before this task and were left untouched.
+
+Suggested next step:
+
+- Playtest New Game through Ashford, the world-map cave entrance, all three chambers, and the Sword pedestal to confirm pacing after removing cave random encounters.
+
+## 2026-06-29 09:24 ET - Codex handoff - T008
+
+Task:
+
+- Added face portraits to clear character dialogue and fixed obvious wrong/missing face references.
+
+Changed:
+
+- Added Kai's `LSP_KaiFace` to the opening dream/internal monologue and Shadow of Kai dialogue.
+- Added `LSP_ElderFace` to the Act I village elder conversation.
+- Added the Coalmouth mine guard face to his authorized-entry page.
+- Retargeted Vera dialogue in Coalmouth from the wrong `Actor1` placeholder to Vera's configured `Actor2` face.
+- Added Kai's face to his explicit Coalmouth relay line and Vera's face to her follow-up.
+- Retargeted Eldon dialogue from missing `Elder` face references to Eldon's configured `Actor3` face in the Grand Archive and Signal Tower.
+- Fixed the Signal Tower Vera line that was incorrectly using Kai's face.
+- Fixed one small guard typo: `Since to foreman` -> `Since the foreman`.
+
+Files touched:
+
+- `data/Map008.json`
+- `data/Map015.json`
+- `data/Map019.json`
+- `data/Map021.json`
+- `data/Map022.json`
+- `data/Map028.json`
+- `data/Map029.json`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Parsed every `data/Map*.json` plus `data/Actors.json` successfully.
+- Checked every non-empty message face name used by map events against `img/faces/*.png`; all resolve.
+
+Known risks:
+
+- No in-engine RPG Maker playtest was run.
+- Some existing events use the RPG Maker MZ name-box parameter as message text with no following body text; this pass preserved that behavior and only corrected the face sheet on those commands.
+
+Suggested next step:
+
+- Playtest the dream, village elder scene, Coalmouth relay scene, Grand Archive, and Signal Tower to confirm portrait/name-box presentation looks right in-engine.

@@ -2,12 +2,12 @@
   null,
   {
     "id": 1,
-    "expanded": true,
+    "expanded": false,
     "name": "Castle",
     "order": 2,
     "parentId": 2,
-    "scrollX": 1136,
-    "scrollY": 960,
+    "scrollX": 1118.5,
+    "scrollY": 960.5,
     "quick": false
   },
   {
@@ -16,8 +16,8 @@
     "name": "World 1",
     "order": 1,
     "parentId": 0,
-    "scrollX": 4240.5,
-    "scrollY": 3738.5,
+    "scrollX": 3169.5,
+    "scrollY": 3510.5,
     "quick": false
   },
   {
@@ -62,12 +62,12 @@
   },
   {
     "id": 7,
-    "expanded": true,
+    "expanded": false,
     "name": "Village 1",
     "order": 7,
     "parentId": 2,
-    "scrollX": 832,
-    "scrollY": 800,
+    "scrollX": 1118.5,
+    "scrollY": 800.5,
     "quick": false
   },
   {
@@ -82,12 +82,12 @@
   },
   {
     "id": 9,
-    "expanded": true,
+    "expanded": false,
     "name": "Stone Cave",
     "order": 16,
     "parentId": 2,
-    "scrollX": 1707,
-    "scrollY": 951.75,
+    "scrollX": 1118.5,
+    "scrollY": 951.5,
     "quick": false
   },
   {
@@ -193,18 +193,18 @@
     "name": "Hall of Transference",
     "order": 20,
     "parentId": 2,
-    "scrollX": 816,
-    "scrollY": 656,
+    "scrollX": 1118.5,
+    "scrollY": 656.5,
     "quick": false
   },
   {
     "id": 21,
-    "expanded": false,
+    "expanded": true,
     "name": "Coalmouth",
     "order": 21,
     "parentId": 2,
-    "scrollX": 0,
-    "scrollY": 0
+    "scrollX": 1118.5,
+    "scrollY": 634.5
   },
   {
     "id": 22,
@@ -212,8 +212,8 @@
     "name": "Coalmouth Mine",
     "order": 22,
     "parentId": 21,
-    "scrollX": 0,
-    "scrollY": 0
+    "scrollX": 1118.5,
+    "scrollY": 901.5
   },
   {
     "id": 23,
@@ -239,6 +239,60 @@
     "name": "Collier's Post",
     "order": 25,
     "parentId": 21,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 26,
+    "expanded": false,
+    "name": "Vera's Workshop",
+    "order": 26,
+    "parentId": 21,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 27,
+    "expanded": false,
+    "name": "The Athenaeum",
+    "order": 27,
+    "parentId": 0,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 28,
+    "expanded": false,
+    "name": "Grand Archive",
+    "order": 28,
+    "parentId": 27,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 29,
+    "expanded": false,
+    "name": "Signal Tower",
+    "order": 29,
+    "parentId": 27,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 30,
+    "expanded": false,
+    "name": "Scholar's Rest",
+    "order": 30,
+    "parentId": 27,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 31,
+    "expanded": false,
+    "name": "Eldon's Study",
+    "order": 31,
+    "parentId": 27,
     "scrollX": 0,
     "scrollY": 0
   }
