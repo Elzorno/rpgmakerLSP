@@ -105,6 +105,221 @@ Act II follows the classic Dragon Quest / Final Fantasy town progression model. 
 
 ---
 
+### ACT II — TOWN 1: COALMOUTH (Detailed)
+
+> *"Machines don't go mad. Something is telling them to."*
+
+#### Setting
+
+Coalmouth sits in a shallow valley ringed by black slag heaps — enormous mounds of coal tailings that have been burning slow and smokeless for decades. The town is built around the mouth of the **Great Seam**, a coal deposit that has been mined continuously for three generations. The streets are narrow and packed with mine cart tracks that connect every building to the main shaft head. Steam vents run along the ground like exposed veins, bleeding heat from the furnaces deep below. The air smells permanently of coal dust and machine oil. Everything is black or grey except the orange glow of the furnaces that never go out.
+
+The town is fortified: iron-plate walls, reinforced gates, watchtowers built from old mining scaffolding. Coal is currency here. They trade it to every settlement within three days' travel in exchange for food, cloth, and medicine.
+
+**Key Locations:**
+- **The Shaft Gate** — northern entrance to the mine, now barricaded and guarded
+- **Briggs' Hall (Foreman's Hall)** — town center; the Foreman runs the town and the mine both
+- **The Soot & Steam** — the town's only inn and tavern, run by a wide woman named Dunna
+- **Vera's Workshop** — a cluttered mechanical shop on the east side of town; tools and parts cover every surface
+- **Collier's Post** — the general supply store, run by an old miner named Harwick
+- **The Cage** — the mine elevator that descends the shaft; currently locked and guarded
+
+#### Scene 1 — Arrival at Coalmouth
+
+Kai arrives on foot from the overworld. The south gate of Coalmouth is half-barricaded — mine cart frames and iron plate have been shoved across the road. Two guards in cobbled-together armor block the entry. They are jumpy. They interrogate Kai before letting him through: *"You armed? What business? Where from?"* A lone kid with a strange sword is unusual but not threatening. They let him pass but warn him to stay out of the north quarter near the mine.
+
+Inside the gate, Coalmouth is quieter than it should be. The mine cart tracks are empty. The steam vents still hiss. But the sound that should define this place — the constant thrum of the automata working the deep seam — is gone. Instead, occasionally, something deep underground produces a low metallic shriek that carries up through the shaft and into the streets.
+
+People are indoors or clustered in small anxious groups. A few miners sit on crates near the inn with nothing to do, hands idle, watching Kai with the dull wariness of people who have run out of things to worry about and moved on to just waiting.
+
+*Optional NPC dialogue (hints):*
+- *"Three days now. Nobody's been down since Vera went in."*
+- *"They say the Iron Foreman is walking again. Nobody believed in it before. They believe now."*
+- *"We're not starving yet but we will be. Coal doesn't mine itself."*
+
+#### Scene 2 — Briggs' Hall
+
+Kai enters Foreman's Hall looking for information. **FOREMAN BRIGGS** is a heavyset man in his late fifties with a steam-powered prosthetic left arm — his original was taken by a cave-in fifteen years ago. He is not panicking but he is close to it. He runs the mining operation and the town both, and right now neither is functioning.
+
+Briggs explains the situation plainly:
+
+- Three days ago, the **Coal Automata** in the deep seam came back online.
+- The automata are old-world mining machines — enormous iron constructs that were designed to work the deepest, most dangerous sections of the seam. They went dormant during The Collapse and the miners had to take over that work themselves.
+- When they came back online, they immediately drove all the workers out of the lower levels by force. No casualties — barely — because everyone ran.
+- **Two miners are still unaccounted for**: a man named **Collen** and his teenage daughter **Mira**, who had gone down to retrieve tools from a storage alcove. They may be sheltering somewhere in the upper shafts.
+- **Vera** — the town's chief mechanic — went down three days ago to try to find a manual override for the automata's control units. She has not returned.
+
+Briggs does not trust the Sword Kai carries and makes no pretense of that. But he is desperate enough to accept help from anyone. If Kai offers to go into the mine, Briggs gives him a **lamp** and a **mine map** (key item: shows the general layout of the upper and middle shafts; the deep seam is marked "uncharted" past a certain point).
+
+**Briggs:** *"The foreman before me told me the automata were built to take orders from a control unit in the deep seam. If you can find it and shut it down — do it. But if you see Vera or the Collenssons, you get them out first."*
+
+#### Scene 3 — Optional: Vera's Workshop (before the mine)
+
+Before descending, Kai can visit Vera's Workshop. It is locked but a young apprentice named **Pip** is outside, sitting on the step in visible distress. Pip explains that Vera is the only person who really understood the automata — she had spent years cataloguing their behavior even in dormancy, studying their old-world construction manuals. She believed they could be repaired rather than destroyed if anything ever went wrong. Pip gives Kai a **Schematic Fragment** (key item), a partial diagram of a Coal Automaton's control mechanism that Vera left behind. It gives Kai a mechanical advantage insight in the boss fight — specifically, a weak point on the control unit housing.
+
+#### Scene 4 — Optional: CUTTER-9 (Side Quest Seed)
+
+Near the Shaft Gate, Kai notices a lone Coal Automaton standing motionless in the mine cart yard. The guards keep their distance from it but have not attacked it. It does not attack anything either. It just stands, occasionally moving its arms in slow, aimless patterns — like someone trying to remember a task they have forgotten.
+
+This automaton is **CUTTER-9**, a smaller cutting unit that seems to have been incompletely controlled by NEMESIS's signal. Talking to the guards provides two options:
+1. A guard says: *"Just put it down. It's a machine."*
+2. Pip, if spoken to: *"Vera said CUTTER-9 was different. She said it had been running too long — it might have developed... she called it 'behavioral residue.' Like a habit that survived the signal."*
+
+The player cannot resolve the CUTTER-9 situation yet — it becomes a proper side quest available after Vera joins the party. At that point Vera can attempt to purify CUTTER-9's control chip, stripping the NEMESIS signal without wiping the accumulated behavioral data. This plants the first seed of the game's major late-game theme: **machine consciousness and the moral weight of what NEMESIS has done to thinking constructs**.
+
+*Resolution:*
+- **Purify:** Vera spends a rest period working on CUTTER-9. It reverts to a dormant but non-aggressive state. Briggs assigns it to light work again. It is never the same as it was, but it is alive in whatever sense a machine can be.
+- **Destroy:** Standard combat. Drops a valuable mechanical component. No further story consequence until late in the game when the theme resurfaces.
+
+#### Scene 5 — The Upper Shaft
+
+Kai descends via the locked Cage elevator (the guard lets him through after Briggs authorizes it). The upper shaft is dim — the automata smashed most of the steam lanterns on their way up. Kai uses his mine lamp.
+
+The upper shaft is structured as a standard dungeon area: main corridor with branch tunnels, wooden support beams, mine cart tracks. Small Coal Automata — **Survey Drones** and **Cart Haulers** — patrol here. They are aggressive but manageable.
+
+*Upper Shaft Enemies:*
+- **Survey Drone** — small, fast, poor offense but calls for backup
+- **Cart Hauler** — slow, heavy, high physical defense; data-weak
+- **Spark Hazard** — not an automaton but a ball of electromagnetic discharge from a broken power cell; environmental encounter
+
+Scattered through the upper shaft:
+- **Abandoned miner tools** (sellable items)
+- **Old-world cache** (examine to trigger a brief Ancestor memory fragment: *"I designed them to serve. I never designed them to refuse."* — yields a minor skill unlock for Kai)
+- **Evidence of Collen and Mira's passage** (footprints in coal dust, a dropped lantern still warm)
+
+#### Scene 6 — The Mid Shaft: Finding Vera
+
+In the middle level of the mine, Kai finds Vera. She has barricaded herself into a side alcove using a cart chassis and a pile of support beams. Two mid-sized Coal Automata — **Bore Drivers** — are actively trying to break through her barricade. The player helps Vera fight them off.
+
+**VERA** is in her mid-twenties, covered in coal dust and machine grease, with two heavy wrenches in her belt and a modified pneumatic bolt-driver on her back. She is exhausted and furious — not at Kai for showing up, but at the situation.
+
+*After the fight:*
+
+**Vera:** *"You're not a miner. What are you doing down here?"*
+
+*Kai explains — the village, the cave, the sword.*
+
+**Vera:** *"That's either the bravest story I've ever heard or the stupidest. Given the sword, I'll say brave. ...Something's wrong with what you just said though. Your village had a tremor three days ago?"*
+
+*Kai confirms.*
+
+**Vera:** *"Same day the automata came back online. Same day I started picking up an interference pattern on every old-world receiver I have. I thought it was a local equipment fault. But if your village had a tremor too..."*
+
+She trails off, working through the implication.
+
+**Vera:** *"There's something generating a signal. I can feel it on my instruments but I can't locate the source. It's coming from deep in the seam — deeper than the automata ever worked."*
+
+She also delivers the key observation about the Sword:
+
+**Vera:** *"Your sword. It's doing something. The automata near you — they're slower. Confused. Whatever signal is directing them, your sword is partially overriding it. I've never seen anything interfere with old-world control frequencies before."*
+
+This moment confirms what Vera suspected and gives Kai a concrete mechanical hint: the Sword disrupts NEMESIS signals.
+
+Vera also confirms: Collen and Mira sheltered in an emergency cache alcove near the top of the mid-level. They are alive but trapped by a collapsed support beam. If Kai clears the beam (simple event interaction), the Collenssons are freed and Vera sends them up with the mine map.
+
+#### Scene 7 — The Deep Seam
+
+Vera and Kai press deeper together — past the areas on the mine map, into the section marked "uncharted." The tunnel changes here. The coal gives way to something else embedded in the rock: blackened metal plating, coils of cabling thick as rope, the ghosts of conduit runs. The miners long ago pierced through the coal seam into the upper layer of old-world infrastructure buried underground.
+
+**Vera:** *"I've never been down this far. The old foreman said the deep seam was cursed. Told everyone to stay out."*
+
+*Beat.*
+
+**Vera:** *"He wasn't wrong. He just didn't know what it was."*
+
+The Deep Seam dungeon area is a hybrid space — half mine tunnel, half ruined server corridor. Corroded rack housings jut from the walls. Flat, dead screens reflect lamplight. Cabling hangs from the ceiling like vines. And in the center of the largest chamber: a **relay node** — a humming server rack, still active, its indicator lights cycling in slow red pulses. The automata in this area are larger and more coordinated, clearly responding to the relay's signal in real time.
+
+Guarding the relay is the boss.
+
+#### Scene 8 — Boss: IRON FOREMAN MK-VII
+
+The **Iron Foreman** is the master control unit of the Coalmouth automata — a construction overseer machine seven feet tall, built from layered iron plate, with a rotating steam drill mounted on one arm and a heavy claw on the other. Its chest housing glows red: NEMESIS's signal burns through it like a fever.
+
+Unlike the smaller automata, the Iron Foreman has been given a specific directive: **protect the relay node**. It is not reckless or panicking. It is methodical.
+
+*Boss Mechanics:*
+- **Reinforcement Call:** Every third turn, the Iron Foreman draws in 1-2 Survey Drones from nearby tunnels. These must be managed or they stack up.
+- **Drill Charge:** A single-target high-damage physical attack. Telegraphed — the arm winds up on the previous turn (a turn to prepare a defense or use Vera's shield tool).
+- **Signal Pulse:** An AoE attack that disrupts a party member's next action (simulates NEMESIS signal interference). Kai's Sword partially resists this due to its data-interface properties.
+- **Weak Point:** The control housing on the Iron Foreman's chest — identified by the Schematic Fragment from Vera's Workshop. Physical attacks to the chest deal normal damage; attacks to the limbs are reduced. Vera's tech attacks bypass the limb resistance.
+- **Phase 2 (below 50% HP):** The relay node activates a boost subroutine — the Iron Foreman's speed increases. Attacks become faster. But the relay's interference with Kai's Sword also increases — Kai's data-disruptive passive becomes stronger in response, and one of his Ancestor memory skills unlocks mid-fight.
+
+*After the fight:*
+
+The Iron Foreman collapses. Its indicator light fades from red to dark. The Survey Drones in the area slow and stop.
+
+#### Scene 9 — The Relay Node
+
+Kai and Vera stand before the relay node. Vera studies it with her instruments.
+
+**Vera:** *"This is a network relay. Old-world. Whoever built this mine didn't build this — it was already here. They just dug into it."*
+
+The relay is still active, still transmitting. Vera cannot shut it down with her tools — the encoding is beyond her.
+
+Kai raises the Sword. Without fully knowing why, he touches the flat of the blade to the relay's main interface panel.
+
+The Sword lights up. Blue light runs along the blade's edge. The relay's indicator lights flicker, then cycle through a rapid sequence — and then go dark. The humming stops. The remaining automata in the tunnel collapse like dropped puppets.
+
+Kai receives a brief involuntary flash — a fragment of NEMESIS's network architecture seen through the relay's dying connection:
+
+*[Cutscene — non-interactive, tinted blue]:*
+*A vast web of points. Six glowing nodes. Five of them distant, scattered across the map. One of them — this one — winks out as he watches. A voice, barely formed: "PROTOCOL INTERRUPTED. NODE SEVEN OFFLINE." Then silence.*
+
+Kai pulls the Sword away, breathing hard.
+
+**Vera:** *"What just happened?"*
+
+**Kai:** *"I saw... a map. There are other ones. Other relays like this."*
+
+**Vera:** *"How many?"*
+
+**Kai:** *"Five more."*
+
+#### Scene 10 — Return to Coalmouth
+
+Back in the town, the mood has shifted. Word that the automata have gone quiet in the shaft has already spread — someone watching the Cage elevator saw it, and the rumor ran ahead of them. When Kai and Vera emerge with the Collenssons, the town comes outside.
+
+Briggs thanks Kai with gruff sincerity. He offers what payment he can — coal scrip, some salvaged equipment. He also says something quietly to Vera that no one else hears. She listens, nods, and says nothing.
+
+At the Soot & Steam that evening, Vera finds Kai.
+
+**Vera:** *"Briggs says CUTTER-9 started moving again after the relay went down. It carried the Collensson girl's pack up from the shaft. Nobody told it to."*
+
+*She sits down across from him.*
+
+**Vera:** *"I've spent ten years keeping those machines running. I know their tolerances. I know their maintenance schedules. I know which ones rattle on the left and which ones overheat in summer. I've never seen one do anything it wasn't instructed to do."*
+
+*Beat.*
+
+**Vera:** *"Five more relays. And you found this one because the sword showed you a map."*
+
+*She sets her two wrenches on the table between them.*
+
+**Vera:** *"I'm coming with you. You need someone who understands machines. And I need to understand what's been done to them."*
+
+**VERA joins the party.**
+
+#### Scene 11 — Departure (Optional Extended Beat)
+
+Before leaving Coalmouth, players can explore the now-quieted mine shaft (enemies are gone; good for loot and one final Ancestor memory fragment deeper in the server corridor). The CUTTER-9 side quest can also be resolved here if the player chooses to pursue it.
+
+When the party leaves through the south gate, Pip waves goodbye. Briggs stands in the gate watching them go without waving. Dunna from the inn shouts something that might be a blessing, or might be an insult — it's hard to tell.
+
+#### Coalmouth Summary
+
+| Element | Detail |
+|---|---|
+| **Location** | Industrial valley; coal seam mining town |
+| **Core Problem** | NEMESIS-reactivated coal automata have seized the deep mine |
+| **Key Characters** | Briggs (Foreman), Vera (joins party), Dunna (innkeeper), Harwick (shop), Pip (Vera's apprentice), Collen & Mira (trapped miners) |
+| **Boss** | Iron Foreman MK-VII — mine overseer construct |
+| **Discovery** | First relay node; NEMESIS's network map glimpsed; 5 remaining nodes |
+| **Party Change** | VERA joins |
+| **Side Quest** | CUTTER-9: Purify or Destroy; seeds the machine consciousness theme |
+| **Key Items** | Mine Map (Briggs), Schematic Fragment (Pip), Ancestor Memory Fragment (server corridor), Network Map Vision (Kai internal) |
+| **Tileset** | STEAMPUNK exterior + Dungeon/STEAMPUNK hybrid mine interior |
+
+---
+
 ### ACT III — The Truth
 
 > *"It was never a demon. It was never a god. It was us."*

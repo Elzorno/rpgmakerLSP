@@ -3,9 +3,9 @@
     "main": "index.html",
     "chromium-args": "--force-color-profile=srgb",
     "window": {
-        "title": "",
-        "width": 816,
-        "height": 624,
+        "title": "The Last Sword Protocol",
+        "width": 1920,
+        "height": 1080,
         "position": "center",
         "icon": "icon/icon.png"
     }

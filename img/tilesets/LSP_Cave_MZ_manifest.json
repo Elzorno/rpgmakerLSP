@@ -1,0 +1,55 @@
+{
+  "tileset_name": "Tileset 09 \u2014 Ancestor Cave",
+  "engine": "RPG Maker MZ",
+  "tile_size_px": 48,
+  "source_spec": "Ancestor Cave Tileset Spec.dc.html",
+  "slots": {
+    "A1": {
+      "file": "LSP_Cave_A1.png",
+      "dimensions": "768x576",
+      "purpose": "animated/autotile living systems: coolant pools, conduits, steam, sparks"
+    },
+    "A2": {
+      "file": "LSP_Cave_A2.png",
+      "dimensions": "768x576",
+      "purpose": "ground autotiles: cave rock, flagstone, metal, catwalk, obsidian, dust, circuit floor, coolant stain"
+    },
+    "A3": {
+      "file": "LSP_Cave_A3_blank.png",
+      "dimensions": "768x384",
+      "purpose": "blank optional placeholder"
+    },
+    "A4": {
+      "file": "LSP_Cave_A4.png",
+      "dimensions": "768x720",
+      "purpose": "wall autotiles: rock, hewn block, bulkhead, conduit, breach, glyph, obsidian mirror"
+    },
+    "A5": {
+      "file": "LSP_Cave_A5.png",
+      "dimensions": "384x768",
+      "purpose": "normal tiles: entrance seals, stairs, dais, grates, glow strips, hatch, rubble"
+    },
+    "B": {
+      "file": "LSP_Chamber2_Terminals.png",
+      "dimensions": "768x768",
+      "purpose": "terminal banks and Chamber 2 console objects; top-left tile transparent"
+    },
+    "C": {
+      "file": "LSP_Cave_C.png",
+      "dimensions": "768x768",
+      "purpose": "cave-tech objects and chamber set-pieces"
+    }
+  },
+  "palette": {
+    "data_glow": "#36B4EC",
+    "brass": "#C79A52",
+    "forge_amber": "#D98A3F",
+    "spectral_violet": "#9A7FE0"
+  },
+  "passability_notes": {
+    "O": "floors, catwalks, glow strips, shallow decals",
+    "X": "walls, pillars, terminals, rigs, pedestal, boulders, rubble, crates",
+    "star": "light shafts, hanging cables, ceiling stalactites, banners, radial glow decals",
+    "counter": "terminal banks and console-like rigs"
+  }
+}

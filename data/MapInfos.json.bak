@@ -6,8 +6,8 @@
     "name": "Castle",
     "order": 2,
     "parentId": 2,
-    "scrollX": 3616.5,
-    "scrollY": 958.5,
+    "scrollX": 1136,
+    "scrollY": 960,
     "quick": false
   },
   {
@@ -16,8 +16,8 @@
     "name": "World 1",
     "order": 1,
     "parentId": 0,
-    "scrollX": 3616.5,
-    "scrollY": 2191.5,
+    "scrollX": 4240.5,
+    "scrollY": 3738.5,
     "quick": false
   },
   {
@@ -26,8 +26,8 @@
     "name": "Castle 1F",
     "order": 4,
     "parentId": 1,
-    "scrollX": 3616.5,
-    "scrollY": 958.5,
+    "scrollX": 1136,
+    "scrollY": 1152,
     "quick": false
   },
   {
@@ -36,8 +36,8 @@
     "name": "Castle B1",
     "order": 5,
     "parentId": 1,
-    "scrollX": 3628.5,
-    "scrollY": 988.5,
+    "scrollX": 1695,
+    "scrollY": 1448.25,
     "quick": false
   },
   {
@@ -46,8 +46,8 @@
     "name": "Castle Dungeon",
     "order": 6,
     "parentId": 1,
-    "scrollX": 3616.5,
-    "scrollY": 958.5,
+    "scrollX": 816,
+    "scrollY": 1280,
     "quick": false
   },
   {
@@ -56,8 +56,8 @@
     "name": "Castle 2F",
     "order": 3,
     "parentId": 1,
-    "scrollX": 820.5,
-    "scrollY": 1306.5,
+    "scrollX": 816,
+    "scrollY": 680,
     "quick": false
   },
   {
@@ -66,8 +66,8 @@
     "name": "Village 1",
     "order": 7,
     "parentId": 2,
-    "scrollX": 3616.5,
-    "scrollY": 958.5,
+    "scrollX": 832,
+    "scrollY": 800,
     "quick": false
   },
   {
@@ -82,22 +82,163 @@
   },
   {
     "id": 9,
-    "expanded": false,
+    "expanded": true,
     "name": "Stone Cave",
-    "order": 9,
+    "order": 16,
     "parentId": 2,
-    "scrollX": 3616.5,
-    "scrollY": 958.5,
+    "scrollX": 1707,
+    "scrollY": 951.75,
     "quick": false
   },
-  null,
-  null,
+  {
+    "id": 10,
+    "expanded": false,
+    "name": "House 1",
+    "order": 9,
+    "parentId": 7,
+    "scrollX": 0,
+    "scrollY": 0,
+    "quick": false
+  },
+  {
+    "id": 11,
+    "expanded": false,
+    "name": "Inn",
+    "order": 10,
+    "parentId": 7,
+    "scrollX": 0,
+    "scrollY": 0,
+    "quick": false
+  },
   {
     "id": 12,
     "expanded": false,
-    "name": "House 2",
+    "name": "Item Shop",
+    "order": 11,
+    "parentId": 7,
+    "scrollX": 0,
+    "scrollY": 0,
+    "quick": false
+  },
+  {
+    "id": 13,
+    "expanded": false,
+    "name": "Weapon & Armor Shop",
     "order": 12,
-    "parentId": 11,
+    "parentId": 7,
+    "scrollX": 0,
+    "scrollY": 0,
+    "quick": false
+  },
+  {
+    "id": 14,
+    "expanded": false,
+    "name": "Bar",
+    "order": 13,
+    "parentId": 7,
+    "scrollX": 0,
+    "scrollY": 0,
+    "quick": false
+  },
+  {
+    "id": 15,
+    "expanded": true,
+    "name": "Chief’s House 1F",
+    "order": 14,
+    "parentId": 7,
+    "scrollX": 816,
+    "scrollY": 640,
+    "quick": false
+  },
+  {
+    "id": 16,
+    "expanded": false,
+    "name": "Chief’s House 2F",
+    "order": 15,
+    "parentId": 7,
+    "scrollX": 1695,
+    "scrollY": 951.75,
+    "quick": false
+  },
+  {
+    "id": 17,
+    "expanded": false,
+    "name": "Chamber 1",
+    "order": 17,
+    "parentId": 9,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 18,
+    "expanded": false,
+    "name": "Chamber 2",
+    "order": 18,
+    "parentId": 9,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 19,
+    "expanded": false,
+    "name": "Chamber 3",
+    "order": 19,
+    "parentId": 9,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 20,
+    "expanded": false,
+    "name": "Hall of Transference",
+    "order": 20,
+    "parentId": 2,
+    "scrollX": 816,
+    "scrollY": 656,
+    "quick": false
+  },
+  {
+    "id": 21,
+    "expanded": false,
+    "name": "Coalmouth",
+    "order": 21,
+    "parentId": 2,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 22,
+    "expanded": false,
+    "name": "Coalmouth Mine",
+    "order": 22,
+    "parentId": 21,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 23,
+    "expanded": false,
+    "name": "Foreman's Hall",
+    "order": 23,
+    "parentId": 21,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 24,
+    "expanded": false,
+    "name": "Soot and Steam Inn",
+    "order": 24,
+    "parentId": 21,
+    "scrollX": 0,
+    "scrollY": 0
+  },
+  {
+    "id": 25,
+    "expanded": false,
+    "name": "Collier's Post",
+    "order": 25,
+    "parentId": 21,
     "scrollX": 0,
     "scrollY": 0
   }
