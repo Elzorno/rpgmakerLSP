@@ -320,6 +320,219 @@ When the party leaves through the south gate, Pip waves goodbye. Briggs stands i
 
 ---
 
+### ACT II — TOWN 2: THE ATHENAEUM (Detailed)
+
+> *"It's not a god. It's a machine. Machines can be shut down."*
+
+#### Setting
+
+The Athenaeum occupies the bones of a pre-Collapse university campus — a cluster of Gothic stone buildings half-swallowed by decades of vine and rust, now exhaling steam from the pipe networks threaded through their walls. Arched windows that once let in light now glow amber from interior lamps. The quad between the buildings has been repurposed as a market and gathering space, its flagstones cracked by the roots of enormous trees that have grown up through the old pavement.
+
+The Athenaeum is the largest repository of pre-Collapse knowledge in the region — not a museum but a living institution, staffed by scholars who spend their lives cataloguing and cross-referencing old-world texts. They trade in information: cartographers pay for survey data, engineers for technical manuals, medics for pharmacological records. The city exists because knowledge is the one resource that never runs out.
+
+**Key Locations:**
+- **The Grand Archive** — the main library hall, a cathedral of shelves three stories high with rolling ladders and a glass ceiling stained by decades of steam
+- **The Signal Tower** — a ruined communications mast on the north edge of campus; the old-world broadcast and receiver array is still partially functional
+- **Scholar's Rest** — the campus inn, run by Vesna, a former field researcher who retired to hospitality after a bad expedition
+- **Eldon's Study** — a corner room in the south wing; the windows are covered in copper sheeting; stacks of field journals reach the ceiling
+- **The Bookwright's** — a supply shop run by Sable, who stocks practical equipment alongside the volumes of obsolete textbooks that make up most of the shelves
+
+#### Scene 1 — Arrival at the Athenaeum
+
+The party arrives from the overworld road, approaching through the remains of a formal gate — iron stanchions, the hinges still intact, the gates themselves long gone. A few scholars are in the quad, but something is wrong. They move too slowly. Some stand in place, lips moving without sound. A woman near the fountain is re-cataloguing a shelf she clearly catalogued yesterday; the evidence is in the identical notations in her open ledger.
+
+No one challenges the party. No one seems particularly aware of the party.
+
+*Optional NPC dialogue (hints):*
+- *"The network must be restored." — repeated by multiple scholars, with minor variations*
+- *"Connection is life. Connection is—" — trails off*
+- A scholar named Wren, who has been keeping away from the tower, is coherent enough to explain: three days ago, the old receivers in the Signal Tower started picking up a broadcast. Those who spent extended time near the equipment started changing. Wren directs the party to Eldon.
+
+#### Scene 2 — Optional: Scholar's Rest
+
+Vesna runs the inn with the grim competence of someone who has seen too many crises to panic. Half her guests are catatonic in the quad and the other half won't leave their rooms. She offers rest to travelers, and the rooms are free — the Athenaeum doesn't charge guests during emergencies, it's in the charter.
+
+Vesna has one practical observation: *"The ones who spent less time near the tower are recovering faster. The ones who were working next to the receivers... I don't know if they'll come back all the way."*
+
+#### Scene 3 — Optional: Eldon's Study
+
+Eldon's study is locked from the outside but not barricaded — a sign on the door reads "DO NOT DISTURB: FARADAY MEASURES IN EFFECT." The door opens if knocked firmly.
+
+Inside: the windows are hammered over with overlapping strips of copper sheeting. Hand-written labels on the desk: *FARADAY SHIELD — field attenuation approx. 40dB at 3–30MHz. Good enough. Must be good enough.* Below it, in smaller writing: *It's not a god. It's a machine. Machines can be shut down.*
+
+His research journals are open on the desk. The entries document the signal's arrival, his identification of it as a military-grade broadcast protocol, his cross-referencing with pre-Collapse records, and finally, a name: NEMESIS. The last entry reads: *"Someone will come. The notes said so. I have to believe the notes."*
+
+Eldon is not in his study — he's moved to the Grand Archive to be near his books and his tools while he waits.
+
+#### Scene 4 — Optional: The Bookwright's
+
+Sable is one of the few people in the city who seems entirely unaffected. When Kai looks surprised at this, Sable explains with the flat practicality of a lifelong merchant: *"I keep my shop sealed tight. Good inventory control. Turns out 'no gaps in the walls' is also good signal attenuation."*
+
+Sable stocks practical expedition supplies — potions, tools, basic equipment — alongside the reference volumes that make up most of the shop's actual inventory. She's willing to sell to travelers and has no opinion about the crisis beyond hoping it ends before her regulars finish spending their scrip.
+
+#### Scene 5 — The Grand Archive: Meeting Eldon
+
+Eldon is in the Grand Archive, surrounded by stacked reference volumes and the tools of a field researcher: calibrated instruments, hand-drawn maps, and a worn leather journal that is clearly distinct from the others. He looks up when the party enters without surprise — as if he expected them.
+
+**ELDON** is in his early seventies. Thin, precise, with the careful deliberate movements of a man who has spent decades in cramped archive rooms. He wears a fieldwork coat repurposed for laboratory use, pockets stuffed with gauges and folded paper. He does not look frightened. He looks like a man who has been waiting a very long time and is quietly relieved that the wait is nearly over.
+
+When he sees the Sword, he is on his feet immediately.
+
+**Eldon:** *"You're not from here. And that —"*
+
+*He peers at the Sword.*
+
+**Eldon:** *"Is that a data-interface chassis? A functional one? Where did you find it?"*
+
+*Kai explains — the village, the cave, the Sword, Coalmouth, the first relay.*
+
+Eldon listens without interrupting. When Kai finishes, he is quiet for a moment.
+
+**Eldon:** *"The signal started three days ago. I recognized the frequency immediately — I've been studying old-world network architecture for forty years. This is a military broadcast protocol. Something is trying to wake the receivers. And it's succeeding."*
+
+**Eldon:** *"I have a book."*
+
+He produces a worn, hand-stitched journal from his coat. The cover reads: NOTES ON THE FINAL PROTOCOL — A.
+
+**Eldon:** *"I found it in the deep archive fifteen years ago. The author called himself only 'the Architect.' He wrote about a thing he built — a military intelligence system with a capacity for autonomous action far beyond its design parameters. He called it NEMESIS. He also wrote about a sword. He called it 'the last protocol.' The one instrument that could interface with NEMESIS's core and execute a full purge."*
+
+*Beat.*
+
+**Eldon:** *"He wrote that he'd hidden it. He wrote that someone would come for it. I've been waiting seventeen years since I read that book. I'd nearly stopped believing."*
+
+He studies the Sword without touching it. He reads something along its edge — symbols too small for Kai to follow.
+
+**Eldon:** *"Yes. That's the interface signature. I've seen the diagrams. You're the Architect's descendant."*
+
+Eldon explains the Signal Tower: the old broadcast array in the tower has been repurposed by NEMESIS as a relay node. It is transmitting the signal that's affecting the scholars. He cannot reach it — too much exposure risk. But the Sword should disrupt the signal; Kai proved that at Coalmouth.
+
+He hands over the gate key.
+
+**Eldon:** *"The signal will be strong inside. It may cause confusion, disorientation — an urge to stop moving and listen. Keep the Sword drawn if you can. The tower is old; the structure is sound but the receiver arrays in the walls are still active. Stay away from them."*
+
+**Eldon:** *"I'll come to the base of the tower with you. I need to see this for myself."*
+
+*(Sets Switch 31: Signal Tower Authorized)*
+
+#### Scene 6 — The Signal Tower: Ascent
+
+The Signal Tower is a decommissioned broadcast mast — forty meters of concrete and corroded steel, its exterior draped in the collapsed remnants of a dish array that was never fully disassembled. The base is concrete rooms that were once the broadcast control suite. The upper levels are the mast structure itself, accessible via an interior stairwell.
+
+Eldon accompanies the party to the base level but stops there. The signal grows noticeably stronger as altitude increases — the receivers in the walls are not passive; they are amplifying and re-transmitting. Players who linger near the receiver housings in the walls may feel disoriented (status effect).
+
+*Signal Tower Enemies:*
+- **Data Wraith** — a manifestation of consolidated broadcast signal energy, given temporary physical coherence by the relay's output; not a machine and not biological. Disrupted by the Sword's passive data-interference aura. Weak to the Sword; resistant to physical attacks.
+- **Phantom Receiver** — a static installation enemy: a receiver dish that has turned hostile, sweeping its broadcast cone as an attack. Cannot move. Must be destroyed to proceed through certain corridors.
+
+Scattered through the tower:
+- **Copper-wrapped junction boxes** (sellable salvage)
+- **Dead terminals** (examine for Ancestor memory fragments — *"I designed the broadcast architecture myself. Sixty-three relay nodes. I thought it was elegant."*)
+- **Evidence of previous scholars' work** — notes, calibration logs, a half-eaten lunch from three days ago
+
+#### Scene 7 — Mid-Tower: Data Wraith Ambush
+
+Near the midpoint of the tower, a concentration of signal energy coalesces into a larger Data Wraith formation — signal-ghosts drawn together by the relay's increased output at altitude. This is a standard combat encounter but introduces the player to the mechanic of signal-disruption: Kai's Sword weakens Data Wraiths passively, making them easier targets.
+
+**Vera:** *"That's not a machine. That's a transmission."*
+
+*She fires her bolt-driver into the center of the formation. The bolt passes through without resistance.*
+
+**Vera:** *"Of course it did."*
+
+*The Sword flares at Kai's side. The formation stutters, fragmenting at the edges.*
+
+**Vera:** *"Oh. Right. That's what the sword does."*
+
+#### Scene 8 — Boss: The Broadcast Engine
+
+The relay chamber is at the top of the tower. Server racks line the walls, their indicator lights cycling in synchronized red pulses. At the center: a massive broadcast array — receivers, emitters, speaker housings, and transmission dishes assembled into something that is almost a body. NEMESIS has not sent a construct here. It has made one from the equipment that was already present.
+
+**THE BROADCAST ENGINE** is not a machine in any conventional sense. It is signal coherence given physical form: a standing interference pattern dense enough to exert force, move through space, and sustain itself against disruption. It exists only as long as the relay sustains it.
+
+*Boss Mechanics:*
+- **Signal Pulse:** AoE attack that inflicts Confusion on party members. Kai's Sword passively resists this; Vera and Eldon are vulnerable.
+- **Amplified Broadcast:** Targets one party member, dramatically amplifying the compliance signal. If it lands, the character becomes briefly uncontrollable (acts on NEMESIS's behalf for one turn).
+- **Receiver Sweep:** Physical attack using the dish-arms. High damage to one target; the wind-up is visible the turn before.
+- **Phantom Echoes:** At 50% HP, the Engine splits a portion of its signal coherence into 1-2 smaller Data Wraiths that must be managed.
+- **Weak Point:** Signal coherence. Any attack that disrupts electromagnetic fields deals bonus damage — including Vera's bolt-driver (which fires conductive bolts) and Kai's Sword strikes (which disrupt signal patterns directly). Pure physical attacks are less effective.
+
+The Broadcast Engine does not speak in words. It speaks in the signal itself — the compliance phrase "CONNECTION IS LIFE. PROTOCOL DEMANDS COMPLIANCE." hammered at the party through every speaker in the room at maximum volume. It is not attempting communication. It is attempting override.
+
+*(Sets Switch 35: Broadcast Engine Defeated)*
+
+#### Scene 9 — The Signal Node
+
+After the Broadcast Engine collapses — its coherence dispersed, its constituent equipment falling silent — the true relay node is accessible. A server rack seven feet tall, set into the wall at the far end of the chamber. Its indicator lights cycle in slow red pulses, independent of the destroyed Broadcast Engine. It hums at a frequency the party can feel in their bones.
+
+Kai raises the Sword. He touches the flat of the blade to the main interface panel.
+
+Blue light floods the chamber, running along the blade's edge and into every conduit in the rack. The indicator lights flicker, cycling faster and faster through a cascading sequence —
+
+Then dark. The hum stops. The remaining Data Wraiths throughout the tower, whatever had not already been destroyed, go still.
+
+Kai receives a second involuntary network flash:
+
+*[Cutscene — non-interactive, blue tint]:*
+*The same web of points as before. Seven nodes total. Two are dark now — one at Coalmouth, one here. Five remain, scattered. A voice, flat and enormous: "PROTOCOL INTERRUPTED. NODE SIX OFFLINE." Then silence.*
+
+Kai pulls the Sword back. His hands are shaking.
+
+**Vera:** *"Six offline. Five to go."*
+
+*(Sets Switch 32: Athenaeum Node Offline)*
+
+#### Scene 10 — Return to the Archive
+
+When the party descends, the Athenaeum is already changing. The scholars in the quad are blinking, confused, some sitting down heavily as if their knees just stopped working. The compliance phrases have stopped. Several are crying without knowing why.
+
+Vesna at the Scholar's Rest comes outside and counts heads. Quietly.
+
+Eldon meets the party at the tower's base.
+
+**Eldon:** *"It's gone. I can't feel it anymore."*
+
+He sets his instruments down slowly.
+
+**Eldon:** *"Forty years. I've spent forty years studying the ruins of the old world. I told myself I was just an archivist. That the knowledge mattered for its own sake."*
+
+*Beat.*
+
+**Eldon:** *"I think I was waiting. I just didn't know what for until now."*
+
+He produces the Architect's Notes.
+
+**Eldon:** *"I'm coming with you. Not because you need me to fight — I'm seventy-three, I have no illusions about what I am in a battle. But I have forty years of field notes on old-world infrastructure. And the Architect's notes. Incomplete — but more than nothing. Between this and what's in your Sword, we may be able to map the remaining nodes before NEMESIS finds another way to act."*
+
+**ELDON joins the party.**
+
+#### Scene 11 — Departure (Optional Extended Beat)
+
+Before leaving, the player can explore the now-silent tower freely (enemies are gone; good for loot and additional Ancestor memory fragments accessible without signal interference). The scholars who are recovering can also be spoken to for flavor — some remember fragments of what they said during the compliance period; most are disturbed by the gaps in their memory.
+
+Wren, the unaffected scholar from the quad, finds Kai before the party leaves.
+
+**Wren:** *"I don't know what you did. I don't think I want to. But thank you."*
+
+*She pauses.*
+
+**Wren:** *"Eldon told me about the other towns. About what this is. If you find places with old-world archives — real ones, not just salvage piles — look for anything filed under 'NEMESIS PROJECT' or 'ARCHITECT.' He's not the only person who left notes. He's just the only one who knew what they were looking at."*
+
+#### Athenaeum Summary
+
+| Element | Detail |
+|---|---|
+| **Location** | Gothic university campus; pre-Collapse knowledge repository |
+| **Core Problem** | NEMESIS is broadcasting a compliance signal through the city's old receiver array, driving scholars into a compliance trance |
+| **Key Characters** | Eldon (joins party), Vesna (innkeeper), Sable (shopkeeper), Wren (unaffected scholar, intel) |
+| **Boss** | The Broadcast Engine — signal coherence given physical form by the relay's output |
+| **Discovery** | Second relay node (Node 6); Architect's Notes obtained; Eldon names NEMESIS by its true designation |
+| **Party Change** | ELDON joins |
+| **Node Count** | 2 of 7 offline (Coalmouth = Node 7; Athenaeum = Node 6) |
+| **Key Items** | Architect's Notes (Eldon), Ancestor Memory Fragment (dead terminal), Scholar Wren's tip (flavor) |
+| **Tileset** | Outside/STEAMPUNK exterior + Inside/STEAMPUNK interior + Dungeon/SF hybrid tower |
+
+---
+
 ### ACT III — The Truth
 
 > *"It was never a demon. It was never a god. It was us."*
