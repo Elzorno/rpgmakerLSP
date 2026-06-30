@@ -166,7 +166,6 @@ Suggested next step:
 
 - Open tileset ID 8 and Chamber 2 in RPG Maker, then paint the wall terminals/server racks into the Mental Trial room.
 
-
 ## 2026-06-28 16:18 ET - Codex handoff - T006
 
 Task:
@@ -279,3 +278,100 @@ Known risks:
 Suggested next step:
 
 - Playtest the dream, village elder scene, Coalmouth relay scene, Grand Archive, and Signal Tower to confirm portrait/name-box presentation looks right in-engine.
+
+## 2026-06-30 08:13 ET - Codex handoff - T009
+
+Task:
+
+- Fixed repo-local MCP config that was overriding the correct home-level RPG Maker MZ MCP registration.
+
+Changed:
+
+- Added `.codex/rpgmaker-mz-mcp-launcher.cjs`, which selects the RPG Maker MZ MCP server path for macOS or Windows.
+- Updated `.codex/config.toml` so `rpgmaker-mz` points to the repo-local launcher.
+- Updated `.mcp.json` with the same launcher entry.
+- Left the existing `rpgmaker-mv` Windows-path entry untouched.
+
+Files touched:
+
+- `.codex/config.toml`
+- `.codex/rpgmaker-mz-mcp-launcher.cjs`
+- `.mcp.json`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- `codex mcp get rpgmaker-mz` now resolves to the repo-local launcher from inside this repo.
+- A direct MCP smoke test through the launcher returned `"The Last Sword Protocol"`.
+- Parsed `.mcp.json` successfully with Node.
+
+Known risks:
+
+- Windows still depends on the server existing at `C:\Users\elzor\OneDrive\Documents\RMMZ\tools\rpgmaker-mz-mcp\dist\index.js`, or on setting `RPGMAKER_MZ_MCP_SERVER` to override it.
+
+## 2026-06-30 08:52 ET - Codex handoff - T010
+
+Task:
+
+- Restored visible battler images in battle scenes by enabling side-view battles and ensuring database battler references resolve.
+
+Changed:
+
+- Set `data/System.json` `optSideView` to `true`, which makes RPG Maker MZ draw actor battlers from the actor database.
+- Updated Eldon's actor battler from missing `Actor3_1` to existing `Actor3_5`.
+- Updated Cipher's actor battler from missing `Actor4_1` to existing `Actor1_4`.
+- Copied custom LSP enemy battlers from `img/enemies/` to `img/sv_enemies/` so those enemies still render after side-view mode starts loading enemy sprites from the side-view enemy folder.
+
+Files touched:
+
+- `data/System.json`
+- `data/Actors.json`
+- `img/sv_enemies/LSP_VirusWarpedSurveyor.png`
+- `img/sv_enemies/LSP_DragonKnight02.png`
+- `img/sv_enemies/LSP_DragonKnight06.png`
+- `img/sv_enemies/LSP_DragonKnight09.png`
+- `img/sv_enemies/LSP_DragonKnight13.png`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Parsed `data/System.json`, `data/Actors.json`, `data/Enemies.json`, and `data/Troops.json` as valid JSON.
+- Confirmed with MCP `get_system` that `optSideView` is now `true`.
+- Confirmed with MCP `get_actors` that Eldon uses `Actor3_5` and Cipher uses `Actor1_4`.
+- Ran a side-view asset check: all actor battler names resolve under `img/sv_actors/`, and all enemy battler names resolve under `img/sv_enemies/`.
+
+Known risks:
+
+- No in-engine RPG Maker battle playtest was run in this pass.
+- Existing unrelated dirty MCP config/coordination files from T009 were present and left in place.
+
+## 2026-06-30 09:08 ET - Codex handoff - T011
+
+Task:
+
+- Moved side-view party battlers from the middle of the battle field to the right side.
+
+Changed:
+
+- Added `js/plugins/LSP_BattleActorPositions.js`.
+- Enabled `LSP_BattleActorPositions` in `js/plugins.js`.
+- The plugin overrides `Sprite_Actor.prototype.setActorHome` and derives actor homes from `Graphics.boxWidth` and `Graphics.boxHeight` so it scales with the project window.
+
+Files touched:
+
+- `js/plugins/LSP_BattleActorPositions.js`
+- `js/plugins.js`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `node --check js/plugins/LSP_BattleActorPositions.js`.
+- Parsed the generated `$plugins` array from `js/plugins.js`.
+- For the current 1920x1080 battle field, calculated actor homes are approximately `(1498,435)`, `(1542,505)`, `(1586,575)`, and `(1630,645)`.
+
+Known risks:
+
+- No in-engine RPG Maker battle playtest was run in this pass; final visual tuning may need a small adjustment after seeing it in battle.

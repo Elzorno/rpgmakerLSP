@@ -6,7 +6,7 @@
     },
     "rpgmaker-mz": {
       "command": "node",
-      "args": ["C:\\Users\\elzor\\OneDrive\\Documents\\RMMZ\\tools\\rpgmaker-mz-mcp\\dist\\index.js"]
+      "args": [".codex/rpgmaker-mz-mcp-launcher.cjs"]
     }
   }
 }

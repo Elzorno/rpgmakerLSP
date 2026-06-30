@@ -1,0 +1,8 @@
+[mcp_servers.rpgmaker-mv]
+command = "node"
+args = ['C:\Users\elzor\OneDrive\Documents\RMMZ\tools\RPG-MakerMV-MCP\dist\index.js']
+
+[mcp_servers.rpgmaker-mz]
+command = "node"
+args = [".codex/rpgmaker-mz-mcp-launcher.cjs"]
+startup_timeout_sec = 60

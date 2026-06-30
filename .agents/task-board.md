@@ -18,3 +18,6 @@ Use this table to claim work before editing project files.
 | T006 | Codex | Done | data/System.json, data/Map002.json, .agents/ | Diagnosed ship visibility at overworld 89,83 | 2026-06-28 16:18 ET |
 | T007 | Codex | Done | LastSwordProtocol_StoryBible.md, data/Map007.json, data/Map008.json, data/Map009.json, data/Map017.json, data/Map018.json, .agents/ | Act I polish pass: cave direction, story consistency, playability review | 2026-06-29 09:17 ET |
 | T008 | Codex | Done | data/Map008.json, data/Map015.json, data/Map019.json, data/Map021.json, data/Map022.json, data/Map028.json, data/Map029.json, .agents/ | Add character face portraits to dialogue message events | 2026-06-29 09:24 ET |
+| T009 | Codex | Done | .codex/config.toml, .mcp.json, .agents/ | Fix repo-local RPG Maker MZ MCP path for Codex Desktop | 2026-06-30 08:13 ET |
+| T010 | Codex | Done | data/System.json, data/Actors.json, img/sv_enemies/, .agents/ | Restore battle battler images from database | 2026-06-30 08:52 ET |
+| T011 | Codex | Done | js/plugins/LSP_BattleActorPositions.js, js/plugins.js, .agents/ | Move side-view party battlers to the right side of battle scenes | 2026-06-30 09:08 ET |
