@@ -375,3 +375,31 @@ Verification:
 Known risks:
 
 - No in-engine RPG Maker battle playtest was run in this pass; final visual tuning may need a small adjustment after seeing it in battle.
+
+## 2026-06-30 19:45 ET - Codex handoff - T012
+
+Task:
+
+- Re-enabled the side-view party positioning plugin and improved centering for smaller party sizes.
+
+Changed:
+
+- Restored `LSP_BattleActorPositions` to `js/plugins.js`; RPG Maker was not loading the plugin because the plugin list was empty.
+- Updated `js/plugins/LSP_BattleActorPositions.js` so vertical centering uses the current battle member count rather than always assuming four actors.
+
+Files touched:
+
+- `js/plugins/LSP_BattleActorPositions.js`
+- `js/plugins.js`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `node --check js/plugins/LSP_BattleActorPositions.js`.
+- Parsed the generated `$plugins` array from `js/plugins.js` and confirmed `LSP_BattleActorPositions` is enabled.
+- Calculated 1920x1080 homes: one actor lands at `(1498,540)`; four actors land at approximately `(1498,435)`, `(1542,505)`, `(1586,575)`, and `(1630,645)`.
+
+Known risks:
+
+- No in-engine RPG Maker battle playtest was run in this pass.

@@ -11,7 +11,13 @@
 (() => {
     "use strict";
 
-    const partySize = () => Math.max(1, $gameParty ? $gameParty.maxBattleMembers() : 4);
+    const partySize = () => {
+        if (!$gameParty) {
+            return 4;
+        }
+        const members = $gameParty.battleMembers();
+        return Math.max(1, members.length || $gameParty.maxBattleMembers());
+    };
 
     Sprite_Actor.prototype.setActorHome = function(index) {
         const width = Graphics.boxWidth;

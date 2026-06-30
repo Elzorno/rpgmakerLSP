@@ -21,3 +21,4 @@ Use this table to claim work before editing project files.
 | T009 | Codex | Done | .codex/config.toml, .mcp.json, .agents/ | Fix repo-local RPG Maker MZ MCP path for Codex Desktop | 2026-06-30 08:13 ET |
 | T010 | Codex | Done | data/System.json, data/Actors.json, img/sv_enemies/, .agents/ | Restore battle battler images from database | 2026-06-30 08:52 ET |
 | T011 | Codex | Done | js/plugins/LSP_BattleActorPositions.js, js/plugins.js, .agents/ | Move side-view party battlers to the right side of battle scenes | 2026-06-30 09:08 ET |
+| T012 | Codex | Done | js/plugins/LSP_BattleActorPositions.js, js/plugins.js, .agents/ | Re-enable battle actor position plugin and improve party centering | 2026-06-30 19:45 ET |
