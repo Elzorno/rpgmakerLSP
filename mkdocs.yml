@@ -97,6 +97,9 @@ nav:
           - Home Island Opening: 03_Story/Quests/Home_Island/QST_HOM_001_Home_Island_Opening.md
           - The Sword Awakens: 03_Story/Quests/Home_Island/QST_HOM_002_The_Sword_Awakens.md
           - Node Seven Offline: 03_Story/Quests/Home_Island/QST_HOM_003_Node_Seven_Offline.md
+      - Home Island Dialogue:
+          - Ashford Dialogue Packet: 03_Story/Dialogue/Home_Island/Ashford_Dialogue_Packet.md
+          - Memory Fragment Standards: 03_Story/Memory_Fragments/Home_Island/Memory_Fragment_Standards.md
   - 04 Gameplay:
       - Overview: 04_Gameplay/index.md
       - Gameplay Systems Bible: 04_Gameplay/Gameplay_Systems_Bible.md
@@ -106,6 +109,7 @@ nav:
       - Character Bible: 05_Characters/Character_Bible.md
       - Kai: 05_Characters/Kai.md
       - Grandmother Elara: 05_Characters/Grandmother_Elara.md
+      - Ashford NPC Roster: 05_Characters/NPCs/Home_Island/Ashford_NPC_Roster.md
   - 06 Monsters:
       - Overview: 06_Monsters/index.md
       - Monster Bible: 06_Monsters/Monster_Bible.md
@@ -136,6 +140,7 @@ nav:
           - Build Sword Awakening Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_003_Build_Sword_Awakening_Sequence.md
           - Build Node Seven Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_004_Build_Node_Seven_Sequence.md
           - Build Home Island Enemy Database: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_005_Home_Island_Enemy_Database.md
+          - Build Ashford NPC Dialogue: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_006_Ashford_NPC_Dialogue.md
   - 10 AI:
       - Overview: 10_AI/index.md
       - AI Agent Workflow: 10_AI/Agent_Workflow.md
