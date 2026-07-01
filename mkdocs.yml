@@ -89,8 +89,13 @@ nav:
               - Elara House Interior: 02_World/Screens/Home_Island/SCR_HOM_ASH_002_Elara_House.md
               - Ashford Shop Interior: 02_World/Screens/Home_Island/SCR_HOM_ASH_003_Ashford_Shop.md
           - Rustshore Docks: 02_World/Locations/Home_Island/Rustshore_Docks.md
+          - Rustshore Screens:
+              - Rustshore Docks: 02_World/Screens/Home_Island/SCR_HOM_RST_001_Rustshore_Docks.md
+              - Mainland Departure: 02_World/Screens/Home_Island/SCR_HOM_RST_002_Mainland_Departure.md
           - Fogfen Marsh: 02_World/Locations/Home_Island/Fogfen_Marsh.md
           - Glassfield Ruins: 02_World/Locations/Home_Island/Glassfield_Ruins.md
+          - Glassfield Screens:
+              - Glassfield Ruins Exterior: 02_World/Screens/Home_Island/SCR_HOM_GLS_001_Glassfield_Ruins_Exterior.md
           - Skyreach Hill: 02_World/Locations/Home_Island/Skyreach_Hill.md
           - Skyreach Screens:
               - Skyreach Hill Path: 02_World/Screens/Home_Island/SCR_HOM_SKY_001_Skyreach_Hill_Path.md
@@ -100,6 +105,11 @@ nav:
               - Hidden Cave Trials: 02_World/Screens/Home_Island/SCR_HOM_HCV_002_Hidden_Cave_Trials.md
               - Sword Sanctum: 02_World/Screens/Home_Island/SCR_HOM_HCV_003_Sword_Sanctum.md
           - Sealed Node: 02_World/Locations/Home_Island/Sealed_Node.md
+          - Sealed Node Screens:
+              - Sealed Node Upper: 02_World/Screens/Home_Island/SCR_HOM_SND_001_Sealed_Node_Upper.md
+              - Sealed Node Core Path: 02_World/Screens/Home_Island/SCR_HOM_SND_002_Sealed_Node_Core_Path.md
+              - Guardian Chamber: 02_World/Screens/Home_Island/SCR_HOM_SND_003_Guardian_Chamber.md
+              - Relay Node Seven Core: 02_World/Screens/Home_Island/SCR_HOM_SND_004_Relay_Core.md
           - Relay Node Seven: 02_World/Relays/Relay_Node_Seven.md
       - Coalmouth:
           - Region Overview: 02_World/Regions/Coalmouth/index.md
@@ -184,6 +194,8 @@ nav:
           - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
           - Build Ashford Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_010_Build_Ashford_Screens.md
           - Build Skyreach and Hidden Cave Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_011_Build_Skyreach_And_Hidden_Cave_Screens.md
+          - Build Glassfield and Sealed Node Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_012_Build_Glassfield_And_Sealed_Node_Screens.md
+          - Build Rustshore Departure Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_013_Build_Rustshore_Departure_Screens.md
           - Build Coalmouth Enemy Database: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_001_Coalmouth_Enemy_Database.md
           - Build Coalmouth State System: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_002_Coalmouth_State_System.md
           - Build Coalmouth NPC Dialogue: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_003_Coalmouth_NPC_Dialogue.md
