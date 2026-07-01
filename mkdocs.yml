@@ -108,6 +108,9 @@ nav:
       - Home Island Dialogue:
           - Ashford Dialogue Packet: 03_Story/Dialogue/Home_Island/Ashford_Dialogue_Packet.md
           - Memory Fragment Standards: 03_Story/Memory_Fragments/Home_Island/Memory_Fragment_Standards.md
+      - Coalmouth Dialogue:
+          - Coalmouth Dialogue Packet: 03_Story/Dialogue/Coalmouth/Coalmouth_Dialogue_Packet.md
+          - Coalmouth Memory Fragments: 03_Story/Memory_Fragments/Coalmouth/Coalmouth_Memory_Fragments.md
   - 04 Gameplay:
       - Overview: 04_Gameplay/index.md
       - Gameplay Systems Bible: 04_Gameplay/Gameplay_Systems_Bible.md
@@ -119,6 +122,7 @@ nav:
       - Grandmother Elara: 05_Characters/Grandmother_Elara.md
       - Vera: 05_Characters/Vera.md
       - Ashford NPC Roster: 05_Characters/NPCs/Home_Island/Ashford_NPC_Roster.md
+      - Coalmouth NPC Roster: 05_Characters/NPCs/Coalmouth/Coalmouth_NPC_Roster.md
   - 06 Monsters:
       - Overview: 06_Monsters/index.md
       - Monster Bible: 06_Monsters/Monster_Bible.md
@@ -167,6 +171,8 @@ nav:
           - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
           - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
           - Build Coalmouth Enemy Database: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_001_Coalmouth_Enemy_Database.md
+          - Build Coalmouth State System: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_002_Coalmouth_State_System.md
+          - Build Coalmouth NPC Dialogue: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_003_Coalmouth_NPC_Dialogue.md
       - Playtest:
           - Home Island Vertical Slice Checklist: 09_Technical/Playtest/Home_Island_Vertical_Slice_Checklist.md
   - 10 AI:
