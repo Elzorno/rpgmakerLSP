@@ -125,9 +125,11 @@ nav:
       - Overview: 07_Art/index.md
       - Art Bible: 07_Art/Art_Bible.md
       - Home Island Battler Prompts: 07_Art/Prompt_Packets/Home_Island_Battlers.md
+      - Home Island Location Art Prompts: 07_Art/Prompt_Packets/Home_Island_Location_Art.md
   - 08 Audio:
       - Overview: 08_Audio/index.md
       - Audio Bible: 08_Audio/Audio_Bible.md
+      - Home Island Audio Cue Packet: 08_Audio/Home_Island_Audio_Cue_Packet.md
   - 09 Technical:
       - Overview: 09_Technical/index.md
       - Development Standards: 09_Technical/Development_Standards.md
@@ -141,6 +143,8 @@ nav:
           - Build Node Seven Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_004_Build_Node_Seven_Sequence.md
           - Build Home Island Enemy Database: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_005_Home_Island_Enemy_Database.md
           - Build Ashford NPC Dialogue: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_006_Ashford_NPC_Dialogue.md
+          - Build Home Island Location Art Pipeline: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_007_Location_Art_Pipeline.md
+          - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
   - 10 AI:
       - Overview: 10_AI/index.md
       - AI Agent Workflow: 10_AI/Agent_Workflow.md
