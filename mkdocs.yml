@@ -90,6 +90,7 @@ nav:
   - 09 Technical:
       - Overview: 09_Technical/index.md
       - Development Standards: 09_Technical/Development_Standards.md
+      - Atlas Concordance: 09_Technical/Atlas_Concordance.md
   - 10 AI:
       - Overview: 10_AI/index.md
   - 99 Reference:
