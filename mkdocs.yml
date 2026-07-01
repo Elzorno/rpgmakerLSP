@@ -79,15 +79,33 @@ nav:
   - 02 World:
       - Overview: 02_World/index.md
       - World and Location Bible: 02_World/World_and_Location_Bible.md
+      - Home Island:
+          - Region Overview: 02_World/Regions/Home_Island/index.md
+          - Ashford: 02_World/Locations/Home_Island/Ashford.md
+          - Rustshore Docks: 02_World/Locations/Home_Island/Rustshore_Docks.md
+          - Fogfen Marsh: 02_World/Locations/Home_Island/Fogfen_Marsh.md
+          - Glassfield Ruins: 02_World/Locations/Home_Island/Glassfield_Ruins.md
+          - Skyreach Hill: 02_World/Locations/Home_Island/Skyreach_Hill.md
+          - Hidden Cave: 02_World/Locations/Home_Island/Hidden_Cave.md
+          - Sealed Node: 02_World/Locations/Home_Island/Sealed_Node.md
+          - Relay Node Seven: 02_World/Relays/Relay_Node_Seven.md
   - 03 Story:
       - Overview: 03_Story/index.md
       - Story Structure Bible: 03_Story/Story_Structure_Bible.md
+      - Journey I — The Dreamer: 03_Story/Journeys/Journey_I_The_Dreamer.md
+      - Home Island Quests:
+          - Home Island Opening: 03_Story/Quests/Home_Island/QST_HOM_001_Home_Island_Opening.md
+          - The Sword Awakens: 03_Story/Quests/Home_Island/QST_HOM_002_The_Sword_Awakens.md
+          - Node Seven Offline: 03_Story/Quests/Home_Island/QST_HOM_003_Node_Seven_Offline.md
   - 04 Gameplay:
       - Overview: 04_Gameplay/index.md
       - Gameplay Systems Bible: 04_Gameplay/Gameplay_Systems_Bible.md
+      - The Sword / Project Excalibur: 04_Gameplay/Items/The_Sword_Project_Excalibur.md
   - 05 Characters:
       - Overview: 05_Characters/index.md
       - Character Bible: 05_Characters/Character_Bible.md
+      - Kai: 05_Characters/Kai.md
+      - Grandmother Elara: 05_Characters/Grandmother_Elara.md
   - 06 Monsters:
       - Overview: 06_Monsters/index.md
       - Monster Bible: 06_Monsters/Monster_Bible.md
