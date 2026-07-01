@@ -73,15 +73,21 @@ nav:
       - Atlas Relationship Standard: 00_Foundation/Atlas_Relationship_Standard.md
       - Canonical ID Registry: 00_Foundation/Canonical_ID_Registry.md
       - Object Template Library: 00_Foundation/Object_Template_Library.md
+      - Screen Object Standard: 00_Foundation/Screen_Object_Standard.md
   - 01 Creative:
       - Overview: 01_Creative/index.md
       - Creative Bible: 01_Creative/Creative_Bible.md
   - 02 World:
       - Overview: 02_World/index.md
+      - Atlas Volume II — World Atlas: 02_World/Atlas_Volume_II_World_Atlas.md
       - World and Location Bible: 02_World/World_and_Location_Bible.md
       - Home Island:
           - Region Overview: 02_World/Regions/Home_Island/index.md
           - Ashford: 02_World/Locations/Home_Island/Ashford.md
+          - Ashford Screens:
+              - Ashford Exterior: 02_World/Screens/Home_Island/SCR_HOM_ASH_001_Ashford_Exterior.md
+              - Elara House Interior: 02_World/Screens/Home_Island/SCR_HOM_ASH_002_Elara_House.md
+              - Ashford Shop Interior: 02_World/Screens/Home_Island/SCR_HOM_ASH_003_Ashford_Shop.md
           - Rustshore Docks: 02_World/Locations/Home_Island/Rustshore_Docks.md
           - Fogfen Marsh: 02_World/Locations/Home_Island/Fogfen_Marsh.md
           - Glassfield Ruins: 02_World/Locations/Home_Island/Glassfield_Ruins.md
@@ -170,6 +176,7 @@ nav:
           - Build Home Island Location Art Pipeline: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_007_Location_Art_Pipeline.md
           - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
           - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
+          - Build Ashford Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_010_Build_Ashford_Screens.md
           - Build Coalmouth Enemy Database: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_001_Coalmouth_Enemy_Database.md
           - Build Coalmouth State System: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_002_Coalmouth_State_System.md
           - Build Coalmouth NPC Dialogue: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_003_Coalmouth_NPC_Dialogue.md
