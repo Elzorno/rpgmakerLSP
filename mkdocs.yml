@@ -89,8 +89,10 @@ nav:
       - Monster Bible: 06_Monsters/Monster_Bible.md
   - 07 Art:
       - Overview: 07_Art/index.md
+      - Art Bible: 07_Art/Art_Bible.md
   - 08 Audio:
       - Overview: 08_Audio/index.md
+      - Audio Bible: 08_Audio/Audio_Bible.md
   - 09 Technical:
       - Overview: 09_Technical/index.md
       - Development Standards: 09_Technical/Development_Standards.md
