@@ -61,29 +61,37 @@ nav:
   - Atlas Home: index.md
   - 00 Foundation:
       - Overview: 00_Foundation/index.md
+      - Project Constitution: 00_Foundation/Project_Constitution.md
+      - Studio Manifesto: 00_Foundation/Studio_Manifesto.md
+      - Player Promise: 00_Foundation/Player_Promise.md
       - Atlas Operating System: 00_Foundation/Atlas_Operating_System.md
       - Atlas Roadmap: 00_Foundation/Atlas_Roadmap.md
       - Atlas ID Specification: 00_Foundation/Atlas_ID_Specification.md
       - Metadata Schema: 00_Foundation/Metadata_Schema.md
       - Page Template: 00_Foundation/Page_Template.md
-  - 01 World:
-      - Overview: 01_World/index.md
-  - 02 Story:
-      - Overview: 02_Story/index.md
-  - 03 Gameplay:
-      - Overview: 03_Gameplay/index.md
-  - 04 Characters:
-      - Overview: 04_Characters/index.md
-  - 05 Monsters:
-      - Overview: 05_Monsters/index.md
-  - 06 Art:
-      - Overview: 06_Art/index.md
-  - 07 Audio:
-      - Overview: 07_Audio/index.md
-  - 08 Technical:
-      - Overview: 08_Technical/index.md
-  - 09 AI:
-      - Overview: 09_AI/index.md
+  - 01 Creative:
+      - Overview: 01_Creative/index.md
+      - Creative Bible: 01_Creative/Creative_Bible.md
+  - 02 World:
+      - Overview: 02_World/index.md
+      - World and Location Bible: 02_World/World_and_Location_Bible.md
+  - 03 Story:
+      - Overview: 03_Story/index.md
+  - 04 Gameplay:
+      - Overview: 04_Gameplay/index.md
+  - 05 Characters:
+      - Overview: 05_Characters/index.md
+  - 06 Monsters:
+      - Overview: 06_Monsters/index.md
+  - 07 Art:
+      - Overview: 07_Art/index.md
+  - 08 Audio:
+      - Overview: 08_Audio/index.md
+  - 09 Technical:
+      - Overview: 09_Technical/index.md
+      - Development Standards: 09_Technical/Development_Standards.md
+  - 10 AI:
+      - Overview: 10_AI/index.md
   - 99 Reference:
       - Overview: 99_Reference/index.md
       - Decision Records: 99_Reference/Decision_Records/index.md
