@@ -125,16 +125,24 @@ nav:
       - Families:
           - Gel Family: 06_Monsters/Families/Gel_Family.md
           - Rat Family: 06_Monsters/Families/Rat_Family.md
+          - Golem Family: 06_Monsters/Families/Golem_Family.md
+          - Scorpion Family: 06_Monsters/Families/Scorpion_Family.md
       - Home Island Enemies:
           - Meadow Gel: 06_Monsters/Home_Island/Meadow_Gel.md
           - Marsh Gel: 06_Monsters/Home_Island/Marsh_Gel.md
           - Ash Rat: 06_Monsters/Home_Island/Ash_Rat.md
           - Node Seven Guardian: 06_Monsters/Home_Island/Node_Seven_Guardian.md
+      - Coalmouth Enemies:
+          - Soot Gel: 06_Monsters/Coalmouth/Soot_Gel.md
+          - Coal Golem: 06_Monsters/Coalmouth/Coal_Golem.md
+          - Mine Scorpion: 06_Monsters/Coalmouth/Mine_Scorpion.md
+          - Iron Foreman: 06_Monsters/Coalmouth/Iron_Foreman.md
   - 07 Art:
       - Overview: 07_Art/index.md
       - Art Bible: 07_Art/Art_Bible.md
       - Home Island Battler Prompts: 07_Art/Prompt_Packets/Home_Island_Battlers.md
       - Home Island Location Art Prompts: 07_Art/Prompt_Packets/Home_Island_Location_Art.md
+      - Coalmouth Battler Prompts: 07_Art/Prompt_Packets/Coalmouth_Battlers.md
   - 08 Audio:
       - Overview: 08_Audio/index.md
       - Audio Bible: 08_Audio/Audio_Bible.md
@@ -158,6 +166,7 @@ nav:
           - Build Home Island Location Art Pipeline: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_007_Location_Art_Pipeline.md
           - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
           - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
+          - Build Coalmouth Enemy Database: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_001_Coalmouth_Enemy_Database.md
       - Playtest:
           - Home Island Vertical Slice Checklist: 09_Technical/Playtest/Home_Island_Vertical_Slice_Checklist.md
   - 10 AI:
