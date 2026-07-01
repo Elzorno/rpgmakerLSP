@@ -104,6 +104,9 @@ nav:
       - AI Agent Workflow: 10_AI/Agent_Workflow.md
   - 99 Reference:
       - Overview: 99_Reference/index.md
+      - Atlas Index: 99_Reference/Atlas_Index.md
+      - Glossary: 99_Reference/Glossary.md
+      - Requirements: 99_Reference/Requirements.md
       - Decision Records: 99_Reference/Decision_Records/index.md
       - DDR-0001 Atlas Is Primary: 99_Reference/Decision_Records/DDR-0001_Atlas_Is_Primary.md
       - DDR-0002 No Supernatural Magic: 99_Reference/Decision_Records/DDR-0002_No_Supernatural_Magic.md
