@@ -1,0 +1,91 @@
+site_name: The Last Sword Protocol — Atlas
+site_description: Engine-independent creative authority for The Last Sword Protocol
+site_author: Last Sword Protocol Studio
+repo_url: https://github.com/Elzorno/rpgmakerLSP
+repo_name: Elzorno/rpgmakerLSP
+
+docs_dir: atlas/docs
+site_dir: atlas/site
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: amber
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: amber
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+
+nav:
+  - Atlas Home: index.md
+  - 00 Foundation:
+      - Overview: 00_Foundation/index.md
+      - Atlas Operating System: 00_Foundation/Atlas_Operating_System.md
+      - Atlas Roadmap: 00_Foundation/Atlas_Roadmap.md
+      - Atlas ID Specification: 00_Foundation/Atlas_ID_Specification.md
+      - Metadata Schema: 00_Foundation/Metadata_Schema.md
+      - Page Template: 00_Foundation/Page_Template.md
+  - 01 World:
+      - Overview: 01_World/index.md
+  - 02 Story:
+      - Overview: 02_Story/index.md
+  - 03 Gameplay:
+      - Overview: 03_Gameplay/index.md
+  - 04 Characters:
+      - Overview: 04_Characters/index.md
+  - 05 Monsters:
+      - Overview: 05_Monsters/index.md
+  - 06 Art:
+      - Overview: 06_Art/index.md
+  - 07 Audio:
+      - Overview: 07_Audio/index.md
+  - 08 Technical:
+      - Overview: 08_Technical/index.md
+  - 09 AI:
+      - Overview: 09_AI/index.md
+  - 99 Reference:
+      - Overview: 99_Reference/index.md
+      - Decision Records: 99_Reference/Decision_Records/index.md
+      - DDR-0001 Atlas Is Primary: 99_Reference/Decision_Records/DDR-0001_Atlas_Is_Primary.md
+      - DDR-0002 No Supernatural Magic: 99_Reference/Decision_Records/DDR-0002_No_Supernatural_Magic.md
