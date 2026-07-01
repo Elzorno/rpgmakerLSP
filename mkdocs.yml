@@ -145,9 +145,14 @@ nav:
           - Build Ashford NPC Dialogue: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_006_Ashford_NPC_Dialogue.md
           - Build Home Island Location Art Pipeline: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_007_Location_Art_Pipeline.md
           - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
+          - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
+      - Playtest:
+          - Home Island Vertical Slice Checklist: 09_Technical/Playtest/Home_Island_Vertical_Slice_Checklist.md
   - 10 AI:
       - Overview: 10_AI/index.md
       - AI Agent Workflow: 10_AI/Agent_Workflow.md
+      - Codex Handoff:
+          - Home Island Vertical Slice Handoff: 10_AI/Codex_Handoff/Home_Island_Vertical_Slice_Handoff.md
   - 99 Reference:
       - Overview: 99_Reference/index.md
       - Atlas Index: 99_Reference/Atlas_Index.md
