@@ -96,10 +96,12 @@ nav:
   - 09 Technical:
       - Overview: 09_Technical/index.md
       - Development Standards: 09_Technical/Development_Standards.md
+      - RPG Maker MZ Bible: 09_Technical/RPG_Maker_MZ_Bible.md
       - Atlas Concordance: 09_Technical/Atlas_Concordance.md
       - Cybersecurity Layer Bible: 09_Technical/Cybersecurity_Layer_Bible.md
   - 10 AI:
       - Overview: 10_AI/index.md
+      - AI Agent Workflow: 10_AI/Agent_Workflow.md
   - 99 Reference:
       - Overview: 99_Reference/index.md
       - Decision Records: 99_Reference/Decision_Records/index.md
