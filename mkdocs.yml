@@ -136,6 +136,9 @@ nav:
       - RPG Maker MZ Bible: 09_Technical/RPG_Maker_MZ_Bible.md
       - Atlas Concordance: 09_Technical/Atlas_Concordance.md
       - Cybersecurity Layer Bible: 09_Technical/Cybersecurity_Layer_Bible.md
+      - Planning:
+          - Home Island Traceability Matrix: 09_Technical/Traceability/Home_Island_Object_Traceability_Matrix.md
+          - Home Island Build Backlog: 09_Technical/Backlog/Home_Island_Build_Backlog.md
       - Implementation Packets:
           - Build Ashford: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_001_Build_Ashford.md
           - Build Journey I State System: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_002_Build_Journey_I_State_System.md
@@ -153,6 +156,7 @@ nav:
       - AI Agent Workflow: 10_AI/Agent_Workflow.md
       - Codex Handoff:
           - Home Island Vertical Slice Handoff: 10_AI/Codex_Handoff/Home_Island_Vertical_Slice_Handoff.md
+          - Home Island Task Breakdown: 10_AI/Codex_Handoff/Home_Island_Task_Breakdown.md
   - 99 Reference:
       - Overview: 99_Reference/index.md
       - Atlas Index: 99_Reference/Atlas_Index.md
