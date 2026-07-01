@@ -89,14 +89,22 @@ nav:
           - Hidden Cave: 02_World/Locations/Home_Island/Hidden_Cave.md
           - Sealed Node: 02_World/Locations/Home_Island/Sealed_Node.md
           - Relay Node Seven: 02_World/Relays/Relay_Node_Seven.md
+      - Coalmouth:
+          - Region Overview: 02_World/Regions/Coalmouth/index.md
+          - Coalmouth: 02_World/Locations/Coalmouth/Coalmouth.md
+          - Coalmouth Mine: 02_World/Locations/Coalmouth/Coalmouth_Mine.md
+          - Relay Node Six: 02_World/Relays/Relay_Node_Six.md
   - 03 Story:
       - Overview: 03_Story/index.md
       - Story Structure Bible: 03_Story/Story_Structure_Bible.md
       - Journey I — The Dreamer: 03_Story/Journeys/Journey_I_The_Dreamer.md
+      - Journey II — The Forgotten World: 03_Story/Journeys/Journey_II_The_Forgotten_World.md
       - Home Island Quests:
           - Home Island Opening: 03_Story/Quests/Home_Island/QST_HOM_001_Home_Island_Opening.md
           - The Sword Awakens: 03_Story/Quests/Home_Island/QST_HOM_002_The_Sword_Awakens.md
           - Node Seven Offline: 03_Story/Quests/Home_Island/QST_HOM_003_Node_Seven_Offline.md
+      - Coalmouth Quests:
+          - Coalmouth Mine Crisis: 03_Story/Quests/Coalmouth/QST_COA_001_Coalmouth_Mine_Crisis.md
       - Home Island Dialogue:
           - Ashford Dialogue Packet: 03_Story/Dialogue/Home_Island/Ashford_Dialogue_Packet.md
           - Memory Fragment Standards: 03_Story/Memory_Fragments/Home_Island/Memory_Fragment_Standards.md
@@ -109,6 +117,7 @@ nav:
       - Character Bible: 05_Characters/Character_Bible.md
       - Kai: 05_Characters/Kai.md
       - Grandmother Elara: 05_Characters/Grandmother_Elara.md
+      - Vera: 05_Characters/Vera.md
       - Ashford NPC Roster: 05_Characters/NPCs/Home_Island/Ashford_NPC_Roster.md
   - 06 Monsters:
       - Overview: 06_Monsters/index.md
