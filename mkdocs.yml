@@ -92,7 +92,13 @@ nav:
           - Fogfen Marsh: 02_World/Locations/Home_Island/Fogfen_Marsh.md
           - Glassfield Ruins: 02_World/Locations/Home_Island/Glassfield_Ruins.md
           - Skyreach Hill: 02_World/Locations/Home_Island/Skyreach_Hill.md
+          - Skyreach Screens:
+              - Skyreach Hill Path: 02_World/Screens/Home_Island/SCR_HOM_SKY_001_Skyreach_Hill_Path.md
           - Hidden Cave: 02_World/Locations/Home_Island/Hidden_Cave.md
+          - Hidden Cave Screens:
+              - Hidden Cave Entrance: 02_World/Screens/Home_Island/SCR_HOM_HCV_001_Hidden_Cave_Entrance.md
+              - Hidden Cave Trials: 02_World/Screens/Home_Island/SCR_HOM_HCV_002_Hidden_Cave_Trials.md
+              - Sword Sanctum: 02_World/Screens/Home_Island/SCR_HOM_HCV_003_Sword_Sanctum.md
           - Sealed Node: 02_World/Locations/Home_Island/Sealed_Node.md
           - Relay Node Seven: 02_World/Relays/Relay_Node_Seven.md
       - Coalmouth:
@@ -177,6 +183,7 @@ nav:
           - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
           - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
           - Build Ashford Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_010_Build_Ashford_Screens.md
+          - Build Skyreach and Hidden Cave Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_011_Build_Skyreach_And_Hidden_Cave_Screens.md
           - Build Coalmouth Enemy Database: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_001_Coalmouth_Enemy_Database.md
           - Build Coalmouth State System: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_002_Coalmouth_State_System.md
           - Build Coalmouth NPC Dialogue: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_003_Coalmouth_NPC_Dialogue.md
