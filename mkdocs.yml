@@ -109,9 +109,18 @@ nav:
   - 06 Monsters:
       - Overview: 06_Monsters/index.md
       - Monster Bible: 06_Monsters/Monster_Bible.md
+      - Families:
+          - Gel Family: 06_Monsters/Families/Gel_Family.md
+          - Rat Family: 06_Monsters/Families/Rat_Family.md
+      - Home Island Enemies:
+          - Meadow Gel: 06_Monsters/Home_Island/Meadow_Gel.md
+          - Marsh Gel: 06_Monsters/Home_Island/Marsh_Gel.md
+          - Ash Rat: 06_Monsters/Home_Island/Ash_Rat.md
+          - Node Seven Guardian: 06_Monsters/Home_Island/Node_Seven_Guardian.md
   - 07 Art:
       - Overview: 07_Art/index.md
       - Art Bible: 07_Art/Art_Bible.md
+      - Home Island Battler Prompts: 07_Art/Prompt_Packets/Home_Island_Battlers.md
   - 08 Audio:
       - Overview: 08_Audio/index.md
       - Audio Bible: 08_Audio/Audio_Bible.md
@@ -126,6 +135,7 @@ nav:
           - Build Journey I State System: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_002_Build_Journey_I_State_System.md
           - Build Sword Awakening Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_003_Build_Sword_Awakening_Sequence.md
           - Build Node Seven Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_004_Build_Node_Seven_Sequence.md
+          - Build Home Island Enemy Database: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_005_Home_Island_Enemy_Database.md
   - 10 AI:
       - Overview: 10_AI/index.md
       - AI Agent Workflow: 10_AI/Agent_Workflow.md
