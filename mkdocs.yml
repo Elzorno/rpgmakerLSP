@@ -1,0 +1,217 @@
+site_name: The Last Sword Protocol — Atlas
+site_description: Engine-independent creative authority for The Last Sword Protocol
+site_author: Last Sword Protocol Studio
+repo_url: https://github.com/Elzorno/rpgmakerLSP
+repo_name: Elzorno/rpgmakerLSP
+
+docs_dir: atlas/docs
+site_dir: atlas/site
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: amber
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: amber
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+
+nav:
+  - Atlas Home: index.md
+  - 00 Foundation:
+      - Overview: 00_Foundation/index.md
+      - Project Constitution: 00_Foundation/Project_Constitution.md
+      - Studio Manifesto: 00_Foundation/Studio_Manifesto.md
+      - Player Promise: 00_Foundation/Player_Promise.md
+      - Atlas Operating System: 00_Foundation/Atlas_Operating_System.md
+      - Atlas Roadmap: 00_Foundation/Atlas_Roadmap.md
+      - Atlas ID Specification: 00_Foundation/Atlas_ID_Specification.md
+      - Metadata Schema: 00_Foundation/Metadata_Schema.md
+      - Page Template: 00_Foundation/Page_Template.md
+      - Atlas Object Model: 00_Foundation/Atlas_Object_Model.md
+      - Atlas Relationship Standard: 00_Foundation/Atlas_Relationship_Standard.md
+      - Canonical ID Registry: 00_Foundation/Canonical_ID_Registry.md
+      - Object Template Library: 00_Foundation/Object_Template_Library.md
+      - Screen Object Standard: 00_Foundation/Screen_Object_Standard.md
+  - 01 Creative:
+      - Overview: 01_Creative/index.md
+      - Creative Bible: 01_Creative/Creative_Bible.md
+  - 02 World:
+      - Overview: 02_World/index.md
+      - Atlas Volume II — World Atlas: 02_World/Atlas_Volume_II_World_Atlas.md
+      - World and Location Bible: 02_World/World_and_Location_Bible.md
+      - Home Island:
+          - Region Overview: 02_World/Regions/Home_Island/index.md
+          - Ashford: 02_World/Locations/Home_Island/Ashford.md
+          - Ashford Screens:
+              - Ashford Exterior: 02_World/Screens/Home_Island/SCR_HOM_ASH_001_Ashford_Exterior.md
+              - Elara House Interior: 02_World/Screens/Home_Island/SCR_HOM_ASH_002_Elara_House.md
+              - Ashford Shop Interior: 02_World/Screens/Home_Island/SCR_HOM_ASH_003_Ashford_Shop.md
+          - Rustshore Docks: 02_World/Locations/Home_Island/Rustshore_Docks.md
+          - Rustshore Screens:
+              - Rustshore Docks: 02_World/Screens/Home_Island/SCR_HOM_RST_001_Rustshore_Docks.md
+              - Mainland Departure: 02_World/Screens/Home_Island/SCR_HOM_RST_002_Mainland_Departure.md
+          - Fogfen Marsh: 02_World/Locations/Home_Island/Fogfen_Marsh.md
+          - Glassfield Ruins: 02_World/Locations/Home_Island/Glassfield_Ruins.md
+          - Glassfield Screens:
+              - Glassfield Ruins Exterior: 02_World/Screens/Home_Island/SCR_HOM_GLS_001_Glassfield_Ruins_Exterior.md
+          - Skyreach Hill: 02_World/Locations/Home_Island/Skyreach_Hill.md
+          - Skyreach Screens:
+              - Skyreach Hill Path: 02_World/Screens/Home_Island/SCR_HOM_SKY_001_Skyreach_Hill_Path.md
+          - Hidden Cave: 02_World/Locations/Home_Island/Hidden_Cave.md
+          - Hidden Cave Screens:
+              - Hidden Cave Entrance: 02_World/Screens/Home_Island/SCR_HOM_HCV_001_Hidden_Cave_Entrance.md
+              - Hidden Cave Trials: 02_World/Screens/Home_Island/SCR_HOM_HCV_002_Hidden_Cave_Trials.md
+              - Sword Sanctum: 02_World/Screens/Home_Island/SCR_HOM_HCV_003_Sword_Sanctum.md
+          - Sealed Node: 02_World/Locations/Home_Island/Sealed_Node.md
+          - Sealed Node Screens:
+              - Sealed Node Upper: 02_World/Screens/Home_Island/SCR_HOM_SND_001_Sealed_Node_Upper.md
+              - Sealed Node Core Path: 02_World/Screens/Home_Island/SCR_HOM_SND_002_Sealed_Node_Core_Path.md
+              - Guardian Chamber: 02_World/Screens/Home_Island/SCR_HOM_SND_003_Guardian_Chamber.md
+              - Relay Node Seven Core: 02_World/Screens/Home_Island/SCR_HOM_SND_004_Relay_Core.md
+          - Relay Node Seven: 02_World/Relays/Relay_Node_Seven.md
+      - Coalmouth:
+          - Region Overview: 02_World/Regions/Coalmouth/index.md
+          - Coalmouth: 02_World/Locations/Coalmouth/Coalmouth.md
+          - Coalmouth Mine: 02_World/Locations/Coalmouth/Coalmouth_Mine.md
+          - Relay Node Six: 02_World/Relays/Relay_Node_Six.md
+  - 03 Story:
+      - Overview: 03_Story/index.md
+      - Story Structure Bible: 03_Story/Story_Structure_Bible.md
+      - Journey I — The Dreamer: 03_Story/Journeys/Journey_I_The_Dreamer.md
+      - Journey II — The Forgotten World: 03_Story/Journeys/Journey_II_The_Forgotten_World.md
+      - Home Island Quests:
+          - Home Island Opening: 03_Story/Quests/Home_Island/QST_HOM_001_Home_Island_Opening.md
+          - The Sword Awakens: 03_Story/Quests/Home_Island/QST_HOM_002_The_Sword_Awakens.md
+          - Node Seven Offline: 03_Story/Quests/Home_Island/QST_HOM_003_Node_Seven_Offline.md
+      - Coalmouth Quests:
+          - Coalmouth Mine Crisis: 03_Story/Quests/Coalmouth/QST_COA_001_Coalmouth_Mine_Crisis.md
+      - Home Island Dialogue:
+          - Ashford Dialogue Packet: 03_Story/Dialogue/Home_Island/Ashford_Dialogue_Packet.md
+          - Memory Fragment Standards: 03_Story/Memory_Fragments/Home_Island/Memory_Fragment_Standards.md
+      - Coalmouth Dialogue:
+          - Coalmouth Dialogue Packet: 03_Story/Dialogue/Coalmouth/Coalmouth_Dialogue_Packet.md
+          - Coalmouth Memory Fragments: 03_Story/Memory_Fragments/Coalmouth/Coalmouth_Memory_Fragments.md
+  - 04 Gameplay:
+      - Overview: 04_Gameplay/index.md
+      - Gameplay Systems Bible: 04_Gameplay/Gameplay_Systems_Bible.md
+      - The Sword / Project Excalibur: 04_Gameplay/Items/The_Sword_Project_Excalibur.md
+  - 05 Characters:
+      - Overview: 05_Characters/index.md
+      - Character Bible: 05_Characters/Character_Bible.md
+      - Kai: 05_Characters/Kai.md
+      - Grandmother Elara: 05_Characters/Grandmother_Elara.md
+      - Vera: 05_Characters/Vera.md
+      - Ashford NPC Roster: 05_Characters/NPCs/Home_Island/Ashford_NPC_Roster.md
+      - Coalmouth NPC Roster: 05_Characters/NPCs/Coalmouth/Coalmouth_NPC_Roster.md
+  - 06 Monsters:
+      - Overview: 06_Monsters/index.md
+      - Monster Bible: 06_Monsters/Monster_Bible.md
+      - Families:
+          - Gel Family: 06_Monsters/Families/Gel_Family.md
+          - Rat Family: 06_Monsters/Families/Rat_Family.md
+          - Golem Family: 06_Monsters/Families/Golem_Family.md
+          - Scorpion Family: 06_Monsters/Families/Scorpion_Family.md
+      - Home Island Enemies:
+          - Meadow Gel: 06_Monsters/Home_Island/Meadow_Gel.md
+          - Marsh Gel: 06_Monsters/Home_Island/Marsh_Gel.md
+          - Ash Rat: 06_Monsters/Home_Island/Ash_Rat.md
+          - Node Seven Guardian: 06_Monsters/Home_Island/Node_Seven_Guardian.md
+      - Coalmouth Enemies:
+          - Soot Gel: 06_Monsters/Coalmouth/Soot_Gel.md
+          - Coal Golem: 06_Monsters/Coalmouth/Coal_Golem.md
+          - Mine Scorpion: 06_Monsters/Coalmouth/Mine_Scorpion.md
+          - Iron Foreman: 06_Monsters/Coalmouth/Iron_Foreman.md
+  - 07 Art:
+      - Overview: 07_Art/index.md
+      - Art Bible: 07_Art/Art_Bible.md
+      - Home Island Battler Prompts: 07_Art/Prompt_Packets/Home_Island_Battlers.md
+      - Home Island Location Art Prompts: 07_Art/Prompt_Packets/Home_Island_Location_Art.md
+      - Coalmouth Battler Prompts: 07_Art/Prompt_Packets/Coalmouth_Battlers.md
+  - 08 Audio:
+      - Overview: 08_Audio/index.md
+      - Audio Bible: 08_Audio/Audio_Bible.md
+      - Home Island Audio Cue Packet: 08_Audio/Home_Island_Audio_Cue_Packet.md
+  - 09 Technical:
+      - Overview: 09_Technical/index.md
+      - Development Standards: 09_Technical/Development_Standards.md
+      - RPG Maker MZ Bible: 09_Technical/RPG_Maker_MZ_Bible.md
+      - Atlas Concordance: 09_Technical/Atlas_Concordance.md
+      - Cybersecurity Layer Bible: 09_Technical/Cybersecurity_Layer_Bible.md
+      - Planning:
+          - Home Island Traceability Matrix: 09_Technical/Traceability/Home_Island_Object_Traceability_Matrix.md
+          - Home Island Build Backlog: 09_Technical/Backlog/Home_Island_Build_Backlog.md
+      - Implementation Packets:
+          - Build Ashford: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_001_Build_Ashford.md
+          - Build Journey I State System: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_002_Build_Journey_I_State_System.md
+          - Build Sword Awakening Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_003_Build_Sword_Awakening_Sequence.md
+          - Build Node Seven Sequence: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_004_Build_Node_Seven_Sequence.md
+          - Build Home Island Enemy Database: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_005_Home_Island_Enemy_Database.md
+          - Build Ashford NPC Dialogue: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_006_Ashford_NPC_Dialogue.md
+          - Build Home Island Location Art Pipeline: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_007_Location_Art_Pipeline.md
+          - Build Home Island Audio Hooks: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_008_Audio_Hooks.md
+          - Home Island Sprint Assembly: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_009_Home_Island_Sprint_Assembly.md
+          - Build Ashford Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_010_Build_Ashford_Screens.md
+          - Build Skyreach and Hidden Cave Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_011_Build_Skyreach_And_Hidden_Cave_Screens.md
+          - Build Glassfield and Sealed Node Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_012_Build_Glassfield_And_Sealed_Node_Screens.md
+          - Build Rustshore Departure Screens: 09_Technical/Implementation_Packets/Home_Island/IMP_HOM_013_Build_Rustshore_Departure_Screens.md
+          - Build Coalmouth Enemy Database: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_001_Coalmouth_Enemy_Database.md
+          - Build Coalmouth State System: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_002_Coalmouth_State_System.md
+          - Build Coalmouth NPC Dialogue: 09_Technical/Implementation_Packets/Coalmouth/IMP_COA_003_Coalmouth_NPC_Dialogue.md
+      - Playtest:
+          - Home Island Vertical Slice Checklist: 09_Technical/Playtest/Home_Island_Vertical_Slice_Checklist.md
+  - 10 AI:
+      - Overview: 10_AI/index.md
+      - AI Agent Workflow: 10_AI/Agent_Workflow.md
+      - Codex Handoff:
+          - Home Island Vertical Slice Handoff: 10_AI/Codex_Handoff/Home_Island_Vertical_Slice_Handoff.md
+          - Home Island Task Breakdown: 10_AI/Codex_Handoff/Home_Island_Task_Breakdown.md
+  - 99 Reference:
+      - Overview: 99_Reference/index.md
+      - Atlas Index: 99_Reference/Atlas_Index.md
+      - Glossary: 99_Reference/Glossary.md
+      - Requirements: 99_Reference/Requirements.md
+      - Decision Records: 99_Reference/Decision_Records/index.md
+      - DDR-0001 Atlas Is Primary: 99_Reference/Decision_Records/DDR-0001_Atlas_Is_Primary.md
+      - DDR-0002 No Supernatural Magic: 99_Reference/Decision_Records/DDR-0002_No_Supernatural_Magic.md
