@@ -2,11 +2,11 @@
 
 ## Summary
 
-- Files scanned: 153
-- Canonical pages: 143
+- Files scanned: 155
+- Canonical pages: 145
 - Object pages: 70
 - Screen pages: 16
-- Unique atlas IDs: 153
+- Unique atlas IDs: 155
 - Unique object IDs: 70
 - Errors: 0
 - Warnings: 0

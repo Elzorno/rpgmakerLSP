@@ -35,3 +35,5 @@ Use this table to claim work before editing project files.
 | T023 | Codex | Done | atlas/docs/09_Technical/, .agents/ | WO-0009 RPG Maker event specification standard | 2026-07-03 13:44 ET |
 | T024 | Codex | Done | atlas/docs/09_Technical/Event_Specs/, atlas/docs/09_Technical/Registries/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/, atlas/docs/09_Technical/Playtest/, .agents/ | WO-0010 Home Island executable event specs | 2026-07-03 13:47 ET |
 | T025 | Codex | Done | repository | Review repo and commit accumulated changes | 2026-07-03 13:56 ET |
+| T026 | Codex | Done | atlas/docs/09_Technical/Database_Specs/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/, atlas/docs/09_Technical/Playtest/, .agents/ | WO-0011 Home Island combat database specification | 2026-07-03 14:10 ET |
+| T027 | Codex | Done | atlas/docs/09_Technical/Trial_Specs/, atlas/docs/09_Technical/Event_Specs/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/, atlas/docs/09_Technical/Playtest/, .agents/ | WO-0012 Body Mind Heart trial mechanics specification | 2026-07-03 14:24 ET |

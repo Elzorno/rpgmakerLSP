@@ -12,6 +12,7 @@ dependencies:
   - ATLAS-TEC-044
   - ATLAS-TEC-052
   - ATLAS-TEC-054
+  - ATLAS-TEC-057
 related:
   - IMP-HOM-010
   - IMP-HOM-011
@@ -73,6 +74,8 @@ No final dialogue or new lore is defined here.
 | CE-SWORD-AUTH | Optional | Sword authentication presentation |
 | CE-RELAY-RESOLVE | Optional | Relay shutdown presentation |
 | CE_SaveShrine_ArchiveSync | Optional | Save/recovery shrine behavior |
+| CE_Trial_Complete_Chime | Optional | Shared trial completion chime/flash from `ATLAS-TEC-057` |
+| CE_Trial_Reset | Optional | Shared harmless trial reset feedback from `ATLAS-TEC-057` |
 
 If a common event is not implemented yet, use the direct commands listed in the event specs.
 
@@ -296,20 +299,35 @@ Pages:
 
 ### EVT-HOM-012 to EVT-HOM-014 — Trial Events
 
-These events follow `ATLAS-TEC-054` section 3.9. They are executable placeholders for the vertical slice; detailed trial framework remains a separate blocker from `ATLAS-TEC-053`.
+These events follow `ATLAS-TEC-054` section 3.9 and the executable mechanics in `ATLAS-TEC-057`.
 
-| Event ID | Event Name | Screen / Map | Trigger | Priority | Pages | Success Command | Failure / Reset |
-|---|---|---|---|---|---:|---|---|
-| EVT-HOM-012 | EVT-HOM-012 Body Trial | SCR-HOM-HCV-002 / DGN_HiddenCave_Trials | Action Button | Same as Characters | 2 | Show Text minimal challenge prompt; optional test battle only if combat data exists; Control Switch `J1_Trial_Body_Clear = ON`; Show Text `PH-DLG-TRIAL-COMPLETE` | If no combat data exists, use no-fail interaction placeholder; no permanent failure |
-| EVT-HOM-013 | EVT-HOM-013 Mind Trial | SCR-HOM-HCV-002 / DGN_HiddenCave_Trials | Action Button | Same as Characters | 2 | Show Text minimal observation prompt; require interacting with correct marker; Control Switch `J1_Trial_Mind_Clear = ON`; Show Text `PH-DLG-TRIAL-COMPLETE` | Wrong marker shows reset hint; no permanent failure |
-| EVT-HOM-014 | EVT-HOM-014 Heart Trial | SCR-HOM-HCV-002 / DGN_HiddenCave_Trials | Action Button | Same as Characters | 2 | Show Text minimal choice prompt; any sincere/approved choice succeeds in vertical slice; Control Switch `J1_Trial_Heart_Clear = ON`; Show Text `PH-DLG-TRIAL-COMPLETE` | No permanent failure |
+| Event ID | Event Name | Screen / Map | Mechanic | Trigger | Priority | Completion |
+|---|---|---|---|---|---|---|
+| EVT-HOM-012 | EVT-HOM-012 Body Trial Finish plus reset helpers | SCR-HOM-HCV-002 / DGN_HiddenCave_Trials | Movement lane with harmless reset tiles | Player Touch | Below Characters | Control Switch `J1_Trial_Body_Clear = ON` |
+| EVT-HOM-013 | EVT-HOM-013 Mind Trial Start Plaque plus marker helpers | SCR-HOM-HCV-002 / DGN_HiddenCave_Trials | Left, right, center marker sequence | Action Button | Same as Characters | Control Switch `J1_Trial_Mind_Clear = ON` |
+| EVT-HOM-014 | EVT-HOM-014 Heart Trial Pedestal | SCR-HOM-HCV-002 / DGN_HiddenCave_Trials | Intent choice prompt | Action Button | Same as Characters | Control Switch `J1_Trial_Heart_Clear = ON` |
 
-Page pattern for each trial:
+Required trial variables from `ATLAS-TEC-057`:
+
+```text
+Trial_Body_Attempts
+Trial_Mind_SequenceStep
+Trial_Heart_IntentChoice
+```
+
+Page pattern for each completed-state trial event:
 
 | Page | Condition | Commands | Completion |
 |---|---|---|---|
-| 1 | Relevant trial switch OFF | Comment `ATLAS <Event ID>`; run listed success/failure commands | Trial switch ON |
+| 1 | Relevant trial switch OFF | Comment `ATLAS <Event ID>`; run the mechanic-specific commands in `ATLAS-TEC-057` | Trial switch ON when success condition is met |
 | 2 | Relevant trial switch ON | Show Text `This trial is complete.` or no command | No repeat |
+
+Failure and reset behavior:
+
+- Body reset tiles increment `Trial_Body_Attempts` and return Kai to the Body Trial start tile.
+- Mind marker mistakes reset `Trial_Mind_SequenceStep` to 0.
+- Heart choice `Turn back for now` sets `Trial_Heart_IntentChoice = 3` and leaves `J1_Trial_Heart_Clear` OFF.
+- No trial causes HP loss, game over, or permanent failure in the vertical slice.
 
 ### EVT-HOM-015 — Sanctum Gate
 
@@ -625,7 +643,7 @@ This event must not advance story state.
 | Treasure / collectibles | Complete for Ashford and Fogfen required hidden items |
 | Save / recovery point | Optional executable pattern defined |
 | Core NPC interactions | Complete for Elara, Ashford placeholder NPCs, Shopkeeper, Dockmaster |
-| Trial entry / exit events | Complete as executable placeholders; deeper trial framework still separate |
+| Trial entry / exit events | Complete with executable Body, Mind, and Heart mechanics from `ATLAS-TEC-057` |
 | Required story gates | Complete for Skyreach, Sanctum, Glassfield, Guardian, Relay, Rustshore |
 | Optional Fogfen events | Complete for transfers, hidden item, and signal clues |
 
@@ -639,8 +657,8 @@ Remaining gaps are not event-page specification blockers:
 
 | Gap | Why It Remains |
 |---|---|
-| Final Body / Mind / Heart mechanics | Tracked separately as the Trial Framework blocker |
-| Combat database rows and troop IDs | Tracked separately as the Combat Database blocker |
+| Final Body / Mind / Heart polish | `ATLAS-TEC-057` clears first-playable mechanics; final dialogue and presentation polish remain non-blocking |
+| Combat balance tuning | `ATLAS-TEC-056` clears first-playable combat rows; final numeric tuning remains non-blocking |
 | Tileset assignments | Tracked separately as the Asset Mapping blocker |
 | Animation IDs | Tracked separately as the Animation Assignment blocker |
 | Final dialogue | Placeholder dialogue is allowed for first implementation |
@@ -667,3 +685,4 @@ Expected result:
 | Version | Change |
 |---|---|
 | 0.1 | Initial executable Home Island event specs |
+| 0.2 | Linked executable trial mechanics from ATLAS-TEC-057 |

@@ -17,6 +17,8 @@ related:
   - IMP-HOM-009
   - ATLAS-AI-012
   - ATLAS-TEC-055
+  - ATLAS-TEC-056
+  - ATLAS-TEC-057
 ---
 
 # Home Island Vertical Slice Readiness Review
@@ -49,7 +51,8 @@ This review lists blockers only.
 | Dialogue IDs | No | No | Stable line IDs are missing, but placeholder dialogue is explicitly allowed for the vertical slice. |
 | Music IDs | Mostly | No | Location BGM placeholder names and cue directions exist. |
 | Sound effect IDs | Mostly | No | Major story SFX cue IDs exist. |
-| Encounter tables | Partial | Yes | Enemy and troop concepts exist, but RPG Maker-ready combat data is incomplete. |
+| Encounter tables | Yes | No | `ATLAS-TEC-056` defines RPG Maker-ready enemies, skills, states, troops, and first-pass encounter placement. |
+| Trial mechanics | Yes | No | `ATLAS-TEC-057` defines eventable Body, Mind, and Heart trial mechanics. |
 | Tileset references | No | Yes | Maps lack concrete tileset assignments or placeholder tileset IDs. |
 | Animation IDs | No | Yes | Required skill and story animations are not assigned. |
 | RPG Maker event pages | Yes | No | `ATLAS-TEC-055` defines executable Home Island event pages for the current vertical slice. |
@@ -101,9 +104,13 @@ Can a developer build the Body, Mind, and Heart trials without inventing gamepla
 
 Current answer:
 
-No.
+Yes, for the current Home Island vertical slice.
 
-Missing production data:
+Resolution:
+
+`ATLAS-TEC-057` defines first-playable RPG Maker MZ event mechanics for the Body, Mind, and Heart trials, including variables, event pages, success conditions, and harmless reset behavior.
+
+Former missing production data:
 
 | Trial | Missing Detail |
 |---|---|
@@ -113,7 +120,7 @@ Missing production data:
 
 Required output:
 
-- Add a structural trial specification for `SCR-HOM-HCV-002` that defines the eventable mechanic for each trial using existing Atlas story intent.
+- Complete. See `ATLAS-TEC-057`.
 
 Do not write new lore dialogue except minimal placeholder text required for event operation.
 
@@ -127,9 +134,13 @@ Can a developer create the Home Island enemy, skill, state, and troop database e
 
 Current answer:
 
-No.
+Yes, for the current Home Island vertical slice.
 
-Missing production data:
+Resolution:
+
+`ATLAS-TEC-056` defines first-playable RPG Maker MZ rows for Home Island enemies, actor/class values, skills, states, troops, starting equipment, item rows, and encounter placement. Final balance tuning remains non-blocking.
+
+Former missing production data:
 
 | Area | Missing Detail |
 |---|---|
@@ -141,7 +152,7 @@ Missing production data:
 
 Required output:
 
-- Create a Home Island combat database specification that turns `IMP-HOM-005` into RPG Maker-ready enemy, skill, state, and troop rows.
+- Complete. See `ATLAS-TEC-056`.
 
 Keep balance first-pass and adjustable, but remove ambiguity.
 
@@ -219,17 +230,16 @@ These are not blockers under the current vertical-slice rules:
 | Final SFX assets | Cue IDs and directions exist for major story beats. |
 | Final balance tuning | First-pass combat can be adjusted after database rows exist. |
 | Optional Fogfen reward item identity | Can use an existing early-game reward once item standards are available; it does not block the critical path. |
+| Final combat balance tuning | `ATLAS-TEC-056` supplies first-playable values; numeric tuning can proceed after implementation. |
 
 ---
 
 ## Minimum To Become Build-Ready
 
-Home Island becomes build-ready from Atlas alone when these four remaining blockers are resolved:
+Home Island becomes build-ready from Atlas alone when these two remaining blockers are resolved:
 
-1. `BLK-HOM-002` trial mechanics.
-2. `BLK-HOM-003` combat database data.
-3. `BLK-HOM-004` tileset assignment matrix.
-4. `BLK-HOM-005` animation assignment matrix.
+1. `BLK-HOM-004` tileset assignment matrix.
+2. `BLK-HOM-005` animation assignment matrix.
 
 After those are complete, a developer unfamiliar with Atlas should be able to build the Home Island vertical slice without inventing critical production decisions.
 
@@ -256,3 +266,5 @@ Expected result:
 |---|---|
 | 0.1 | Initial Home Island vertical slice readiness review |
 | 0.2 | Marked event-page blocker cleared by ATLAS-TEC-055 |
+| 0.3 | Marked combat database blocker cleared by ATLAS-TEC-056 |
+| 0.4 | Marked trial mechanics blocker cleared by ATLAS-TEC-057 |

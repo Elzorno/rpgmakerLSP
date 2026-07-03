@@ -17,6 +17,7 @@ relationships:
   requires:
     - ATLAS-MON-001
     - ATLAS-TEC-020
+    - ATLAS-TEC-056
 ---
 
 # Implementation Packet: Build Home Island Enemy Database
@@ -37,6 +38,7 @@ Create the first RPG Maker MZ enemy database entries and encounter logic for Hom
 | MON-GEL-002 | Marsh Gel |
 | MON-RAT-001 | Ash Rat |
 | BOS-N07-001 | Node Seven Guardian |
+| ATLAS-TEC-056 | Home Island Combat Database Spec |
 
 ---
 
@@ -46,9 +48,9 @@ Included:
 
 - first three common enemy entries,
 - one boss placeholder entry,
-- initial troop recommendations,
+- stable troop IDs,
 - early encounter placement guidance,
-- placeholder balancing notes.
+- first-pass RPG Maker MZ stats, skills, states, item, weapon, armor, and balance notes from `ATLAS-TEC-056`.
 
 Out of scope:
 
@@ -74,12 +76,12 @@ Out of scope:
 
 | Suggested Troop | Composition | Use |
 |---|---|---|
-| Home Field 1 | 1 Meadow Gel | First simple encounter |
-| Home Field 2 | 2 Meadow Gels | Basic group fight |
-| Home Field 3 | 1 Ash Rat + 1 Meadow Gel | Speed contrast |
-| Fogfen 1 | 1 Marsh Gel | Introduce variant |
-| Fogfen 2 | 1 Marsh Gel + 1 Ash Rat | Slightly harder early fight |
-| Node Boss | 1 Node Seven Guardian | Journey I climax |
+| 1 - HOM Field 1 | 1 Meadow Gel | First simple encounter |
+| 2 - HOM Field 2 | 2 Meadow Gels | Basic group fight |
+| 3 - HOM Field 3 | 1 Ash Rat + 1 Meadow Gel | Speed contrast |
+| 4 - HOM Fogfen 1 | 1 Marsh Gel | Introduce variant |
+| 5 - HOM Fogfen 2 | 1 Marsh Gel + 1 Ash Rat | Slightly harder early fight |
+| 10 - HOM Node Boss | 1 Node Seven Guardian | Journey I climax |
 
 ---
 
@@ -102,7 +104,7 @@ Nibble(optional)
 
 ```text
 Attack
-Murk Bubble(optional low-risk poison/debuff)
+Murk Bubble(low-risk Signal-Slick debuff)
 ```
 
 ### Node Seven Guardian
@@ -122,9 +124,11 @@ Early enemies should be forgiving.
 
 The player should win basic field fights with normal attacks and occasional item use.
 
-Marsh Gel may introduce status effects, but should not punish the player heavily before they have reliable recovery options.
+Marsh Gel introduces `Signal-Slick`, a low-risk accuracy debuff defined in `ATLAS-TEC-056`. Do not use poison in the Home Island first playable.
 
 Node Seven Guardian should feel like a real boss but should remain readable and fair.
+
+Use `ATLAS-TEC-056` for first-pass RPG Maker MZ numbers, formulas, troop rows, state rows, and item/equipment rows. Tune values after implementation without changing story, quest, or monster identity.
 
 ---
 
@@ -154,6 +158,7 @@ Node Seven Guardian should feel like a real boss but should remain readable and 
 
 - Enemies exist in RPG Maker database.
 - Troops exist for basic testing.
+- Enemy stats, skill formulas, state rows, and first-pass equipment/items follow `ATLAS-TEC-056`.
 - Encounters can be assigned to Home Island maps.
 - Node Seven Guardian can be used in boss event.
 - No enemy requires final art to function in prototype.
@@ -171,11 +176,13 @@ Node Seven Guardian should feel like a real boss but should remain readable and 
 
 ---
 
-## Open Questions
+## Resolved Questions
 
-- Should enemy stats be authored in Atlas before implementation or tuned directly in RPG Maker first?
-- Should Marsh Gel introduce poison now or wait until mainland?
-- Should Node Seven Guardian have a unique battle theme cue?
+| Question | Resolution |
+|---|---|
+| Should enemy stats be authored in Atlas before implementation or tuned directly in RPG Maker first? | Author first-pass stats in `ATLAS-TEC-056`, then tune in RPG Maker after playable testing. |
+| Should Marsh Gel introduce poison now or wait until mainland? | Do not use poison in Home Island first playable; use `Signal-Slick` debuff from `ATLAS-TEC-056`. |
+| Should Node Seven Guardian have a unique battle theme cue? | Audio cue remains separate from the combat database and does not block enemy/troop implementation. |
 
 ---
 
@@ -184,3 +191,4 @@ Node Seven Guardian should feel like a real boss but should remain readable and 
 | Version | Change |
 |---|---|
 | 0.1 | Initial Home Island enemy database packet |
+| 0.2 | Linked executable Home Island combat database spec and resolved first-pass combat database questions |

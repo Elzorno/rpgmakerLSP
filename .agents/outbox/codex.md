@@ -854,3 +854,84 @@ Notes:
 
 - Review finding fixed before commit: the side-view battle actor positioning plugin was absent from `js/plugins.js`.
 - No remaining review findings were left unaddressed before commit.
+
+## 2026-07-03 14:10 ET - Codex handoff - T026
+
+Task:
+
+- Executed WO-0011 Home Island Combat Database Specification.
+
+Changed:
+
+- Created `ATLAS-TEC-056` Home Island Combat Database Spec with RPG Maker MZ-ready actor/class values, enemies, troops, skills, states, items, weapons, armor, encounter placement, and first-playable balance notes.
+- Updated `IMP-HOM-005` to require and reference `ATLAS-TEC-056`.
+- Resolved `IMP-HOM-005` combat open questions for first playable testing: stats are authored in Atlas, Marsh Gel uses `Signal-Slick` instead of poison, and unique boss battle music remains separate from combat database readiness.
+- Updated the readiness review to mark `BLK-HOM-003` combat database data cleared and list three remaining build blockers.
+- Added `ATLAS-TEC-056` to the technical index.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Database_Specs/Home_Island/Home_Island_Combat_Database_Spec.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_005_Home_Island_Enemy_Database.md`
+- `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Combat database blocker is cleared at the Atlas specification level for the current Home Island vertical slice.
+- Remaining build blockers are trial mechanics, tileset assignment matrix, and animation assignment matrix.
+- No RPG Maker data files, final dialogue, story canon, maps, or game implementation files were changed.
+- Per user instruction, no commit was made.
+
+## 2026-07-03 14:24 ET - Codex handoff - T027
+
+Task:
+
+- Executed WO-0012 Body / Mind / Heart Trial Mechanics Specification.
+
+Changed:
+
+- Created `ATLAS-TEC-057` Home Island Body Mind Heart Trial Mechanics Spec.
+- Defined RPG Maker MZ-ready trial mechanics:
+  - Body: event-only movement lane with harmless reset tiles.
+  - Mind: left, right, center marker sequence.
+  - Heart: abstract intent prompt with two success choices and one non-completion choice.
+- Added required trial variables: `Trial_Body_Attempts`, `Trial_Mind_SequenceStep`, and `Trial_Heart_IntentChoice`.
+- Updated Home Island executable event specs to reference `ATLAS-TEC-057`.
+- Updated Hidden Cave screen, Sword Awakening packet, Skyreach/Hidden Cave packet, Journey I state packet, event registry, technical index, and readiness review.
+- Marked `BLK-HOM-002` trial mechanics cleared in the readiness review.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Trial_Specs/Home_Island/Home_Island_Trial_Mechanics_Spec.md`
+- `atlas/docs/09_Technical/Event_Specs/Home_Island/Home_Island_Executable_Event_Specs.md`
+- `atlas/docs/02_World/Screens/Home_Island/SCR_HOM_HCV_002_Hidden_Cave_Trials.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_002_Build_Journey_I_State_System.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_003_Build_Sword_Awakening_Sequence.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_011_Build_Skyreach_And_Hidden_Cave_Screens.md`
+- `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`
+- `atlas/docs/09_Technical/Registries/Home_Island_Event_Registry.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Trial mechanics blocker is cleared at the Atlas specification level for the current Home Island vertical slice.
+- Remaining Home Island build blockers are tileset assignment matrix and animation assignment matrix.
+- No RPG Maker data files, final dialogue, story canon, maps, or game implementation files were changed.
+- Per user instruction, no commit was made.

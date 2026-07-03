@@ -12,6 +12,7 @@ dependencies:
 related:
   - IMP-HOM-009
   - ATLAS-TEC-055
+  - ATLAS-TEC-057
 ---
 
 # Home Island Event Registry
@@ -114,6 +115,8 @@ Event IDs are design identifiers, not RPG Maker event numbers. RPG Maker event n
 | CE-SWORD-AUTH | Sword Authentication | Sword acquisition sequence support |
 | CE-RELAY-RESOLVE | Relay Resolution | Shared relay status update pattern |
 | CE-SCREEN-FADE | Screen Transition Helper | Reusable fade and transfer support |
+| CE_Trial_Complete_Chime | Trial Completion Chime | Optional shared completion feedback from ATLAS-TEC-057 |
+| CE_Trial_Reset | Trial Reset Feedback | Optional shared harmless trial reset feedback from ATLAS-TEC-057 |
 
 ---
 
@@ -141,3 +144,4 @@ Event IDs are design identifiers, not RPG Maker event numbers. RPG Maker event n
 | 0.1 | Initial Home Island event registry |
 | 0.2 | Added optional Fogfen event IDs |
 | 0.3 | Linked executable event specs |
+| 0.4 | Linked executable Body, Mind, and Heart trial mechanics |

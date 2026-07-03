@@ -17,6 +17,7 @@ relationships:
   requires:
     - ATLAS-TEC-020
     - ATLAS-GME-001
+    - ATLAS-TEC-057
 ---
 
 # Implementation Packet: Build Journey I State System
@@ -40,6 +41,7 @@ This packet does not build all maps. It defines the state backbone that later ma
 | ITM-SWD-001 | The Sword / Project Excalibur |
 | REL-007 | Relay Node Seven |
 | ATLAS-TEC-020 | RPG Maker MZ Bible |
+| ATLAS-TEC-057 | Home Island Body Mind Heart Trial Mechanics Spec |
 
 ---
 
@@ -90,6 +92,9 @@ SYS_ProtocolSkills_Unlocked
 Current_Journey
 Archive_Recovery_Percent
 Current_Relay_Count
+Trial_Body_Attempts
+Trial_Mind_SequenceStep
+Trial_Heart_IntentChoice
 ```
 
 Suggested values:
@@ -100,6 +105,9 @@ Archive_Recovery_Percent = 0 at game start
 Archive_Recovery_Percent = 3 after Sword awakening
 Archive_Recovery_Percent = 5 after Node Seven shutdown
 Current_Relay_Count = 1 after Node Seven shutdown
+Trial_Body_Attempts = 0 before Body Trial
+Trial_Mind_SequenceStep = 0 before Mind Trial
+Trial_Heart_IntentChoice = 0 before Heart Trial
 ```
 
 ---
@@ -156,6 +164,7 @@ Future playtest should confirm:
 2. Variables exist.
 3. Events can reference the same names consistently.
 4. No duplicate state names are created.
+5. Trial variables are reset or updated according to `ATLAS-TEC-057`.
 
 ---
 
@@ -178,3 +187,4 @@ Do not implement full story sequence here. This packet only establishes the cano
 | Version | Change |
 |---|---|
 | 0.1 | Initial Journey I state system implementation packet |
+| 0.2 | Added trial-local variables required by ATLAS-TEC-057 |

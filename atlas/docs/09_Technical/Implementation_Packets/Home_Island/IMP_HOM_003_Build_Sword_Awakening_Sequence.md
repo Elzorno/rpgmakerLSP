@@ -16,6 +16,7 @@ relationships:
     - ITM-SWD-001
   requires:
     - IMP-HOM-002
+    - ATLAS-TEC-057
 ---
 
 # Implementation Packet: Build Sword Awakening Sequence
@@ -35,6 +36,7 @@ Create the playable RPG Maker MZ sequence where Kai reaches Skyreach Hill, enter
 | ITM-SWD-001 | The Sword / Project Excalibur |
 | QST-HOM-002 | The Sword Awakens |
 | IMP-HOM-002 | Journey I State System |
+| ATLAS-TEC-057 | Home Island Body Mind Heart Trial Mechanics Spec |
 
 ---
 
@@ -44,7 +46,7 @@ Included:
 
 - Skyreach Hill access gate.
 - Hidden Cave entrance.
-- Three simple trial rooms or placeholder trial events.
+- Three simple trial rooms or evented trial sections using `ATLAS-TEC-057`.
 - Sword pedestal event.
 - Archive recovery text.
 - Sword key item / weapon acquisition.
@@ -92,6 +94,9 @@ SYS_ProtocolSkills_Unlocked
 
 ```text
 Archive_Recovery_Percent = 3 after Sword awakening
+Trial_Body_Attempts
+Trial_Mind_SequenceStep
+Trial_Heart_IntentChoice
 ```
 
 ---
@@ -106,11 +111,11 @@ After the switch is on, allow entry.
 
 ### Trial Events
 
-Use simple evented trials:
+Use the executable evented trials from `ATLAS-TEC-057`:
 
-1. Body trial: small combat or movement challenge.
-2. Mind trial: simple observation/pattern interaction.
-3. Heart trial: short choice or memory-like moment.
+1. Body trial: movement lane with harmless reset tiles.
+2. Mind trial: left, right, center marker sequence.
+3. Heart trial: abstract intent choice prompt.
 
 Each trial sets its corresponding switch.
 
@@ -145,6 +150,7 @@ Add Sword as key item and/or weapon depending on implementation decision.
 - Player can access Skyreach only after correct story state.
 - Player can enter Hidden Cave.
 - All three trials can be completed.
+- Trial mechanics follow `ATLAS-TEC-057`.
 - Sword pedestal does nothing or gives clue before trials are complete.
 - Sword acquisition sets required switches and variable.
 - Player can leave the cave after acquisition.
@@ -164,11 +170,13 @@ Add Sword as key item and/or weapon depending on implementation decision.
 
 ---
 
-## Open Questions
+## Resolved Questions
 
-- Should the body trial use a real enemy or event-only obstacle?
-- Should Protocol Skills unlock immediately here or after Node Seven?
-- Should the Sword be both weapon and key item?
+| Question | Resolution |
+|---|---|
+| Should the body trial use a real enemy or event-only obstacle? | Use the event-only movement/reset Body Trial from `ATLAS-TEC-057`. |
+| Should Protocol Skills unlock immediately here or after Node Seven? | Still governed by the Sword pedestal/event implementation decision in `ATLAS-TEC-055`; not changed by trial mechanics. |
+| Should the Sword be both weapon and key item? | Use the combat database/Truth Layer guidance from `ATLAS-TEC-056` and `ATLAS-TEC-052`; not changed by trial mechanics. |
 
 ---
 
@@ -177,3 +185,4 @@ Add Sword as key item and/or weapon depending on implementation decision.
 | Version | Change |
 |---|---|
 | 0.1 | Initial Sword awakening implementation packet |
+| 0.2 | Linked executable Body, Mind, and Heart trial mechanics from ATLAS-TEC-057 |

@@ -16,6 +16,8 @@ relationships:
     - LOC-HCV-001
   implements:
     - IMP-HOM-003
+  requires:
+    - ATLAS-TEC-057
 ---
 
 # SCR-HOM-HCV-002 — Hidden Cave Trials
@@ -69,6 +71,8 @@ Keep the trials simple. They should be implementable with events, switches, text
 
 Do not use custom plugins for this first pass.
 
+Use `ATLAS-TEC-057` for the RPG Maker-ready mechanics, variables, event pages, success conditions, and reset behavior.
+
 ---
 
 ## Switches Used
@@ -89,7 +93,7 @@ Use quiet cave ambience with subtle chime after each trial completion.
 
 ## Encounters
 
-Optional single tutorial-style encounter for the Body Trial.
+No encounter is required for the first-playable Body Trial. `ATLAS-TEC-057` resolves the Body Trial as an event-only movement/reset challenge.
 
 ---
 
@@ -103,10 +107,12 @@ Optional single tutorial-style encounter for the Body Trial.
 
 ---
 
-## Open Questions
+## Resolved Questions
 
-- Should Body Trial use a real enemy or event-only obstacle?
-- Should Heart Trial include Elara memory imagery, or remain abstract?
+| Question | Resolution |
+|---|---|
+| Should Body Trial use a real enemy or event-only obstacle? | Use an event-only movement/reset obstacle for the vertical slice. |
+| Should Heart Trial include Elara memory imagery, or remain abstract? | Keep the Heart Trial abstract with placeholder intent choices; do not add final memory imagery in the first playable. |
 
 ---
 
@@ -115,3 +121,4 @@ Optional single tutorial-style encounter for the Body Trial.
 | Version | Change |
 |---|---|
 | 0.1 | Initial Hidden Cave Trials screen object |
+| 0.2 | Linked executable Body, Mind, and Heart trial mechanics from ATLAS-TEC-057 |

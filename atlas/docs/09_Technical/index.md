@@ -25,6 +25,8 @@ RPG Maker MZ is the first implementation target, but Atlas remains engine indepe
 | ATLAS-TEC-001 | Development Standards | Defines production workflow and implementation rules |
 | ATLAS-TEC-054 | RPG Maker Event Specification Standard | Defines reusable RPG Maker event page standards |
 | ATLAS-TEC-055 | Home Island Executable Event Specs | Defines RPG Maker-ready Home Island vertical slice event pages |
+| ATLAS-TEC-056 | Home Island Combat Database Spec | Defines RPG Maker-ready Home Island combat database rows |
+| ATLAS-TEC-057 | Home Island Body Mind Heart Trial Mechanics Spec | Defines RPG Maker-ready Home Island trial mechanics |
 
 ## Current Rule
 
