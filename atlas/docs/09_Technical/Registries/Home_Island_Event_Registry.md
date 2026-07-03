@@ -11,6 +11,7 @@ dependencies:
   - ATLAS-TEC-041
 related:
   - IMP-HOM-009
+  - ATLAS-TEC-055
 ---
 
 # Home Island Event Registry
@@ -93,6 +94,18 @@ Event IDs are design identifiers, not RPG Maker event numbers. RPG Maker event n
 
 ---
 
+## Optional Fogfen Events
+
+| Event ID | Screen | Event | Required State / Result |
+|---|---|---|---|
+| EVT-HOM-027 | SCR-HOM-FOG-001 | Fogfen Entry / Exit Transfer | Always available optional branch transfer |
+| EVT-HOM-028 | SCR-HOM-FOG-001 | Hidden Item Landmark | Self-switch after collection |
+| EVT-HOM-029 | SCR-HOM-FOG-001 | Signal-Tick Reed Pool | Optional environmental clue only |
+| EVT-HOM-030 | SCR-HOM-FOG-002 | Deeper Marsh Return Transfer | Always returns to SCR-HOM-FOG-001 |
+| EVT-HOM-031 | SCR-HOM-FOG-002 | Signal Pool / Cable Cluster Examine | Optional environmental clue only |
+
+---
+
 ## Common Event Candidates
 
 | Candidate ID | Name | Purpose |
@@ -126,3 +139,5 @@ Event IDs are design identifiers, not RPG Maker event numbers. RPG Maker event n
 | Version | Change |
 |---|---|
 | 0.1 | Initial Home Island event registry |
+| 0.2 | Added optional Fogfen event IDs |
+| 0.3 | Linked executable event specs |

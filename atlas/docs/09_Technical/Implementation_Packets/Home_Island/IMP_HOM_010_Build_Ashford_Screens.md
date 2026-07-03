@@ -17,6 +17,7 @@ relationships:
     - IMP-HOM-001
     - IMP-HOM-002
     - IMP-HOM-006
+    - ATLAS-TEC-055
 ---
 
 # Implementation Packet: Build Ashford Screens
@@ -67,6 +68,7 @@ Starting inside Elara House gives the opening sequence the strongest emotional a
 - North route gate for Skyreach access.
 - Shop processing placeholder.
 - Audio placeholders.
+- Executable event pages from `ATLAS-TEC-055`.
 
 ---
 

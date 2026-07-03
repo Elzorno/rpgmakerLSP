@@ -403,3 +403,454 @@ Verification:
 Known risks:
 
 - No in-engine RPG Maker battle playtest was run in this pass.
+
+## 2026-07-03 11:31 ET - Codex handoff - T013
+
+Task:
+
+- Implemented the initial Atlas Markdown frontmatter validator.
+
+Changed:
+
+- Reworked `atlas-tools/validator/atlas_validate.py` into a self-contained Python CLI.
+- Added deterministic scanning of Markdown files under `atlas/docs`.
+- Parses scalar YAML frontmatter fields.
+- Reports duplicate `atlas_id` and `object_id` values.
+- Reports missing v0.1 metadata for canonical pages, object pages, and screen pages.
+- Writes `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas-tools/validator/atlas_validate.py`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `python3 -m py_compile atlas-tools/validator/atlas_validate.py`.
+- Ran `python3 atlas-tools/validator/atlas_validate.py`; validator completed and returned exit code 1 because it found 16 existing Atlas content errors.
+
+Current validation errors:
+
+- 6 canonical pages missing `title`.
+- 10 duplicate `atlas_id` groups.
+- No warnings.
+
+Notes:
+
+- Atlas content was not changed.
+- Existing unrelated worktree changes in RPG Maker data/plugin files were left untouched.
+
+## 2026-07-03 11:48 ET - Codex handoff - T014
+
+Task:
+
+- Completed WO-0002 Atlas validation cleanup, structural only.
+
+Changed:
+
+- Added missing `title` frontmatter to six canonical pages.
+- Converted legacy duplicate section-index `atlas_id` values to `LEGACY-ATLAS-...` IDs.
+- Changed `Home_Island_Implementation_Task_List.md` from `ATLAS-AI-011` to `ATLAS-AI-012`.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/index.md`
+- `atlas/docs/00_Foundation/index.md`
+- `atlas/docs/00_Foundation/Atlas_ID_Specification.md`
+- `atlas/docs/00_Foundation/Atlas_Operating_System.md`
+- `atlas/docs/00_Foundation/Atlas_Roadmap.md`
+- `atlas/docs/00_Foundation/Metadata_Schema.md`
+- `atlas/docs/01_World/index.md`
+- `atlas/docs/02_Story/index.md`
+- `atlas/docs/03_Gameplay/index.md`
+- `atlas/docs/04_Characters/index.md`
+- `atlas/docs/05_Monsters/index.md`
+- `atlas/docs/06_Art/index.md`
+- `atlas/docs/07_Audio/index.md`
+- `atlas/docs/08_Technical/index.md`
+- `atlas/docs/09_AI/index.md`
+- `atlas/docs/10_AI/Codex_Handoff/Home_Island_Implementation_Task_List.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- No Atlas body content, game design, story, dialogue, quest, NPC, worldbuilding, or gameplay content was changed.
+- Existing unrelated RPG Maker data/plugin changes and the untracked WO-0002 workorder file were left untouched.
+
+## 2026-07-03 11:53 ET - Codex handoff - T015
+
+Task:
+
+- Implemented the first Atlas work-order generation workflow.
+
+Changed:
+
+- Added reusable workorder template at `atlas-tools/templates/workorder_template.md`.
+- Added `atlas-tools/generators/workorder_next.py`.
+- Added `next` command to `atlas-tools/cli/atlas.py`.
+- Generated `atlas/workorders/WO-0002-atlas-governance-docs.md`.
+
+Files touched:
+
+- `atlas-tools/templates/workorder_template.md`
+- `atlas-tools/generators/workorder_next.py`
+- `atlas-tools/cli/atlas.py`
+- `atlas/workorders/WO-0002-atlas-governance-docs.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/generators/workorder_next.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py next`; created `atlas/workorders/WO-0002-atlas-governance-docs.md`.
+- Re-ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- No story canon, game design content, or Atlas docs under `atlas/docs` were changed for this task.
+- Existing unrelated dirty RPG Maker data/plugin files and prior Atlas cleanup changes remain untouched.
+
+## 2026-07-03 12:03 ET - Codex handoff - T016
+
+Task:
+
+- Completed WO-0003 work order numbering and queue hygiene.
+
+Changed:
+
+- Converted the original non-`.md` `WO-0002 — Atlas Validation Cleanup (Structural Only)` workorder into `atlas/workorders/WO-0002-atlas-validation-cleanup-structural-only.md`.
+- Renamed the generated governance workorder from `WO-0002-atlas-governance-docs.md` to `WO-0003-atlas-governance-docs.md`.
+- Updated that governance workorder heading to `WO-0003`.
+- Hardened `atlas-tools/generators/workorder_next.py` to audit all `WO-*` files and directories, block malformed entries, block duplicate numbers, and choose the next number from every valid `WO-####*.md` file.
+- Ran `atlas.py next`; it created `atlas/workorders/WO-0004-atlas-governance-docs.md`.
+
+Files touched:
+
+- `atlas-tools/generators/workorder_next.py`
+- `atlas/workorders/WO-0002-atlas-validation-cleanup-structural-only.md`
+- `atlas/workorders/WO-0003-atlas-governance-docs.md`
+- `atlas/workorders/WO-0004-atlas-governance-docs.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/generators/workorder_next.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py next`; created `atlas/workorders/WO-0004-atlas-governance-docs.md`.
+- Re-ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+- Re-ran py_compile and validation after the final malformed-directory guard; both passed.
+
+Notes:
+
+- No workorder content was deleted.
+- Queue now has unique `.md` workorder numbers: WO-0001, WO-0002, WO-0003, and WO-0004.
+- `WO-0003` and `WO-0004` currently have the same hardcoded queued title/content because `atlas.py next` still uses the first queued workorder payload.
+
+## 2026-07-03 12:14 ET - Codex handoff - T017
+
+Task:
+
+- Implemented WO-0005 intelligent work order planning engine.
+
+Changed:
+
+- Replaced the fixed `Atlas Governance Docs` generator behavior with a deterministic planning engine in `atlas-tools/generators/workorder_next.py`.
+- Planner now audits workorders, classifies completed/open items, scans Atlas docs, reads roadmap/backlog signals, builds prioritized candidates, skips duplicate open workorders, and writes planning rationale into generated workorders.
+- Added `Planning Rationale` to `atlas-tools/templates/workorder_template.md`.
+- Ran `atlas.py next`; it generated `atlas/workorders/WO-0005-truth-layer-diagram.md`.
+
+Files touched:
+
+- `atlas-tools/generators/workorder_next.py`
+- `atlas-tools/templates/workorder_template.md`
+- `atlas/workorders/WO-0005-truth-layer-diagram.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/generators/workorder_next.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py next`; created `atlas/workorders/WO-0005-truth-layer-diagram.md`.
+- Re-ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- The planner skipped `Atlas Governance Docs` because open workorders already target those docs.
+- The selected next workorder is `Truth Layer Diagram`, based on the roadmap's Foundation priority list and the missing target doc.
+- No Atlas canon or game design content was changed.
+
+## 2026-07-03 12:23 ET - Codex handoff - T018
+
+Task:
+
+- Completed WO-0006 externalize planner candidate queue.
+
+Changed:
+
+- Added `atlas/planning/workorder_queue.json` as the editable planner candidate queue.
+- Added `atlas/planning/README.md` documenting the queue format.
+- Updated `atlas-tools/generators/workorder_next.py` to load and validate candidates from the queue file instead of hardcoded Python definitions.
+- Preserved deterministic candidate ordering, duplicate skipping against open work orders, malformed queue failure messages, and planning rationale generation.
+- Ran `atlas.py next`; it generated `atlas/workorders/WO-0006-home-island-gap-implementation-packets.md`.
+
+Files touched:
+
+- `atlas/planning/workorder_queue.json`
+- `atlas/planning/README.md`
+- `atlas-tools/generators/workorder_next.py`
+- `atlas/workorders/WO-0006-home-island-gap-implementation-packets.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/generators/workorder_next.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 -m json.tool atlas/planning/workorder_queue.json`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py next`; created `atlas/workorders/WO-0006-home-island-gap-implementation-packets.md`.
+- Re-ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- The generated WO-0006 came from the external queue and skipped the open governance and truth-layer candidates.
+- No story canon, game design, dialogue, quest, NPC, worldbuilding, or gameplay content was changed.
+
+## 2026-07-03 12:27 ET - Codex handoff - T019
+
+Task:
+
+- Executed WO-0005 Truth Layer Diagram.
+
+Changed:
+
+- Created `atlas/docs/09_Technical/Truth_Layer_Diagram.md`.
+- Added frontmatter with unique `atlas_id: ATLAS-TEC-052`.
+- Document maps story, gameplay, cybersecurity, and implementation layers using existing Atlas sources.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Truth_Layer_Diagram.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Source documents inspected: WO-0005, Atlas Roadmap, Cybersecurity Layer Bible, Gameplay Systems Bible, Story Structure Bible, Atlas Concordance, and Foundation docs list.
+- No contradictory lore, gameplay mechanics, dialogue, quests, NPCs, or implementation changes were introduced.
+
+## 2026-07-03 12:39 ET - Codex handoff - T020
+
+Task:
+
+- Executed WO-0006 Home Island Gap Implementation Packets.
+
+Changed:
+
+- Created `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_014_Build_Rustshore_Docks.md`.
+- Created `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_015_Build_Fogfen_Marsh.md`.
+- Created `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_016_Build_Home_Island_Routes.md`.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_014_Build_Rustshore_Docks.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_015_Build_Fogfen_Marsh.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_016_Build_Home_Island_Routes.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Source documents inspected: WO-0006, planner queue, Home Island Object Traceability Matrix, Home Island Build Backlog, Truth Layer Diagram, Home Island Screen Flow, Rustshore/Fogfen location docs, Rustshore screen docs, and nearby implementation packets.
+- Packets are structural and implementation-facing; no story canon, gameplay implementation, map data, dialogue, NPC, or unsupported cybersecurity concepts were changed.
+
+## 2026-07-03 12:43 ET - Codex handoff - T021
+
+Task:
+
+- Executed WO-0007 Fogfen Screen Object Specification.
+
+Changed:
+
+- Created `atlas/docs/02_World/Screens/Home_Island/SCR_HOM_FOG_001_Fogfen_Marsh_Field.md`.
+- Created `atlas/docs/02_World/Screens/Home_Island/SCR_HOM_FOG_002_Deeper_Marsh_Pocket.md`.
+- Updated `IMP_HOM_015_Build_Fogfen_Marsh.md` to reference canonical Fogfen screens, object IDs, and transfer IDs instead of placeholder-map guidance.
+- Updated Home Island screen flow, screen registry, transfer registry, event registry, and traceability matrix for the optional Fogfen branch.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/02_World/Screens/Home_Island/SCR_HOM_FOG_001_Fogfen_Marsh_Field.md`
+- `atlas/docs/02_World/Screens/Home_Island/SCR_HOM_FOG_002_Deeper_Marsh_Pocket.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_015_Build_Fogfen_Marsh.md`
+- `atlas/docs/09_Technical/Flow/Home_Island_Screen_Flow.md`
+- `atlas/docs/09_Technical/Traceability/Home_Island_Object_Traceability_Matrix.md`
+- `atlas/docs/09_Technical/Registries/Home_Island_Screen_Registry.md`
+- `atlas/docs/09_Technical/Registries/Home_Island_Transfer_Registry.md`
+- `atlas/docs/09_Technical/Registries/Home_Island_Event_Registry.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Fogfen now has two traversable screen objects: `SCR-HOM-FOG-001` and `SCR-HOM-FOG-002`.
+- New object, event, and transfer IDs are structural references only; no story dialogue, quest canon, RPG Maker map data, or unsupported mechanics were changed.
+
+## 2026-07-03 13:37 ET - Codex handoff - T022
+
+Task:
+
+- Executed WO-0008 Home Island Vertical Slice Readiness Review.
+
+Changed:
+
+- Created `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Verdict: Home Island is not yet build-ready from Atlas alone.
+- Blockers only: event page specs, trial mechanics, combat database data, tileset assignments, and animation assignments.
+- No lore, dialogue, map data, quest content, NPC content, or gameplay implementation was changed.
+
+## 2026-07-03 13:44 ET - Codex handoff - T023
+
+Task:
+
+- Executed WO-0009 RPG Maker Event Specification Standard.
+
+Changed:
+
+- Created `atlas/docs/09_Technical/RPG_Maker_Event_Specification_Standard.md`.
+- Added `ATLAS-TEC-054` to `atlas/docs/09_Technical/index.md`.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/RPG_Maker_Event_Specification_Standard.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- The standard defines event naming, ID policy, self-switch/global-switch usage, variable ranges, common event usage, page ordering, triggers, transfers, NPC conversations, treasure, shops, cutscenes, trials, bosses, save points, and example event pages.
+- Follow-on priorities are documented as combat database, trial framework, then asset mapping.
+- No RPG Maker data files, story canon, dialogue, quests, maps, or gameplay implementation were changed.
+
+## 2026-07-03 13:47 ET - Codex handoff - T024
+
+Task:
+
+- Executed WO-0010 Make Home Island Event Specs Executable.
+
+Changed:
+
+- Created `atlas/docs/09_Technical/Event_Specs/Home_Island/Home_Island_Executable_Event_Specs.md`.
+- Added `ATLAS-TEC-055` to the technical index.
+- Linked the executable specs from the Home Island event and transfer registries.
+- Updated Home Island implementation packets `IMP-HOM-010` through `IMP-HOM-016` to require or reference `ATLAS-TEC-055`.
+- Updated the readiness review to mark the event-page blocker cleared and list four remaining blockers.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Event_Specs/Home_Island/Home_Island_Executable_Event_Specs.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas/docs/09_Technical/Registries/Home_Island_Event_Registry.md`
+- `atlas/docs/09_Technical/Registries/Home_Island_Transfer_Registry.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_010_Build_Ashford_Screens.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_011_Build_Skyreach_And_Hidden_Cave_Screens.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_012_Build_Glassfield_And_Sealed_Node_Screens.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_013_Build_Rustshore_Departure_Screens.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_014_Build_Rustshore_Docks.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_015_Build_Fogfen_Marsh.md`
+- `atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_016_Build_Home_Island_Routes.md`
+- `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Event categories completed: map transfers, treasure/collectibles, save/recovery pattern, core NPC interactions, trial entry/exit placeholders, required story gates, boss event, relay event, Rustshore departure, and optional Fogfen events.
+- The WO-0008 event-page blocker is cleared for the current Home Island vertical slice at the Atlas specification level.
+- Remaining blockers are trial framework detail, combat database data, tileset assignments, and animation assignments.
+- No RPG Maker data files, final dialogue, new lore, map data, or gameplay implementation were changed.
+
+## 2026-07-03 13:56 ET - Codex handoff - T025
+
+Task:
+
+- Reviewed repository changes and committed accumulated worktree changes.
+
+Changed:
+
+- Restored `LSP_BattleActorPositions` in `js/plugins.js` before commit because review found the plugin had been disabled in the worktree.
+- Committed all current tracked and untracked changes requested by the user.
+
+Files touched:
+
+- `js/plugins.js`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- Full accumulated worktree included in commit.
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/validator/atlas_validate.py atlas-tools/generators/workorder_next.py`.
+- Ran a Node JSON parse over all `data/*.json`; all 46 JSON files parsed.
+- Confirmed `LSP_BattleActorPositions` is enabled in `js/plugins.js`.
+
+Notes:
+
+- Review finding fixed before commit: the side-view battle actor positioning plugin was absent from `js/plugins.js`.
+- No remaining review findings were left unaddressed before commit.

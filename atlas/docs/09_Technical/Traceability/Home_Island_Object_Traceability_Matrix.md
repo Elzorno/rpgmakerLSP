@@ -34,8 +34,8 @@ This document helps Codex and future contributors see which Atlas objects are re
 | REG-HOM-001 | Home Island | IMP-HOM-009 | Ready |
 | JRN-001 | Journey I — The Dreamer | IMP-HOM-009 | Ready |
 | LOC-ASH-001 | Ashford | IMP-HOM-001, IMP-HOM-006 | Ready |
-| LOC-RST-001 | Rustshore Docks | Future packet | Needs packet |
-| LOC-FOG-001 | Fogfen Marsh | Future packet | Needs packet |
+| LOC-RST-001 | Rustshore Docks | IMP-HOM-014 | Ready |
+| LOC-FOG-001 | Fogfen Marsh | IMP-HOM-015 | Ready |
 | LOC-GLS-001 | Glassfield Ruins | IMP-HOM-004 | Ready |
 | LOC-SKY-001 | Skyreach Hill | IMP-HOM-003 | Ready |
 | LOC-HCV-001 | Hidden Cave | IMP-HOM-003 | Ready |
@@ -84,6 +84,8 @@ This document helps Codex and future contributors see which Atlas objects are re
 | ATLAS-ART-010 | Battler prompts | IMP-HOM-005 | Ready |
 | ATLAS-ART-011 | Location art prompts | IMP-HOM-007 | Ready |
 | ATLAS-AUD-010 | Audio cue packet | IMP-HOM-008 | Ready |
+| SCR-HOM-FOG-001 | Fogfen Marsh Field | IMP-HOM-015 | Ready |
+| SCR-HOM-FOG-002 | Deeper Marsh Pocket | IMP-HOM-015 | Ready |
 | ATLAS-TEC-030 | Vertical slice checklist | IMP-HOM-009 | Ready |
 | ATLAS-AI-010 | Codex handoff | IMP-HOM-009 | Ready |
 
@@ -93,9 +95,6 @@ This document helps Codex and future contributors see which Atlas objects are re
 
 | Gap | Recommended Next Packet |
 |---|---|
-| Rustshore Docks needs a dedicated build packet | IMP-HOM-010 Build Rustshore Docks |
-| Fogfen Marsh needs a dedicated build packet | IMP-HOM-011 Build Fogfen Marsh |
-| Home Island route flow needs a dedicated build packet | IMP-HOM-012 Build Home Island Routes |
 | Exploration rewards need clearer standards | Future exploration rewards packet |
 
 ---

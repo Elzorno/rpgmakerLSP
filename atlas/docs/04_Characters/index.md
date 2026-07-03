@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-CHR-000
+atlas_id: LEGACY-ATLAS-CHR-000
 title: Characters Overview
 status: Draft
 version: 0.1

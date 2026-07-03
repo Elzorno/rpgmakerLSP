@@ -1,5 +1,6 @@
 ---
 atlas_id: ATLAS-FND-000
+title: 00 Foundation
 status: Draft
 version: 0.1
 canonical: true

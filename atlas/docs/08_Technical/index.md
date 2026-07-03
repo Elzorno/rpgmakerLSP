@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-TEC-000
+atlas_id: LEGACY-ATLAS-TEC-000
 title: Technical Overview
 status: Draft
 version: 0.1

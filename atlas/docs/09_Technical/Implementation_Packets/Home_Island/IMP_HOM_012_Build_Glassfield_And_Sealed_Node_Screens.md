@@ -19,6 +19,7 @@ relationships:
     - IMP-HOM-002
     - IMP-HOM-004
     - IMP-HOM-011
+    - ATLAS-TEC-055
 ---
 
 # Implementation Packet: Build Glassfield and Sealed Node Screens
@@ -74,6 +75,7 @@ Create the screen-level production plan for the Journey I climax route from Glas
 - Entering Sealed Node sets `J1_SealedNode_Entered`.
 - Defeating the guardian sets `J1_Node07_GuardianDefeated`.
 - Relay event sets Node Seven and mainland travel states.
+- Event pages follow `ATLAS-TEC-055`.
 
 ---
 

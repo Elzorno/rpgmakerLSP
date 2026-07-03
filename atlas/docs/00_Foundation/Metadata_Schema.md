@@ -1,5 +1,6 @@
 ---
 atlas_id: ATLAS-FND-004
+title: Metadata Schema
 status: Draft
 version: 0.1
 canonical: true

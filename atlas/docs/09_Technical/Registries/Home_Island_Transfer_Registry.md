@@ -10,6 +10,7 @@ dependencies:
   - ATLAS-TEC-040
 related:
   - IMP-HOM-009
+  - ATLAS-TEC-055
 ---
 
 # Home Island Transfer Registry
@@ -92,6 +93,17 @@ Transfers are directional. A doorway usually needs two transfer IDs: one out and
 
 ---
 
+## Optional Fogfen Transfers
+
+| Transfer ID | From | To | Condition | Notes |
+|---|---|---|---|---|
+| TRN-HOM-027 | SCR-HOM-ASH-001 | SCR-HOM-FOG-001 | Always or island route | Optional east route to Fogfen Marsh Field |
+| TRN-HOM-028 | SCR-HOM-FOG-001 | SCR-HOM-ASH-001 | Always | Return from Fogfen to Ashford-side route |
+| TRN-HOM-029 | SCR-HOM-FOG-001 | SCR-HOM-FOG-002 | Always | Optional deeper marsh branch |
+| TRN-HOM-030 | SCR-HOM-FOG-002 | SCR-HOM-FOG-001 | Always | Return from deeper marsh pocket |
+
+---
+
 ## Validation Rules
 
 - Every transfer event in RPG Maker should map to a transfer ID.
@@ -104,7 +116,6 @@ Transfers are directional. A doorway usually needs two transfer IDs: one out and
 ## Open Questions
 
 - Should routes through the island overworld become their own screens?
-- Should Fogfen Marsh connect from Ashford or from a shared overworld route?
 - Should Coalmouth arrival get a `TRN-J2-001` transfer ID instead of staying as Journey II start placeholder?
 
 ---
@@ -114,3 +125,5 @@ Transfers are directional. A doorway usually needs two transfer IDs: one out and
 | Version | Change |
 |---|---|
 | 0.1 | Initial Home Island transfer registry |
+| 0.2 | Added optional Fogfen transfer IDs |
+| 0.3 | Linked executable transfer event specs |

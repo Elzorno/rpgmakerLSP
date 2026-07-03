@@ -102,7 +102,7 @@ SCR-HOM-ASH-002
 | Screen | Status | Notes |
 |---|---|---|
 | SCR-HOM-ASH-003 | Optional but recommended | Early shop and prep |
-| Fogfen Marsh screens | Not yet defined | Optional exploration content after core slice |
+| SCR-HOM-FOG-001 / SCR-HOM-FOG-002 | Optional defined branch | Optional exploration content; must not block critical path |
 | Elder House / Inn | Not yet defined | Add only if needed for pacing |
 
 ---

@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-AUD-000
+atlas_id: LEGACY-ATLAS-AUD-000
 title: Audio Overview
 status: Draft
 version: 0.1

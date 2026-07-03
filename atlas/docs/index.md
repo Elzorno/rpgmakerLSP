@@ -1,5 +1,6 @@
 ---
 atlas_id: ATLAS-HOME
+title: Project Atlas
 status: Draft
 version: 0.1
 canonical: true

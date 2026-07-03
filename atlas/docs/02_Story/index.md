@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-STY-000
+atlas_id: LEGACY-ATLAS-STY-000
 title: Story Overview
 status: Draft
 version: 0.1

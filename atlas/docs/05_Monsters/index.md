@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-MON-000
+atlas_id: LEGACY-ATLAS-MON-000
 title: Monsters Overview
 status: Draft
 version: 0.1

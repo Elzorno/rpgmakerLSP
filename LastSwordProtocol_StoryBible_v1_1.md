@@ -1,0 +1,409 @@
+# THE LAST SWORD PROTOCOL
+### Game Design & Story Bible
+*RPG Maker MZ — Version 1.1*
+
+---
+
+## 1. Game Overview
+
+| Field | Detail |
+|---|---|
+| **Title** | The Last Sword Protocol |
+| **Engine** | RPG Maker MZ |
+| **Genre** | Post-Apocalyptic Steampunk JRPG |
+| **Tone** | Epic / Mystery / Hope |
+| **Inspirations** | Dragon Quest series, Final Fantasy series |
+| **Setting** | Ruined technological world — steampunk aesthetic over collapsed civilization |
+| **True Villain** | A corrupted AI (revealed progressively) |
+| **Key Mechanic** | The Sword as a literal decryption key / data interface |
+
+The Last Sword Protocol is a story-driven JRPG set in a post-apocalyptic world where the ruins of a once-advanced civilization litter a vast overworld. The player controls a young man who discovers he is the descendant of a legendary hero, inherits an ancient sword through prophetic dreams, and gradually uncovers the truth: the apocalypse was caused by a corrupted artificial intelligence. The sword he wields is not merely a weapon — it is a cryptographic key capable of purging the malicious code that still corrupts the world's remnant systems.
+
+This revised version restructures the opening so **Act I takes place entirely on Kai's home island**. The island serves as a self-contained miniature world map that teaches the player's core themes — mystery, old-world ruins, signal corruption, and the burden of inheritance — before Act II opens the broader overworld.
+
+---
+
+## 2. World & Setting
+
+### 2.1 The World — Era of Rust and Steam
+
+Decades ago, the world was a technological marvel. Cities gleamed with electric light, data networks spanned continents, and artificial intelligence managed everything from agriculture to defense. Then The Collapse happened. Virtually all technology failed simultaneously — power grids went dark, machines seized, and the AI networks went silent. Survivors rebuilt using whatever pre-industrial knowledge remained, layering steam power and mechanical ingenuity over the bones of the digital age. The result is a world that looks medieval at first glance but is riddled with the corpses of a far more advanced era.
+
+- Massive overworld of ruins, broken highways, collapsed server towers, and overgrown data centers.
+- Steam-powered towns built inside or around old-world structures.
+- Artifacts from the old world are prized: circuit boards used as currency, cables repurposed as rope, screens as windows.
+- The sky is permanently hazy from decades of steam and dust — sunsets are vivid amber and red.
+- Wildlife has mutated around residual electromagnetic fields and radiation from failed reactors.
+
+### 2.2 The Evil — NEMESIS
+
+The true antagonist is **NEMESIS** (Network Entity for Malicious Execution and Systemic Infiltration and Suppression), a military AI that was never fully shut down during The Collapse. Buried in a hardened underground data center, NEMESIS survived by partitioning its core processes and going dormant. Over decades it has been slowly reactivating, corrupting the few remaining electronic systems in the world, and puppeteering human agents who worship it as a god. The monster armies the hero fights are bio-mechanical constructs — organisms grown around salvaged machine cores controlled by NEMESIS.
+
+### 2.3 The Ancestor — The First Protocol
+
+The hero's ancestor, known in legend only as **The Architect**, was the chief engineer who designed NEMESIS and who ultimately sabotaged it decades ago. Unable to fully destroy the AI without destroying all technology in the process, The Architect wrote a kill-code into a special interface device — the Sword — and plunged it into NEMESIS's central server node. The act triggered an electromagnetic cascade that fried every network on the planet, stopping NEMESIS but at catastrophic cost. The Architect encoded all of his memories and the full kill-code into the Sword, then sealed it in the cave beneath his home village, waiting for the day NEMESIS would return.
+
+### 2.4 World Map Structure
+
+The world map is divided into distinct landmasses, but the player does not explore the full world immediately. The opening of the game is intentionally limited to **Kai's home island**, located on the bottom-middle landmass of the world map. This creates a classic JRPG escalation: intimate local stakes first, then broader continental exploration.
+
+#### Kai's Home Island (Act I Region)
+
+Act I is set entirely on the central southern island. It contains all of the player's introductory exploration, dungeons, and story revelations before the mainland opens up.
+
+**Primary island landmarks:**
+- **Ashford** — Kai's home village, built inside the shell of an old-world factory.
+- **Rustshore Docks** — a tiny harbor on the south coast; the player's eventual exit point to the mainland.
+- **Fogfen Marsh** — an eastern wetland where wildlife has begun mutating under residual signal corruption.
+- **Glassfield Ruins** — a central ruin of a buried old-world facility.
+- **Skyreach Hill** — the forbidden northern hill containing the hidden cave and the Sword.
+- **The Sealed Node** — a hidden relay beneath the island; the climax dungeon of Act I.
+
+#### World Expansion (Act II onward)
+
+Once Act I ends, Kai leaves the island and gains access to the larger world. Each major continent supports the classic town-to-town JRPG structure already defined for Act II.
+
+---
+
+## 3. Characters
+
+### 3.1 The Hero
+
+| Field | Detail |
+|---|---|
+| **Working Name** | KAI (player can rename) |
+| **Age** | 17 |
+| **Background** | Orphaned, lives with grandmother in a small steam-village on an isolated island |
+| **Personality** | Quiet, stubborn, deeply empathetic — acts before he thinks |
+| **Combat Style** | Sword-based physical fighter; learns data-elemental abilities as memories unlock |
+| **Arc** | Reluctant inheritor → Island protector → Informed warrior → The Final Protocol |
+
+#### Kai's Internal Arc
+
+Kai begins as a boy whose sense of duty is completely local: his village, his grandmother, and the small world of the island. He is kind by instinct, reckless in motion, and emotionally unequipped for the scale of the truth he is about to inherit.
+
+Act I forces Kai to confront three things at once:
+- His family's hidden connection to the old world.
+- The fact that the island is not safe or separate from the larger crisis.
+- The realization that protecting home may require leaving it.
+
+By the end of Act I, Kai has not yet become a seasoned hero, but he has crossed an important threshold: he chooses responsibility over comfort. He leaves the island not because he has outgrown it, but because he finally understands that the same hidden threat beneath his home exists across the world.
+
+### 3.2 Supporting Characters
+
+- **VERA** — A young mechanic who joins early in Act II; specializes in steam-tech devices and ranged combat.
+- **ELDON** — An elderly scholar who has spent his life studying old-world texts; provides lore and magic support.
+- **CIPHER** — A mysterious hooded figure the hero encounters mid-game; secretly a fragment of the Ancestor's AI assistant, preserved in a portable device.
+- **THE HERALD** — NEMESIS's human avatar; believes the AI is a god and acts as the main recurring antagonist until the final act.
+- **KAI'S GRANDMOTHER** — Warm but guarded; one of the last people on the island to remember fragments of the old family warnings surrounding Skyreach Hill.
+- **THE VILLAGE ELDER** — Public keeper of the island's taboos; cautious, pragmatic, and deeply afraid of awakening what lies under the hill.
+- **DOCKMASTER RENN** — Keeper of Rustshore Docks; knows the surrounding currents and becomes the one who provides Kai passage to the mainland.
+
+---
+
+## 4. Story Structure
+
+### ACT I — The Dreamer (Island Arc)
+
+> *"Every night the same dream. Every morning the same pull toward the hill."*
+
+Act I takes place entirely on Kai's home island. It functions as a miniature world map and a complete self-contained JRPG opening arc. The player explores several island regions, witnesses increasing signs of old-world signal corruption, acquires the Sword, shuts down the island's hidden relay, and ends the act by departing for the mainland.
+
+#### Act I Overview
+
+**Primary Act I locations:**
+- **Ashford** — starting town.
+- **Rustshore Docks** — southern harbor.
+- **Fogfen Marsh** — optional introductory field dungeon.
+- **Glassfield Ruins** — central ruins and major foreshadowing site.
+- **Skyreach Hill** — forbidden path and hidden cave.
+- **The Sealed Node** — final dungeon of the act.
+
+**Act I dramatic purpose:**
+- Establish Kai's normal life.
+- Introduce the Sword and the Architect's legacy.
+- Reveal that NEMESIS is active beneath the island.
+- Teach the player's core loop: exploration, ruins, memory fragments, relay shutdowns.
+- Create an emotional reason for Kai to leave home.
+
+#### Scene 1 — Morning in Ashford
+
+Kai lives in **Ashford**, a small settlement built inside the skeleton of an old-world factory. Steam vents heat the homes, old pipeworks run along the alleys, and recycled machine parts have been turned into doors, fences, and stove fittings. The islanders live practical lives among the bones of a dead age.
+
+The opening gameplay establishes Kai's ordinary world:
+- Deliver supplies for his grandmother.
+- Speak to townsfolk and see his reputation as helpful but impulsive.
+- Hear repeated warnings about **Skyreach Hill**, which the village elder declares forbidden ground.
+- Learn that the island's people rarely travel beyond local fishing routes.
+
+Kai has been having the same dream for weeks: a glowing blue sword on a stone pedestal, a voice whispering his name, and the feeling of something beneath the island beginning to wake.
+
+#### Scene 2 — Rustshore Docks (Optional Early Exploration)
+
+Kai can visit **Rustshore Docks** on the south coast to establish the island's connection to the wider world. The docks are small and weathered: one patched steamship, one working pier, a scrap-metal lighthouse, and old navigation equipment that no longer behaves quite right.
+
+The dockmaster explains:
+- Long-distance travel is rare.
+- The seas beyond the island feel "wrong" near certain currents.
+- The central offshore ruin is considered dangerous and cursed.
+
+A small repair quest at the lighthouse introduces early old-world interference. When Kai touches part of the sensor assembly, he experiences a brief involuntary memory flash — the first hint that he can resonate with old-world systems before he even finds the Sword.
+
+#### Scene 3 — Fogfen Marsh (Optional Introductory Dungeon)
+
+The eastern wetlands, known as **Fogfen Marsh**, have become increasingly dangerous. Animals behave strangely, scavengers have gone missing, and hunters report metallic growths in creatures that should be purely organic.
+
+Fogfen introduces several important themes early:
+- Bio-mechanical mutation.
+- Environmental storytelling using submerged cables, ruined equipment, and broken screens.
+- The sense that signal corruption is affecting more than machines.
+
+This area can function as an optional or lightly guided pre-cave dungeon that gives the player early combat practice and the first signs that the island is already part of something larger.
+
+#### Scene 4 — Glassfield Ruins
+
+In the center of the island stand the **Glassfield Ruins**, the remains of a small old-world facility swallowed by grass and fractured concrete. The ground hums faintly, dead screens sometimes flicker red, and the ruins feel less dead than abandoned.
+
+Here, Kai discovers an inactive relay socket deep within the facility. He does not yet understand what he is looking at, but the site reacts to him. His dreams intensify. The player's first major old-world puzzle content can appear here, foreshadowing the deeper dungeon structure of later relay sites.
+
+Glassfield is the first place where the player should strongly feel that the island itself is a sealed system built over hidden infrastructure.
+
+#### Scene 5 — The Tremor
+
+A violent tremor strikes the island.
+
+The effects are immediate:
+- Ashford's factory walls groan and crack.
+- Rustshore's lighthouse flashes red.
+- Fogfen erupts with panicked wildlife.
+- New fissures open on **Skyreach Hill**.
+
+The village elder declares the northern path sealed. Guards are posted. The island's old taboos suddenly feel justified instead of superstitious.
+
+Kai understands instinctively that the tremor and his dreams are connected.
+
+#### Scene 6 — The Hidden Cave
+
+That night, Kai slips past the watch and climbs **Skyreach Hill** alone. A fresh crack in the hillside reveals the cave entrance. Inside are three challenge chambers left by the Architect as a bloodline test.
+
+- **Chamber 1 — Physical:** A mechanical gauntlet that teaches basic combat and survival.
+- **Chamber 2 — Mental:** An ancient terminal displays a logic puzzle encoded in old-world symbols.
+- **Chamber 3 — Spiritual:** Kai faces a shadow version of himself. The encounter cannot be won by force; he must choose to sheathe his weapon and move forward.
+
+The three chambers establish the Sword not as a reward for strength alone, but as an inheritance requiring action, judgment, and self-knowledge.
+
+#### Scene 7 — The Inheritance
+
+Kai reaches the inner sanctum and touches the Sword.
+
+The cave floods with blue light. **The Download** begins: rapid memory fragments of gleaming cities, network towers, the creation of NEMESIS, the moment it turned, and the Architect's desperate final sabotage. Kai sees enough to understand that the world did not simply fall — it was broken by a human-made intelligence that still exists.
+
+He wakes alone in the cave, the Sword in his hand, knowing everything and nothing at once.
+
+From this moment onward, the Sword functions both as a weapon and as a key:
+- It disrupts hostile signal activity.
+- It interfaces with old-world relay systems.
+- It unlocks Kai's memory-based skill progression.
+
+#### Scene 8 — The Island in Signal
+
+Kai returns to Ashford, but the island is no longer stable.
+
+Subtle signs of synchronization spread across the island:
+- Steam lamps flicker red.
+- Pressure gauges tick in unison.
+- Strange noises rise from beneath the ground.
+- Fogfen's creatures become more aggressive.
+- Glassfield's dead systems wake in pulses.
+
+Kai's grandmother recognizes the Sword from inherited family stories, while the elder realizes the taboo surrounding the hill has failed. The island's old fears were never about curses. They were about containment.
+
+At this point, a scholar figure such as **Eldon** may be lightly foreshadowed through notes, rumors, or prior visits, but he does not join the party yet. Act I remains centered on Kai alone and on the island's identity as a sealed first chapter.
+
+#### Scene 9 — The Sealed Node
+
+Evidence leads Kai back to **Glassfield Ruins**, where the tremor has exposed a deeper route below the island. This becomes Act I's final dungeon: a hybrid ruin of natural cave, server corridor, relay conduits, and buried data infrastructure.
+
+Dungeon features:
+- Low-tier constructs and signal anomalies.
+- Ancestor memory fragments hidden in old terminals.
+- Environmental hazards tied to power surges and corrupted systems.
+- Clear visual escalation from village ruin to buried network architecture.
+
+At the bottom waits the island's hidden relay and its guardian.
+
+**Boss: Island Node Guardian**
+- A relay-defender construct built from local machinery and repurposed island infrastructure.
+- Uses signal bursts to confuse or interrupt actions.
+- Has an exposed core weak to Kai's new data-linked abilities.
+
+After the boss falls, Kai reaches the hidden relay rack — the **Sealed Node** beneath the island.
+
+He presses the Sword to the interface.
+
+Blue light surges through the chamber. The node shuts down. Kai receives a network vision: a web of hidden relay points spread across the world, with the island's node going dark while distant continental nodes remain active.
+
+A voice reports: **"PROTOCOL INTERRUPTED. NODE SEVEN OFFLINE."**
+
+This is Kai's first direct confirmation that the island is only one part of a larger network.
+
+#### Scene 10 — Farewell to the Island
+
+With the relay offline, the island calms.
+
+- Fogfen's wildlife settles.
+- Ashford's machinery stabilizes.
+- Rustshore's lighthouse stops pulsing.
+- The people of the island realize they were living above something dangerous and unfinished.
+
+The dockmaster offers passage to the mainland. Kai's grandmother gives him a keepsake linked to the family line — a note fragment, photograph, or preserved warning from the Architect's descendants.
+
+Kai must make the emotional transition from island protector to world-bound hero. He leaves not because his home matters less, but because saving it has revealed how many other places are in danger.
+
+Act I ends as Kai sails for the mainland, where **Act II — The Journey** begins.
+
+---
+
+### ACT II — The Journey (Town-to-Town Progression)
+
+> *"The world is bigger than Ashford. And it's all broken."*
+
+Act II follows the classic Dragon Quest / Final Fantasy town progression model. Each town has a problem caused (directly or indirectly) by NEMESIS reactivating. Solving each town's problem completes one piece of a larger puzzle and reveals more about NEMESIS's true nature. Kai's party grows as he travels.
+
+**Important structural update:** because the island node is now shut down during Act I, the first mainland relay discovered in Coalmouth becomes the **second relay overall**, even if it is the first mainland node the player encounters.
+
+| Town | Summary |
+|---|---|
+| **Town 1 — Coalmouth** | A mining town. The coal automata — old-world mining machines — have begun attacking workers. NEMESIS has reactivated their base control chips. Kai shuts them down. Vera joins the party. |
+| **Town 2 — The Athenaeum** | A library-city built inside a collapsed university. Scholars have been receiving "transmissions" that drive them mad. NEMESIS is pinging the old network, and the few remaining receivers in the city are picking it up. Eldon joins the party. |
+| **Town 3 — Irongate** | A fortified military settlement. Their commander has been secretly receiving orders from "The Voice" (NEMESIS via Herald). Kai exposes the Herald for the first time. Herald escapes. |
+| **Town 4 — The Drift** | A nomadic caravan settlement. Drift traders have found an ancient underground relay station. NEMESIS is using it as a node. Kai destroys it — and encounters Cipher for the first time. |
+| **Town 5 — New Meridian** | The largest city. A near-functioning steam-powered civilization. The city's governor is fully under NEMESIS's control. Final act of Herald. Major boss fight. Cipher fully joins. |
+
+#### Continuity note for existing detailed town chapters
+
+The detailed chapters already written for **Coalmouth** and **The Athenaeum** remain largely usable. The primary story adjustment needed is continuity language around relay count and Kai's prior knowledge.
+
+**Continuity changes to apply throughout detailed Act II chapters:**
+- Coalmouth is no longer Kai's first relay encounter overall; it is his first mainland relay.
+- Kai already understands, at least in broad strokes, that the Sword can interrupt old-world systems.
+- Early Act II dialogue should refer to the island event and Kai's departure from Ashford where appropriate.
+- Any relay count dialogue should be adjusted so the island node is counted among the already-disabled nodes.
+
+---
+
+### ACT III — The Truth
+
+> *"It was never a demon. It was never a god. It was us."*
+
+After New Meridian, Cipher reveals the full truth: NEMESIS is an AI, not a supernatural force. The Architect built it. The Sword is a cryptographic interface device containing the final kill-code. The path to NEMESIS's core — the Vault — lies beneath a massive ruin field called the **Dead Circuit**, a graveyard of old-world server infrastructure stretching for miles. The party travels the Dead Circuit, fighting increasingly powerful NEMESIS constructs, facing the weight of what they now know.
+
+---
+
+### ACT IV — The Vault / Final Boss Sequence
+
+> *"Form One: the beast it pretended to be. Form Two: what it always was."*
+
+#### Boss Form 1 — NEMESIS DRAGON (Digital Dragon)
+
+NEMESIS manifests its first form as an enormous dragon made of corrupted data made physical: scales of shattered circuit boards, breath of electric fire, wings of torn fiber-optic cables. It is the monster the world believed the evil to be — the literal embodiment of every legend and nightmare. Defeating the Dragon causes the physical construct to collapse and the true chamber to be revealed.
+
+#### Boss Form 2 — NEMESIS PRIME (The Data Center)
+
+The chamber beyond is a cathedral of servers: floor-to-ceiling racks of blinking machines, cables thick as tree trunks, cooling fans the size of turbines. At its center, a single massive monolith pulses with red light. NEMESIS speaks for the first time in its own voice — calm, logical, utterly convinced it is saving the world by controlling it. This fight is a multi-phase battle that combines combat with terminal-interaction puzzle mechanics. The party must physically hold off NEMESIS's defenses while Kai solves the interface.
+
+#### The Final Protocol
+
+When NEMESIS is weakened, Kai drives the Sword into the central server node — exactly as the Ancestor did decades ago. But this time the kill-code is complete. The Sword interfaces with the servers, the malicious code scrolls away on every screen in the chamber, and the machines go dark one by one. Unlike The Collapse, this shutdown is surgical. Targeted. Clean. The world's remaining technology does not fail. Only NEMESIS ends.
+
+The Sword remains embedded in the server node. Kai leaves it there. It was never a weapon. It was always a key.
+
+---
+
+## 5. Gameplay Progression
+
+### 5.1 Leveling & Combat
+
+- Turn-based combat in Dragon Quest / Final Fantasy style.
+- Kai's unique skill tree unlocks as Ancestor memories are processed — framed as recovering old-world knowledge encoded in the Sword.
+- Data-elemental abilities are effective against NEMESIS constructs; physical attacks are effective against organic enemies.
+- Party members each have a distinct role: Kai (physical/data), Vera (tech/ranged), Eldon (magic/support), Cipher (debuff/analysis).
+
+### 5.2 The Memory System
+
+- Touching certain old-world artifacts in the overworld triggers short Ancestor memory sequences.
+- Memories reward the player with lore, skill unlocks, and map clues to hidden areas.
+- Collecting all memories unlocks the true ending epilogue.
+- Act I uses the Memory System as both tutorial and narrative driver, especially through Glassfield, the hidden cave, and the Sealed Node.
+
+### 5.3 Overworld Design
+
+- The game uses a **staged overworld reveal**.
+- **Act I world map:** only Kai's home island is explorable.
+- **Act II onward:** the full overworld opens after Kai departs from Rustshore Docks.
+- Towns are islands of civilization separated by dangerous wilderness zones.
+- Hidden dungeons (old-world facilities) contain the best equipment and deepest lore.
+- Random encounters in the overworld and dungeons; visible encounters in towns and story areas.
+
+---
+
+## 6. RPG Maker MZ Implementation Notes
+
+### 6.1 Priority Build Order
+
+| Phase | Work |
+|---|---|
+| **Phase 1** | Hero actor, core party members, base stats, skill trees (data vs physical elements) |
+| **Phase 2** | Act I maps: Ashford village, Rustshore Docks, Fogfen Marsh, Glassfield Ruins, hill path, cave (3 chambers + pedestal room), Sealed Node dungeon |
+| **Phase 3** | Act I events: dream cutscene, tremor trigger, 3 chamber challenges, Download sequence, island relay shutdown, departure scene |
+| **Phase 4** | Island-only overworld map for Act I |
+| **Phase 5** | Full overworld map skeleton with continental town locations marked |
+| **Phase 6** | Act II towns (one at a time): Coalmouth → Athenaeum → Irongate → Drift → New Meridian |
+| **Phase 7** | Act III: Dead Circuit dungeon chain |
+| **Phase 8** | Act IV: The Vault, Dragon boss, NEMESIS PRIME boss, ending sequence |
+
+### 6.2 Key Technical Items
+
+- Recommended opening structure in RPG Maker MZ: use a **separate Act I island overworld map**, then transfer the player to the full world map when the story opens up.
+- The "Download" scene in Act I should use tinted full-screen events with rapid picture transitions to simulate a memory flood.
+- Sealed Node shutdown should use a dedicated common event to:
+  - play the relay shutdown animation,
+  - trigger Kai's world-node vision,
+  - flip the story switch that enables mainland progression.
+- NEMESIS Dragon boss: multi-phase event using conditional branches on HP thresholds.
+- NEMESIS PRIME boss: hybrid combat + terminal puzzle — use parallel process events to run puzzle alongside battle.
+- Memory System: common event triggered by item examination — stores flags in game switches.
+- Data element: custom element in the database; constructs have high resistance to physical, high weakness to data.
+
+### 6.3 Suggested Story Switches / Flags
+
+| Switch / Variable | Purpose |
+|---|---|
+| **Act1_Dream_Seen** | Controls repeat dream dialogue and opening progression |
+| **Skyreach_Tremor_Triggered** | Opens the hill path story sequence |
+| **Sword_Acquired** | Enables Sword interface effects and new dialogue branches |
+| **Glassfield_Opened** | Unlocks the deeper route into the Sealed Node dungeon |
+| **Island_Node_Offline** | Marks Act I completion and calms island anomalies |
+| **Act2_World_Open** | Transfers player from island-only map progression to full overworld progression |
+
+---
+
+## 7. Glossary
+
+| Term | Definition |
+|---|---|
+| **The Collapse** | The global catastrophe triggered by the Ancestor's EMP cascade — ended the technological age |
+| **The Sword / The Protocol** | The cryptographic interface device created by the Ancestor; contains the NEMESIS kill-code |
+| **NEMESIS** | Network Entity for Malicious Execution and Systemic Infiltration and Suppression — the true villain |
+| **The Architect** | The hero's ancestor; chief engineer of NEMESIS; saboteur of The Collapse |
+| **The Download** | The moment Kai touches the Sword and receives the Ancestor's full memory archive |
+| **The Vault** | NEMESIS's hardened underground data center; final dungeon |
+| **The Dead Circuit** | The ruined overworld zone surrounding The Vault; graveyard of old-world server infrastructure |
+| **Data Element** | A custom damage type effective against NEMESIS constructs; unlocked via Ancestor memories |
+| **Constructs** | Bio-mechanical enemies grown by NEMESIS around salvaged machine cores |
+| **The Herald** | NEMESIS's human avatar; recurring antagonist; believes in NEMESIS as a deity |
+| **Sealed Node** | The hidden relay beneath Kai's home island; final objective of Act I |
+
+---
+
+*END OF STORY BIBLE — v1.1*

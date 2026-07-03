@@ -18,6 +18,7 @@ relationships:
     - IMP-HOM-002
     - IMP-HOM-003
     - IMP-HOM-010
+    - ATLAS-TEC-055
 ---
 
 # Implementation Packet: Build Skyreach and Hidden Cave Screens
@@ -72,6 +73,7 @@ This packet builds the path from Ashford's northern route through Skyreach Hill,
 - Three trials set their individual switches.
 - Sword pedestal requires all three trial switches.
 - Sword event sets `J1_Sword_Obtained` and `Archive_Recovery_Percent = 3`.
+- Event pages follow `ATLAS-TEC-055`.
 
 ---
 

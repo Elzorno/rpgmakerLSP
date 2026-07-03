@@ -1,5 +1,6 @@
 ---
 atlas_id: ATLAS-FND-001
+title: Atlas Operating System
 status: Draft
 version: 0.1
 canonical: true

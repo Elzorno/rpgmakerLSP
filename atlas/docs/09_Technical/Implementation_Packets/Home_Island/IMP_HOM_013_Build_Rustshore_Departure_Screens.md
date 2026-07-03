@@ -16,6 +16,7 @@ relationships:
     - IMP-HOM-002
     - IMP-HOM-004
     - IMP-HOM-012
+    - ATLAS-TEC-055
 ---
 
 # Implementation Packet: Build Rustshore Departure Screens
@@ -60,6 +61,7 @@ Create the screen-level production plan for Rustshore Docks and the Journey I to
 - Departure asks for confirmation.
 - Departure sets `Current_Journey = 2`.
 - Transfer destination should point to the first Journey II implementation target when available.
+- Event pages follow `ATLAS-TEC-055`.
 
 ---
 

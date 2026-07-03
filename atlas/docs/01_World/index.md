@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-WLD-000
+atlas_id: LEGACY-ATLAS-WLD-000
 title: World Overview
 status: Draft
 version: 0.1

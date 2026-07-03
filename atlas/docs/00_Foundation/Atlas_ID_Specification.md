@@ -1,5 +1,6 @@
 ---
 atlas_id: ATLAS-FND-003
+title: Atlas ID Specification
 status: Draft
 version: 0.1
 canonical: true

@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-AI-000
+atlas_id: LEGACY-ATLAS-AI-000
 title: AI Workflow Overview
 status: Draft
 version: 0.1

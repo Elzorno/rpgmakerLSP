@@ -22,3 +22,16 @@ Use this table to claim work before editing project files.
 | T010 | Codex | Done | data/System.json, data/Actors.json, img/sv_enemies/, .agents/ | Restore battle battler images from database | 2026-06-30 08:52 ET |
 | T011 | Codex | Done | js/plugins/LSP_BattleActorPositions.js, js/plugins.js, .agents/ | Move side-view party battlers to the right side of battle scenes | 2026-06-30 09:08 ET |
 | T012 | Codex | Done | js/plugins/LSP_BattleActorPositions.js, js/plugins.js, .agents/ | Re-enable battle actor position plugin and improve party centering | 2026-06-30 19:45 ET |
+| T013 | Codex | Done | atlas-tools/validator/atlas_validate.py, atlas-tools/reports/, .agents/ | Implement initial Atlas Markdown frontmatter validator | 2026-07-03 11:31 ET |
+| T014 | Codex | Done | atlas/docs/**/*.md, atlas-tools/reports/, .agents/ | WO-0002 Atlas validation cleanup, structural only | 2026-07-03 11:48 ET |
+| T015 | Codex | Done | atlas-tools/templates/, atlas-tools/generators/, atlas-tools/cli/atlas.py, atlas/workorders/, .agents/ | Implement Atlas work-order generation workflow | 2026-07-03 11:53 ET |
+| T016 | Codex | Done | atlas/workorders/, atlas-tools/generators/workorder_next.py, atlas-tools/cli/atlas.py, .agents/ | WO-0003 work order numbering and queue hygiene | 2026-07-03 12:03 ET |
+| T017 | Codex | Done | atlas-tools/generators/workorder_next.py, atlas/workorders/, .agents/ | WO-0005 intelligent work order planning engine | 2026-07-03 12:14 ET |
+| T018 | Codex | Done | atlas/planning/, atlas-tools/generators/workorder_next.py, atlas/workorders/, .agents/ | WO-0006 externalize planner candidate queue | 2026-07-03 12:23 ET |
+| T019 | Codex | Done | atlas/docs/09_Technical/Truth_Layer_Diagram.md, .agents/ | Execute WO-0005 Truth Layer Diagram | 2026-07-03 12:27 ET |
+| T020 | Codex | Done | atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_014_Build_Rustshore_Docks.md, atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_015_Build_Fogfen_Marsh.md, atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_016_Build_Home_Island_Routes.md, .agents/ | Execute WO-0006 Home Island gap implementation packets | 2026-07-03 12:39 ET |
+| T021 | Codex | Done | atlas/docs/02_World/Screens/Home_Island/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/IMP_HOM_015_Build_Fogfen_Marsh.md, atlas/docs/09_Technical/Flow/Home_Island_Screen_Flow.md, atlas/docs/09_Technical/Traceability/Home_Island_Object_Traceability_Matrix.md, atlas/docs/09_Technical/Registries/, .agents/ | Execute WO-0007 Fogfen screen object specification | 2026-07-03 12:43 ET |
+| T022 | Codex | Done | atlas/docs/09_Technical/Playtest/, .agents/ | WO-0008 Home Island vertical slice readiness review | 2026-07-03 13:37 ET |
+| T023 | Codex | Done | atlas/docs/09_Technical/, .agents/ | WO-0009 RPG Maker event specification standard | 2026-07-03 13:44 ET |
+| T024 | Codex | Done | atlas/docs/09_Technical/Event_Specs/, atlas/docs/09_Technical/Registries/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/, atlas/docs/09_Technical/Playtest/, .agents/ | WO-0010 Home Island executable event specs | 2026-07-03 13:47 ET |
+| T025 | Codex | Done | repository | Review repo and commit accumulated changes | 2026-07-03 13:56 ET |

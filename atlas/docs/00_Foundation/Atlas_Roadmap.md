@@ -1,5 +1,6 @@
 ---
 atlas_id: ATLAS-FND-002
+title: Atlas Roadmap
 status: Draft
 version: 0.1
 canonical: true

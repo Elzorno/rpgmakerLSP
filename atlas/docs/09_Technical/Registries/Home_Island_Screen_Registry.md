@@ -47,6 +47,8 @@ The Screen Registry answers:
 | SCR-HOM-SND-004 | Relay Node Seven Core | LOC-SND-001 | DGN_SealedNode_RelayCore | IMP-HOM-012 | Draft |
 | SCR-HOM-RST-001 | Rustshore Docks | LOC-RST-001 | TWN_Rustshore_Docks | IMP-HOM-013 | Draft |
 | SCR-HOM-RST-002 | Mainland Departure | LOC-RST-001 | CUT_Mainland_Departure | IMP-HOM-013 | Draft |
+| SCR-HOM-FOG-001 | Fogfen Marsh Field | LOC-FOG-001 | FLD_Fogfen_Marsh_Field | IMP-HOM-015 | Draft |
+| SCR-HOM-FOG-002 | Deeper Marsh Pocket | LOC-FOG-001 | FLD_Fogfen_Deeper_Marsh_Pocket | IMP-HOM-015 | Draft |
 
 ---
 
@@ -58,8 +60,7 @@ Home Island currently has screen-level coverage for:
 - Sword awakening route,
 - Glassfield and Sealed Node climax,
 - Rustshore departure route.
-
-Fogfen Marsh is intentionally not yet screen-complete. It remains optional content until Home Island core progression is locked.
+- optional Fogfen Marsh exploration branch.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-ART-000
+atlas_id: LEGACY-ATLAS-ART-000
 title: Art Overview
 status: Draft
 version: 0.1

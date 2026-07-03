@@ -1,5 +1,5 @@
 ---
-atlas_id: ATLAS-GME-000
+atlas_id: LEGACY-ATLAS-GME-000
 title: Gameplay Overview
 status: Draft
 version: 0.1
