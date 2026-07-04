@@ -1852,3 +1852,25 @@ Notes:
 - Prototype blueprint targets canonical first Home Island exterior screen `SCR-HOM-ASH-001` / Ashford Exterior.
 - The framework separates generation from export and keeps exporters from owning layout decisions.
 - The prototype remains engine-independent and does not generate RPG Maker `MapXXX.json`.
+
+## 2026-07-04 17:50 ET - Codex handoff - T055
+
+Task:
+
+- Created the next build order: Generate First Real Map From Atlas Blueprint.
+
+Atlas repository changes:
+
+- Added `atlas/workorders/WO-0021-generate-first-real-map-from-atlas-blueprint.md`.
+- Regenerated `atlas-tools/reports/workorder_audit_report.md`.
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py workorder-audit`; result was 21 work-order files, 0 malformed entries, 0 duplicate numbers, 0 missing numbers, and `WO-0021` as the single open/proposed work order.
+
+Notes:
+
+- The build order targets `SCR-HOM-ASH-001` / Ashford Exterior.
+- It requires a guarded game-side generator/exporter and one real RPG Maker map output from `atlas-tools/mapgen/prototype/SCR-HOM-ASH-001.blueprint.json`.
+- It explicitly forbids generating additional maps, changing Atlas IDs, modifying story/gameplay, or writing engine-specific IDs into the blueprint.
