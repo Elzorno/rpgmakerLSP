@@ -1321,3 +1321,32 @@ Notes:
 - The legacy `rpgmakerLSP/data/*.json`, maps, events, assets, and project settings were not modified.
 - The clean skeleton copies RPG Maker runtime/support asset directories so the project has usable placeholder assets, but map/database rows were generated from Atlas reservations rather than copied from legacy gameplay data.
 - Recommended next step: BUILD-0002 read-only map/event parser to reduce the remaining unknown audit findings before introducing a guarded writer.
+
+## 2026-07-04 11:20 ET - Codex handoff - T040
+
+Task:
+
+- Executed BUILD-0002 Read-Only Map/Event Parser For Atlas Audit.
+
+Game repository changes:
+
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` to parse map files, map events, transfer commands, switch names, variable names, common events, and troop event pages.
+- Updated `tools/atlas-import/README.md`.
+- Regenerated `reports/atlas-import/home-island-data-readiness-audit.md`.
+- Added `reports/atlas-import/build-0002-clean-skeleton-event-audit.md`.
+- Added `reports/atlas-import/build-0002-map-event-parser-report.md`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the legacy game repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran legacy audit; totals are now found=22, missing=91, warning=39, unknown=1.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are now found=89, missing=62, warning=1, unknown=1.
+
+Notes:
+
+- The only remaining unknown is Atlas `Animation None`, which intentionally means no RPG Maker animation is required.
+- The clean skeleton now has concrete missing rows for 31 Atlas event placeholders and 30 transfer events.
+- Recommended next step: BUILD-0003 generate Atlas event and transfer placeholders in the clean skeleton.

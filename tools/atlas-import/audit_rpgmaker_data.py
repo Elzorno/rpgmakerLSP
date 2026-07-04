@@ -8,6 +8,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 import json
 from pathlib import Path
+import re
 import sys
 
 
@@ -84,6 +85,10 @@ def norm(value: object) -> str:
     return str(value or "").strip().lower()
 
 
+def compact_norm(value: object) -> str:
+    return re.sub(r"[^a-z0-9]+", "", norm(value).removeprefix("ce_").removeprefix("ce-"))
+
+
 def row_by_id(rows: list, row_id: str) -> dict | None:
     try:
         target = int(row_id)
@@ -101,6 +106,48 @@ def rows_by_name(rows: list) -> dict[str, list[dict]]:
         if isinstance(row, dict) and row.get("name"):
             index[norm(row["name"])].append(row)
     return index
+
+
+def map_info_by_screen(home: dict, map_infos: list) -> dict[str, dict]:
+    by_name = rows_by_name(map_infos)
+    result = {}
+    for screen in home["screens"]:
+        matches = by_name.get(norm(screen["rpg_maker_map_name"]), [])
+        if matches:
+            result[screen["screen_id"]] = matches[0]
+    return result
+
+
+def load_maps(data_dir: Path, map_infos: list) -> dict[int, dict]:
+    maps = {}
+    for row in map_infos:
+        if not isinstance(row, dict) or not row.get("id"):
+            continue
+        map_id = int(row["id"])
+        path = data_dir / f"Map{map_id:03d}.json"
+        if path.exists():
+            maps[map_id] = load_json(path)
+    return maps
+
+
+def iter_events(map_data: dict):
+    for event in map_data.get("events", []):
+        if isinstance(event, dict):
+            yield event
+
+
+def iter_page_commands(event: dict):
+    for page_index, page in enumerate(event.get("pages", []), 1):
+        for command in page.get("list", []):
+            if isinstance(command, dict):
+                yield page_index, command
+
+
+def event_has_nonempty_commands(page: dict) -> bool:
+    for command in page.get("list", []):
+        if isinstance(command, dict) and command.get("code") not in {0, None}:
+            return True
+    return False
 
 
 def audit_maps(home: dict, map_infos: list) -> list[Finding]:
@@ -193,15 +240,6 @@ def audit_troop_details(home: dict, troops: list) -> list[Finding]:
     findings: list[Finding] = []
     for troop in home["combat_database"]["troops"]:
         if "name" not in troop:
-            findings.append(
-                Finding(
-                    "Troop Event Pages",
-                    troop["troop_id"],
-                    f"Troop {troop['troop_id']} event page {troop.get('page')}",
-                    UNKNOWN,
-                    "Troop event page command parsing is not implemented in WO-0020",
-                )
-            )
             continue
         row_id = troop["troop_id"]
         name = troop["name"]
@@ -213,6 +251,59 @@ def audit_troop_details(home: dict, troops: list) -> list[Finding]:
             findings.append(Finding("Troop Details", row_id, label, FOUND, "Troop row name matches"))
         else:
             findings.append(Finding("Troop Details", row_id, label, WARNING, f"Troop row name is {row.get('name')!r}"))
+    return findings
+
+
+def audit_troop_event_pages(home: dict, troops: list) -> list[Finding]:
+    findings: list[Finding] = []
+    for troop in home["combat_database"]["troops"]:
+        if "name" in troop:
+            continue
+
+        troop_id = troop["troop_id"]
+        page = troop.get("page")
+        commands = troop.get("commands", "")
+        label = f"Troop {troop_id} event page {page}"
+
+        if troop_id == "1-5":
+            rows = [row_by_id(troops, str(index)) for index in range(1, 6)]
+            missing_ids = [str(index) for index, row in zip(range(1, 6), rows) if row is None]
+            if missing_ids:
+                findings.append(Finding("Troop Event Pages", troop_id, label, MISSING, f"Missing troop row(s): {', '.join(missing_ids)}"))
+                continue
+            with_commands = []
+            for index, row in zip(range(1, 6), rows):
+                pages = row.get("pages", []) if isinstance(row, dict) else []
+                if any(event_has_nonempty_commands(page_row) for page_row in pages):
+                    with_commands.append(str(index))
+            if with_commands:
+                findings.append(Finding("Troop Event Pages", troop_id, label, WARNING, f"Expected no troop events, but commands exist on troop(s): {', '.join(with_commands)}"))
+            else:
+                findings.append(Finding("Troop Event Pages", troop_id, label, FOUND, "Troops 1-5 have no non-empty event page commands"))
+            continue
+
+        row = row_by_id(troops, troop_id)
+        if row is None:
+            findings.append(Finding("Troop Event Pages", troop_id, label, MISSING, "Troops.json row missing"))
+            continue
+
+        try:
+            page_index = int(page)
+        except (TypeError, ValueError):
+            findings.append(Finding("Troop Event Pages", troop_id, label, WARNING, f"Unsupported page value {page!r}"))
+            continue
+
+        pages = row.get("pages", [])
+        if page_index < 1 or page_index > len(pages):
+            findings.append(Finding("Troop Event Pages", troop_id, label, MISSING, f"Expected page {page_index}; troop has {len(pages)} page(s)"))
+            continue
+
+        page_row = pages[page_index - 1]
+        if "Optional" in commands and not event_has_nonempty_commands(page_row):
+            findings.append(Finding("Troop Event Pages", troop_id, label, WARNING, "Optional troop page exists but contains no placeholder commands"))
+        else:
+            findings.append(Finding("Troop Event Pages", troop_id, label, FOUND, "Expected troop page exists and is parseable"))
+
     return findings
 
 
@@ -265,48 +356,114 @@ def audit_animations(home: dict, animations: list) -> list[Finding]:
     return findings
 
 
-def audit_non_machine_checkable(home: dict) -> list[Finding]:
+def audit_atlas_events(home: dict, maps: dict[int, dict], screen_maps: dict[str, dict]) -> list[Finding]:
+    findings: list[Finding] = []
+    for event in home["events"]:
+        screen = event["screen"]
+        expected_name = event["event"]
+        screen_map = screen_maps.get(screen)
+        label = f"{screen} - {expected_name}"
+        if not screen_map:
+            findings.append(Finding("Atlas Events", event["event_id"], label, MISSING, "Source screen map is missing from MapInfos.json"))
+            continue
+        map_id = int(screen_map["id"])
+        map_data = maps.get(map_id)
+        if not map_data:
+            findings.append(Finding("Atlas Events", event["event_id"], label, MISSING, f"Map{map_id:03d}.json is missing"))
+            continue
+        expected_key = compact_norm(expected_name)
+        matches = [
+            found_event
+            for found_event in iter_events(map_data)
+            if compact_norm(found_event.get("name", "")) == expected_key
+        ]
+        if matches:
+            event_ids = ", ".join(str(found_event.get("id")) for found_event in matches)
+            findings.append(Finding("Atlas Events", event["event_id"], label, FOUND, f"Map {map_id} event id(s): {event_ids}"))
+        else:
+            findings.append(Finding("Atlas Events", event["event_id"], label, MISSING, f"No event named {expected_name!r} on map {map_id}"))
+    return findings
+
+
+def audit_transfers(home: dict, maps: dict[int, dict], screen_maps: dict[str, dict]) -> list[Finding]:
     findings: list[Finding] = []
     for transfer in home["transfers"]:
-        findings.append(
-            Finding(
-                "Transfers",
-                transfer["transfer_id"],
-                f"{transfer['from']} -> {transfer['to']}",
-                UNKNOWN,
-                "Requires map event command parsing; not implemented in WO-0020",
-            )
-        )
-    for event in home["events"]:
-        findings.append(
-            Finding(
-                "Atlas Events",
-                event["event_id"],
-                f"{event['screen']} - {event['event']}",
-                UNKNOWN,
-                "Requires map event page parsing; not implemented in WO-0020",
-            )
-        )
+        source = screen_maps.get(transfer["from"])
+        target = screen_maps.get(transfer["to"])
+        label = f"{transfer['from']} -> {transfer['to']}"
+        if not source:
+            findings.append(Finding("Transfers", transfer["transfer_id"], label, MISSING, "Source screen map is missing from MapInfos.json"))
+            continue
+        if not target:
+            findings.append(Finding("Transfers", transfer["transfer_id"], label, MISSING, "Target screen map is missing from MapInfos.json"))
+            continue
+        source_id = int(source["id"])
+        target_id = int(target["id"])
+        source_map = maps.get(source_id)
+        if not source_map:
+            findings.append(Finding("Transfers", transfer["transfer_id"], label, MISSING, f"Map{source_id:03d}.json is missing"))
+            continue
+
+        matches = []
+        for event in iter_events(source_map):
+            for page_index, command in iter_page_commands(event):
+                if command.get("code") != 201:
+                    continue
+                parameters = command.get("parameters", [])
+                try:
+                    command_target_id = int(parameters[1]) if len(parameters) >= 2 else 0
+                except (TypeError, ValueError):
+                    continue
+                if command_target_id == target_id:
+                    matches.append(f"event {event.get('id')} page {page_index}")
+
+        if matches:
+            findings.append(Finding("Transfers", transfer["transfer_id"], label, FOUND, f"Map {source_id} transfer command(s): {', '.join(matches)}"))
+        else:
+            findings.append(Finding("Transfers", transfer["transfer_id"], label, MISSING, f"No transfer command from map {source_id} to map {target_id}"))
+    return findings
+
+
+def audit_trial_state(home: dict, system: dict) -> list[Finding]:
+    findings: list[Finding] = []
+    switch_names = {norm(name): index for index, name in enumerate(system.get("switches", [])) if name}
+    variable_names = {norm(name): index for index, name in enumerate(system.get("variables", [])) if name}
     for switch in home["trial_mechanics"]["switches"]:
-        findings.append(
-            Finding(
-                "Trial State",
-                switch,
-                switch,
-                UNKNOWN,
-                "RPG Maker switch names are stored in System.json arrays and require future range policy audit",
-            )
-        )
+        index = switch_names.get(norm(switch))
+        if index is None:
+            findings.append(Finding("Trial State", switch, switch, MISSING, "Switch name not found in System.json"))
+        else:
+            findings.append(Finding("Trial State", switch, switch, FOUND, f"System.json switch {index}"))
     for variable in home["trial_mechanics"]["variables"]:
-        findings.append(
-            Finding(
-                "Trial State",
-                variable,
-                variable,
-                UNKNOWN,
-                "RPG Maker variable names are stored in System.json arrays and require future range policy audit",
-            )
-        )
+        index = variable_names.get(norm(variable))
+        if index is None:
+            findings.append(Finding("Trial State", variable, variable, MISSING, "Variable name not found in System.json"))
+        else:
+            findings.append(Finding("Trial State", variable, variable, FOUND, f"System.json variable {index}"))
+    return findings
+
+
+def audit_common_events(home: dict, common_events: list) -> list[Finding]:
+    findings: list[Finding] = []
+    named_events = [
+        row
+        for row in common_events
+        if isinstance(row, dict) and row.get("name")
+    ]
+    for candidate in home["common_event_candidates"]:
+        expected_name = candidate["name"]
+        expected_keys = {compact_norm(expected_name), compact_norm(candidate["candidate_id"])}
+        matches = [
+            row
+            for row in named_events
+            if any(expected_key in compact_norm(row.get("name", "")) for expected_key in expected_keys)
+        ]
+        label = f"{candidate['candidate_id']} - {expected_name}"
+        if matches:
+            ids = ", ".join(str(row.get("id")) for row in matches)
+            findings.append(Finding("Common Events", candidate["candidate_id"], label, FOUND, f"CommonEvents.json id(s): {ids}"))
+        else:
+            findings.append(Finding("Common Events", candidate["candidate_id"], label, MISSING, "No common event with matching name"))
     return findings
 
 
@@ -329,17 +486,24 @@ def run_audit(payload: dict, project_root: Path = ROOT) -> list[Finding]:
             "Tilesets.json",
             "Animations.json",
             "System.json",
+            "CommonEvents.json",
         }
     }
+    screen_maps = map_info_by_screen(home, data_files["MapInfos.json"])
+    maps = load_maps(data_dir, data_files["MapInfos.json"])
 
     findings: list[Finding] = []
     findings.extend(audit_maps(home, data_files["MapInfos.json"]))
     findings.extend(audit_database_allocation(home, data_files))
     findings.extend(audit_skill_details(home, data_files["Skills.json"]))
     findings.extend(audit_troop_details(home, data_files["Troops.json"]))
+    findings.extend(audit_troop_event_pages(home, data_files["Troops.json"]))
     findings.extend(audit_tilesets(home, data_files["Tilesets.json"]))
     findings.extend(audit_animations(home, data_files["Animations.json"]))
-    findings.extend(audit_non_machine_checkable(home))
+    findings.extend(audit_common_events(home, data_files["CommonEvents.json"]))
+    findings.extend(audit_trial_state(home, data_files["System.json"]))
+    findings.extend(audit_atlas_events(home, maps, screen_maps))
+    findings.extend(audit_transfers(home, maps, screen_maps))
     return findings
 
 
@@ -411,7 +575,7 @@ def render_report(payload: dict, findings: list[Finding]) -> str:
             "",
             "- `missing` means the expected Atlas row or map name was not found in the current RPG Maker data.",
             "- `present with warning` usually means an ID exists but its name differs from Atlas, or the expected name exists at a different ID.",
-            "- `not machine-checkable yet` means the export expectation requires parsing RPG Maker map events, event commands, switch ranges, or variable ranges beyond this work order.",
+            "- `not machine-checkable yet` is reserved for export expectations that explicitly do not map to an RPG Maker database row, such as `Animation None`.",
             "- Write-capable import behavior remains out of scope.",
             "",
         ]

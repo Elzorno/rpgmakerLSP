@@ -48,6 +48,8 @@ reports/atlas-import/home-island-data-readiness-audit.md
 
 The audit compares Atlas export expectations against current RPG Maker `data/*.json` files and reports found, missing, warning, and not-machine-checkable items. It is read-only.
 
+The audit parses database rows, map names, map event names, transfer event commands, switch names, variable names, common events, and troop event pages.
+
 To audit a different RPG Maker project root, pass `--project-root`:
 
 ```bash

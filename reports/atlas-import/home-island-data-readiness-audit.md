@@ -14,11 +14,11 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 ## Summary
 
-- Found: 21
-- Missing: 17
-- Present with warning: 38
-- Not machine-checkable yet: 71
-- Total findings: 147
+- Found: 22
+- Missing: 91
+- Present with warning: 39
+- Not machine-checkable yet: 1
+- Total findings: 153
 
 ## Category Summary
 
@@ -27,8 +27,9 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 | Actor | 1 | 0 | 0 | 0 |
 | Animations | 14 | 0 | 0 | 1 |
 | Armor | 0 | 0 | 1 | 0 |
-| Atlas Events | 0 | 0 | 0 | 31 |
+| Atlas Events | 0 | 31 | 0 | 0 |
 | Class | 0 | 0 | 1 | 0 |
+| Common Events | 0 | 6 | 0 | 0 |
 | Enemy | 0 | 0 | 4 | 0 |
 | Item | 0 | 0 | 1 | 0 |
 | Key Item | 0 | 1 | 0 | 0 |
@@ -37,11 +38,11 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 | Skill Details | 0 | 0 | 7 | 0 |
 | State | 0 | 0 | 4 | 0 |
 | Tilesets | 5 | 0 | 0 | 0 |
-| Transfers | 0 | 0 | 0 | 30 |
-| Trial State | 0 | 0 | 0 | 6 |
+| Transfers | 0 | 30 | 0 | 0 |
+| Trial State | 0 | 6 | 0 | 0 |
 | Troop | 0 | 0 | 6 | 0 |
 | Troop Details | 0 | 0 | 6 | 0 |
-| Troop Event Pages | 0 | 0 | 0 | 3 |
+| Troop Event Pages | 1 | 1 | 1 | 0 |
 | Weapon | 0 | 0 | 2 | 0 |
 
 ## Findings
@@ -82,43 +83,54 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| not machine-checkable yet | Atlas Events | `EVT-HOM-001` | SCR-HOM-ASH-002 - Player Start | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-002` | SCR-HOM-ASH-002 - Elara Intro Dialogue | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-003` | SCR-HOM-ASH-001 - Child Near Old Panel | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-004` | SCR-HOM-ASH-001 - Farmer With Warm Stones | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-005` | SCR-HOM-ASH-001 - Skyreach Joker | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-006` | SCR-HOM-ASH-001 - Dock Messenger | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-007` | SCR-HOM-ASH-001 - Hidden Item | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-008` | SCR-HOM-ASH-003 - Shopkeeper | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-009` | SCR-HOM-ASH-001 - Tremor Trigger | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-010` | SCR-HOM-SKY-001 - Skyreach Gate | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-011` | SCR-HOM-HCV-001 - Hidden Cave First Entry | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-012` | SCR-HOM-HCV-002 - Body Trial | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-013` | SCR-HOM-HCV-002 - Mind Trial | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-014` | SCR-HOM-HCV-002 - Heart Trial | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-015` | SCR-HOM-HCV-002 - Sanctum Gate | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-016` | SCR-HOM-HCV-003 - Sword Pedestal | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-017` | SCR-HOM-GLS-001 - Glassfield Seal | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-018` | SCR-HOM-GLS-001 - Surface Fragment | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-019` | SCR-HOM-SND-001 - Sealed Node First Entry | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-020` | SCR-HOM-SND-002 - Core Path Door | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-021` | SCR-HOM-SND-003 - Node Seven Guardian | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-022` | SCR-HOM-SND-004 - Relay Core | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-023` | SCR-HOM-RST-001 - Dockmaster | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-024` | SCR-HOM-RST-001 - Lighthouse Examine | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-025` | SCR-HOM-RST-001 - Boat Transfer | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-026` | SCR-HOM-RST-002 - Departure Sequence | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-027` | SCR-HOM-FOG-001 - Fogfen Entry / Exit Transfer | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-028` | SCR-HOM-FOG-001 - Hidden Item Landmark | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-029` | SCR-HOM-FOG-001 - Signal-Tick Reed Pool | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-030` | SCR-HOM-FOG-002 - Deeper Marsh Return Transfer | Requires map event page parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Atlas Events | `EVT-HOM-031` | SCR-HOM-FOG-002 - Signal Pool / Cable Cluster Examine | Requires map event page parsing; not implemented in WO-0020 |
+| missing | Atlas Events | `EVT-HOM-001` | SCR-HOM-ASH-002 - Player Start | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-002` | SCR-HOM-ASH-002 - Elara Intro Dialogue | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-003` | SCR-HOM-ASH-001 - Child Near Old Panel | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-004` | SCR-HOM-ASH-001 - Farmer With Warm Stones | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-005` | SCR-HOM-ASH-001 - Skyreach Joker | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-006` | SCR-HOM-ASH-001 - Dock Messenger | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-007` | SCR-HOM-ASH-001 - Hidden Item | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-008` | SCR-HOM-ASH-003 - Shopkeeper | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-009` | SCR-HOM-ASH-001 - Tremor Trigger | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-010` | SCR-HOM-SKY-001 - Skyreach Gate | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-011` | SCR-HOM-HCV-001 - Hidden Cave First Entry | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-012` | SCR-HOM-HCV-002 - Body Trial | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-013` | SCR-HOM-HCV-002 - Mind Trial | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-014` | SCR-HOM-HCV-002 - Heart Trial | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-015` | SCR-HOM-HCV-002 - Sanctum Gate | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-016` | SCR-HOM-HCV-003 - Sword Pedestal | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-017` | SCR-HOM-GLS-001 - Glassfield Seal | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-018` | SCR-HOM-GLS-001 - Surface Fragment | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-019` | SCR-HOM-SND-001 - Sealed Node First Entry | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-020` | SCR-HOM-SND-002 - Core Path Door | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-021` | SCR-HOM-SND-003 - Node Seven Guardian | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-022` | SCR-HOM-SND-004 - Relay Core | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-023` | SCR-HOM-RST-001 - Dockmaster | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-024` | SCR-HOM-RST-001 - Lighthouse Examine | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-025` | SCR-HOM-RST-001 - Boat Transfer | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-026` | SCR-HOM-RST-002 - Departure Sequence | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-027` | SCR-HOM-FOG-001 - Fogfen Entry / Exit Transfer | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-028` | SCR-HOM-FOG-001 - Hidden Item Landmark | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-029` | SCR-HOM-FOG-001 - Signal-Tick Reed Pool | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-030` | SCR-HOM-FOG-002 - Deeper Marsh Return Transfer | Source screen map is missing from MapInfos.json |
+| missing | Atlas Events | `EVT-HOM-031` | SCR-HOM-FOG-002 - Signal Pool / Cable Cluster Examine | Source screen map is missing from MapInfos.json |
 
 ### Class
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
 | present with warning | Class | `CHR-KAI-001` | Class 1 - Sword Bearer | ID 1 is named 'Swordsman'; expected name not found elsewhere |
+
+### Common Events
+
+| Status | Category | Atlas / Expected ID | Expected | Detail |
+|---|---|---|---|---|
+| missing | Common Events | `CE-ARCHIVE-MSG` | CE-ARCHIVE-MSG - Archive Message Display | No common event with matching name |
+| missing | Common Events | `CE-SWORD-AUTH` | CE-SWORD-AUTH - Sword Authentication | No common event with matching name |
+| missing | Common Events | `CE-RELAY-RESOLVE` | CE-RELAY-RESOLVE - Relay Resolution | No common event with matching name |
+| missing | Common Events | `CE-SCREEN-FADE` | CE-SCREEN-FADE - Screen Transition Helper | No common event with matching name |
+| missing | Common Events | `CE_Trial_Complete_Chime` | CE_Trial_Complete_Chime - Trial Completion Chime | No common event with matching name |
+| missing | Common Events | `CE_Trial_Reset` | CE_Trial_Reset - Trial Reset Feedback | No common event with matching name |
 
 ### Enemy
 
@@ -209,47 +221,47 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| not machine-checkable yet | Transfers | `TRN-HOM-001` | SCR-HOM-ASH-002 -> SCR-HOM-ASH-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-002` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-003` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-003 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-004` | SCR-HOM-ASH-003 -> SCR-HOM-ASH-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-005` | SCR-HOM-ASH-001 -> SCR-HOM-SKY-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-006` | SCR-HOM-SKY-001 -> SCR-HOM-ASH-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-007` | SCR-HOM-ASH-001 -> SCR-HOM-RST-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-008` | SCR-HOM-RST-001 -> SCR-HOM-ASH-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-009` | SCR-HOM-SKY-001 -> SCR-HOM-HCV-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-010` | SCR-HOM-HCV-001 -> SCR-HOM-SKY-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-011` | SCR-HOM-HCV-001 -> SCR-HOM-HCV-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-012` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-013` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-003 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-014` | SCR-HOM-HCV-003 -> SCR-HOM-HCV-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-015` | SCR-HOM-ASH-001 -> SCR-HOM-GLS-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-016` | SCR-HOM-GLS-001 -> SCR-HOM-ASH-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-017` | SCR-HOM-GLS-001 -> SCR-HOM-SND-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-018` | SCR-HOM-SND-001 -> SCR-HOM-GLS-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-019` | SCR-HOM-SND-001 -> SCR-HOM-SND-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-020` | SCR-HOM-SND-002 -> SCR-HOM-SND-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-021` | SCR-HOM-SND-002 -> SCR-HOM-SND-003 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-022` | SCR-HOM-SND-003 -> SCR-HOM-SND-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-023` | SCR-HOM-SND-003 -> SCR-HOM-SND-004 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-024` | SCR-HOM-SND-004 -> SCR-HOM-SND-003 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-025` | SCR-HOM-RST-001 -> SCR-HOM-RST-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-026` | SCR-HOM-RST-002 -> Journey II start | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-027` | SCR-HOM-ASH-001 -> SCR-HOM-FOG-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-028` | SCR-HOM-FOG-001 -> SCR-HOM-ASH-001 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-029` | SCR-HOM-FOG-001 -> SCR-HOM-FOG-002 | Requires map event command parsing; not implemented in WO-0020 |
-| not machine-checkable yet | Transfers | `TRN-HOM-030` | SCR-HOM-FOG-002 -> SCR-HOM-FOG-001 | Requires map event command parsing; not implemented in WO-0020 |
+| missing | Transfers | `TRN-HOM-001` | SCR-HOM-ASH-002 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-002` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-003` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-003 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-004` | SCR-HOM-ASH-003 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-005` | SCR-HOM-ASH-001 -> SCR-HOM-SKY-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-006` | SCR-HOM-SKY-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-007` | SCR-HOM-ASH-001 -> SCR-HOM-RST-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-008` | SCR-HOM-RST-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-009` | SCR-HOM-SKY-001 -> SCR-HOM-HCV-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-010` | SCR-HOM-HCV-001 -> SCR-HOM-SKY-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-011` | SCR-HOM-HCV-001 -> SCR-HOM-HCV-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-012` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-013` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-003 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-014` | SCR-HOM-HCV-003 -> SCR-HOM-HCV-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-015` | SCR-HOM-ASH-001 -> SCR-HOM-GLS-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-016` | SCR-HOM-GLS-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-017` | SCR-HOM-GLS-001 -> SCR-HOM-SND-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-018` | SCR-HOM-SND-001 -> SCR-HOM-GLS-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-019` | SCR-HOM-SND-001 -> SCR-HOM-SND-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-020` | SCR-HOM-SND-002 -> SCR-HOM-SND-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-021` | SCR-HOM-SND-002 -> SCR-HOM-SND-003 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-022` | SCR-HOM-SND-003 -> SCR-HOM-SND-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-023` | SCR-HOM-SND-003 -> SCR-HOM-SND-004 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-024` | SCR-HOM-SND-004 -> SCR-HOM-SND-003 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-025` | SCR-HOM-RST-001 -> SCR-HOM-RST-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-026` | SCR-HOM-RST-002 -> Journey II start | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-027` | SCR-HOM-ASH-001 -> SCR-HOM-FOG-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-028` | SCR-HOM-FOG-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-029` | SCR-HOM-FOG-001 -> SCR-HOM-FOG-002 | Source screen map is missing from MapInfos.json |
+| missing | Transfers | `TRN-HOM-030` | SCR-HOM-FOG-002 -> SCR-HOM-FOG-001 | Source screen map is missing from MapInfos.json |
 
 ### Trial State
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| not machine-checkable yet | Trial State | `J1_Trial_Body_Clear` | J1_Trial_Body_Clear | RPG Maker switch names are stored in System.json arrays and require future range policy audit |
-| not machine-checkable yet | Trial State | `J1_Trial_Mind_Clear` | J1_Trial_Mind_Clear | RPG Maker switch names are stored in System.json arrays and require future range policy audit |
-| not machine-checkable yet | Trial State | `J1_Trial_Heart_Clear` | J1_Trial_Heart_Clear | RPG Maker switch names are stored in System.json arrays and require future range policy audit |
-| not machine-checkable yet | Trial State | `Trial_Body_Attempts` | Trial_Body_Attempts | RPG Maker variable names are stored in System.json arrays and require future range policy audit |
-| not machine-checkable yet | Trial State | `Trial_Mind_SequenceStep` | Trial_Mind_SequenceStep | RPG Maker variable names are stored in System.json arrays and require future range policy audit |
-| not machine-checkable yet | Trial State | `Trial_Heart_IntentChoice` | Trial_Heart_IntentChoice | RPG Maker variable names are stored in System.json arrays and require future range policy audit |
+| missing | Trial State | `J1_Trial_Body_Clear` | J1_Trial_Body_Clear | Switch name not found in System.json |
+| missing | Trial State | `J1_Trial_Mind_Clear` | J1_Trial_Mind_Clear | Switch name not found in System.json |
+| missing | Trial State | `J1_Trial_Heart_Clear` | J1_Trial_Heart_Clear | Switch name not found in System.json |
+| missing | Trial State | `Trial_Body_Attempts` | Trial_Body_Attempts | Variable name not found in System.json |
+| missing | Trial State | `Trial_Mind_SequenceStep` | Trial_Mind_SequenceStep | Variable name not found in System.json |
+| missing | Trial State | `Trial_Heart_IntentChoice` | Trial_Heart_IntentChoice | Variable name not found in System.json |
 
 ### Troop
 
@@ -277,9 +289,9 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| not machine-checkable yet | Troop Event Pages | `1-5` | Troop 1-5 event page None | Troop event page command parsing is not implemented in WO-0020 |
-| not machine-checkable yet | Troop Event Pages | `10` | Troop 10 event page 1 | Troop event page command parsing is not implemented in WO-0020 |
-| not machine-checkable yet | Troop Event Pages | `10` | Troop 10 event page 2 | Troop event page command parsing is not implemented in WO-0020 |
+| found | Troop Event Pages | `1-5` | Troop 1-5 event page None | Troops 1-5 have no non-empty event page commands |
+| present with warning | Troop Event Pages | `10` | Troop 10 event page 1 | Optional troop page exists but contains no placeholder commands |
+| missing | Troop Event Pages | `10` | Troop 10 event page 2 | Expected page 2; troop has 1 page(s) |
 
 ### Weapon
 
@@ -292,5 +304,5 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 - `missing` means the expected Atlas row or map name was not found in the current RPG Maker data.
 - `present with warning` usually means an ID exists but its name differs from Atlas, or the expected name exists at a different ID.
-- `not machine-checkable yet` means the export expectation requires parsing RPG Maker map events, event commands, switch ranges, or variable ranges beyond this work order.
+- `not machine-checkable yet` is reserved for export expectations that explicitly do not map to an RPG Maker database row, such as `Animation None`.
 - Write-capable import behavior remains out of scope.
