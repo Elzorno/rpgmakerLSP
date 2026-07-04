@@ -1174,3 +1174,33 @@ Notes:
 
 - The game-side validator is read-only and does not mutate RPG Maker JSON, maps, events, assets, or project settings.
 - Recommended next work order: generate a read-only RPG Maker implementation checklist from the Atlas export before any importer writes to `data/*.json`.
+
+## 2026-07-04 10:38 ET - Codex handoff - T035
+
+Task:
+
+- Created and executed WO-0019 Home Island Implementation Checklist From Atlas Export.
+
+Atlas repository changes:
+
+- Added `atlas/workorders/WO-0019-home-island-implementation-checklist-from-export.md`.
+- Committed Atlas work-order record as `34b73eb docs(atlas): add WO-0019 implementation checklist work order`.
+
+Game repository changes:
+
+- Added read-only checklist generator at `tools/atlas-import/generate_implementation_checklist.py`.
+- Updated `tools/atlas-import/README.md`.
+- Generated `reports/atlas-import/home-island-implementation-checklist.md`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/generate_implementation_checklist.py tools/atlas-import/validate_atlas_export.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the game repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 tools/atlas-import/generate_implementation_checklist.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; wrote the 370-line checklist report.
+
+Notes:
+
+- The checklist generator writes Markdown only and does not mutate RPG Maker JSON, maps, events, assets, or project settings.
+- Recommended next work order: implement a read-only diff/audit that compares the checklist expectations against current RPG Maker `data/*.json` before any write-capable importer is considered.
