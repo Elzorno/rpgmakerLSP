@@ -1820,3 +1820,35 @@ Notes:
 
 - `WO-0003` and `WO-0004` remain intentionally ambiguous because they are duplicate governance-doc work orders with only partial output evidence.
 - No Atlas content, story, gameplay, or RPG Maker project files were changed.
+
+## 2026-07-04 17:32 ET - Codex handoff - T054
+
+Task:
+
+- Executed WO-0023 Atlas Procedural Map Generation Framework.
+
+Atlas repository changes:
+
+- Added `atlas-tools/mapgen/README.md`.
+- Added `atlas-tools/mapgen/blueprint_schema.md`.
+- Added `atlas-tools/mapgen/layout_generator.md`.
+- Added `atlas-tools/mapgen/object_placement.md`.
+- Added `atlas-tools/mapgen/exporter_interface.md`.
+- Added `atlas-tools/mapgen/future_architecture.md`.
+- Added `atlas-tools/mapgen/prototype/SCR-HOM-ASH-001.blueprint.json`.
+
+Game repository changes:
+
+- None. No RPG Maker JSON, maps, or game repository files were modified.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m json.tool atlas-tools/mapgen/prototype/SCR-HOM-ASH-001.blueprint.json`.
+- Ran an engine-specific ID pattern scan against the prototype blueprint for RPG Maker map names, `Map###`, tileset IDs, event numbers, animation IDs, and `rpg_maker_map` fields; no matches found.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Notes:
+
+- Prototype blueprint targets canonical first Home Island exterior screen `SCR-HOM-ASH-001` / Ashford Exterior.
+- The framework separates generation from export and keeps exporters from owning layout decisions.
+- The prototype remains engine-independent and does not generate RPG Maker `MapXXX.json`.
