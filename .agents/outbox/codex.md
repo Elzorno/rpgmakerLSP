@@ -1204,3 +1204,27 @@ Notes:
 
 - The checklist generator writes Markdown only and does not mutate RPG Maker JSON, maps, events, assets, or project settings.
 - Recommended next work order: implement a read-only diff/audit that compares the checklist expectations against current RPG Maker `data/*.json` before any write-capable importer is considered.
+
+## 2026-07-04 10:51 ET - Codex handoff - T036
+
+Task:
+
+- Corrected the stale `atlas next` output for WO-0020.
+
+Changed:
+
+- Replaced the untracked generated `WO-0020-truth-layer-diagram.md` with `WO-0020-rpg-maker-data-readiness-audit.md` in the Atlas repository.
+- Updated `atlas/planning/workorder_queue.json` so the active planner candidate matches the post-export RPG Maker data audit path instead of completed historical Atlas gaps.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m json.tool atlas/planning/workorder_queue.json`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+
+Commits:
+
+- Atlas repo: `ee49448 docs(atlas): correct next work order to data audit`.
+
+Notes:
+
+- I did not run `atlas next` a second time after correction because WO-0020 now exists; another run would intentionally advance to a new WO-0021 candidate.

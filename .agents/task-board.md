@@ -45,3 +45,4 @@ Use this table to claim work before editing project files.
 | T033 | Codex | Done | atlas/workorders/, sibling Atlas repo, .agents/ | WO-0017 split Atlas specification from RPG Maker implementation | 2026-07-04 09:39 ET |
 | T034 | Codex | Done | TheLastSwordProtocol-Atlas/, tools/atlas-import/, .agents/ | WO-0018 Atlas export / game import contract | 2026-07-04 10:21 ET |
 | T035 | Codex | Done | TheLastSwordProtocol-Atlas/, tools/atlas-import/, reports/atlas-import/, .agents/ | WO-0019 generate read-only RPG Maker implementation checklist from Atlas export | 2026-07-04 10:38 ET |
+| T036 | Codex | Done | TheLastSwordProtocol-Atlas/atlas/workorders/, TheLastSwordProtocol-Atlas/atlas/planning/, .agents/ | Correct WO-0020 to read-only RPG Maker data audit | 2026-07-04 10:51 ET |
