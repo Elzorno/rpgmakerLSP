@@ -1607,3 +1607,36 @@ Notes:
 - No live provider automation was implemented.
 - Unknown provider capabilities are explicitly marked unknown or manual in the registry.
 - Recommended WO-0023: implement a read-only orchestrator planner/audit command that loads `agents.json`, classifies a candidate work order, and produces an assignment recommendation report without executing agents.
+
+## 2026-07-04 16:50 ET - Codex handoff - T048
+
+Task:
+
+- Executed WO-0023 Read-Only Orchestrator Assignment Planner.
+
+Atlas repository changes:
+
+- Added `atlas/orchestrator/task_categories.json`.
+- Added `atlas-tools/orchestrator/recommend_assignment.py`.
+- Updated `atlas-tools/cli/atlas.py` with `recommend`.
+- Updated `atlas/orchestrator/README.md` with the read-only recommendation command.
+- Generated `atlas-tools/reports/orchestrator_assignment_report.md`.
+
+Game repository changes:
+
+- None. WO-0023 was Atlas-only and did not modify RPG Maker project files.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/orchestrator/recommend_assignment.py`.
+- Ran `/usr/bin/python3 -m json.tool atlas/orchestrator/agents.json`.
+- Ran `/usr/bin/python3 -m json.tool atlas/orchestrator/task_categories.json`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py recommend "Read-only Orchestrator Assignment Planner" --description "Load Atlas orchestrator policy and recommend an assignee without executing providers."`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Notes:
+
+- Recommendation report classified the planner as Architecture, recommended Codex, set autonomy to `draft_only`, required review, and required no human approval.
+- The command is read-only except for writing the local report.
+- No provider APIs were called and no live orchestration was implemented.
+- Recommended WO-0024: add optional local session-state support using `atlas/orchestrator/session_state.local.json` with `.gitignore` protection and a read-only session availability report.
