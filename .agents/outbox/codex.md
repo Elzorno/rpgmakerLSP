@@ -1104,3 +1104,38 @@ Notes:
 
 - The changes were committed together because the later readiness gate and updated build pipeline cross-reference the tileset and animation matrices.
 - No RPG Maker project files were changed.
+
+## 2026-07-04 09:39 ET - Codex handoff - T033
+
+Task:
+
+- Created and executed WO-0017 Split Atlas Specification From RPG Maker Implementation Repository.
+
+Changed:
+
+- Added `atlas/workorders/WO-0017-split-atlas-specification-from-rpg-maker-implementation.md`.
+- Created sibling repository `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Atlas`.
+- Copied Atlas-owned source material into the new repository:
+  - `atlas/`
+  - `atlas-tools/`
+  - `docs/`
+- Added standalone Atlas repo files:
+  - `README.md`
+  - `AGENTS.md`
+  - `.gitignore`
+- Initialized Git in the new Atlas repository and committed its initial state.
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the RPG Maker repo; exit code 0 with 0 errors and 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the new Atlas repo; exit code 0 with 0 errors and 0 warnings.
+- Checked that `data/`, `img/`, `audio/`, `js/`, `effects/`, `fonts/`, `movies/`, `save/`, and `game.rmmzproject` were not copied into the new Atlas repo.
+
+Commits:
+
+- New Atlas repo initial commit: `7ea64fa Initial Atlas specification repository`.
+
+Notes:
+
+- The current RPG Maker repository was left intact; Atlas was not deleted from it in this work order.
+- Next recommended step is a separate cleanup/migration work order to decide when the game repo should remove or vendor-lock its old local Atlas copy.
