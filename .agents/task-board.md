@@ -58,3 +58,4 @@ Use this table to claim work before editing project files.
 | T046 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0008 audit clean skeleton vertical-slice playthrough readiness | 2026-07-04 11:57 ET |
 | T047 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0022 Atlas Agent Orchestrator Framework | 2026-07-04 16:46 ET |
 | T048 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0023 read-only orchestrator assignment planner | 2026-07-04 16:50 ET |
+| T049 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0024 orchestrator local session-state reporting | 2026-07-04 16:53 ET |

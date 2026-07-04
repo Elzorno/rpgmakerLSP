@@ -1640,3 +1640,41 @@ Notes:
 - The command is read-only except for writing the local report.
 - No provider APIs were called and no live orchestration was implemented.
 - Recommended WO-0024: add optional local session-state support using `atlas/orchestrator/session_state.local.json` with `.gitignore` protection and a read-only session availability report.
+
+## 2026-07-04 16:53 ET - Codex handoff - T049
+
+Task:
+
+- Executed WO-0024 Orchestrator Local Session-State Reporting.
+
+Atlas repository changes:
+
+- Added `atlas/orchestrator/session_state.example.json`.
+- Added `atlas-tools/orchestrator/session_report.py`.
+- Added `atlas-tools/reports/orchestrator_session_report.md`.
+- Updated `.gitignore` to keep `atlas/orchestrator/session_state.local.json` untracked.
+- Updated `atlas-tools/cli/atlas.py` with `session-report`.
+- Updated `atlas/orchestrator/README.md`.
+- Updated `atlas/orchestrator/session_management.md`.
+- Regenerated `atlas-tools/reports/orchestrator_assignment_report.md` for the WO-0024 task.
+
+Game repository changes:
+
+- None. WO-0024 was Atlas-only and did not modify RPG Maker project files.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/orchestrator/recommend_assignment.py atlas-tools/orchestrator/session_report.py`.
+- Ran `/usr/bin/python3 -m json.tool atlas/orchestrator/session_state.example.json`.
+- Ran `/usr/bin/python3 -m json.tool atlas/orchestrator/agents.json`.
+- Ran `/usr/bin/python3 -m json.tool atlas/orchestrator/task_categories.json`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py session-report`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py recommend "Local Session State Reporting" --description "Report optional local provider availability without calling external APIs." --category validation --write-scope atlas_only`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Notes:
+
+- No provider APIs were called.
+- Missing `session_state.local.json` is handled as unknown, not as an error.
+- The local session file is ignored by git to avoid committing personal quota or availability estimates.
+- Recommended WO-0025: integrate session-state awareness into `recommend_assignment.py` scoring, still read-only, so unavailable or low-remaining agents are deprioritized in recommendations.
