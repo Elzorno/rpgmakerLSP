@@ -1789,3 +1789,34 @@ Notes:
 
 - Backfilled records are marked `backfill_record: true`.
 - The records summarize completed historical work and do not reopen or re-execute those tasks.
+
+## 2026-07-04 17:25 ET - Codex handoff - T053
+
+Task:
+
+- Normalized completed persisted work-order record statuses after the historical backfill.
+
+Atlas repository changes:
+
+- Added completed frontmatter metadata to `WO-0001`, `WO-0002`, `WO-0005`, and `WO-0006`.
+- Updated `WO-0017`, `WO-0018`, `WO-0019`, and `WO-0020` from stale `Active` / `Proposed` status to `Completed`.
+- Regenerated `atlas-tools/reports/workorder_audit_report.md`.
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py workorder-audit`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Audit result:
+
+- Work-order files audited: 20.
+- Malformed workorder-like entries: 0.
+- Duplicate work-order numbers: 0.
+- Missing numbers inside observed range: 0.
+- Completed: 18.
+- Partial or ambiguous: 2.
+
+Notes:
+
+- `WO-0003` and `WO-0004` remain intentionally ambiguous because they are duplicate governance-doc work orders with only partial output evidence.
+- No Atlas content, story, gameplay, or RPG Maker project files were changed.

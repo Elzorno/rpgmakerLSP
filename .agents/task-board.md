@@ -62,3 +62,4 @@ Use this table to claim work before editing project files.
 | T050 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0025 session-aware assignment scoring | 2026-07-04 16:56 ET |
 | T051 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0026 read-only work-order audit | 2026-07-04 17:02 ET |
 | T052 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, .agents/ | Backfill historical WO-0007 through WO-0016 records | 2026-07-04 17:21 ET |
+| T053 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, .agents/ | Normalize completed work-order record statuses | 2026-07-04 17:25 ET |
