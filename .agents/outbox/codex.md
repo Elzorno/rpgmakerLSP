@@ -1466,3 +1466,40 @@ Notes:
 - The remaining audit unknown is still Atlas `Animation None`, which is intentional and non-blocking.
 - BUILD-0005 does not create final art or final map dressing; it creates deterministic first-playable topology.
 - Recommended next step: apply audio hooks or animation/event feedback in the clean skeleton, then run a vertical-slice playthrough audit.
+
+## 2026-07-04 11:47 ET - Codex handoff - T044
+
+Task:
+
+- Executed BUILD-0006 Apply Home Island Placeholder Audio Hooks.
+
+Game repository changes:
+
+- Added `tools/atlas-import/apply_audio_hooks.py`.
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` with `Audio Hooks` checks.
+- Updated `tools/atlas-import/README.md` with the audio hook applier command.
+- Added `reports/atlas-import/build-0006-clean-skeleton-audio-audit.md`.
+- Added `reports/atlas-import/build-0006-audio-hooks-report.md`.
+
+Clean skeleton repository changes:
+
+- Assigned RTP placeholder BGM/BGS to all 16 Home Island maps plus the Journey II landing placeholder map.
+- Added Play SE hooks to major Home Island story, reward, trial, boss, relay, and signal events.
+- Updated common events for archive message, sword authentication, relay resolution, trial completion chime, and trial reset feedback SE hooks.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/apply_audio_hooks.py tools/atlas-import/apply_map_layouts.py tools/atlas-import/apply_executable_event_logic.py tools/atlas-import/apply_event_placeholders.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 tools/atlas-import/apply_audio_hooks.py --project-root ../TheLastSwordProtocol-Game`; first run reported `maps_updated=17 event_se_hooks_added=16 common_event_changes=1`.
+- Re-ran the audio applier for final idempotence; it reported `maps_updated=0 event_se_hooks_added=0 common_event_changes=0`.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are found=314, missing=0, warning=0, unknown=1.
+- Parsed all clean skeleton `data/*.json`; JSON parse passed.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+
+Notes:
+
+- The remaining audit unknown is still Atlas `Animation None`, which is intentional and non-blocking.
+- BUILD-0006 uses existing RTP placeholder audio only; final music and sound design remain polish.
+- Recommended next step: BUILD-0007 apply animation/event feedback references in the clean skeleton.

@@ -95,3 +95,13 @@ Run from the legacy RPG Maker repository after executable events exist:
 ```
 
 The applier paints first-playable placeholder terrain, Atlas region IDs, encounter lists, and event coordinates for the 16 Home Island maps in the clean skeleton. It uses the Atlas tileset assignment matrix and does not create final art assets.
+
+## Apply Audio Hooks
+
+Run from the legacy RPG Maker repository after placeholder layouts exist:
+
+```bash
+/usr/bin/python3 tools/atlas-import/apply_audio_hooks.py --project-root ../TheLastSwordProtocol-Game
+```
+
+The applier assigns existing RTP placeholder BGM/BGS files to Home Island maps and adds Play SE hooks to major story, reward, trial, relay, and signal events. It verifies referenced audio files exist before writing.

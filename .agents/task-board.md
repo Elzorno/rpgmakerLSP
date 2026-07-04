@@ -53,3 +53,4 @@ Use this table to claim work before editing project files.
 | T041 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0003 generate Atlas event and transfer placeholders in clean skeleton | 2026-07-04 11:36 ET |
 | T042 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0004 fill executable event page logic in clean skeleton | 2026-07-04 11:37 ET |
 | T043 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0005 paint Home Island placeholder map layouts and event placement | 2026-07-04 11:40 ET |
+| T044 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0006 apply Home Island placeholder audio hooks | 2026-07-04 11:47 ET |

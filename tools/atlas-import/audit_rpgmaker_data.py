@@ -38,6 +38,33 @@ EXTERNAL_TRANSFER_TARGETS = {
     "Journey II start": "JRN2_Landing_Placeholder",
 }
 
+AUDIO_EVENT_EXPECTATIONS = {
+    "Hidden Item": "Item3",
+    "Tremor Trigger": "Earth4",
+    "Body Trial": "Chime2",
+    "Mind Trial": "Chime2",
+    "Heart Trial": "Chime2",
+    "Sword Pedestal": "Flash2",
+    "Glassfield Seal": "Barrier",
+    "Surface Fragment": "Computer",
+    "Core Path Door": "Open4",
+    "Node Seven Guardian": "Battle1",
+    "Relay Core": "Computer",
+    "Lighthouse Examine": "Bell3",
+    "Departure Sequence": "Decision3",
+    "Hidden Item Landmark": "Item3",
+    "Signal-Tick Reed Pool": "Computer",
+    "Signal Pool / Cable Cluster Examine": "Computer",
+}
+
+AUDIO_COMMON_EVENT_EXPECTATIONS = {
+    "CE_Archive_Message_Display": "Computer",
+    "CE_Sword_Authentication": "Flash2",
+    "CE_Relay_Resolution": "Computer",
+    "CE_Trial_Complete_Chime": "Chime2",
+    "CE_Trial_Reset_Feedback": "Buzzer2",
+}
+
 
 @dataclass(frozen=True)
 class Finding:
@@ -673,6 +700,102 @@ def audit_map_layout_readiness(home: dict, maps: dict[int, dict], screen_maps: d
     return findings
 
 
+def audio_file_exists(project_root: Path, folder: str, name: str) -> bool:
+    return bool(name) and (project_root / "audio" / folder / f"{name}.ogg").exists()
+
+
+def command_plays_se(command: dict, se_name: str) -> bool:
+    if command.get("code") != 250:
+        return False
+    parameters = command.get("parameters", [])
+    return bool(parameters and isinstance(parameters[0], dict) and parameters[0].get("name") == se_name)
+
+
+def event_has_se(event: dict, se_name: str) -> bool:
+    return any(command_plays_se(command, se_name) for _, command in iter_page_commands(event))
+
+
+def common_event_has_se(common_event: dict, se_name: str) -> bool:
+    return any(
+        command_plays_se(command, se_name)
+        for command in common_event.get("list", [])
+        if isinstance(command, dict)
+    )
+
+
+def audit_audio_hooks(
+    home: dict,
+    maps: dict[int, dict],
+    screen_maps: dict[str, dict],
+    common_events: list,
+    project_root: Path,
+) -> list[Finding]:
+    findings: list[Finding] = []
+
+    for screen in home["screens"]:
+        screen_id = screen["screen_id"]
+        screen_map = screen_maps.get(screen_id)
+        label = f"{screen_id} - {screen['rpg_maker_map_name']}"
+        if not screen_map:
+            findings.append(Finding("Audio Hooks", screen_id, label, MISSING, "Screen map is missing"))
+            continue
+        map_id = int(screen_map["id"])
+        map_data = maps.get(map_id)
+        if not map_data:
+            findings.append(Finding("Audio Hooks", screen_id, label, MISSING, f"Map{map_id:03d}.json is missing"))
+            continue
+        bgm = map_data.get("bgm", {}).get("name", "")
+        bgs = map_data.get("bgs", {}).get("name", "")
+        if not bgm and not bgs:
+            findings.append(Finding("Audio Hooks", screen_id, label, MISSING, "No BGM or BGS placeholder assigned"))
+            continue
+        missing_files = []
+        if bgm and not audio_file_exists(project_root, "bgm", bgm):
+            missing_files.append(f"bgm/{bgm}.ogg")
+        if bgs and not audio_file_exists(project_root, "bgs", bgs):
+            missing_files.append(f"bgs/{bgs}.ogg")
+        if missing_files:
+            findings.append(Finding("Audio Hooks", screen_id, label, MISSING, f"Missing audio file(s): {', '.join(missing_files)}"))
+        else:
+            parts = []
+            if bgm:
+                parts.append(f"BGM {bgm}")
+            if bgs:
+                parts.append(f"BGS {bgs}")
+            findings.append(Finding("Audio Hooks", screen_id, label, FOUND, ", ".join(parts)))
+
+    events_by_name = {}
+    for map_data in maps.values():
+        for event in iter_events(map_data):
+            events_by_name.setdefault(event.get("name"), []).append(event)
+    for event_name, se_name in AUDIO_EVENT_EXPECTATIONS.items():
+        matches = events_by_name.get(event_name, [])
+        if not matches:
+            findings.append(Finding("Audio Hooks", event_name, event_name, MISSING, "Expected audio-hook event not found"))
+            continue
+        if any(event_has_se(event, se_name) for event in matches):
+            findings.append(Finding("Audio Hooks", event_name, event_name, FOUND, f"Play SE {se_name}"))
+        else:
+            findings.append(Finding("Audio Hooks", event_name, event_name, MISSING, f"Missing Play SE {se_name}"))
+
+    common_by_name = {
+        row.get("name"): row
+        for row in common_events
+        if isinstance(row, dict) and row.get("name")
+    }
+    for event_name, se_name in AUDIO_COMMON_EVENT_EXPECTATIONS.items():
+        common_event = common_by_name.get(event_name)
+        if not common_event:
+            findings.append(Finding("Audio Hooks", event_name, event_name, MISSING, "Common event not found"))
+            continue
+        if common_event_has_se(common_event, se_name):
+            findings.append(Finding("Audio Hooks", event_name, event_name, FOUND, f"Common event plays SE {se_name}"))
+        else:
+            findings.append(Finding("Audio Hooks", event_name, event_name, MISSING, f"Common event missing Play SE {se_name}"))
+
+    return findings
+
+
 def audit_trial_state(home: dict, system: dict) -> list[Finding]:
     findings: list[Finding] = []
     switch_names = {norm(name): index for index, name in enumerate(system.get("switches", [])) if name}
@@ -755,6 +878,7 @@ def run_audit(payload: dict, project_root: Path = ROOT) -> list[Finding]:
     findings.extend(audit_transfers(home, maps, screen_maps))
     findings.extend(audit_executable_event_logic(home, maps, screen_maps))
     findings.extend(audit_map_layout_readiness(home, maps, screen_maps))
+    findings.extend(audit_audio_hooks(home, maps, screen_maps, data_files["CommonEvents.json"], project_root))
     return findings
 
 
