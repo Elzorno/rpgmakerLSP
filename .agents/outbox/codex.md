@@ -1540,3 +1540,38 @@ Notes:
 - The remaining audit unknown is still Atlas `Animation None`, which is intentional and non-blocking.
 - Final custom VFX remain polish.
 - Recommended next step: BUILD-0008 vertical-slice playthrough/readiness audit against the clean skeleton.
+
+## 2026-07-04 11:57 ET - Codex handoff - T046
+
+Task:
+
+- Executed BUILD-0008 Audit Clean Skeleton Vertical-Slice Playthrough Readiness.
+
+Game repository changes:
+
+- Added `tools/atlas-import/audit_vertical_slice_playthrough.py`.
+- Updated `tools/atlas-import/README.md` with the vertical-slice playthrough audit command.
+- Added `reports/atlas-import/build-0008-vertical-slice-playthrough-audit.md`.
+- Added `reports/atlas-import/build-0008-clean-skeleton-readiness-audit.md`.
+- Added `reports/atlas-import/build-0008-vertical-slice-playthrough-report.md`.
+
+Clean skeleton repository changes:
+
+- None. BUILD-0008 was read-only against `../TheLastSwordProtocol-Game`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_vertical_slice_playthrough.py tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/apply_animation_feedback.py tools/atlas-import/apply_audio_hooks.py tools/atlas-import/apply_map_layouts.py tools/atlas-import/apply_executable_event_logic.py tools/atlas-import/apply_event_placeholders.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0008-vertical-slice-playthrough-audit.md --project-root ../TheLastSwordProtocol-Game`; totals are found=81, missing=0, warning=0, unknown=1.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are found=335, missing=0, warning=0, unknown=1.
+- Parsed all clean skeleton `data/*.json`; JSON parse passed.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+
+Notes:
+
+- The audit proves the machine-visible route from new game start to Journey II placeholder, including gates, trial switches, Sword acquisition, boss/relay state, and Rustshore departure.
+- The one unknown is manual RPG Maker runtime feel/timing, which cannot be proven by JSON audit alone.
+- No machine-visible Home Island route blockers remain in the clean skeleton.
+- Recommended next step: manual-runtime playtest pass or guarded runtime smoke-test workflow if RPG Maker execution becomes available.

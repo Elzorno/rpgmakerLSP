@@ -115,3 +115,13 @@ Run from the legacy RPG Maker repository after audio hooks exist:
 ```
 
 The applier adds first-playable Show Animation commands to Home Island story, reward, trial, relay, and signal events plus common feedback events. It verifies referenced animation database rows exist before writing.
+
+## Audit Vertical Slice Playthrough
+
+Run from the legacy RPG Maker repository after animation feedback exists:
+
+```bash
+/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0008-vertical-slice-playthrough-audit.md --project-root ../TheLastSwordProtocol-Game
+```
+
+The audit is read-only. It checks the machine-visible Home Island critical path from new game start through the Journey II placeholder, including transfer targets, gated route switches, trial completion switches, Sword acquisition, Node Seven boss/relay state, and Rustshore departure.

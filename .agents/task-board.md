@@ -55,3 +55,4 @@ Use this table to claim work before editing project files.
 | T043 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0005 paint Home Island placeholder map layouts and event placement | 2026-07-04 11:40 ET |
 | T044 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0006 apply Home Island placeholder audio hooks | 2026-07-04 11:47 ET |
 | T045 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0007 apply Home Island animation and event feedback hooks | 2026-07-04 11:52 ET |
+| T046 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0008 audit clean skeleton vertical-slice playthrough readiness | 2026-07-04 11:57 ET |
