@@ -60,3 +60,4 @@ Use this table to claim work before editing project files.
 | T048 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0023 read-only orchestrator assignment planner | 2026-07-04 16:50 ET |
 | T049 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0024 orchestrator local session-state reporting | 2026-07-04 16:53 ET |
 | T050 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0025 session-aware assignment scoring | 2026-07-04 16:56 ET |
+| T051 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/, ../TheLastSwordProtocol-Atlas/atlas/orchestrator/, .agents/ | WO-0026 read-only work-order audit | 2026-07-04 17:02 ET |

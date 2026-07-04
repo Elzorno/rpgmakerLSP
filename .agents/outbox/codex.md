@@ -1709,3 +1709,40 @@ Notes:
 - Missing session state remains neutral/unknown.
 - Explicit `unavailable`, `rate_limited`, and low remaining percentage states now reduce agent scores.
 - Recommended WO-0026: add a read-only orchestrator work-order audit that reads `atlas/workorders/` and reports open/completed/ambiguous tasks before assignment.
+
+## 2026-07-04 17:02 ET - Codex handoff - T051
+
+Task:
+
+- Executed WO-0026 Read-Only Work-Order Audit.
+
+Atlas repository changes:
+
+- Added `atlas-tools/orchestrator/audit_workorders.py`.
+- Added `atlas-tools/reports/workorder_audit_report.md`.
+- Updated `atlas-tools/cli/atlas.py` with `workorder-audit`.
+- Updated `atlas/orchestrator/README.md` with the audit command.
+- Regenerated `atlas-tools/reports/orchestrator_assignment_report.md`.
+
+Game repository changes:
+
+- None. WO-0026 was Atlas-only and did not modify RPG Maker project files.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/orchestrator/audit_workorders.py atlas-tools/orchestrator/recommend_assignment.py atlas-tools/orchestrator/session_report.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py workorder-audit`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py recommend "Read-only Work-Order Audit" --description "Audit persisted Atlas work orders before assignment without mutating workorder files." --category validation --write-scope atlas_only`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Audit result:
+
+- Work-order files audited: 10.
+- Malformed workorder-like entries: 0.
+- Duplicate work-order numbers: 0.
+- Missing numbers inside observed range: 10 (`WO-0007` through `WO-0016`).
+- Persisted work-order metadata is stale for some completed work because several later work orders were supplied through chat/attachments and not backfilled into `atlas/workorders/`.
+
+Open question:
+
+- Should Atlas backfill missing historical `WO-0007` through `WO-0016` files and update stale persisted statuses, or should the orchestrator treat chat/attachment work orders as external history and leave `atlas/workorders/` as-is?
