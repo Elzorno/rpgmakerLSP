@@ -1154,6 +1154,7 @@ Atlas repository changes:
 - Generated `atlas-exports/home-island.json`.
 - Committed Atlas contract/tooling as `a0d7816 feat(atlas): define game import export contract`.
 - Committed export artifact as `bc3598b chore(atlas): add Home Island export artifact`.
+- Committed export cleanup as `f74b357 fix(atlas): clean markdown in Home Island export`.
 
 Game repository changes:
 
