@@ -48,3 +48,4 @@ Use this table to claim work before editing project files.
 | T036 | Codex | Done | TheLastSwordProtocol-Atlas/atlas/workorders/, TheLastSwordProtocol-Atlas/atlas/planning/, .agents/ | Correct WO-0020 to read-only RPG Maker data audit | 2026-07-04 10:51 ET |
 | T037 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | Execute WO-0020 read-only RPG Maker data readiness audit | 2026-07-04 11:05 ET |
 | T038 | Codex | Done | reports/atlas-import/, .agents/ | WO-0021 RPG Maker clean skeleton strategy | 2026-07-04 11:00 ET |
+| T039 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/, reports/atlas-import/, .agents/ | BUILD-0001 create clean RPG Maker MZ project skeleton from Atlas export | 2026-07-04 11:12 ET |

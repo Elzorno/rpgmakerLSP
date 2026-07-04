@@ -1285,3 +1285,39 @@ Notes:
 
 - This was report-only. No RPG Maker `data/*.json`, maps, events, assets, or project settings were modified.
 - The strategy defines database ID reservations, map ID reservations, switch ranges, variable ranges, and common event placeholders for the clean skeleton.
+
+## 2026-07-04 11:12 ET - Codex handoff - T039
+
+Task:
+
+- Executed BUILD-0001 Create Clean RPG Maker MZ Project Skeleton From Atlas Export.
+
+Game repository changes:
+
+- Added `tools/atlas-import/create_clean_skeleton.py`.
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` with `--project-root` support.
+- Updated `tools/atlas-import/README.md`.
+- Added `reports/atlas-import/build-0001-clean-skeleton-audit.md`.
+- Added `reports/atlas-import/build-0001-clean-skeleton-report.md`.
+
+Sibling clean game repository:
+
+- Created `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game`.
+- Initialized it as its own git repository.
+- Committed clean skeleton as `4fc236b Initial clean RPG Maker MZ skeleton`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/create_clean_skeleton.py tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the legacy game repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Parsed all generated clean skeleton `data/*.json`; 30 JSON files parsed successfully.
+- Ran legacy audit; totals remained found=21, missing=17, warning=38, unknown=71.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals were found=76, missing=0, warning=0, unknown=71.
+
+Notes:
+
+- The legacy `rpgmakerLSP/data/*.json`, maps, events, assets, and project settings were not modified.
+- The clean skeleton copies RPG Maker runtime/support asset directories so the project has usable placeholder assets, but map/database rows were generated from Atlas reservations rather than copied from legacy gameplay data.
+- Recommended next step: BUILD-0002 read-only map/event parser to reduce the remaining unknown audit findings before introducing a guarded writer.

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 import json
@@ -11,7 +12,6 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT / "data"
 DEFAULT_OUTPUT = ROOT / "reports" / "atlas-import" / "home-island-data-readiness-audit.md"
 
 FOUND = "found"
@@ -59,6 +59,25 @@ def load_export(path: Path) -> dict:
         raise SystemExit(f"Atlas export not found: {path}")
     except json.JSONDecodeError as error:
         raise SystemExit(f"Invalid JSON in Atlas export: {error}")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Read-only audit of RPG Maker data against an Atlas Home Island export.",
+    )
+    parser.add_argument("export", help="Path to atlas-exports/home-island.json")
+    parser.add_argument(
+        "output",
+        nargs="?",
+        default=str(DEFAULT_OUTPUT),
+        help="Markdown report path. Defaults to reports/atlas-import/home-island-data-readiness-audit.md.",
+    )
+    parser.add_argument(
+        "--project-root",
+        default=str(ROOT),
+        help="RPG Maker project root to audit. Defaults to this repository.",
+    )
+    return parser.parse_args()
 
 
 def norm(value: object) -> str:
@@ -291,10 +310,11 @@ def audit_non_machine_checkable(home: dict) -> list[Finding]:
     return findings
 
 
-def run_audit(payload: dict) -> list[Finding]:
+def run_audit(payload: dict, project_root: Path = ROOT) -> list[Finding]:
     home = payload["home_island"]
+    data_dir = project_root / "data"
     data_files = {
-        filename: load_json(DATA_DIR / filename)
+        filename: load_json(data_dir / filename)
         for filename in {
             "MapInfos.json",
             "Actors.json",
@@ -400,22 +420,13 @@ def render_report(payload: dict, findings: list[Finding]) -> str:
 
 
 def main() -> int:
-    if len(sys.argv) not in {2, 3}:
-        print(
-            "Usage: python tools/atlas-import/audit_rpgmaker_data.py <atlas-export.json> [output.md]",
-            file=sys.stderr,
-        )
-        return 1
-
-    export_path = Path(sys.argv[1]).expanduser().resolve()
-    output_path = (
-        Path(sys.argv[2]).expanduser().resolve()
-        if len(sys.argv) == 3
-        else ROOT / "reports" / "atlas-import" / "home-island-data-readiness-audit.md"
-    )
+    args = parse_args()
+    export_path = Path(args.export).expanduser().resolve()
+    output_path = Path(args.output).expanduser().resolve()
+    project_root = Path(args.project_root).expanduser().resolve()
 
     payload = load_json(export_path)
-    findings = run_audit(payload)
+    findings = run_audit(payload, project_root)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(render_report(payload, findings), encoding="utf-8")
 

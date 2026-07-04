@@ -47,3 +47,19 @@ reports/atlas-import/home-island-data-readiness-audit.md
 ```
 
 The audit compares Atlas export expectations against current RPG Maker `data/*.json` files and reports found, missing, warning, and not-machine-checkable items. It is read-only.
+
+To audit a different RPG Maker project root, pass `--project-root`:
+
+```bash
+/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/target-audit.md --project-root ../TheLastSwordProtocol-Game
+```
+
+## Create Clean Skeleton
+
+Run from the legacy RPG Maker repository:
+
+```bash
+/usr/bin/python3 tools/atlas-import/create_clean_skeleton.py --export ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json --target ../TheLastSwordProtocol-Game
+```
+
+The generator creates a clean sibling RPG Maker MZ project with Atlas-reserved Home Island maps, database rows, switches, variables, and common event placeholders. It refuses to replace an existing target unless `--force` is supplied.
