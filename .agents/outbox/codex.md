@@ -1388,3 +1388,41 @@ Notes:
 - The legacy RPG Maker `data/*.json`, maps, events, assets, and project settings were not modified.
 - The remaining unknown is Atlas `Animation None`, which intentionally means no RPG Maker animation is required.
 - Recommended next step: BUILD-0004 fill executable event page logic in the clean skeleton.
+
+## 2026-07-04 11:37 ET - Codex handoff - T042
+
+Task:
+
+- Executed BUILD-0004 Fill Executable Event Page Logic In Clean Skeleton.
+
+Game repository changes:
+
+- Added `tools/atlas-import/apply_executable_event_logic.py`.
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` with an `Executable Event Logic` audit category.
+- Updated `tools/atlas-import/README.md` with the executable event applier command.
+- Added `reports/atlas-import/build-0004-clean-skeleton-executable-audit.md`.
+- Added `reports/atlas-import/build-0004-executable-event-logic-report.md`.
+
+Clean skeleton repository changes:
+
+- Replaced AtlasPlaceholder map event pages across `data/Map001.json` through `data/Map016.json` with executable RPG Maker MZ event command sequences.
+- Replaced transfer placeholders with executable fade/transfer/fade command pages and gate checks where Atlas requires state.
+- Updated `data/Troops.json` troop 10 pages with executable placeholder battle text pages.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/apply_executable_event_logic.py tools/atlas-import/apply_event_placeholders.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 tools/atlas-import/apply_executable_event_logic.py --export ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json --project-root ../TheLastSwordProtocol-Game`; first run reported `events_updated=31 transfers_updated=30 troop_page_changes=1`.
+- Ran one Heart trial reset-path correction; it reported `events_updated=1 transfers_updated=0 troop_page_changes=0`.
+- Re-ran the executable applier for final idempotence; it reported `events_updated=0 transfers_updated=0 troop_page_changes=0`.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are found=213, missing=0, warning=0, unknown=1.
+- Parsed all clean skeleton `data/*.json`; JSON parse passed.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+
+Notes:
+
+- The only remaining audit unknown is Atlas `Animation None`, which is intentional and non-blocking.
+- Final dialogue, final map layout, final art, and final animation polish remain outside BUILD-0004.
+- Recommended next step: build or audit map layout/passability/event placement in the clean skeleton using the executable event pages as the event logic baseline.

@@ -75,3 +75,13 @@ Run from the legacy RPG Maker repository:
 ```
 
 The applier writes Atlas-named placeholder map events, transfer command events, and Node Seven troop event placeholders into the clean skeleton. It does not modify the legacy RPG Maker project.
+
+## Apply Executable Event Logic
+
+Run from the legacy RPG Maker repository after event placeholders exist:
+
+```bash
+/usr/bin/python3 tools/atlas-import/apply_executable_event_logic.py --export ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json --project-root ../TheLastSwordProtocol-Game
+```
+
+The applier replaces clean-skeleton placeholder markers with executable RPG Maker MZ event command pages for Home Island events, transfers, trial gates, treasure pickups, shop placeholder behavior, the Node Seven boss, relay restoration, and departure flow. It preserves placeholder dialogue IDs instead of writing final story text.

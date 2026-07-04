@@ -436,6 +436,111 @@ def audit_transfers(home: dict, maps: dict[int, dict], screen_maps: dict[str, di
     return findings
 
 
+def event_command_codes(event: dict) -> list[int]:
+    return [
+        int(command.get("code", 0))
+        for _, command in iter_page_commands(event)
+        if isinstance(command.get("code", 0), int)
+    ]
+
+
+def has_atlas_placeholder_marker(event: dict) -> bool:
+    for _, command in iter_page_commands(event):
+        if command.get("code") != 356:
+            continue
+        parameters = command.get("parameters", [])
+        if parameters and str(parameters[0]).startswith("AtlasPlaceholder "):
+            return True
+    return False
+
+
+def has_executable_commands(event: dict) -> bool:
+    non_executable_codes = {0, 108, 408, 401, 402, 404, 411, 412}
+    return any(code not in non_executable_codes for code in event_command_codes(event))
+
+
+def matching_event(map_data: dict, expected_name: str) -> dict | None:
+    expected_key = compact_norm(expected_name)
+    for event in iter_events(map_data):
+        if compact_norm(event.get("name", "")) == expected_key:
+            return event
+    return None
+
+
+def audit_executable_event_logic(home: dict, maps: dict[int, dict], screen_maps: dict[str, dict]) -> list[Finding]:
+    findings: list[Finding] = []
+
+    for event in home["events"]:
+        screen_map = screen_maps.get(event["screen"])
+        label = f"{event['screen']} - {event['event']}"
+        if not screen_map:
+            findings.append(Finding("Executable Event Logic", event["event_id"], label, MISSING, "Source screen map is missing"))
+            continue
+        map_id = int(screen_map["id"])
+        map_data = maps.get(map_id)
+        if not map_data:
+            findings.append(Finding("Executable Event Logic", event["event_id"], label, MISSING, f"Map{map_id:03d}.json is missing"))
+            continue
+        found_event = matching_event(map_data, event["event"])
+        if not found_event:
+            findings.append(Finding("Executable Event Logic", event["event_id"], label, MISSING, f"Event not found on map {map_id}"))
+            continue
+        if has_atlas_placeholder_marker(found_event):
+            findings.append(Finding("Executable Event Logic", event["event_id"], label, MISSING, "AtlasPlaceholder marker remains"))
+            continue
+        if not has_executable_commands(found_event):
+            findings.append(Finding("Executable Event Logic", event["event_id"], label, MISSING, "Event has no executable command codes"))
+            continue
+        codes = sorted(set(event_command_codes(found_event)))
+        findings.append(Finding("Executable Event Logic", event["event_id"], label, FOUND, f"Executable command codes: {', '.join(str(code) for code in codes)}"))
+
+    for transfer in home["transfers"]:
+        source = screen_maps.get(transfer["from"])
+        target = screen_maps.get(transfer["to"])
+        external_target_name = EXTERNAL_TRANSFER_TARGETS.get(transfer["to"])
+        if target is None and external_target_name:
+            for map_id, map_data in maps.items():
+                if norm(map_data.get("displayName")) == norm("Journey II Landing Placeholder"):
+                    target = {"id": map_id, "name": external_target_name}
+                    break
+        label = f"{transfer['from']} -> {transfer['to']}"
+        if not source:
+            findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, MISSING, "Source screen map is missing"))
+            continue
+        if not target:
+            findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, MISSING, "Target screen map is missing"))
+            continue
+        source_id = int(source["id"])
+        target_id = int(target["id"])
+        map_data = maps.get(source_id)
+        if not map_data:
+            findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, MISSING, f"Map{source_id:03d}.json is missing"))
+            continue
+        expected_name = f"{transfer['transfer_id']} {transfer['notes']}"
+        found_event = matching_event(map_data, expected_name)
+        if not found_event:
+            findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, MISSING, f"Transfer event not found on map {source_id}"))
+            continue
+        if has_atlas_placeholder_marker(found_event):
+            findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, MISSING, "AtlasPlaceholder marker remains"))
+            continue
+        transfer_targets = []
+        for _, command in iter_page_commands(found_event):
+            if command.get("code") != 201:
+                continue
+            parameters = command.get("parameters", [])
+            try:
+                transfer_targets.append(int(parameters[1]))
+            except (IndexError, TypeError, ValueError):
+                continue
+        if target_id not in transfer_targets:
+            findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, MISSING, f"No executable transfer command to map {target_id}"))
+            continue
+        findings.append(Finding("Executable Event Logic", transfer["transfer_id"], label, FOUND, f"Executable transfer command to map {target_id}"))
+
+    return findings
+
+
 def audit_trial_state(home: dict, system: dict) -> list[Finding]:
     findings: list[Finding] = []
     switch_names = {norm(name): index for index, name in enumerate(system.get("switches", [])) if name}
@@ -516,6 +621,7 @@ def run_audit(payload: dict, project_root: Path = ROOT) -> list[Finding]:
     findings.extend(audit_trial_state(home, data_files["System.json"]))
     findings.extend(audit_atlas_events(home, maps, screen_maps))
     findings.extend(audit_transfers(home, maps, screen_maps))
+    findings.extend(audit_executable_event_logic(home, maps, screen_maps))
     return findings
 
 
