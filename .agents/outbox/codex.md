@@ -1575,3 +1575,35 @@ Notes:
 - The one unknown is manual RPG Maker runtime feel/timing, which cannot be proven by JSON audit alone.
 - No machine-visible Home Island route blockers remain in the clean skeleton.
 - Recommended next step: manual-runtime playtest pass or guarded runtime smoke-test workflow if RPG Maker execution becomes available.
+
+## 2026-07-04 16:46 ET - Codex handoff - T047
+
+Task:
+
+- Executed WO-0022 Atlas Agent Orchestrator Framework.
+
+Atlas repository changes:
+
+- Added `atlas/orchestrator/README.md`.
+- Added `atlas/orchestrator/agents.json`.
+- Added `atlas/orchestrator/task_categories.md`.
+- Added `atlas/orchestrator/assignment_policy.md`.
+- Added `atlas/orchestrator/session_management.md`.
+- Added `atlas/orchestrator/future_architecture.md`.
+- Updated `atlas/docs/10_AI/index.md` to point agents at the orchestrator framework.
+
+Game repository changes:
+
+- None. WO-0022 was Atlas architecture-only.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m json.tool atlas/orchestrator/agents.json`; JSON parsed successfully.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in `../TheLastSwordProtocol-Atlas`; result was 0 errors and 0 warnings.
+
+Notes:
+
+- No external APIs were called.
+- No live provider automation was implemented.
+- Unknown provider capabilities are explicitly marked unknown or manual in the registry.
+- Recommended WO-0023: implement a read-only orchestrator planner/audit command that loads `agents.json`, classifies a candidate work order, and produces an assignment recommendation report without executing agents.
