@@ -1255,3 +1255,33 @@ Notes:
 - The audit is read-only and did not modify RPG Maker `data/*.json`, maps, events, assets, or project settings.
 - Major finding: Home Island Atlas map names are not present in current `MapInfos.json`, and most expected Home Island database IDs are occupied by legacy/default rows.
 - Recommended next work order: create a read-only map/event parser or create a guarded implementation plan for introducing Home Island map/database rows.
+
+## 2026-07-04 11:00 ET - Codex handoff - T038
+
+Task:
+
+- Executed WO-0021 RPG Maker Clean Skeleton Strategy.
+
+Game repository changes:
+
+- Added `reports/atlas-import/wo-0021-rpg-maker-clean-skeleton-strategy.md`.
+- Updated `.agents/task-board.md`.
+- Updated `.agents/outbox/codex.md`.
+
+Decision:
+
+- Recommendation is **GO clean skeleton / NO GO current project**.
+- The current RPG Maker project should remain legacy/prototype reference material.
+- Next work order should be **BUILD-0001 - Create Clean RPG Maker MZ Project Skeleton From Atlas Export**.
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the game repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; audit totals remained found=21, missing=17, warning=38, unknown=71.
+
+Notes:
+
+- This was report-only. No RPG Maker `data/*.json`, maps, events, assets, or project settings were modified.
+- The strategy defines database ID reservations, map ID reservations, switch ranges, variable ranges, and common event placeholders for the clean skeleton.
