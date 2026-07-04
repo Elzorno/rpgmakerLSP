@@ -85,3 +85,13 @@ Run from the legacy RPG Maker repository after event placeholders exist:
 ```
 
 The applier replaces clean-skeleton placeholder markers with executable RPG Maker MZ event command pages for Home Island events, transfers, trial gates, treasure pickups, shop placeholder behavior, the Node Seven boss, relay restoration, and departure flow. It preserves placeholder dialogue IDs instead of writing final story text.
+
+## Apply Placeholder Map Layouts
+
+Run from the legacy RPG Maker repository after executable events exist:
+
+```bash
+/usr/bin/python3 tools/atlas-import/apply_map_layouts.py --project-root ../TheLastSwordProtocol-Game
+```
+
+The applier paints first-playable placeholder terrain, Atlas region IDs, encounter lists, and event coordinates for the 16 Home Island maps in the clean skeleton. It uses the Atlas tileset assignment matrix and does not create final art assets.

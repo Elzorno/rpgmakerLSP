@@ -541,6 +541,138 @@ def audit_executable_event_logic(home: dict, maps: dict[int, dict], screen_maps:
     return findings
 
 
+def map_layer_values(map_data: dict, layer: int) -> list[int]:
+    width = int(map_data.get("width", 0))
+    height = int(map_data.get("height", 0))
+    data = map_data.get("data", [])
+    values = []
+    for y in range(height):
+        for x in range(width):
+            offset = (layer * height + y) * width + x
+            if offset < len(data):
+                values.append(data[offset])
+    return values
+
+
+def map_tile_value(map_data: dict, layer: int, x: int, y: int) -> int:
+    width = int(map_data.get("width", 0))
+    height = int(map_data.get("height", 0))
+    data = map_data.get("data", [])
+    offset = (layer * height + y) * width + x
+    if offset < 0 or offset >= len(data):
+        return 0
+    return int(data[offset] or 0)
+
+
+def expected_region_ids(requirements: str) -> set[int]:
+    return {
+        int(match)
+        for match in re.findall(r"Region\s+(\d+)", requirements)
+        if int(match) > 0
+    }
+
+
+def relevant_events_for_screen(home: dict, screen_id: str) -> set[str]:
+    names = {
+        event["event"]
+        for event in home["events"]
+        if event["screen"] == screen_id
+    }
+    for transfer in home["transfers"]:
+        if transfer["from"] == screen_id:
+            names.add(f"{transfer['transfer_id']} {transfer['notes']}")
+    return names
+
+
+def audit_map_layout_readiness(home: dict, maps: dict[int, dict], screen_maps: dict[str, dict]) -> list[Finding]:
+    findings: list[Finding] = []
+    tileset_rows = {row["screen_id"]: row for row in home["tilesets"]}
+
+    for screen in home["screens"]:
+        screen_id = screen["screen_id"]
+        screen_map = screen_maps.get(screen_id)
+        if not screen_map:
+            findings.append(Finding("Map Layout Readiness", screen_id, screen["rpg_maker_map_name"], MISSING, "Screen map is missing"))
+            continue
+        map_id = int(screen_map["id"])
+        map_data = maps.get(map_id)
+        if not map_data:
+            findings.append(Finding("Map Layout Readiness", screen_id, screen["rpg_maker_map_name"], MISSING, f"Map{map_id:03d}.json is missing"))
+            continue
+
+        label = f"Map {map_id} - {screen['rpg_maker_map_name']}"
+        floor_values = map_layer_values(map_data, 0)
+        nonzero_floor = sum(1 for value in floor_values if value)
+        if nonzero_floor:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, f"Base terrain tiles painted: {nonzero_floor}"))
+        else:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, "No base terrain tiles painted"))
+
+        tile_row = tileset_rows.get(screen_id, {})
+        regions = {value for value in map_layer_values(map_data, 5) if value}
+        required_regions = expected_region_ids(tile_row.get("region_id_requirements", ""))
+        if "Region 0 only" in tile_row.get("region_id_requirements", ""):
+            if regions:
+                findings.append(Finding("Map Layout Readiness", screen_id, label, WARNING, f"Expected Region 0 only, found nonzero region IDs: {sorted(regions)}"))
+            else:
+                findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, "Region 0 only as expected"))
+        elif required_regions.issubset(regions):
+            findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, f"Required region IDs present: {sorted(required_regions)}"))
+        else:
+            missing_regions = sorted(required_regions - regions)
+            findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, f"Missing region ID(s): {missing_regions}"))
+
+        encounter_note = tile_row.get("encounter_zone_requirements", "")
+        encounters = map_data.get("encounterList", [])
+        if ("None" in encounter_note or "No random encounters" in encounter_note) and "Optional" not in encounter_note and encounters:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, WARNING, "Atlas marks this as encounter-free, but encounterList is populated"))
+        elif "No random encounters" in encounter_note and not encounters:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, "Random encounter policy is satisfied"))
+        elif any(token in encounter_note for token in ("Troop", "troops", "encounters")) and "None" not in encounter_note:
+            if encounters:
+                troop_ids = sorted({row.get("troopId") for row in encounters if isinstance(row, dict)})
+                findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, f"Encounter list populated with troop id(s): {troop_ids}"))
+            else:
+                findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, "Atlas allows or expects encounters, but encounterList is empty"))
+        else:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, "Encounter policy is satisfied"))
+
+        expected_names = relevant_events_for_screen(home, screen_id)
+        placed_events = [
+            event
+            for event in iter_events(map_data)
+            if event.get("name") in expected_names
+        ]
+        if not expected_names:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, UNKNOWN, "No Atlas events or outgoing transfers on this screen"))
+            continue
+        if len(placed_events) != len(expected_names):
+            findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, f"Expected {len(expected_names)} relevant events, found {len(placed_events)}"))
+            continue
+        if len(placed_events) > 2 and all(event.get("y") == 1 for event in placed_events):
+            findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, "Events still appear in the generated placeholder row"))
+            continue
+        out_of_bounds = [
+            event.get("name")
+            for event in placed_events
+            if not (0 <= int(event.get("x", -1)) < int(map_data["width"]) and 0 <= int(event.get("y", -1)) < int(map_data["height"]))
+        ]
+        if out_of_bounds:
+            findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, f"Event(s) out of bounds: {out_of_bounds}"))
+        elif any(map_tile_value(map_data, 0, int(event["x"]), int(event["y"])) in {1536, 2048} for event in placed_events):
+            blocked = [
+                event.get("name")
+                for event in placed_events
+                if map_tile_value(map_data, 0, int(event["x"]), int(event["y"])) in {1536, 2048}
+            ]
+            findings.append(Finding("Map Layout Readiness", screen_id, label, MISSING, f"Event tile(s) use blocked placeholder terrain: {blocked}"))
+        else:
+            coords = sorted({(event.get("x"), event.get("y")) for event in placed_events})
+            findings.append(Finding("Map Layout Readiness", screen_id, label, FOUND, f"Relevant events placed on {len(coords)} coordinate(s)"))
+
+    return findings
+
+
 def audit_trial_state(home: dict, system: dict) -> list[Finding]:
     findings: list[Finding] = []
     switch_names = {norm(name): index for index, name in enumerate(system.get("switches", [])) if name}
@@ -622,6 +754,7 @@ def run_audit(payload: dict, project_root: Path = ROOT) -> list[Finding]:
     findings.extend(audit_atlas_events(home, maps, screen_maps))
     findings.extend(audit_transfers(home, maps, screen_maps))
     findings.extend(audit_executable_event_logic(home, maps, screen_maps))
+    findings.extend(audit_map_layout_readiness(home, maps, screen_maps))
     return findings
 
 

@@ -1426,3 +1426,43 @@ Notes:
 - The only remaining audit unknown is Atlas `Animation None`, which is intentional and non-blocking.
 - Final dialogue, final map layout, final art, and final animation polish remain outside BUILD-0004.
 - Recommended next step: build or audit map layout/passability/event placement in the clean skeleton using the executable event pages as the event logic baseline.
+
+## 2026-07-04 11:40 ET - Codex handoff - T043
+
+Task:
+
+- Executed BUILD-0005 Paint Home Island Placeholder Map Layouts And Event Placement.
+
+Game repository changes:
+
+- Added `tools/atlas-import/apply_map_layouts.py`.
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` with `Map Layout Readiness` checks.
+- Updated `tools/atlas-import/README.md` with the placeholder map layout applier command.
+- Added `reports/atlas-import/build-0005-clean-skeleton-layout-audit.md`.
+- Added `reports/atlas-import/build-0005-map-layout-report.md`.
+
+Clean skeleton repository changes:
+
+- Painted first-playable placeholder terrain for `data/Map001.json` through `data/Map016.json`.
+- Painted Atlas region IDs for field, Fogfen, Sealed Node, story/no-random zones, and slow bog markers.
+- Added first-pass encounter lists only on Atlas-approved maps.
+- Moved 61 Atlas-relevant events/transfers from the generated placeholder row to reachable map positions.
+- Opened the tile under every Atlas-relevant event/transfer after border painting so edge transfers remain reachable.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/apply_map_layouts.py tools/atlas-import/apply_executable_event_logic.py tools/atlas-import/apply_event_placeholders.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 tools/atlas-import/apply_map_layouts.py --project-root ../TheLastSwordProtocol-Game`; first run reported `maps_updated=16 events_moved=61`.
+- Ran event-tile passability correction; it reported `maps_updated=16 events_moved=0`.
+- Re-ran the layout applier for final idempotence; it reported `maps_updated=0 events_moved=0`.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are found=277, missing=0, warning=0, unknown=1.
+- Parsed all clean skeleton `data/*.json`; JSON parse passed.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+
+Notes:
+
+- The remaining audit unknown is still Atlas `Animation None`, which is intentional and non-blocking.
+- BUILD-0005 does not create final art or final map dressing; it creates deterministic first-playable topology.
+- Recommended next step: apply audio hooks or animation/event feedback in the clean skeleton, then run a vertical-slice playthrough audit.
