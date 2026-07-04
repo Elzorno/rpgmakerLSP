@@ -1746,3 +1746,46 @@ Audit result:
 Open question:
 
 - Should Atlas backfill missing historical `WO-0007` through `WO-0016` files and update stale persisted statuses, or should the orchestrator treat chat/attachment work orders as external history and leave `atlas/workorders/` as-is?
+
+## 2026-07-04 17:21 ET - Codex handoff - T052
+
+Task:
+
+- Backfilled historical `WO-0007` through `WO-0016` files so `atlas/workorders/` has a persisted record for each executed work order.
+
+Atlas repository changes:
+
+- Added `atlas/workorders/WO-0007-fogfen-screen-object-specification.md`.
+- Added `atlas/workorders/WO-0008-home-island-vertical-slice-readiness-review.md`.
+- Added `atlas/workorders/WO-0009-rpg-maker-event-specification-standard.md`.
+- Added `atlas/workorders/WO-0010-home-island-executable-event-specs.md`.
+- Added `atlas/workorders/WO-0011-home-island-combat-database-specification.md`.
+- Added `atlas/workorders/WO-0012-body-mind-heart-trial-mechanics-specification.md`.
+- Added `atlas/workorders/WO-0013-rpg-maker-mz-vertical-slice-build-pipeline.md`.
+- Added `atlas/workorders/WO-0014-home-island-tileset-assignment-matrix.md`.
+- Added `atlas/workorders/WO-0015-home-island-animation-assignment-matrix.md`.
+- Added `atlas/workorders/WO-0016-home-island-production-readiness-gate.md`.
+- Updated `atlas-tools/orchestrator/audit_workorders.py` so the audit note reflects whether gaps are present.
+- Regenerated `atlas-tools/reports/workorder_audit_report.md`.
+
+Game repository changes:
+
+- None. This was Atlas recordkeeping only.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/orchestrator/audit_workorders.py atlas-tools/cli/atlas.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py workorder-audit`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Audit result:
+
+- Work-order files audited: 20.
+- Malformed workorder-like entries: 0.
+- Duplicate work-order numbers: 0.
+- Missing numbers inside observed range: 0.
+
+Notes:
+
+- Backfilled records are marked `backfill_record: true`.
+- The records summarize completed historical work and do not reopen or re-execute those tasks.
