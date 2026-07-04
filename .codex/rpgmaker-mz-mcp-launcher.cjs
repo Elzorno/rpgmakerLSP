@@ -7,7 +7,8 @@ const serverPaths = {
 };
 
 const serverPath = process.env.RPGMAKER_MZ_MCP_SERVER || serverPaths[process.platform];
-const projectPath = process.env.RPGMAKER_PROJECT_PATH || path.resolve(__dirname, "..");
+const projectPath = process.env.RPGMAKER_PROJECT_PATH ||
+  "/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game";
 
 if (!serverPath) {
   console.error(`Unsupported platform for RPG Maker MZ MCP: ${process.platform}`);

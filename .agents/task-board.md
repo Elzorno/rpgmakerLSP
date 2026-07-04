@@ -65,3 +65,6 @@ Use this table to claim work before editing project files.
 | T053 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, .agents/ | Normalize completed work-order record statuses | 2026-07-04 17:25 ET |
 | T054 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/, .agents/ | WO-0023 Atlas procedural map generation framework | 2026-07-04 17:32 ET |
 | T055 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, .agents/ | Create build order for first real map from Atlas blueprint | 2026-07-04 17:50 ET |
+| T056 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | Correct WO-0021 to BUILD-0009 and generate first real map | 2026-07-04 17:58 ET |
+| T057 | Codex | Done | .codex/rpgmaker-mz-mcp-launcher.cjs, ~/.codex/config.toml, VS Code mcp.json, .agents/ | Point RPG Maker MZ MCP server at clean game repo | 2026-07-04 18:10 ET |
+| T058 | Codex | Active | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0010 Atlas Blueprint Round-Trip Audit | 2026-07-04 18:13 ET |

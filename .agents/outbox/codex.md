@@ -1874,3 +1874,74 @@ Notes:
 - The build order targets `SCR-HOM-ASH-001` / Ashford Exterior.
 - It requires a guarded game-side generator/exporter and one real RPG Maker map output from `atlas-tools/mapgen/prototype/SCR-HOM-ASH-001.blueprint.json`.
 - It explicitly forbids generating additional maps, changing Atlas IDs, modifying story/gameplay, or writing engine-specific IDs into the blueprint.
+
+## 2026-07-04 17:58 ET - Codex handoff - T056
+
+Task:
+
+- Corrected the mistaken WO-0021 numbering lane and implemented BUILD-0009, generating the first real Ashford RPG Maker map from the Atlas blueprint.
+
+Changed:
+
+- Marked `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0021-generate-first-real-map-from-atlas-blueprint.md` as superseded by `BUILD-0009`.
+- Added `tools/atlas-import/generate_map_from_blueprint.py`.
+- Generated `../TheLastSwordProtocol-Game/data/Map001.json` from `BP-SCR-HOM-ASH-001-001`; Ashford is now 40x32, no-encounter, and uses blueprint event/transfer anchor coordinates.
+- Preserved existing executable Ashford event logic and added placeholder anchors for Village Elder, warm-stone vent, and old panel.
+- Added `reports/atlas-import/build-0009-first-real-map-from-blueprint-report.md` and `reports/atlas-import/build-0009-vertical-slice-playthrough-audit.md`.
+
+Files touched:
+
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0021-generate-first-real-map-from-atlas-blueprint.md`
+- `tools/atlas-import/generate_map_from_blueprint.py`
+- `../TheLastSwordProtocol-Game/data/Map001.json`
+- `reports/atlas-import/build-0009-first-real-map-from-blueprint-report.md`
+- `reports/atlas-import/build-0009-vertical-slice-playthrough-audit.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- `/usr/bin/python3 tools/atlas-import/generate_map_from_blueprint.py` rerun was idempotent: `events_created=0`.
+- `/usr/bin/python3 -m py_compile tools/atlas-import/*.py` passed.
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/MapInfos.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/Map001.json` passed.
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` passed with 0 errors and 0 warnings.
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0009-vertical-slice-playthrough-audit.md --project-root ../TheLastSwordProtocol-Game` passed with found=81, missing=0, warning=0, unknown=1.
+
+Open questions:
+
+- Not committed, matching the BUILD-0009 report-review constraint.
+- Next recommended build order: `BUILD-0010 - Atlas Blueprint Round-Trip Audit`.
+
+## 2026-07-04 18:10 ET - Codex handoff - T057
+
+Task:
+
+- Pointed the RPG Maker MZ MCP server at the clean game repository.
+
+Changed:
+
+- Updated `.codex/rpgmaker-mz-mcp-launcher.cjs` so its default `RPGMAKER_PROJECT_PATH` is `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game`.
+- Updated `/Users/christopherzornes/.codex/config.toml` MCP env for `rpgmaker-mz` to the same clean game path.
+- Updated `/Users/christopherzornes/Library/Application Support/Code/User/mcp.json` MCP env for VS Code to the same clean game path.
+
+Files touched:
+
+- `.codex/rpgmaker-mz-mcp-launcher.cjs`
+- `/Users/christopherzornes/.codex/config.toml`
+- `/Users/christopherzornes/Library/Application Support/Code/User/mcp.json`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Confirmed `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game` has `game.rmmzproject` and `data/System.json`.
+- `node --check .codex/rpgmaker-mz-mcp-launcher.cjs` passed.
+- Parsed `.mcp.json` and VS Code `mcp.json` as valid JSON.
+- `codex mcp get rpgmaker-mz` still shows the server enabled via `.codex/rpgmaker-mz-mcp-launcher.cjs` with `RPGMAKER_PROJECT_PATH` env configured.
+- A live MCP call before process refresh still showed old-project variables, confirming the current MCP process was stale. I stopped the stale RPG Maker MCP node processes, after which this session's MCP transport stayed closed. Codex/VS Code should be restarted or refreshed to spawn the server with the new clean-game path.
+
+Open questions:
+
+- After restart, rerun `get_variables`; the clean game should show variables including `Current_Journey` and `Archive_Recovery_Percent` rather than 21 blanks.

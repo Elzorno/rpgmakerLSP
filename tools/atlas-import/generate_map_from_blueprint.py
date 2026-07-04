@@ -1,0 +1,328 @@
+#!/usr/bin/env python3
+"""Generate one RPG Maker MZ map from an Atlas map blueprint."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_ATLAS_ROOT = ROOT.parent / "TheLastSwordProtocol-Atlas"
+DEFAULT_PROJECT_ROOT = ROOT.parent / "TheLastSwordProtocol-Game"
+DEFAULT_BLUEPRINT = DEFAULT_ATLAS_ROOT / "atlas-tools" / "mapgen" / "prototype" / "SCR-HOM-ASH-001.blueprint.json"
+
+FLOOR = 2816
+ALT_FLOOR = 2836
+BLOCK = 1536
+PATH = 3584
+
+SCREEN_TO_MAP_NAME = {
+    "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
+}
+
+TRANSFER_EVENT_NAMES = {
+    "TRN-HOM-002": "TRN-HOM-002 Enter Elara House",
+    "TRN-HOM-003": "TRN-HOM-003 Enter Ashford Shop",
+    "TRN-HOM-005": "TRN-HOM-005 North path to Skyreach",
+    "TRN-HOM-007": "TRN-HOM-007 South/east route to Rustshore",
+    "TRN-HOM-015": "TRN-HOM-015 Route to Glassfield",
+    "TRN-HOM-027": "TRN-HOM-027 Optional east route to Fogfen Marsh Field",
+}
+
+NPC_EVENT_NAMES = {
+    "EVT-HOM-003": "Child Near Old Panel",
+    "EVT-HOM-004": "Farmer With Warm Stones",
+    "EVT-HOM-005": "Skyreach Joker",
+    "EVT-HOM-006": "Dock Messenger",
+    "NPC-ASH-ELD-PLACEHOLDER": "Village Elder Placeholder",
+}
+
+TREASURE_EVENT_NAMES = {
+    "EVT-HOM-007": "Hidden Item",
+}
+
+ANCHOR_EVENT_NAMES = {
+    "EVT-HOM-009": "Tremor Trigger",
+    "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
+    "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
+}
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--blueprint", default=str(DEFAULT_BLUEPRINT), help="Atlas blueprint JSON path.")
+    parser.add_argument("--project-root", default=str(DEFAULT_PROJECT_ROOT), help="RPG Maker MZ project root.")
+    return parser.parse_args()
+
+
+def load_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(path: Path, payload: Any) -> None:
+    path.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def tile_index(width: int, height: int, x: int, y: int, z: int) -> int:
+    return (z * height + y) * width + x
+
+
+def set_tile(map_data: dict[str, Any], x: int, y: int, z: int, value: int) -> None:
+    if 0 <= x < map_data["width"] and 0 <= y < map_data["height"]:
+        map_data["data"][tile_index(map_data["width"], map_data["height"], x, y, z)] = value
+
+
+def paint_rect(map_data: dict[str, Any], x: int, y: int, w: int, h: int, z: int, value: int) -> None:
+    for yy in range(y, y + h):
+        for xx in range(x, x + w):
+            set_tile(map_data, xx, yy, z, value)
+
+
+def paint_border(map_data: dict[str, Any]) -> None:
+    width = map_data["width"]
+    height = map_data["height"]
+    for x in range(width):
+        set_tile(map_data, x, 0, 0, BLOCK)
+        set_tile(map_data, x, height - 1, 0, BLOCK)
+    for y in range(height):
+        set_tile(map_data, 0, y, 0, BLOCK)
+        set_tile(map_data, width - 1, y, 0, BLOCK)
+
+
+def line_points(start: list[int], end: list[int]) -> list[tuple[int, int]]:
+    x1, y1 = start
+    x2, y2 = end
+    points: list[tuple[int, int]] = []
+    if x1 == x2:
+        step = 1 if y2 >= y1 else -1
+        points.extend((x1, y) for y in range(y1, y2 + step, step))
+    elif y1 == y2:
+        step = 1 if x2 >= x1 else -1
+        points.extend((x, y1) for x in range(x1, x2 + step, step))
+    else:
+        # Manhattan fallback keeps generated paths tile-friendly and deterministic.
+        points.extend(line_points([x1, y1], [x1, y2]))
+        points.extend(line_points([x1, y2], [x2, y2]))
+    return points
+
+
+def anchor_point(anchor: dict[str, Any]) -> tuple[int, int]:
+    if anchor["shape"] == "point":
+        return int(anchor["x"]), int(anchor["y"])
+    if anchor["shape"] == "rect":
+        return int(anchor["x"] + anchor["w"] // 2), int(anchor["y"] + anchor["h"] // 2)
+    raise ValueError(f"Unsupported anchor shape: {anchor['shape']}")
+
+
+def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) -> None:
+    width = int(blueprint["dimensions"]["width"])
+    height = int(blueprint["dimensions"]["height"])
+    map_data["width"] = width
+    map_data["height"] = height
+    map_data["data"] = [0 for _ in range(width * height * 6)]
+    paint_rect(map_data, 0, 0, width, height, 0, FLOOR)
+    paint_rect(map_data, 2, 3, width - 4, height - 6, 0, ALT_FLOOR)
+    paint_border(map_data)
+
+    for terrain in blueprint.get("terrain", []):
+        area = terrain.get("area", {})
+        terrain_type = terrain.get("terrain_type")
+        if area.get("shape") == "rect":
+            value = PATH if terrain_type in {"village_path", "village_ground"} else ALT_FLOOR
+            paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
+        elif area.get("shape") == "polyline":
+            points = area.get("points", [])
+            for start, end in zip(points, points[1:]):
+                for x, y in line_points(start, end):
+                    set_tile(map_data, x, y, 1, PATH)
+
+    for obstacle in blueprint.get("obstacles", []):
+        if not obstacle.get("blocking"):
+            continue
+        area = obstacle["area"]
+        if area["shape"] == "rect":
+            paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 0, BLOCK)
+        elif area["shape"] == "point":
+            x, y = anchor_point(area)
+            set_tile(map_data, x, y, 0, BLOCK)
+
+
+def open_anchor_tile(map_data: dict[str, Any], x: int, y: int) -> None:
+    set_tile(map_data, x, y, 0, ALT_FLOOR)
+    set_tile(map_data, x, y, 1, PATH)
+
+
+def blank_page(comment: str) -> dict[str, Any]:
+    return {
+        "conditions": {
+            "actorId": 1,
+            "actorValid": False,
+            "itemId": 1,
+            "itemValid": False,
+            "selfSwitchCh": "A",
+            "selfSwitchValid": False,
+            "switch1Id": 1,
+            "switch1Valid": False,
+            "switch2Id": 1,
+            "switch2Valid": False,
+            "variableId": 1,
+            "variableValid": False,
+            "variableValue": 0,
+        },
+        "directionFix": False,
+        "image": {"characterIndex": 0, "characterName": "", "direction": 2, "pattern": 1, "tileId": 0},
+        "list": [
+            {"code": 108, "indent": 0, "parameters": [comment]},
+            {"code": 0, "indent": 0, "parameters": []},
+        ],
+        "moveFrequency": 3,
+        "moveRoute": {"list": [{"code": 0, "indent": 0, "parameters": []}], "repeat": True, "skippable": False, "wait": False},
+        "moveSpeed": 3,
+        "moveType": 0,
+        "priorityType": 1,
+        "stepAnime": False,
+        "through": False,
+        "trigger": 0,
+        "walkAnime": True,
+    }
+
+
+def make_event(event_id: int, name: str, x: int, y: int, atlas_note: str) -> dict[str, Any]:
+    return {
+        "id": event_id,
+        "name": name,
+        "note": atlas_note,
+        "pages": [blank_page(f"Atlas placeholder {atlas_note}: {name}")],
+        "x": x,
+        "y": y,
+    }
+
+
+def ensure_event_comment(event: dict[str, Any], text: str) -> None:
+    pages = event.get("pages", [])
+    if not pages:
+        return
+    commands = pages[0].setdefault("list", [])
+    for command in commands:
+        if command.get("code") in {108, 408} and command.get("parameters") == [text]:
+            return
+    commands.insert(0, {"code": 108, "indent": 0, "parameters": [text]})
+
+
+def upsert_event(
+    map_data: dict[str, Any],
+    name: str,
+    x: int,
+    y: int,
+    atlas_note: str,
+    created: list[str],
+    updated: list[str],
+) -> None:
+    events = map_data.setdefault("events", [])
+    by_name = {event.get("name"): event for event in events if isinstance(event, dict)}
+    event = by_name.get(name)
+    if event:
+        event["x"] = x
+        event["y"] = y
+        note = str(event.get("note", ""))
+        if atlas_note not in note:
+            event["note"] = f"{note} {atlas_note}".strip()
+        ensure_event_comment(event, f"Atlas blueprint anchor {atlas_note}")
+        updated.append(name)
+        return
+
+    next_id = max((event.get("id", 0) for event in events if isinstance(event, dict)), default=0) + 1
+    events.append(make_event(next_id, name, x, y, atlas_note))
+    created.append(name)
+
+
+def apply_blueprint_events(map_data: dict[str, Any], blueprint: dict[str, Any]) -> tuple[list[str], list[str]]:
+    created: list[str] = []
+    updated: list[str] = []
+
+    for transfer in blueprint.get("transfer_points", []):
+        transfer_id = transfer["transfer_id"]
+        name = TRANSFER_EVENT_NAMES.get(transfer_id, transfer_id)
+        x, y = anchor_point(transfer["anchor"])
+        open_anchor_tile(map_data, x, y)
+        upsert_event(map_data, name, x, y, transfer_id, created, updated)
+
+    for npc in blueprint.get("npc_spawns", []):
+        atlas_id = npc.get("event_id") or npc.get("local_anchor_id")
+        name = NPC_EVENT_NAMES.get(atlas_id, npc["npc_role"])
+        x, y = anchor_point(npc["anchor"])
+        open_anchor_tile(map_data, x, y)
+        upsert_event(map_data, name, x, y, atlas_id, created, updated)
+
+    for treasure in blueprint.get("treasure_locations", []):
+        atlas_id = treasure["event_id"]
+        name = TREASURE_EVENT_NAMES.get(atlas_id, atlas_id)
+        x, y = anchor_point(treasure["anchor"])
+        open_anchor_tile(map_data, x, y)
+        upsert_event(map_data, name, x, y, atlas_id, created, updated)
+
+    for anchor in blueprint.get("event_anchors", []):
+        atlas_id = anchor.get("event_id") or anchor.get("local_anchor_id")
+        name = ANCHOR_EVENT_NAMES.get(atlas_id, anchor.get("event_name", atlas_id))
+        x, y = anchor_point(anchor["anchor"])
+        open_anchor_tile(map_data, x, y)
+        upsert_event(map_data, name, x, y, atlas_id, created, updated)
+
+    return created, updated
+
+
+def find_target_map_id(project_root: Path, blueprint: dict[str, Any]) -> int:
+    map_name = SCREEN_TO_MAP_NAME.get(blueprint["atlas_screen_id"])
+    if not map_name:
+        raise ValueError(f"No RPG Maker map-name mapping for {blueprint['atlas_screen_id']}")
+    map_infos = load_json(project_root / "data" / "MapInfos.json")
+    matches = [entry["id"] for entry in map_infos if isinstance(entry, dict) and entry.get("name") == map_name]
+    if len(matches) != 1:
+        raise ValueError(f"Expected one MapInfos entry named {map_name}, found {matches}")
+    return int(matches[0])
+
+
+def main() -> int:
+    args = parse_args()
+    blueprint_path = Path(args.blueprint).expanduser().resolve()
+    project_root = Path(args.project_root).expanduser().resolve()
+    blueprint = load_json(blueprint_path)
+    if blueprint.get("atlas_screen_id") != "SCR-HOM-ASH-001":
+        raise ValueError("BUILD-0009 is scoped to SCR-HOM-ASH-001 only.")
+
+    map_id = find_target_map_id(project_root, blueprint)
+    map_path = project_root / "data" / f"Map{map_id:03d}.json"
+    map_data = load_json(map_path)
+    before = json.dumps(map_data, ensure_ascii=False, separators=(",", ":"))
+
+    paint_blueprint_layout(map_data, blueprint)
+    created, updated = apply_blueprint_events(map_data, blueprint)
+    map_data["encounterList"] = []
+    map_data["encounterStep"] = 30
+    map_data["displayName"] = blueprint["title"]
+    note = str(map_data.get("note", ""))
+    marker = f"BUILD-0009 generated from {blueprint['blueprint_id']}."
+    if marker not in note:
+        map_data["note"] = f"{note} {marker}".strip()
+
+    after = json.dumps(map_data, ensure_ascii=False, separators=(",", ":"))
+    if after != before:
+        write_json(map_path, map_data)
+
+    print(f"blueprint={blueprint_path}")
+    print(f"map={map_path}")
+    print(f"map_id={map_id}")
+    print(f"events_created={len(created)}")
+    for name in created:
+        print(f"created={name}")
+    print(f"events_updated={len(updated)}")
+    for name in updated:
+        print(f"updated={name}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
