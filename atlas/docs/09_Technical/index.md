@@ -27,6 +27,10 @@ RPG Maker MZ is the first implementation target, but Atlas remains engine indepe
 | ATLAS-TEC-055 | Home Island Executable Event Specs | Defines RPG Maker-ready Home Island vertical slice event pages |
 | ATLAS-TEC-056 | Home Island Combat Database Spec | Defines RPG Maker-ready Home Island combat database rows |
 | ATLAS-TEC-057 | Home Island Body Mind Heart Trial Mechanics Spec | Defines RPG Maker-ready Home Island trial mechanics |
+| ATLAS-TEC-058 | RPG Maker MZ Vertical Slice Build Pipeline | Defines Atlas-to-RPG Maker vertical slice implementation order |
+| ATLAS-TEC-059 | Home Island Tileset Assignment Matrix | Defines Home Island placeholder tilesets, passability, regions, and encounter zones |
+| ATLAS-TEC-060 | Home Island Animation Assignment Matrix | Defines Home Island placeholder animations, story effects, and combat VFX |
+| ATLAS-TEC-061 | Home Island Production Readiness Gate | Issues the production decision for Home Island first-playable implementation |
 
 ## Current Rule
 

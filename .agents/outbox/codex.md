@@ -935,3 +935,172 @@ Notes:
 - Remaining Home Island build blockers are tileset assignment matrix and animation assignment matrix.
 - No RPG Maker data files, final dialogue, story canon, maps, or game implementation files were changed.
 - Per user instruction, no commit was made.
+
+## 2026-07-03 14:37 ET - Codex handoff - T028
+
+Task:
+
+- Executed WO-0013 RPG Maker MZ Vertical Slice Build Pipeline.
+
+Changed:
+
+- Created `ATLAS-TEC-058` RPG Maker MZ Vertical Slice Build Pipeline.
+- Documented the Atlas to RPG Maker MZ translation layer for screens, events, transfers, dialogue, trials, database rows, assets, tilesets, animations, regions, and encounters.
+- Documented the recommended Home Island build order and stage dependencies.
+- Added an asset dependency matrix covering tilesets, character sprites, face graphics, enemy sprites, animations, audio, sound effects, battlebacks, and parallax assets.
+- Added event build pipeline, database population order, map build pipeline, placeholder rules, and verification checklist.
+- Added `ATLAS-TEC-058` to the technical index.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Build_Pipeline/RPGMaker_MZ_Vertical_Slice_Build_Pipeline.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Remaining implementation blockers are still tileset assignment matrix and animation assignment matrix.
+- No RPG Maker data files, game content, lore, dialogue, maps, or gameplay implementation files were changed.
+- Per work order instruction, no commit was made.
+
+## 2026-07-04 08:49 ET - Codex handoff - T029
+
+Task:
+
+- Executed WO-0014 Home Island Tileset Assignment Matrix.
+
+Changed:
+
+- Created `ATLAS-TEC-059` Home Island Tileset Assignment Matrix.
+- Assigned every Home Island screen to an approved first-playable RPG Maker MZ placeholder tileset.
+- Documented required terrain types, passability needs, region ID guidance, encounter zones, transfer/event placement notes, missing final tileset assets, and first-playable placeholder policy.
+- Updated `ATLAS-TEC-058` build pipeline to reference `ATLAS-TEC-059`.
+- Updated the readiness review to mark `BLK-HOM-004` tileset assignment cleared.
+- Added `ATLAS-TEC-059` to the technical index.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Asset_Mapping/Home_Island_Tileset_Assignment_Matrix.md`
+- `atlas/docs/09_Technical/Build_Pipeline/RPGMaker_MZ_Vertical_Slice_Build_Pipeline.md`
+- `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Tileset blocker is cleared at the Atlas specification level for first playable testing.
+- Remaining Home Island build blocker is the animation assignment matrix.
+- No RPG Maker project files, final art assets, game content, lore, dialogue, maps, or gameplay implementation files were changed.
+- Per work order instruction, no commit was made.
+
+## 2026-07-04 09:00 ET - Codex handoff - T030
+
+Task:
+
+- Executed WO-0015 Home Island Animation Assignment Matrix.
+
+Changed:
+
+- Created `ATLAS-TEC-060` Home Island Animation Assignment Matrix.
+- Assigned first-playable RPG Maker MZ placeholder animation IDs or explicit no-animation fallbacks for Home Island combat, story, trial, feedback, item/recovery, encounter, victory, and reward beats.
+- Updated `ATLAS-TEC-058` build pipeline to reference `ATLAS-TEC-060` and show no remaining first-playable readiness blockers.
+- Updated `ATLAS-TEC-053` readiness review to mark `BLK-HOM-005` cleared and change the verdict to build-ready for first playable implementation.
+- Updated `ATLAS-TEC-056` combat database skill rows to use assigned animation IDs from `ATLAS-TEC-060`.
+- Updated `ATLAS-TEC-055` event specs to treat final animation polish as non-blocking.
+- Added `ATLAS-TEC-060` to the technical index.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Asset_Mapping/Home_Island_Animation_Assignment_Matrix.md`
+- `atlas/docs/09_Technical/Build_Pipeline/RPGMaker_MZ_Vertical_Slice_Build_Pipeline.md`
+- `atlas/docs/09_Technical/Playtest/Home_Island_Vertical_Slice_Readiness_Review.md`
+- `atlas/docs/09_Technical/Database_Specs/Home_Island/Home_Island_Combat_Database_Spec.md`
+- `atlas/docs/09_Technical/Event_Specs/Home_Island/Home_Island_Executable_Event_Specs.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- Animation blocker is cleared at the Atlas specification level for first playable testing.
+- Home Island now has no remaining Atlas readiness blockers for first playable implementation.
+- Final custom VFX remain non-blocking production polish.
+- No RPG Maker project files, final art assets, game content, lore, dialogue, maps, or gameplay implementation files were changed.
+- Per work order instruction, no commit was made.
+
+## 2026-07-04 09:18 ET - Codex handoff - T031
+
+Task:
+
+- Executed WO-0016 Home Island Vertical Slice Production Readiness Gate.
+
+Changed:
+
+- Created `ATLAS-TEC-061` Home Island Production Readiness Gate.
+- Audited Home Island traceability across story, gameplay, cybersecurity, and technical implementation layers.
+- Verified Home Island world, gameplay, RPG Maker readiness, build pipeline, and cross-reference readiness from existing Atlas docs.
+- Issued production decision: GO - Begin RPG Maker MZ implementation.
+- Added `ATLAS-TEC-061` to the technical index.
+- Regenerated `atlas-tools/reports/atlas_validation_report.md`.
+
+Files touched:
+
+- `atlas/docs/09_Technical/Playtest/Home_Island_Production_Readiness_Gate.md`
+- `atlas/docs/09_Technical/index.md`
+- `atlas-tools/reports/atlas_validation_report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings.
+
+Notes:
+
+- No genuine Home Island first-playable implementation blockers remain in Atlas.
+- Remaining work is implementation plus non-blocking polish: final dialogue, final assets, final audio/VFX, playtest tuning, and future Journey II destination work.
+- No RPG Maker project files, maps, events, art assets, story canon, or gameplay implementation files were changed.
+- Per work order instruction, no commit was made.
+
+## 2026-07-04 09:25 ET - Codex handoff - T032
+
+Task:
+
+- Committed the open Atlas readiness work as a single logical production-readiness checkpoint.
+
+Committed scope:
+
+- WO-0013 RPG Maker MZ vertical slice build pipeline.
+- WO-0014 Home Island tileset assignment matrix.
+- WO-0015 Home Island animation assignment matrix.
+- WO-0016 Home Island production readiness gate.
+- Related Atlas readiness review, event spec, combat spec, technical index, validation report, and agent tracking updates.
+
+Verification:
+
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; exit code 0 with 0 errors and 0 warnings before committing.
+
+Notes:
+
+- The changes were committed together because the later readiness gate and updated build pipeline cross-reference the tileset and animation matrices.
+- No RPG Maker project files were changed.

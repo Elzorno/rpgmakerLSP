@@ -660,7 +660,7 @@ Remaining gaps are not event-page specification blockers:
 | Final Body / Mind / Heart polish | `ATLAS-TEC-057` clears first-playable mechanics; final dialogue and presentation polish remain non-blocking |
 | Combat balance tuning | `ATLAS-TEC-056` clears first-playable combat rows; final numeric tuning remains non-blocking |
 | Tileset assignments | Tracked separately as the Asset Mapping blocker |
-| Animation IDs | Tracked separately as the Animation Assignment blocker |
+| Final animation polish | `ATLAS-TEC-060` clears first-playable animation IDs; custom VFX remain non-blocking polish |
 | Final dialogue | Placeholder dialogue is allowed for first implementation |
 
 ---

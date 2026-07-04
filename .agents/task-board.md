@@ -37,3 +37,8 @@ Use this table to claim work before editing project files.
 | T025 | Codex | Done | repository | Review repo and commit accumulated changes | 2026-07-03 13:56 ET |
 | T026 | Codex | Done | atlas/docs/09_Technical/Database_Specs/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/, atlas/docs/09_Technical/Playtest/, .agents/ | WO-0011 Home Island combat database specification | 2026-07-03 14:10 ET |
 | T027 | Codex | Done | atlas/docs/09_Technical/Trial_Specs/, atlas/docs/09_Technical/Event_Specs/, atlas/docs/09_Technical/Implementation_Packets/Home_Island/, atlas/docs/09_Technical/Playtest/, .agents/ | WO-0012 Body Mind Heart trial mechanics specification | 2026-07-03 14:24 ET |
+| T028 | Codex | Done | atlas/docs/09_Technical/Build_Pipeline/, atlas/docs/09_Technical/index.md, .agents/ | WO-0013 RPG Maker MZ vertical slice build pipeline | 2026-07-03 14:37 ET |
+| T029 | Codex | Done | atlas/docs/09_Technical/Asset_Mapping/, atlas/docs/09_Technical/Playtest/, atlas/docs/09_Technical/Build_Pipeline/, atlas/docs/09_Technical/index.md, .agents/ | WO-0014 Home Island tileset assignment matrix | 2026-07-04 08:49 ET |
+| T030 | Codex | Done | atlas/docs/09_Technical/Asset_Mapping/, atlas/docs/09_Technical/Playtest/, atlas/docs/09_Technical/Build_Pipeline/, atlas/docs/09_Technical/index.md, .agents/ | WO-0015 Home Island animation assignment matrix | 2026-07-04 09:00 ET |
+| T031 | Codex | Done | atlas/docs/09_Technical/Playtest/, atlas/docs/09_Technical/index.md, .agents/ | WO-0016 Home Island production readiness gate | 2026-07-04 09:18 ET |
+| T032 | Codex | Done | repository | Commit open Atlas readiness work logically | 2026-07-04 09:25 ET |

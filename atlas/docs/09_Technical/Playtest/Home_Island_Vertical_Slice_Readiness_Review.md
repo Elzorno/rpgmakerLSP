@@ -19,6 +19,8 @@ related:
   - ATLAS-TEC-055
   - ATLAS-TEC-056
   - ATLAS-TEC-057
+  - ATLAS-TEC-059
+  - ATLAS-TEC-060
 ---
 
 # Home Island Vertical Slice Readiness Review
@@ -31,11 +33,11 @@ Can a developer build Home Island today using Atlas alone?
 
 ## Verdict
 
-No.
+Yes, for first playable implementation.
 
-Atlas has enough high-level structure to start Home Island implementation, but it does not yet contain enough unambiguous RPG Maker MZ production detail for an unfamiliar developer to build the vertical slice without inventing critical implementation decisions.
+Atlas now contains enough RPG Maker MZ production detail for an unfamiliar developer to build the Home Island vertical slice without inventing critical implementation decisions.
 
-This review lists blockers only.
+Final art, final animation, final audio, final dialogue polish, and balance tuning remain production polish, not readiness blockers.
 
 ---
 
@@ -53,8 +55,8 @@ This review lists blockers only.
 | Sound effect IDs | Mostly | No | Major story SFX cue IDs exist. |
 | Encounter tables | Yes | No | `ATLAS-TEC-056` defines RPG Maker-ready enemies, skills, states, troops, and first-pass encounter placement. |
 | Trial mechanics | Yes | No | `ATLAS-TEC-057` defines eventable Body, Mind, and Heart trial mechanics. |
-| Tileset references | No | Yes | Maps lack concrete tileset assignments or placeholder tileset IDs. |
-| Animation IDs | No | Yes | Required skill and story animations are not assigned. |
+| Tileset references | Yes | No | `ATLAS-TEC-059` assigns every Home Island screen to an approved first-playable placeholder tileset with passability and region guidance. |
+| Animation IDs | Yes | No | `ATLAS-TEC-060` assigns every required Home Island combat, story, trial, feedback, and recovery beat to an approved placeholder animation or no-animation fallback. |
 | RPG Maker event pages | Yes | No | `ATLAS-TEC-055` defines executable Home Island event pages for the current vertical slice. |
 
 ---
@@ -166,9 +168,13 @@ Can a developer create maps without choosing tilesets outside Atlas?
 
 Current answer:
 
-No.
+Yes, for the current Home Island vertical slice.
 
-Missing production data:
+Resolution:
+
+`ATLAS-TEC-059` maps every Home Island screen to an approved RPG Maker MZ placeholder tileset and documents terrain, passability, region IDs, encounter zones, transfer placement, missing final assets, and first-playable placeholder rules.
+
+Former missing production data:
 
 | Map Group | Missing Detail |
 |---|---|
@@ -180,7 +186,7 @@ Missing production data:
 
 Required output:
 
-- Add a Home Island tileset assignment matrix mapping every `SCR-HOM-*` screen to an RPG Maker tileset name or approved placeholder tileset.
+- Complete. See `ATLAS-TEC-059`.
 
 This can use existing RTP or prototype tilesets; it does not require final art.
 
@@ -194,9 +200,13 @@ Can a developer wire battles and key story events without choosing animations ou
 
 Current answer:
 
-No.
+Yes, for the current Home Island vertical slice.
 
-Missing production data:
+Resolution:
+
+`ATLAS-TEC-060` maps every required Home Island combat, story, trial, feedback, item/recovery, encounter, victory, and reward beat to an RPG Maker MZ animation database ID or approved no-animation fallback.
+
+Former missing production data:
 
 | Required Beat | Missing Detail |
 |---|---|
@@ -210,7 +220,7 @@ Missing production data:
 
 Required output:
 
-- Add an animation assignment matrix for required Home Island story events and combat skills.
+- Complete. See `ATLAS-TEC-060`.
 
 Use existing RPG Maker animations if final assets are not ready.
 
@@ -231,17 +241,15 @@ These are not blockers under the current vertical-slice rules:
 | Final balance tuning | First-pass combat can be adjusted after database rows exist. |
 | Optional Fogfen reward item identity | Can use an existing early-game reward once item standards are available; it does not block the critical path. |
 | Final combat balance tuning | `ATLAS-TEC-056` supplies first-playable values; numeric tuning can proceed after implementation. |
+| Final animation/VFX assets | `ATLAS-TEC-060` supplies first-playable placeholder animation IDs; custom VFX can replace them later. |
 
 ---
 
 ## Minimum To Become Build-Ready
 
-Home Island becomes build-ready from Atlas alone when these two remaining blockers are resolved:
+Home Island is build-ready from Atlas alone for first playable testing.
 
-1. `BLK-HOM-004` tileset assignment matrix.
-2. `BLK-HOM-005` animation assignment matrix.
-
-After those are complete, a developer unfamiliar with Atlas should be able to build the Home Island vertical slice without inventing critical production decisions.
+A developer unfamiliar with Atlas should be able to build the Home Island vertical slice without inventing critical production decisions.
 
 ---
 
@@ -268,3 +276,5 @@ Expected result:
 | 0.2 | Marked event-page blocker cleared by ATLAS-TEC-055 |
 | 0.3 | Marked combat database blocker cleared by ATLAS-TEC-056 |
 | 0.4 | Marked trial mechanics blocker cleared by ATLAS-TEC-057 |
+| 0.5 | Marked tileset assignment blocker cleared by ATLAS-TEC-059 |
+| 0.6 | Marked animation assignment blocker cleared by ATLAS-TEC-060 |

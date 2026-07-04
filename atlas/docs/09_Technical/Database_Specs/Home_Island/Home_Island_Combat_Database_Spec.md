@@ -10,6 +10,7 @@ dependencies:
   - ATLAS-TEC-020
   - ATLAS-TEC-052
   - ATLAS-TEC-053
+  - ATLAS-TEC-060
   - IMP-HOM-005
 related:
   - CHR-KAI-001
@@ -36,6 +37,7 @@ This is a first-playable database specification. Values are expected to be tuned
 | `ATLAS-TEC-052` | Truth Layer Diagram |
 | `ATLAS-TEC-053` | Home Island Vertical Slice Readiness Review |
 | `ATLAS-TEC-020` | RPG Maker MZ Bible |
+| `ATLAS-TEC-060` | Home Island Animation Assignment Matrix |
 | `IMP-HOM-005` | Build Home Island Enemy Database |
 | `CHR-KAI-001` | Kai |
 | `MON-GEL-001` | Meadow Gel |
@@ -234,17 +236,17 @@ The `Warning Tone` / `Relay Burst` pattern is the required readability rule for 
 
 ## Skill Rows
 
-Use Animation ID `1` for all combat skills until `BLK-HOM-005` assigns final or approved placeholder animations. This keeps the combat database runnable while leaving animation polish tracked separately.
+Use the first-playable placeholder animation IDs assigned by `ATLAS-TEC-060`.
 
 | Skill ID | Name | Scope | Hit Type | Formula | Effects | Animation | Notes |
 |---:|---|---|---|---|---|---:|---|
-| 1 | Attack | 1 Enemy | Physical | Engine default | Normal attack | 1 | Keep default Attack row unless project defaults differ |
-| 101 | Nibble | 1 Enemy | Physical | `a.atk * 3 - b.def * 2` | None | 1 | Faster Ash Rat pressure without status load |
-| 102 | Murk Bubble | 1 Enemy | Magical | `a.mat * 2 + a.atk - b.mdf` | Add State 11 at 30% | 1 | Debuff replaces poison for first playable |
-| 110 | Strike | 1 Enemy | Physical | `a.atk * 4 - b.def * 2` | None | 1 | Guardian basic attack |
-| 111 | Pulse Guard | The User | Certain Hit | `0` | Add State 12 at 100% | 1 | Guardian defensive beat |
-| 112 | Warning Tone | The User | Certain Hit | `0` | Add State 13 at 100% | 1 | Telegraph before Relay Burst |
-| 113 | Relay Burst | 1 Enemy | Magical | `a.atk * 4 + a.mat * 2 - b.mdf * 2` | Remove State 13 from user if practical | 1 | Heavy readable attack after Warning Tone |
+| 1 | Attack | 1 Enemy | Physical | Engine default | Normal attack | 6 | Use Slash Physical for Kai's first-playable sword attack; keep engine default if project defaults differ |
+| 101 | Nibble | 1 Enemy | Physical | `a.atk * 3 - b.def * 2` | None | 16 | Faster Ash Rat pressure without status load |
+| 102 | Murk Bubble | 1 Enemy | Magical | `a.mat * 2 + a.atk - b.mdf` | Add State 11 at 30% | 35 | Debuff replaces poison for first playable |
+| 110 | Strike | 1 Enemy | Physical | `a.atk * 4 - b.def * 2` | None | 6 | Guardian basic attack |
+| 111 | Pulse Guard | The User | Certain Hit | `0` | Add State 12 at 100% | 51 | Guardian defensive beat |
+| 112 | Warning Tone | The User | Certain Hit | `0` | Add State 13 at 100% | 106 | Telegraph before Relay Burst |
+| 113 | Relay Burst | 1 Enemy | Magical | `a.atk * 4 + a.mat * 2 - b.mdf * 2` | Remove State 13 from user if practical | 115 | Heavy readable attack after Warning Tone |
 
 Recommended shared skill settings:
 
@@ -393,3 +395,4 @@ Expected result:
 | Version | Change |
 |---|---|
 | 0.1 | Initial Home Island combat database specification |
+| 0.2 | Updated combat skill animation IDs from ATLAS-TEC-060 |
