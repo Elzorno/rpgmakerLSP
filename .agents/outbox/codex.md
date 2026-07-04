@@ -1503,3 +1503,40 @@ Notes:
 - The remaining audit unknown is still Atlas `Animation None`, which is intentional and non-blocking.
 - BUILD-0006 uses existing RTP placeholder audio only; final music and sound design remain polish.
 - Recommended next step: BUILD-0007 apply animation/event feedback references in the clean skeleton.
+
+## 2026-07-04 11:52 ET - Codex handoff - T045
+
+Task:
+
+- Executed BUILD-0007 Apply Home Island Animation And Event Feedback Hooks.
+
+Game repository changes:
+
+- Added `tools/atlas-import/apply_animation_feedback.py`.
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` with `Animation Feedback` checks.
+- Updated `tools/atlas-import/README.md` with the animation feedback applier command.
+- Added `reports/atlas-import/build-0007-clean-skeleton-animation-audit.md`.
+- Added `reports/atlas-import/build-0007-animation-feedback-report.md`.
+
+Clean skeleton repository changes:
+
+- Added Show Animation hooks to Home Island story, reward, trial, boss, relay, and signal events.
+- Added common event animation helpers for archive message, sword authentication, relay resolution, trial completion, and trial reset feedback.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/apply_animation_feedback.py tools/atlas-import/apply_audio_hooks.py tools/atlas-import/apply_map_layouts.py tools/atlas-import/apply_executable_event_logic.py tools/atlas-import/apply_event_placeholders.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Initial applier attempt added map event animation hooks, then exposed a `MapInfos.json` glob bug; fixed the applier to process only `Map###.json`.
+- Fixed applier completion run reported `maps_updated=0 event_animation_hooks_added=0 common_event_changes=5`.
+- Re-ran the animation applier for final idempotence; it reported `maps_updated=0 event_animation_hooks_added=0 common_event_changes=0`.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are found=335, missing=0, warning=0, unknown=1.
+- Parsed all clean skeleton `data/*.json`; JSON parse passed.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; 0 errors, 0 warnings.
+
+Notes:
+
+- The remaining audit unknown is still Atlas `Animation None`, which is intentional and non-blocking.
+- Final custom VFX remain polish.
+- Recommended next step: BUILD-0008 vertical-slice playthrough/readiness audit against the clean skeleton.

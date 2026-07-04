@@ -105,3 +105,13 @@ Run from the legacy RPG Maker repository after placeholder layouts exist:
 ```
 
 The applier assigns existing RTP placeholder BGM/BGS files to Home Island maps and adds Play SE hooks to major story, reward, trial, relay, and signal events. It verifies referenced audio files exist before writing.
+
+## Apply Animation Feedback
+
+Run from the legacy RPG Maker repository after audio hooks exist:
+
+```bash
+/usr/bin/python3 tools/atlas-import/apply_animation_feedback.py --project-root ../TheLastSwordProtocol-Game
+```
+
+The applier adds first-playable Show Animation commands to Home Island story, reward, trial, relay, and signal events plus common feedback events. It verifies referenced animation database rows exist before writing.

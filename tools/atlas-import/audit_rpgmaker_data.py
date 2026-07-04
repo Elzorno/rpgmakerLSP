@@ -65,6 +65,33 @@ AUDIO_COMMON_EVENT_EXPECTATIONS = {
     "CE_Trial_Reset_Feedback": "Buzzer2",
 }
 
+ANIMATION_EVENT_EXPECTATIONS = {
+    "Hidden Item": 40,
+    "Hidden Cave First Entry": 40,
+    "Body Trial": 40,
+    "Mind Trial": 40,
+    "Heart Trial": 117,
+    "Sanctum Gate": 117,
+    "Sword Pedestal": 117,
+    "Glassfield Seal": 117,
+    "Surface Fragment": 106,
+    "Core Path Door": 40,
+    "Node Seven Guardian": 40,
+    "Relay Core": 120,
+    "Lighthouse Examine": 40,
+    "Hidden Item Landmark": 40,
+    "Signal-Tick Reed Pool": 106,
+    "Signal Pool / Cable Cluster Examine": 106,
+}
+
+ANIMATION_COMMON_EVENT_EXPECTATIONS = {
+    "CE_Archive_Message_Display": 106,
+    "CE_Sword_Authentication": 117,
+    "CE_Relay_Resolution": 120,
+    "CE_Trial_Complete_Chime": 40,
+    "CE_Trial_Reset_Feedback": 54,
+}
+
 
 @dataclass(frozen=True)
 class Finding:
@@ -796,6 +823,72 @@ def audit_audio_hooks(
     return findings
 
 
+def command_shows_animation(command: dict, animation_id: int) -> bool:
+    if command.get("code") != 212:
+        return False
+    parameters = command.get("parameters", [])
+    return len(parameters) >= 2 and parameters[1] == animation_id
+
+
+def event_has_animation(event: dict, animation_id: int) -> bool:
+    return any(command_shows_animation(command, animation_id) for _, command in iter_page_commands(event))
+
+
+def common_event_has_animation(common_event: dict, animation_id: int) -> bool:
+    return any(
+        command_shows_animation(command, animation_id)
+        for command in common_event.get("list", [])
+        if isinstance(command, dict)
+    )
+
+
+def audit_animation_feedback(
+    maps: dict[int, dict],
+    common_events: list,
+    animations: list,
+) -> list[Finding]:
+    findings: list[Finding] = []
+    events_by_name = {}
+    for map_data in maps.values():
+        for event in iter_events(map_data):
+            events_by_name.setdefault(event.get("name"), []).append(event)
+
+    for event_name, animation_id in ANIMATION_EVENT_EXPECTATIONS.items():
+        label = f"{event_name} -> Animation {animation_id}"
+        if row_by_id(animations, str(animation_id)) is None:
+            findings.append(Finding("Animation Feedback", event_name, label, MISSING, f"Animations.json row {animation_id} is missing"))
+            continue
+        matches = events_by_name.get(event_name, [])
+        if not matches:
+            findings.append(Finding("Animation Feedback", event_name, label, MISSING, "Expected animation-feedback event not found"))
+            continue
+        if any(event_has_animation(event, animation_id) for event in matches):
+            findings.append(Finding("Animation Feedback", event_name, label, FOUND, f"Show Animation {animation_id}"))
+        else:
+            findings.append(Finding("Animation Feedback", event_name, label, MISSING, f"Missing Show Animation {animation_id}"))
+
+    common_by_name = {
+        row.get("name"): row
+        for row in common_events
+        if isinstance(row, dict) and row.get("name")
+    }
+    for event_name, animation_id in ANIMATION_COMMON_EVENT_EXPECTATIONS.items():
+        label = f"{event_name} -> Animation {animation_id}"
+        if row_by_id(animations, str(animation_id)) is None:
+            findings.append(Finding("Animation Feedback", event_name, label, MISSING, f"Animations.json row {animation_id} is missing"))
+            continue
+        common_event = common_by_name.get(event_name)
+        if not common_event:
+            findings.append(Finding("Animation Feedback", event_name, label, MISSING, "Common event not found"))
+            continue
+        if common_event_has_animation(common_event, animation_id):
+            findings.append(Finding("Animation Feedback", event_name, label, FOUND, f"Common event shows animation {animation_id}"))
+        else:
+            findings.append(Finding("Animation Feedback", event_name, label, MISSING, f"Common event missing Show Animation {animation_id}"))
+
+    return findings
+
+
 def audit_trial_state(home: dict, system: dict) -> list[Finding]:
     findings: list[Finding] = []
     switch_names = {norm(name): index for index, name in enumerate(system.get("switches", [])) if name}
@@ -879,6 +972,7 @@ def run_audit(payload: dict, project_root: Path = ROOT) -> list[Finding]:
     findings.extend(audit_executable_event_logic(home, maps, screen_maps))
     findings.extend(audit_map_layout_readiness(home, maps, screen_maps))
     findings.extend(audit_audio_hooks(home, maps, screen_maps, data_files["CommonEvents.json"], project_root))
+    findings.extend(audit_animation_feedback(maps, data_files["CommonEvents.json"], data_files["Animations.json"]))
     return findings
 
 
