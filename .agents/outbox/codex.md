@@ -1139,3 +1139,37 @@ Notes:
 
 - The current RPG Maker repository was left intact; Atlas was not deleted from it in this work order.
 - Next recommended step is a separate cleanup/migration work order to decide when the game repo should remove or vendor-lock its old local Atlas copy.
+
+## 2026-07-04 10:21 ET - Codex handoff - T034
+
+Task:
+
+- Created and executed WO-0018 Atlas Export / Game Import Contract.
+
+Atlas repository changes:
+
+- Added `WO-0018` in `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Atlas`.
+- Added `ATLAS-TEC-062` Atlas Export Game Import Contract.
+- Added `/usr/bin/python3 atlas-tools/cli/atlas.py export home-island`.
+- Generated `atlas-exports/home-island.json`.
+- Committed Atlas contract/tooling as `a0d7816 feat(atlas): define game import export contract`.
+- Committed export artifact as `bc3598b chore(atlas): add Home Island export artifact`.
+
+Game repository changes:
+
+- Added read-only import validator at `tools/atlas-import/validate_atlas_export.py`.
+- Added `tools/atlas-import/README.md`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/exporters/home_island_export.py` in the Atlas repo.
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/validate_atlas_export.py` in the game repo.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py export home-island` in the Atlas repo; wrote `atlas-exports/home-island.json`.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json` in the game repo; PASS.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the game repo; 0 errors, 0 warnings.
+
+Notes:
+
+- The game-side validator is read-only and does not mutate RPG Maker JSON, maps, events, assets, or project settings.
+- Recommended next work order: generate a read-only RPG Maker implementation checklist from the Atlas export before any importer writes to `data/*.json`.

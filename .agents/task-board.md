@@ -43,3 +43,4 @@ Use this table to claim work before editing project files.
 | T031 | Codex | Done | atlas/docs/09_Technical/Playtest/, atlas/docs/09_Technical/index.md, .agents/ | WO-0016 Home Island production readiness gate | 2026-07-04 09:18 ET |
 | T032 | Codex | Done | repository | Commit open Atlas readiness work logically | 2026-07-04 09:25 ET |
 | T033 | Codex | Done | atlas/workorders/, sibling Atlas repo, .agents/ | WO-0017 split Atlas specification from RPG Maker implementation | 2026-07-04 09:39 ET |
+| T034 | Codex | Done | TheLastSwordProtocol-Atlas/, tools/atlas-import/, .agents/ | WO-0018 Atlas export / game import contract | 2026-07-04 10:21 ET |
