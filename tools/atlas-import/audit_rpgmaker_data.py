@@ -34,6 +34,10 @@ DATABASE_FILES = {
     "Armor": "Armors.json",
 }
 
+EXTERNAL_TRANSFER_TARGETS = {
+    "Journey II start": "JRN2_Landing_Placeholder",
+}
+
 
 @dataclass(frozen=True)
 class Finding:
@@ -390,6 +394,14 @@ def audit_transfers(home: dict, maps: dict[int, dict], screen_maps: dict[str, di
     for transfer in home["transfers"]:
         source = screen_maps.get(transfer["from"])
         target = screen_maps.get(transfer["to"])
+        external_target_name = EXTERNAL_TRANSFER_TARGETS.get(transfer["to"])
+        if target is None and external_target_name:
+            # Extra placeholder maps such as Journey II are not Atlas screen
+            # maps, so resolve them by their generated display name.
+            for map_id, map_data in maps.items():
+                if norm(map_data.get("displayName")) == norm("Journey II Landing Placeholder"):
+                    target = {"id": map_id, "name": external_target_name}
+                    break
         label = f"{transfer['from']} -> {transfer['to']}"
         if not source:
             findings.append(Finding("Transfers", transfer["transfer_id"], label, MISSING, "Source screen map is missing from MapInfos.json"))

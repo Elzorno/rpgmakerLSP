@@ -1350,3 +1350,41 @@ Notes:
 - The only remaining unknown is Atlas `Animation None`, which intentionally means no RPG Maker animation is required.
 - The clean skeleton now has concrete missing rows for 31 Atlas event placeholders and 30 transfer events.
 - Recommended next step: BUILD-0003 generate Atlas event and transfer placeholders in the clean skeleton.
+
+## 2026-07-04 11:36 ET - Codex handoff - T041
+
+Task:
+
+- Executed BUILD-0003 Generate Atlas Event And Transfer Placeholders In Clean Skeleton.
+
+Game repository changes:
+
+- Added `tools/atlas-import/apply_event_placeholders.py`.
+- Updated `tools/atlas-import/audit_rpgmaker_data.py` to resolve the external `Journey II start` transfer target.
+- Updated `tools/atlas-import/README.md`.
+- Added `reports/atlas-import/build-0003-clean-skeleton-placeholder-audit.md`.
+- Added `reports/atlas-import/build-0003-event-transfer-placeholder-report.md`.
+
+Clean skeleton repository changes:
+
+- Added 31 Atlas-named map event placeholders.
+- Added 30 transfer command events.
+- Added Node Seven troop event page placeholders.
+- Added `data/Map050.json` and MapInfos id 50 as `JRN2_Landing_Placeholder`.
+- Committed clean skeleton changes as `3bb943c build: add Atlas event transfer placeholders`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/apply_event_placeholders.py tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/create_clean_skeleton.py tools/atlas-import/validate_atlas_export.py tools/atlas-import/generate_implementation_checklist.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the legacy game repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran clean skeleton audit with `--project-root ../TheLastSwordProtocol-Game`; totals are found=152, missing=0, warning=0, unknown=1.
+- Re-ran `apply_event_placeholders.py`; it reported events_added=0, transfers_added=0, troop_page_changes=0, external_target_changes=0.
+- Parsed all clean skeleton `data/*.json`; 31 JSON files parsed successfully.
+
+Notes:
+
+- The legacy RPG Maker `data/*.json`, maps, events, assets, and project settings were not modified.
+- The remaining unknown is Atlas `Animation None`, which intentionally means no RPG Maker animation is required.
+- Recommended next step: BUILD-0004 fill executable event page logic in the clean skeleton.

@@ -50,3 +50,4 @@ Use this table to claim work before editing project files.
 | T038 | Codex | Done | reports/atlas-import/, .agents/ | WO-0021 RPG Maker clean skeleton strategy | 2026-07-04 11:00 ET |
 | T039 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/, reports/atlas-import/, .agents/ | BUILD-0001 create clean RPG Maker MZ project skeleton from Atlas export | 2026-07-04 11:12 ET |
 | T040 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0002 read-only map/event parser for Atlas audit | 2026-07-04 11:20 ET |
+| T041 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0003 generate Atlas event and transfer placeholders in clean skeleton | 2026-07-04 11:36 ET |

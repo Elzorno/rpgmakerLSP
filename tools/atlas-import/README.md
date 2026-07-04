@@ -65,3 +65,13 @@ Run from the legacy RPG Maker repository:
 ```
 
 The generator creates a clean sibling RPG Maker MZ project with Atlas-reserved Home Island maps, database rows, switches, variables, and common event placeholders. It refuses to replace an existing target unless `--force` is supplied.
+
+## Apply Event Placeholders
+
+Run from the legacy RPG Maker repository:
+
+```bash
+/usr/bin/python3 tools/atlas-import/apply_event_placeholders.py --export ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json --project-root ../TheLastSwordProtocol-Game
+```
+
+The applier writes Atlas-named placeholder map events, transfer command events, and Node Seven troop event placeholders into the clean skeleton. It does not modify the legacy RPG Maker project.
