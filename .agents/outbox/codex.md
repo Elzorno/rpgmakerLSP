@@ -1678,3 +1678,34 @@ Notes:
 - Missing `session_state.local.json` is handled as unknown, not as an error.
 - The local session file is ignored by git to avoid committing personal quota or availability estimates.
 - Recommended WO-0025: integrate session-state awareness into `recommend_assignment.py` scoring, still read-only, so unavailable or low-remaining agents are deprioritized in recommendations.
+
+## 2026-07-04 16:56 ET - Codex handoff - T050
+
+Task:
+
+- Executed WO-0025 Session-Aware Assignment Scoring.
+
+Atlas repository changes:
+
+- Updated `atlas-tools/orchestrator/recommend_assignment.py` to load optional session state and apply soft scoring constraints.
+- Updated `atlas/orchestrator/README.md` to document session-aware recommendations.
+- Regenerated `atlas-tools/reports/orchestrator_assignment_report.md`.
+
+Game repository changes:
+
+- None. WO-0025 was Atlas-only and did not modify RPG Maker project files.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile atlas-tools/cli/atlas.py atlas-tools/orchestrator/recommend_assignment.py atlas-tools/orchestrator/session_report.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py recommend "Session-Aware Assignment Scoring" --description "Deprioritize unavailable agents using optional local session state without calling providers." --category validation --write-scope atlas_only`.
+- Ran a temporary `--session-state` verification where Codex was unavailable and Ollama was available; Codex was deprioritized below available alternatives.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py session-report`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate`; result was 0 errors and 0 warnings.
+
+Notes:
+
+- No provider APIs were called.
+- Missing session state remains neutral/unknown.
+- Explicit `unavailable`, `rate_limited`, and low remaining percentage states now reduce agent scores.
+- Recommended WO-0026: add a read-only orchestrator work-order audit that reads `atlas/workorders/` and reports open/completed/ambiguous tasks before assignment.
