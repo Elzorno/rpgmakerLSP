@@ -31,3 +31,19 @@ reports/atlas-import/home-island-implementation-checklist.md
 ```
 
 The checklist is a read-only Markdown build tracker. It does not modify RPG Maker data files.
+
+## Audit RPG Maker Data Readiness
+
+Run from the RPG Maker repository:
+
+```bash
+/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json
+```
+
+Output:
+
+```text
+reports/atlas-import/home-island-data-readiness-audit.md
+```
+
+The audit compares Atlas export expectations against current RPG Maker `data/*.json` files and reports found, missing, warning, and not-machine-checkable items. It is read-only.

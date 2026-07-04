@@ -1228,3 +1228,30 @@ Commits:
 Notes:
 
 - I did not run `atlas next` a second time after correction because WO-0020 now exists; another run would intentionally advance to a new WO-0021 candidate.
+
+## 2026-07-04 11:05 ET - Codex handoff - T037
+
+Task:
+
+- Executed WO-0020 RPG Maker Data Readiness Audit From Atlas Export.
+
+Game repository changes:
+
+- Added read-only data audit tool at `tools/atlas-import/audit_rpgmaker_data.py`.
+- Updated `tools/atlas-import/README.md`.
+- Generated `reports/atlas-import/home-island-data-readiness-audit.md`.
+
+Verification:
+
+- Ran `/usr/bin/python3 -m py_compile tools/atlas-import/audit_rpgmaker_data.py tools/atlas-import/generate_implementation_checklist.py tools/atlas-import/validate_atlas_export.py`.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the Atlas repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 atlas-tools/cli/atlas.py validate` in the game repo; 0 errors, 0 warnings.
+- Ran `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; PASS.
+- Ran `/usr/bin/python3 tools/atlas-import/generate_implementation_checklist.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; checklist regenerated.
+- Ran `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json`; wrote audit report with found=21, missing=17, warning=38, unknown=71.
+
+Notes:
+
+- The audit is read-only and did not modify RPG Maker `data/*.json`, maps, events, assets, or project settings.
+- Major finding: Home Island Atlas map names are not present in current `MapInfos.json`, and most expected Home Island database IDs are occupied by legacy/default rows.
+- Recommended next work order: create a read-only map/event parser or create a guarded implementation plan for introducing Home Island map/database rows.
