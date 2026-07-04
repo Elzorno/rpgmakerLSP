@@ -1945,3 +1945,37 @@ Verification:
 Open questions:
 
 - After restart, rerun `get_variables`; the clean game should show variables including `Current_Journey` and `Archive_Recovery_Percent` rather than 21 blanks.
+
+## 2026-07-04 18:18 ET - Codex handoff - T058
+
+Task:
+
+- Implemented BUILD-0010, a read-only Atlas Blueprint Round-Trip Audit for the generated Ashford map.
+
+Changed:
+
+- Added `tools/atlas-import/audit_blueprint_round_trip.py`.
+- Added `reports/atlas-import/build-0010-blueprint-round-trip-audit.md`.
+- Added `reports/atlas-import/build-0010-blueprint-round-trip-report.md`.
+- Marked T058 done in `.agents/task-board.md`.
+
+Files touched:
+
+- `tools/atlas-import/audit_blueprint_round_trip.py`
+- `reports/atlas-import/build-0010-blueprint-round-trip-audit.md`
+- `reports/atlas-import/build-0010-blueprint-round-trip-report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- `/usr/bin/python3 tools/atlas-import/audit_blueprint_round_trip.py` passed with found=73, missing=0, warning=0.
+- `/usr/bin/python3 -m py_compile tools/atlas-import/*.py` passed.
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/Map001.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/MapInfos.json` passed.
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` passed with 0 errors and 0 warnings.
+
+Open questions:
+
+- Recommended next build order: `BUILD-0011 - Generate Next Home Island Blueprint and Map`.
