@@ -2414,3 +2414,33 @@ Verification:
 Next steps:
 - User should run another RPG Maker MZ playtest pass and confirm the three runtime fixes: readable text, collision, and visible landmarks.
 - If confirmed, move from GO WITH FIXES to playtest-certified for the first journey.
+
+## 2026-07-05 09:20 ET - Codex to Claude/User - T088
+
+Summary: Completed BUILD-0040 normalize RPG Maker `plugins.js` loading. The clean game project's `js/plugins.js` existed and parsed, but used the minimal one-line form. Normalized it to RPG Maker's generated multi-line format and updated the clean skeleton generator to emit that format going forward.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `tools/atlas-import/create_clean_skeleton.py`
+- `reports/atlas-import/build-0040-plugins-js-load-fix-report.md`
+- `reports/atlas-import/build-0040-*.md`
+- `reports/atlas-import/build-0032-runtime-playtest-results-log.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-004-plugins-js-load.md`
+- `../TheLastSwordProtocol-Game/js/plugins.js`
+
+Verification:
+- `../TheLastSwordProtocol-Game/js/plugins.js` evaluates and defines `$plugins` as an array of length 0.
+- Local HTTP fetch of `/js/plugins.js` from the clean game root returns `200 83`.
+- JSON parse of all `../TheLastSwordProtocol-Game/data/*.json` -> `json_ok`
+- `/usr/bin/python3 -m py_compile tools/atlas-import/create_clean_skeleton.py`
+- `/usr/bin/python3 tools/atlas-import/audit_event_command_coverage.py reports/atlas-import/build-0040-event-command-coverage-audit.md` -> found=204 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_all_map_routes.py reports/atlas-import/build-0040-all-map-route-audit.md` -> found=258 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0040-vertical-slice-playthrough-audit.md` -> found=81 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/build-0040-clean-skeleton-data-audit.md --project-root ../TheLastSwordProtocol-Game` -> found=335 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json > reports/atlas-import/build-0040-atlas-export-validation.md`
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Notes:
+- Attempted to clear macOS extended attributes; `com.apple.provenance` remained, but the file is readable by local HTTP and JavaScript evaluation.
+- User should retry opening/playtesting `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game/game.rmmzproject`.
