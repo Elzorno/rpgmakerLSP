@@ -2478,3 +2478,20 @@ Verification:
 
 Next steps:
 - User should inspect `reports/atlas-import/map-guides/*.svg` and runtime-test the regenerated maps for landmark clarity and clutter.
+
+## 2026-07-05 09:54 ET - Codex to Claude/User - T091
+
+Summary: Ran `atlas next`. The first generated WO-0024 duplicated completed RPG Maker data readiness audit work, so I removed that stale generated file, marked the old queue candidate inactive, added the current next candidate, and reran `atlas next`. Correct output is `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0024-home-island-guided-map-runtime-review.md`.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0024-home-island-guided-map-runtime-review.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` -> `atlas/workorders/WO-0024-home-island-guided-map-runtime-review.md`
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- Execute WO-0024 / BUILD-0043 when the user wants to proceed: guided map runtime review against the new SVG guides and enriched maps.
