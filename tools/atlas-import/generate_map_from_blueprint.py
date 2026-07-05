@@ -25,6 +25,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-HCV-001": "DGN_HiddenCave_Entrance",
     "SCR-HOM-HCV-002": "DGN_HiddenCave_Trials",
     "SCR-HOM-HCV-003": "DGN_HiddenCave_Sanctum",
+    "SCR-HOM-GLS-001": "DGN_Glassfield_Ruins_Exterior",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -41,6 +42,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-012": "TRN-HOM-012 Return to entrance",
     "TRN-HOM-013": "TRN-HOM-013 Enter Sword Sanctum",
     "TRN-HOM-014": "TRN-HOM-014 Return from sanctum",
+    "TRN-HOM-016": "TRN-HOM-016 Return from Glassfield",
+    "TRN-HOM-017": "TRN-HOM-017 Enter Sealed Node",
 }
 
 NPC_EVENT_NAMES = {
@@ -70,6 +73,8 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-014": "Heart Trial",
     "EVT-HOM-015": "Sanctum Gate",
     "EVT-HOM-016": "Sword Pedestal",
+    "EVT-HOM-017": "Glassfield Seal",
+    "EVT-HOM-018": "Surface Fragment",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -86,6 +91,10 @@ ENCOUNTER_POLICIES = {
     "SCR-HOM-HCV-001": [],
     "SCR-HOM-HCV-002": [],
     "SCR-HOM-HCV-003": [],
+    "SCR-HOM-GLS-001": [
+        {"regionSet": [1], "troopId": 1, "weight": 4},
+        {"regionSet": [1], "troopId": 3, "weight": 3},
+    ],
 }
 
 REGION_EXPORT_IDS = {
@@ -194,6 +203,10 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "sanctum_floor",
                 "sanctum_dais",
                 "geometric_floor",
+                "ruin_path",
+                "glassfield_ground",
+                "cracked_glass_panel",
+                "sealed_threshold",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":

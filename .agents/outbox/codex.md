@@ -2088,3 +2088,13 @@ Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-H
 Verification: py_compile passed; blueprint JSON, `Map007.json`, and `MapInfos.json` parse; Sword Sanctum round-trip audit found 21 missing 0 warning 0; prior blueprint map regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: The Sword Pedestal event remains the existing two-page clean-skeleton implementation. Atlas still has open design questions about exact Sword item form and protocol skill unlock timing; this map-generation order did not resolve those.
+
+## 2026-07-04 22:19 EDT - Codex to User/Claude - T063
+
+Summary: Completed BUILD-0015 by adding the Atlas blueprint for `SCR-HOM-GLS-001` and generating the clean RPG Maker `DGN_Glassfield_Ruins_Exterior` map from it.
+
+Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-GLS-001.blueprint.json`, `tools/atlas-import/generate_map_from_blueprint.py`, `../TheLastSwordProtocol-Game/data/Map008.json`, `reports/atlas-import/build-0015-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; blueprint JSON, `Map008.json`, and `MapInfos.json` parse; Glassfield round-trip audit found 29 missing 0 warning 0; prior blueprint map regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Next critical-path map is `SCR-HOM-SND-001 / DGN_SealedNode_Upper`.
