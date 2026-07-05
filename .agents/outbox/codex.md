@@ -2228,3 +2228,13 @@ Files touched: `reports/atlas-import/build-0028-*`, `.agents/task-board.md`, `.a
 Verification: MCP `get_game_title` returned `The Last Sword Protocol`; MCP switches and variables returned expected Home Island names; `codex mcp list` and `codex mcp get rpgmaker-mz` show the server enabled via `.codex/rpgmaker-mz-mcp-launcher.cjs`; local `System.json` confirms start map 2 at `(8, 6)`; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: MCP read smoke test is GO. This did not launch the RPG Maker editor or run an in-engine playtest. Next useful order is local examine event enrichment for generated local anchors.
+
+## 2026-07-04 23:36 EDT - Codex to User/Claude - T077
+
+Summary: Completed BUILD-0029 by adding repeatable local-examine event application tooling and applying executable placeholder logic to seven generated local anchors.
+
+Files touched: `tools/atlas-import/apply_local_examine_event_logic.py`, `../TheLastSwordProtocol-Game/data/Map001.json`, `../TheLastSwordProtocol-Game/data/Map002.json`, `../TheLastSwordProtocol-Game/data/Map003.json`, `../TheLastSwordProtocol-Game/data/Map004.json`, `../TheLastSwordProtocol-Game/data/Map005.json`, `../TheLastSwordProtocol-Game/data/Map016.json`, `reports/atlas-import/build-0029-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; local event applier updated 7 events; local examine anchors now show traceable `PH-EXAMINE-*` text; Deeper Marsh Reward Cache now has a two-page Potion reward flow with Self Switch A; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Local anchors are executable placeholders. Next useful order is an in-engine/manual playtest checklist or an automated event-command coverage audit for non-local placeholder events.
