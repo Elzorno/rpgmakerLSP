@@ -2,6 +2,21 @@
 
 These tools let the RPG Maker MZ project consume structured exports from the Atlas repository.
 
+## Map Ownership Guard (WO-0031)
+
+Every write-capable script in this toolchain (`apply_*.py`, `create_clean_skeleton.py`, `generate_map_from_blueprint.py`) consults the per-map ownership ledger `map_ownership.json` at the target project root (via `map_ownership_guard.py`) before writing any `data/MapXXX.json`:
+
+- Only maps with ledger state `generated` may be written; `hand_authored` and `locked` maps are skipped with a loud `OWNERSHIP GUARD:` report line.
+- **Fail safe:** a missing, unreadable, or malformed ledger — or an unlisted map id — means that map is NOT writable. `create_clean_skeleton.py --force` additionally refuses to delete an existing target whose ledger is missing or lists any non-`generated` map.
+- `create_clean_skeleton.py` writes a fresh all-`generated` ledger into new skeletons; scripts that create brand-new map files register them in the ledger as `generated`.
+- Audit the ledger state read-only at any time:
+
+```bash
+/usr/bin/python3 tools/atlas-import/audit_map_ownership.py --project-root ../TheLastSwordProtocol-Game
+```
+
+Flip a map's state to `hand_authored` in the ledger the moment manual editor work on it begins. See `../TheLastSwordProtocol-Game/AGENTS.md` for the full ownership contract and manual map build workflow.
+
 WO-0018 is validation-only. The importer must not mutate RPG Maker JSON, maps, events, assets, or project settings.
 
 ## Validate Home Island Export

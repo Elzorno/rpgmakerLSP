@@ -5,8 +5,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
+
 from pathlib import Path
 from typing import Any
+
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -187,7 +191,12 @@ def main() -> int:
         raise SystemExit(f"Missing RPG Maker data directory: {data_root}")
 
     replacements_by_file: dict[str, list[tuple[str, str]]] = {}
+    ledger = load_ledger(project_root)
     for path in sorted(data_root.glob("*.json")):
+        map_match = re.fullmatch(r"Map(\d{3})\.json", path.name)
+        if map_match and not map_write_allowed(ledger, int(map_match.group(1))):
+            print(skip_message(ledger, int(map_match.group(1)), "apply_readable_placeholder_text"))
+            continue
         payload = load_json(path)
         replacements = replace_visible_text(payload)
         if replacements:

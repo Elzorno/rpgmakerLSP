@@ -7,6 +7,8 @@ import argparse
 import json
 from pathlib import Path
 
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_EXPORT = ROOT.parent / "TheLastSwordProtocol-Atlas" / "atlas-exports" / "home-island.json"
@@ -370,7 +372,11 @@ def apply_map_event_logic(export: dict, project_root: Path) -> int:
     for event in home["events"]:
         grouped.setdefault(screen_maps[event["screen"]], []).append(event)
 
+    ledger = load_ledger(project_root)
     for map_id, events in grouped.items():
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_executable_event_logic"))
+            continue
         path = project_root / "data" / f"Map{map_id:03d}.json"
         before = path.read_text(encoding="utf-8")
         map_data = json.loads(before)
@@ -392,7 +398,11 @@ def apply_transfer_logic(export: dict, project_root: Path) -> int:
     for transfer in home["transfers"]:
         grouped.setdefault(screen_maps[transfer["from"]], []).append(transfer)
 
+    ledger = load_ledger(project_root)
     for map_id, transfers in grouped.items():
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_executable_event_logic"))
+            continue
         path = project_root / "data" / f"Map{map_id:03d}.json"
         before = path.read_text(encoding="utf-8")
         map_data = json.loads(before)

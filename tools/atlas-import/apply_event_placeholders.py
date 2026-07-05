@@ -7,6 +7,13 @@ import argparse
 import json
 from pathlib import Path
 
+from map_ownership_guard import (
+    load_ledger,
+    map_write_allowed,
+    register_generated_map,
+    skip_message,
+)
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_EXPORT = ROOT.parent / "TheLastSwordProtocol-Atlas" / "atlas-exports" / "home-island.json"
@@ -152,6 +159,7 @@ def blank_map(display_name: str, note: str) -> dict:
 def ensure_external_targets(project_root: Path) -> int:
     map_infos_path = project_root / "data" / "MapInfos.json"
     map_infos = load_json(map_infos_path)
+    ledger = load_ledger(project_root)
     changed = 0
     while len(map_infos) <= max(target["map_id"] for target in EXTERNAL_TARGETS.values()):
         map_infos.append(None)
@@ -171,6 +179,9 @@ def ensure_external_targets(project_root: Path) -> int:
             changed += 1
         map_path = project_root / "data" / f"Map{map_id:03d}.json"
         if not map_path.exists():
+            if not register_generated_map(project_root, map_id, target["name"]):
+                print(skip_message(ledger, map_id, "apply_event_placeholders"))
+                continue
             write_json(
                 map_path,
                 blank_map(target["display_name"], f"External transfer target placeholder for {label}; BUILD-0003."),
@@ -238,7 +249,11 @@ def apply_atlas_events(export: dict, project_root: Path) -> int:
         grouped.setdefault(screen_to_map[event["screen"]], []).append(event)
 
     count = 0
+    ledger = load_ledger(project_root)
     for map_id, atlas_events in grouped.items():
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_event_placeholders"))
+            continue
         path = project_root / "data" / f"Map{map_id:03d}.json"
         map_data = load_json(path)
         events = map_data.setdefault("events", [None])
@@ -282,7 +297,11 @@ def apply_transfers(export: dict, project_root: Path) -> int:
             continue
         grouped.setdefault(screen_to_map[transfer["from"]], []).append(transfer)
 
+    ledger = load_ledger(project_root)
     for map_id, transfers in grouped.items():
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_event_placeholders"))
+            continue
         path = project_root / "data" / f"Map{map_id:03d}.json"
         map_data = load_json(path)
         events = map_data.setdefault("events", [None])

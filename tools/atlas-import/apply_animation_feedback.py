@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 import re
 
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PROJECT = ROOT.parent / "TheLastSwordProtocol-Game"
@@ -95,8 +97,13 @@ def add_animation_to_page(page: dict, animation_id: int, character_id: int = 0) 
 def apply_map_events(project_root: Path) -> tuple[int, int]:
     maps_changed = 0
     hooks_added = 0
+    ledger = load_ledger(project_root)
     for path in sorted((project_root / "data").glob("Map*.json")):
         if not re.fullmatch(r"Map\d{3}\.json", path.name):
+            continue
+        map_id = int(path.stem[3:])
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_animation_feedback"))
             continue
         before = path.read_text(encoding="utf-8")
         map_data = json.loads(before)

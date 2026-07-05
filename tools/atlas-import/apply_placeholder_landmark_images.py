@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PROJECT = ROOT.parent / "TheLastSwordProtocol-Game"
@@ -157,8 +159,12 @@ def main() -> int:
     data_root = project_root / "data"
     updates: dict[str, list[tuple[str, str]]] = {}
 
+    ledger = load_ledger(project_root)
     for map_id in range(1, args.max_map_id + 1):
         path = data_root / f"Map{map_id:03d}.json"
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_placeholder_landmark_images"))
+            continue
         map_data = load_json(path)
         map_updates: list[tuple[str, str]] = []
         for event in map_data.get("events", []):

@@ -14,36 +14,40 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 ## Summary
 
-- Found: 22
-- Missing: 91
-- Present with warning: 39
+- Found: 335
+- Missing: 0
+- Present with warning: 0
 - Not machine-checkable yet: 1
-- Total findings: 153
+- Total findings: 336
 
 ## Category Summary
 
 | Category | Found | Missing | Warning | Not Machine-Checkable |
 |---|---:|---:|---:|---:|
 | Actor | 1 | 0 | 0 | 0 |
+| Animation Feedback | 21 | 0 | 0 | 0 |
 | Animations | 14 | 0 | 0 | 1 |
-| Armor | 0 | 0 | 1 | 0 |
-| Atlas Events | 0 | 31 | 0 | 0 |
-| Class | 0 | 0 | 1 | 0 |
-| Common Events | 0 | 6 | 0 | 0 |
-| Enemy | 0 | 0 | 4 | 0 |
-| Item | 0 | 0 | 1 | 0 |
-| Key Item | 0 | 1 | 0 | 0 |
-| Maps | 0 | 16 | 0 | 0 |
-| Skill | 1 | 0 | 6 | 0 |
-| Skill Details | 0 | 0 | 7 | 0 |
-| State | 0 | 0 | 4 | 0 |
+| Armor | 1 | 0 | 0 | 0 |
+| Atlas Events | 31 | 0 | 0 | 0 |
+| Audio Hooks | 37 | 0 | 0 | 0 |
+| Class | 1 | 0 | 0 | 0 |
+| Common Events | 6 | 0 | 0 | 0 |
+| Enemy | 4 | 0 | 0 | 0 |
+| Executable Event Logic | 61 | 0 | 0 | 0 |
+| Item | 1 | 0 | 0 | 0 |
+| Key Item | 1 | 0 | 0 | 0 |
+| Map Layout Readiness | 64 | 0 | 0 | 0 |
+| Maps | 16 | 0 | 0 | 0 |
+| Skill | 7 | 0 | 0 | 0 |
+| Skill Details | 7 | 0 | 0 | 0 |
+| State | 4 | 0 | 0 | 0 |
 | Tilesets | 5 | 0 | 0 | 0 |
-| Transfers | 0 | 30 | 0 | 0 |
-| Trial State | 0 | 6 | 0 | 0 |
-| Troop | 0 | 0 | 6 | 0 |
-| Troop Details | 0 | 0 | 6 | 0 |
-| Troop Event Pages | 1 | 1 | 1 | 0 |
-| Weapon | 0 | 0 | 2 | 0 |
+| Transfers | 30 | 0 | 0 | 0 |
+| Trial State | 6 | 0 | 0 | 0 |
+| Troop | 6 | 0 | 0 | 0 |
+| Troop Details | 6 | 0 | 0 | 0 |
+| Troop Event Pages | 3 | 0 | 0 | 0 |
+| Weapon | 2 | 0 | 0 | 0 |
 
 ## Findings
 
@@ -52,6 +56,32 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
 | found | Actor | `CHR-KAI-001` | Actor 1 - Kai | Actors.json id 1 matches name |
+
+### Animation Feedback
+
+| Status | Category | Atlas / Expected ID | Expected | Detail |
+|---|---|---|---|---|
+| found | Animation Feedback | `Hidden Item` | Hidden Item -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Hidden Cave First Entry` | Hidden Cave First Entry -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Body Trial` | Body Trial -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Mind Trial` | Mind Trial -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Heart Trial` | Heart Trial -> Animation 117 | Show Animation 117 |
+| found | Animation Feedback | `Sanctum Gate` | Sanctum Gate -> Animation 117 | Show Animation 117 |
+| found | Animation Feedback | `Sword Pedestal` | Sword Pedestal -> Animation 117 | Show Animation 117 |
+| found | Animation Feedback | `Glassfield Seal` | Glassfield Seal -> Animation 117 | Show Animation 117 |
+| found | Animation Feedback | `Surface Fragment` | Surface Fragment -> Animation 106 | Show Animation 106 |
+| found | Animation Feedback | `Core Path Door` | Core Path Door -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Node Seven Guardian` | Node Seven Guardian -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Relay Core` | Relay Core -> Animation 120 | Show Animation 120 |
+| found | Animation Feedback | `Lighthouse Examine` | Lighthouse Examine -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Hidden Item Landmark` | Hidden Item Landmark -> Animation 40 | Show Animation 40 |
+| found | Animation Feedback | `Signal-Tick Reed Pool` | Signal-Tick Reed Pool -> Animation 106 | Show Animation 106 |
+| found | Animation Feedback | `Signal Pool / Cable Cluster Examine` | Signal Pool / Cable Cluster Examine -> Animation 106 | Show Animation 106 |
+| found | Animation Feedback | `CE_Archive_Message_Display` | CE_Archive_Message_Display -> Animation 106 | Common event shows animation 106 |
+| found | Animation Feedback | `CE_Sword_Authentication` | CE_Sword_Authentication -> Animation 117 | Common event shows animation 117 |
+| found | Animation Feedback | `CE_Relay_Resolution` | CE_Relay_Resolution -> Animation 120 | Common event shows animation 120 |
+| found | Animation Feedback | `CE_Trial_Complete_Chime` | CE_Trial_Complete_Chime -> Animation 40 | Common event shows animation 40 |
+| found | Animation Feedback | `CE_Trial_Reset_Feedback` | CE_Trial_Reset_Feedback -> Animation 54 | Common event shows animation 54 |
 
 ### Animations
 
@@ -77,135 +107,312 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Armor | `CHR-KAI-001` | Armor 1 - Plain Clothes | ID 1 is named '-----Armors'; expected name not found elsewhere |
+| found | Armor | `CHR-KAI-001` | Armor 1 - Plain Clothes | Armors.json id 1 matches name |
 
 ### Atlas Events
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| missing | Atlas Events | `EVT-HOM-001` | SCR-HOM-ASH-002 - Player Start | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-002` | SCR-HOM-ASH-002 - Elara Intro Dialogue | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-003` | SCR-HOM-ASH-001 - Child Near Old Panel | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-004` | SCR-HOM-ASH-001 - Farmer With Warm Stones | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-005` | SCR-HOM-ASH-001 - Skyreach Joker | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-006` | SCR-HOM-ASH-001 - Dock Messenger | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-007` | SCR-HOM-ASH-001 - Hidden Item | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-008` | SCR-HOM-ASH-003 - Shopkeeper | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-009` | SCR-HOM-ASH-001 - Tremor Trigger | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-010` | SCR-HOM-SKY-001 - Skyreach Gate | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-011` | SCR-HOM-HCV-001 - Hidden Cave First Entry | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-012` | SCR-HOM-HCV-002 - Body Trial | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-013` | SCR-HOM-HCV-002 - Mind Trial | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-014` | SCR-HOM-HCV-002 - Heart Trial | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-015` | SCR-HOM-HCV-002 - Sanctum Gate | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-016` | SCR-HOM-HCV-003 - Sword Pedestal | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-017` | SCR-HOM-GLS-001 - Glassfield Seal | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-018` | SCR-HOM-GLS-001 - Surface Fragment | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-019` | SCR-HOM-SND-001 - Sealed Node First Entry | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-020` | SCR-HOM-SND-002 - Core Path Door | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-021` | SCR-HOM-SND-003 - Node Seven Guardian | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-022` | SCR-HOM-SND-004 - Relay Core | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-023` | SCR-HOM-RST-001 - Dockmaster | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-024` | SCR-HOM-RST-001 - Lighthouse Examine | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-025` | SCR-HOM-RST-001 - Boat Transfer | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-026` | SCR-HOM-RST-002 - Departure Sequence | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-027` | SCR-HOM-FOG-001 - Fogfen Entry / Exit Transfer | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-028` | SCR-HOM-FOG-001 - Hidden Item Landmark | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-029` | SCR-HOM-FOG-001 - Signal-Tick Reed Pool | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-030` | SCR-HOM-FOG-002 - Deeper Marsh Return Transfer | Source screen map is missing from MapInfos.json |
-| missing | Atlas Events | `EVT-HOM-031` | SCR-HOM-FOG-002 - Signal Pool / Cable Cluster Examine | Source screen map is missing from MapInfos.json |
+| found | Atlas Events | `EVT-HOM-001` | SCR-HOM-ASH-002 - Player Start | Map 2 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-002` | SCR-HOM-ASH-002 - Elara Intro Dialogue | Map 2 event id(s): 2 |
+| found | Atlas Events | `EVT-HOM-003` | SCR-HOM-ASH-001 - Child Near Old Panel | Map 1 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-004` | SCR-HOM-ASH-001 - Farmer With Warm Stones | Map 1 event id(s): 2 |
+| found | Atlas Events | `EVT-HOM-005` | SCR-HOM-ASH-001 - Skyreach Joker | Map 1 event id(s): 3 |
+| found | Atlas Events | `EVT-HOM-006` | SCR-HOM-ASH-001 - Dock Messenger | Map 1 event id(s): 4 |
+| found | Atlas Events | `EVT-HOM-007` | SCR-HOM-ASH-001 - Hidden Item | Map 1 event id(s): 5 |
+| found | Atlas Events | `EVT-HOM-008` | SCR-HOM-ASH-003 - Shopkeeper | Map 3 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-009` | SCR-HOM-ASH-001 - Tremor Trigger | Map 1 event id(s): 6 |
+| found | Atlas Events | `EVT-HOM-010` | SCR-HOM-SKY-001 - Skyreach Gate | Map 4 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-011` | SCR-HOM-HCV-001 - Hidden Cave First Entry | Map 5 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-012` | SCR-HOM-HCV-002 - Body Trial | Map 6 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-013` | SCR-HOM-HCV-002 - Mind Trial | Map 6 event id(s): 2 |
+| found | Atlas Events | `EVT-HOM-014` | SCR-HOM-HCV-002 - Heart Trial | Map 6 event id(s): 3 |
+| found | Atlas Events | `EVT-HOM-015` | SCR-HOM-HCV-002 - Sanctum Gate | Map 6 event id(s): 4 |
+| found | Atlas Events | `EVT-HOM-016` | SCR-HOM-HCV-003 - Sword Pedestal | Map 7 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-017` | SCR-HOM-GLS-001 - Glassfield Seal | Map 8 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-018` | SCR-HOM-GLS-001 - Surface Fragment | Map 8 event id(s): 2 |
+| found | Atlas Events | `EVT-HOM-019` | SCR-HOM-SND-001 - Sealed Node First Entry | Map 9 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-020` | SCR-HOM-SND-002 - Core Path Door | Map 10 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-021` | SCR-HOM-SND-003 - Node Seven Guardian | Map 11 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-022` | SCR-HOM-SND-004 - Relay Core | Map 12 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-023` | SCR-HOM-RST-001 - Dockmaster | Map 13 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-024` | SCR-HOM-RST-001 - Lighthouse Examine | Map 13 event id(s): 2 |
+| found | Atlas Events | `EVT-HOM-025` | SCR-HOM-RST-001 - Boat Transfer | Map 13 event id(s): 3 |
+| found | Atlas Events | `EVT-HOM-026` | SCR-HOM-RST-002 - Departure Sequence | Map 14 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-027` | SCR-HOM-FOG-001 - Fogfen Entry / Exit Transfer | Map 15 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-028` | SCR-HOM-FOG-001 - Hidden Item Landmark | Map 15 event id(s): 2 |
+| found | Atlas Events | `EVT-HOM-029` | SCR-HOM-FOG-001 - Signal-Tick Reed Pool | Map 15 event id(s): 3 |
+| found | Atlas Events | `EVT-HOM-030` | SCR-HOM-FOG-002 - Deeper Marsh Return Transfer | Map 16 event id(s): 1 |
+| found | Atlas Events | `EVT-HOM-031` | SCR-HOM-FOG-002 - Signal Pool / Cable Cluster Examine | Map 16 event id(s): 2 |
+
+### Audio Hooks
+
+| Status | Category | Atlas / Expected ID | Expected | Detail |
+|---|---|---|---|---|
+| found | Audio Hooks | `SCR-HOM-ASH-001` | SCR-HOM-ASH-001 - TWN_Ashford_Exterior | BGM Town1 |
+| found | Audio Hooks | `SCR-HOM-ASH-002` | SCR-HOM-ASH-002 - INT_Ashford_ElaraHouse | BGM Town1 |
+| found | Audio Hooks | `SCR-HOM-ASH-003` | SCR-HOM-ASH-003 - INT_Ashford_Shop | BGM Town1 |
+| found | Audio Hooks | `SCR-HOM-SKY-001` | SCR-HOM-SKY-001 - DGN_SkyreachHill_Path | BGM Field3, BGS Wind4 |
+| found | Audio Hooks | `SCR-HOM-HCV-001` | SCR-HOM-HCV-001 - DGN_HiddenCave_Entrance | BGM Dungeon2, BGS Drips |
+| found | Audio Hooks | `SCR-HOM-HCV-002` | SCR-HOM-HCV-002 - DGN_HiddenCave_Trials | BGM Dungeon2, BGS Drips |
+| found | Audio Hooks | `SCR-HOM-HCV-003` | SCR-HOM-HCV-003 - DGN_HiddenCave_Sanctum | BGS Darkness |
+| found | Audio Hooks | `SCR-HOM-GLS-001` | SCR-HOM-GLS-001 - DGN_Glassfield_Ruins_Exterior | BGM Dungeon3, BGS Wind4 |
+| found | Audio Hooks | `SCR-HOM-SND-001` | SCR-HOM-SND-001 - DGN_SealedNode_Upper | BGM Dungeon6, BGS Darkness |
+| found | Audio Hooks | `SCR-HOM-SND-002` | SCR-HOM-SND-002 - DGN_SealedNode_CorePath | BGM Dungeon6, BGS Darkness |
+| found | Audio Hooks | `SCR-HOM-SND-003` | SCR-HOM-SND-003 - DGN_SealedNode_Guardian | BGM Dungeon5, BGS Darkness |
+| found | Audio Hooks | `SCR-HOM-SND-004` | SCR-HOM-SND-004 - DGN_SealedNode_RelayCore | BGM Dungeon6, BGS Darkness |
+| found | Audio Hooks | `SCR-HOM-RST-001` | SCR-HOM-RST-001 - TWN_Rustshore_Docks | BGM Ship1, BGS Sea |
+| found | Audio Hooks | `SCR-HOM-RST-002` | SCR-HOM-RST-002 - CUT_Mainland_Departure | BGM Scene2, BGS Wave1 |
+| found | Audio Hooks | `SCR-HOM-FOG-001` | SCR-HOM-FOG-001 - FLD_Fogfen_Marsh_Field | BGM Field2, BGS River |
+| found | Audio Hooks | `SCR-HOM-FOG-002` | SCR-HOM-FOG-002 - FLD_Fogfen_Deeper_Marsh_Pocket | BGM Field2, BGS River |
+| found | Audio Hooks | `Hidden Item` | Hidden Item | Play SE Item3 |
+| found | Audio Hooks | `Tremor Trigger` | Tremor Trigger | Play SE Earth4 |
+| found | Audio Hooks | `Body Trial` | Body Trial | Play SE Chime2 |
+| found | Audio Hooks | `Mind Trial` | Mind Trial | Play SE Chime2 |
+| found | Audio Hooks | `Heart Trial` | Heart Trial | Play SE Chime2 |
+| found | Audio Hooks | `Sword Pedestal` | Sword Pedestal | Play SE Flash2 |
+| found | Audio Hooks | `Glassfield Seal` | Glassfield Seal | Play SE Barrier |
+| found | Audio Hooks | `Surface Fragment` | Surface Fragment | Play SE Computer |
+| found | Audio Hooks | `Core Path Door` | Core Path Door | Play SE Open4 |
+| found | Audio Hooks | `Node Seven Guardian` | Node Seven Guardian | Play SE Battle1 |
+| found | Audio Hooks | `Relay Core` | Relay Core | Play SE Computer |
+| found | Audio Hooks | `Lighthouse Examine` | Lighthouse Examine | Play SE Bell3 |
+| found | Audio Hooks | `Departure Sequence` | Departure Sequence | Play SE Decision3 |
+| found | Audio Hooks | `Hidden Item Landmark` | Hidden Item Landmark | Play SE Item3 |
+| found | Audio Hooks | `Signal-Tick Reed Pool` | Signal-Tick Reed Pool | Play SE Computer |
+| found | Audio Hooks | `Signal Pool / Cable Cluster Examine` | Signal Pool / Cable Cluster Examine | Play SE Computer |
+| found | Audio Hooks | `CE_Archive_Message_Display` | CE_Archive_Message_Display | Common event plays SE Computer |
+| found | Audio Hooks | `CE_Sword_Authentication` | CE_Sword_Authentication | Common event plays SE Flash2 |
+| found | Audio Hooks | `CE_Relay_Resolution` | CE_Relay_Resolution | Common event plays SE Computer |
+| found | Audio Hooks | `CE_Trial_Complete_Chime` | CE_Trial_Complete_Chime | Common event plays SE Chime2 |
+| found | Audio Hooks | `CE_Trial_Reset_Feedback` | CE_Trial_Reset_Feedback | Common event plays SE Buzzer2 |
 
 ### Class
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Class | `CHR-KAI-001` | Class 1 - Sword Bearer | ID 1 is named 'Swordsman'; expected name not found elsewhere |
+| found | Class | `CHR-KAI-001` | Class 1 - Sword Bearer | Classes.json id 1 matches name |
 
 ### Common Events
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| missing | Common Events | `CE-ARCHIVE-MSG` | CE-ARCHIVE-MSG - Archive Message Display | No common event with matching name |
-| missing | Common Events | `CE-SWORD-AUTH` | CE-SWORD-AUTH - Sword Authentication | No common event with matching name |
-| missing | Common Events | `CE-RELAY-RESOLVE` | CE-RELAY-RESOLVE - Relay Resolution | No common event with matching name |
-| missing | Common Events | `CE-SCREEN-FADE` | CE-SCREEN-FADE - Screen Transition Helper | No common event with matching name |
-| missing | Common Events | `CE_Trial_Complete_Chime` | CE_Trial_Complete_Chime - Trial Completion Chime | No common event with matching name |
-| missing | Common Events | `CE_Trial_Reset` | CE_Trial_Reset - Trial Reset Feedback | No common event with matching name |
+| found | Common Events | `CE-ARCHIVE-MSG` | CE-ARCHIVE-MSG - Archive Message Display | CommonEvents.json id(s): 1 |
+| found | Common Events | `CE-SWORD-AUTH` | CE-SWORD-AUTH - Sword Authentication | CommonEvents.json id(s): 2 |
+| found | Common Events | `CE-RELAY-RESOLVE` | CE-RELAY-RESOLVE - Relay Resolution | CommonEvents.json id(s): 3 |
+| found | Common Events | `CE-SCREEN-FADE` | CE-SCREEN-FADE - Screen Transition Helper | CommonEvents.json id(s): 4 |
+| found | Common Events | `CE_Trial_Complete_Chime` | CE_Trial_Complete_Chime - Trial Completion Chime | CommonEvents.json id(s): 5 |
+| found | Common Events | `CE_Trial_Reset` | CE_Trial_Reset - Trial Reset Feedback | CommonEvents.json id(s): 6 |
 
 ### Enemy
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Enemy | `MON-GEL-001` | Enemy 1 - Meadow Gel | ID 1 is named 'Goblin'; expected name not found elsewhere |
-| present with warning | Enemy | `MON-RAT-001` | Enemy 2 - Ash Rat | ID 2 is named 'Gnome'; expected name not found elsewhere |
-| present with warning | Enemy | `MON-GEL-002` | Enemy 3 - Marsh Gel | ID 3 is named 'Crow'; expected name not found elsewhere |
-| present with warning | Enemy | `BOS-N07-001` | Enemy 10 - Node Seven Guardian | ID 10 is named 'Static Gnawrat'; expected name not found elsewhere |
+| found | Enemy | `MON-GEL-001` | Enemy 1 - Meadow Gel | Enemies.json id 1 matches name |
+| found | Enemy | `MON-RAT-001` | Enemy 2 - Ash Rat | Enemies.json id 2 matches name |
+| found | Enemy | `MON-GEL-002` | Enemy 3 - Marsh Gel | Enemies.json id 3 matches name |
+| found | Enemy | `BOS-N07-001` | Enemy 10 - Node Seven Guardian | Enemies.json id 10 matches name |
+
+### Executable Event Logic
+
+| Status | Category | Atlas / Expected ID | Expected | Detail |
+|---|---|---|---|---|
+| found | Executable Event Logic | `EVT-HOM-001` | SCR-HOM-ASH-002 - Player Start | Executable command codes: 0, 101, 108, 122, 123, 401 |
+| found | Executable Event Logic | `EVT-HOM-002` | SCR-HOM-ASH-002 - Elara Intro Dialogue | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-003` | SCR-HOM-ASH-001 - Child Near Old Panel | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-004` | SCR-HOM-ASH-001 - Farmer With Warm Stones | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-005` | SCR-HOM-ASH-001 - Skyreach Joker | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-006` | SCR-HOM-ASH-001 - Dock Messenger | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-007` | SCR-HOM-ASH-001 - Hidden Item | Executable command codes: 0, 101, 108, 123, 126, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-008` | SCR-HOM-ASH-003 - Shopkeeper | Executable command codes: 0, 108, 302 |
+| found | Executable Event Logic | `EVT-HOM-009` | SCR-HOM-ASH-001 - Tremor Trigger | Executable command codes: 0, 101, 108, 121, 123, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-010` | SCR-HOM-SKY-001 - Skyreach Gate | Executable command codes: 0, 101, 108, 111, 401, 411, 412 |
+| found | Executable Event Logic | `EVT-HOM-011` | SCR-HOM-HCV-001 - Hidden Cave First Entry | Executable command codes: 0, 101, 108, 121, 123, 212, 401 |
+| found | Executable Event Logic | `EVT-HOM-012` | SCR-HOM-HCV-002 - Body Trial | Executable command codes: 0, 101, 108, 117, 121, 122, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-013` | SCR-HOM-HCV-002 - Mind Trial | Executable command codes: 0, 101, 108, 117, 121, 122, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-014` | SCR-HOM-HCV-002 - Heart Trial | Executable command codes: 0, 101, 102, 108, 117, 121, 122, 123, 212, 250, 401, 402, 404 |
+| found | Executable Event Logic | `EVT-HOM-015` | SCR-HOM-HCV-002 - Sanctum Gate | Executable command codes: 0, 101, 108, 212, 401 |
+| found | Executable Event Logic | `EVT-HOM-016` | SCR-HOM-HCV-003 - Sword Pedestal | Executable command codes: 0, 101, 108, 121, 122, 123, 126, 127, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-017` | SCR-HOM-GLS-001 - Glassfield Seal | Executable command codes: 0, 101, 108, 121, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-018` | SCR-HOM-GLS-001 - Surface Fragment | Executable command codes: 0, 101, 108, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-019` | SCR-HOM-SND-001 - Sealed Node First Entry | Executable command codes: 0, 101, 108, 121, 123, 401 |
+| found | Executable Event Logic | `EVT-HOM-020` | SCR-HOM-SND-002 - Core Path Door | Executable command codes: 0, 101, 108, 121, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-021` | SCR-HOM-SND-003 - Node Seven Guardian | Executable command codes: 0, 101, 108, 121, 123, 212, 250, 301, 401 |
+| found | Executable Event Logic | `EVT-HOM-022` | SCR-HOM-SND-004 - Relay Core | Executable command codes: 0, 101, 108, 121, 122, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-023` | SCR-HOM-RST-001 - Dockmaster | Executable command codes: 0, 101, 108, 111, 401, 411, 412 |
+| found | Executable Event Logic | `EVT-HOM-024` | SCR-HOM-RST-001 - Lighthouse Examine | Executable command codes: 0, 101, 108, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-025` | SCR-HOM-RST-001 - Boat Transfer | Executable command codes: 0, 101, 102, 108, 111, 121, 401, 402, 404, 411, 412 |
+| found | Executable Event Logic | `EVT-HOM-026` | SCR-HOM-RST-002 - Departure Sequence | Executable command codes: 0, 101, 108, 122, 123, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-027` | SCR-HOM-FOG-001 - Fogfen Entry / Exit Transfer | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-028` | SCR-HOM-FOG-001 - Hidden Item Landmark | Executable command codes: 0, 101, 108, 123, 126, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-029` | SCR-HOM-FOG-001 - Signal-Tick Reed Pool | Executable command codes: 0, 101, 108, 123, 212, 250, 401 |
+| found | Executable Event Logic | `EVT-HOM-030` | SCR-HOM-FOG-002 - Deeper Marsh Return Transfer | Executable command codes: 0, 101, 108, 401 |
+| found | Executable Event Logic | `EVT-HOM-031` | SCR-HOM-FOG-002 - Signal Pool / Cable Cluster Examine | Executable command codes: 0, 101, 108, 123, 212, 250, 401 |
+| found | Executable Event Logic | `TRN-HOM-001` | SCR-HOM-ASH-002 -> SCR-HOM-ASH-001 | Executable transfer command to map 1 |
+| found | Executable Event Logic | `TRN-HOM-002` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-002 | Executable transfer command to map 2 |
+| found | Executable Event Logic | `TRN-HOM-003` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-003 | Executable transfer command to map 3 |
+| found | Executable Event Logic | `TRN-HOM-004` | SCR-HOM-ASH-003 -> SCR-HOM-ASH-001 | Executable transfer command to map 1 |
+| found | Executable Event Logic | `TRN-HOM-005` | SCR-HOM-ASH-001 -> SCR-HOM-SKY-001 | Executable transfer command to map 4 |
+| found | Executable Event Logic | `TRN-HOM-006` | SCR-HOM-SKY-001 -> SCR-HOM-ASH-001 | Executable transfer command to map 1 |
+| found | Executable Event Logic | `TRN-HOM-007` | SCR-HOM-ASH-001 -> SCR-HOM-RST-001 | Executable transfer command to map 13 |
+| found | Executable Event Logic | `TRN-HOM-008` | SCR-HOM-RST-001 -> SCR-HOM-ASH-001 | Executable transfer command to map 1 |
+| found | Executable Event Logic | `TRN-HOM-009` | SCR-HOM-SKY-001 -> SCR-HOM-HCV-001 | Executable transfer command to map 5 |
+| found | Executable Event Logic | `TRN-HOM-010` | SCR-HOM-HCV-001 -> SCR-HOM-SKY-001 | Executable transfer command to map 4 |
+| found | Executable Event Logic | `TRN-HOM-011` | SCR-HOM-HCV-001 -> SCR-HOM-HCV-002 | Executable transfer command to map 6 |
+| found | Executable Event Logic | `TRN-HOM-012` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-001 | Executable transfer command to map 5 |
+| found | Executable Event Logic | `TRN-HOM-013` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-003 | Executable transfer command to map 7 |
+| found | Executable Event Logic | `TRN-HOM-014` | SCR-HOM-HCV-003 -> SCR-HOM-HCV-002 | Executable transfer command to map 6 |
+| found | Executable Event Logic | `TRN-HOM-015` | SCR-HOM-ASH-001 -> SCR-HOM-GLS-001 | Executable transfer command to map 8 |
+| found | Executable Event Logic | `TRN-HOM-016` | SCR-HOM-GLS-001 -> SCR-HOM-ASH-001 | Executable transfer command to map 1 |
+| found | Executable Event Logic | `TRN-HOM-017` | SCR-HOM-GLS-001 -> SCR-HOM-SND-001 | Executable transfer command to map 9 |
+| found | Executable Event Logic | `TRN-HOM-018` | SCR-HOM-SND-001 -> SCR-HOM-GLS-001 | Executable transfer command to map 8 |
+| found | Executable Event Logic | `TRN-HOM-019` | SCR-HOM-SND-001 -> SCR-HOM-SND-002 | Executable transfer command to map 10 |
+| found | Executable Event Logic | `TRN-HOM-020` | SCR-HOM-SND-002 -> SCR-HOM-SND-001 | Executable transfer command to map 9 |
+| found | Executable Event Logic | `TRN-HOM-021` | SCR-HOM-SND-002 -> SCR-HOM-SND-003 | Executable transfer command to map 11 |
+| found | Executable Event Logic | `TRN-HOM-022` | SCR-HOM-SND-003 -> SCR-HOM-SND-002 | Executable transfer command to map 10 |
+| found | Executable Event Logic | `TRN-HOM-023` | SCR-HOM-SND-003 -> SCR-HOM-SND-004 | Executable transfer command to map 12 |
+| found | Executable Event Logic | `TRN-HOM-024` | SCR-HOM-SND-004 -> SCR-HOM-SND-003 | Executable transfer command to map 11 |
+| found | Executable Event Logic | `TRN-HOM-025` | SCR-HOM-RST-001 -> SCR-HOM-RST-002 | Executable transfer command to map 14 |
+| found | Executable Event Logic | `TRN-HOM-026` | SCR-HOM-RST-002 -> Journey II start | Executable transfer command to map 50 |
+| found | Executable Event Logic | `TRN-HOM-027` | SCR-HOM-ASH-001 -> SCR-HOM-FOG-001 | Executable transfer command to map 15 |
+| found | Executable Event Logic | `TRN-HOM-028` | SCR-HOM-FOG-001 -> SCR-HOM-ASH-001 | Executable transfer command to map 1 |
+| found | Executable Event Logic | `TRN-HOM-029` | SCR-HOM-FOG-001 -> SCR-HOM-FOG-002 | Executable transfer command to map 16 |
+| found | Executable Event Logic | `TRN-HOM-030` | SCR-HOM-FOG-002 -> SCR-HOM-FOG-001 | Executable transfer command to map 15 |
 
 ### Item
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Item | `Prototype item` | Item 1 - Potion | ID 1 is named '-----Reserved'; expected name exists at id(s): 7 |
+| found | Item | `Prototype item` | Item 1 - Potion | Items.json id 1 matches name |
 
 ### Key Item
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| missing | Key Item | `Sword truth layer` | Key Item 201 - Sword / Project Excalibur | Items.json has no row at id 201 |
+| found | Key Item | `Sword truth layer` | Key Item 201 - Sword / Project Excalibur | Items.json id 201 matches name |
+
+### Map Layout Readiness
+
+| Status | Category | Atlas / Expected ID | Expected | Detail |
+|---|---|---|---|---|
+| found | Map Layout Readiness | `SCR-HOM-ASH-001` | Map 1 - TWN_Ashford_Exterior | Base terrain tiles painted: 1280 |
+| found | Map Layout Readiness | `SCR-HOM-ASH-001` | Map 1 - TWN_Ashford_Exterior | Region 0 only as expected |
+| found | Map Layout Readiness | `SCR-HOM-ASH-001` | Map 1 - TWN_Ashford_Exterior | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-ASH-001` | Map 1 - TWN_Ashford_Exterior | Relevant events placed on 12 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-ASH-002` | Map 2 - INT_Ashford_ElaraHouse | Base terrain tiles painted: 221 |
+| found | Map Layout Readiness | `SCR-HOM-ASH-002` | Map 2 - INT_Ashford_ElaraHouse | Region 0 only as expected |
+| found | Map Layout Readiness | `SCR-HOM-ASH-002` | Map 2 - INT_Ashford_ElaraHouse | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-ASH-002` | Map 2 - INT_Ashford_ElaraHouse | Relevant events placed on 3 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-ASH-003` | Map 3 - INT_Ashford_Shop | Base terrain tiles painted: 221 |
+| found | Map Layout Readiness | `SCR-HOM-ASH-003` | Map 3 - INT_Ashford_Shop | Region 0 only as expected |
+| found | Map Layout Readiness | `SCR-HOM-ASH-003` | Map 3 - INT_Ashford_Shop | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-ASH-003` | Map 3 - INT_Ashford_Shop | Relevant events placed on 2 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-SKY-001` | Map 4 - DGN_SkyreachHill_Path | Base terrain tiles painted: 1200 |
+| found | Map Layout Readiness | `SCR-HOM-SKY-001` | Map 4 - DGN_SkyreachHill_Path | Required region IDs present: [1, 5] |
+| found | Map Layout Readiness | `SCR-HOM-SKY-001` | Map 4 - DGN_SkyreachHill_Path | Encounter list populated with troop id(s): [1, 2, 3] |
+| found | Map Layout Readiness | `SCR-HOM-SKY-001` | Map 4 - DGN_SkyreachHill_Path | Relevant events placed on 3 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-HCV-001` | Map 5 - DGN_HiddenCave_Entrance | Base terrain tiles painted: 576 |
+| found | Map Layout Readiness | `SCR-HOM-HCV-001` | Map 5 - DGN_HiddenCave_Entrance | Required region IDs present: [5] |
+| found | Map Layout Readiness | `SCR-HOM-HCV-001` | Map 5 - DGN_HiddenCave_Entrance | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-HCV-001` | Map 5 - DGN_HiddenCave_Entrance | Relevant events placed on 3 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-HCV-002` | Map 6 - DGN_HiddenCave_Trials | Base terrain tiles painted: 1280 |
+| found | Map Layout Readiness | `SCR-HOM-HCV-002` | Map 6 - DGN_HiddenCave_Trials | Required region IDs present: [5] |
+| found | Map Layout Readiness | `SCR-HOM-HCV-002` | Map 6 - DGN_HiddenCave_Trials | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-HCV-002` | Map 6 - DGN_HiddenCave_Trials | Relevant events placed on 6 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-HCV-003` | Map 7 - DGN_HiddenCave_Sanctum | Base terrain tiles painted: 437 |
+| found | Map Layout Readiness | `SCR-HOM-HCV-003` | Map 7 - DGN_HiddenCave_Sanctum | Required region IDs present: [5] |
+| found | Map Layout Readiness | `SCR-HOM-HCV-003` | Map 7 - DGN_HiddenCave_Sanctum | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-HCV-003` | Map 7 - DGN_HiddenCave_Sanctum | Relevant events placed on 2 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-GLS-001` | Map 8 - DGN_Glassfield_Ruins_Exterior | Base terrain tiles painted: 1428 |
+| found | Map Layout Readiness | `SCR-HOM-GLS-001` | Map 8 - DGN_Glassfield_Ruins_Exterior | Required region IDs present: [1, 5] |
+| found | Map Layout Readiness | `SCR-HOM-GLS-001` | Map 8 - DGN_Glassfield_Ruins_Exterior | Encounter list populated with troop id(s): [1, 3] |
+| found | Map Layout Readiness | `SCR-HOM-GLS-001` | Map 8 - DGN_Glassfield_Ruins_Exterior | Relevant events placed on 4 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-SND-001` | Map 9 - DGN_SealedNode_Upper | Base terrain tiles painted: 1020 |
+| found | Map Layout Readiness | `SCR-HOM-SND-001` | Map 9 - DGN_SealedNode_Upper | Required region IDs present: [4, 5] |
+| found | Map Layout Readiness | `SCR-HOM-SND-001` | Map 9 - DGN_SealedNode_Upper | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-SND-001` | Map 9 - DGN_SealedNode_Upper | Relevant events placed on 3 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-SND-002` | Map 10 - DGN_SealedNode_CorePath | Base terrain tiles painted: 1216 |
+| found | Map Layout Readiness | `SCR-HOM-SND-002` | Map 10 - DGN_SealedNode_CorePath | Required region IDs present: [4, 5] |
+| found | Map Layout Readiness | `SCR-HOM-SND-002` | Map 10 - DGN_SealedNode_CorePath | Encounter list populated with troop id(s): [1, 2] |
+| found | Map Layout Readiness | `SCR-HOM-SND-002` | Map 10 - DGN_SealedNode_CorePath | Relevant events placed on 3 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-SND-003` | Map 11 - DGN_SealedNode_Guardian | Base terrain tiles painted: 621 |
+| found | Map Layout Readiness | `SCR-HOM-SND-003` | Map 11 - DGN_SealedNode_Guardian | Required region IDs present: [5] |
+| found | Map Layout Readiness | `SCR-HOM-SND-003` | Map 11 - DGN_SealedNode_Guardian | Random encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-SND-003` | Map 11 - DGN_SealedNode_Guardian | Relevant events placed on 3 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-SND-004` | Map 12 - DGN_SealedNode_RelayCore | Base terrain tiles painted: 437 |
+| found | Map Layout Readiness | `SCR-HOM-SND-004` | Map 12 - DGN_SealedNode_RelayCore | Required region IDs present: [5] |
+| found | Map Layout Readiness | `SCR-HOM-SND-004` | Map 12 - DGN_SealedNode_RelayCore | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-SND-004` | Map 12 - DGN_SealedNode_RelayCore | Relevant events placed on 2 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-RST-001` | Map 13 - TWN_Rustshore_Docks | Base terrain tiles painted: 884 |
+| found | Map Layout Readiness | `SCR-HOM-RST-001` | Map 13 - TWN_Rustshore_Docks | Region 0 only as expected |
+| found | Map Layout Readiness | `SCR-HOM-RST-001` | Map 13 - TWN_Rustshore_Docks | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-RST-001` | Map 13 - TWN_Rustshore_Docks | Relevant events placed on 5 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-RST-002` | Map 14 - CUT_Mainland_Departure | Base terrain tiles painted: 391 |
+| found | Map Layout Readiness | `SCR-HOM-RST-002` | Map 14 - CUT_Mainland_Departure | Required region IDs present: [5] |
+| found | Map Layout Readiness | `SCR-HOM-RST-002` | Map 14 - CUT_Mainland_Departure | Encounter policy is satisfied |
+| found | Map Layout Readiness | `SCR-HOM-RST-002` | Map 14 - CUT_Mainland_Departure | Relevant events placed on 2 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-FOG-001` | Map 15 - FLD_Fogfen_Marsh_Field | Base terrain tiles painted: 1280 |
+| found | Map Layout Readiness | `SCR-HOM-FOG-001` | Map 15 - FLD_Fogfen_Marsh_Field | Required region IDs present: [2, 3, 5] |
+| found | Map Layout Readiness | `SCR-HOM-FOG-001` | Map 15 - FLD_Fogfen_Marsh_Field | Encounter list populated with troop id(s): [4, 5] |
+| found | Map Layout Readiness | `SCR-HOM-FOG-001` | Map 15 - FLD_Fogfen_Marsh_Field | Relevant events placed on 5 coordinate(s) |
+| found | Map Layout Readiness | `SCR-HOM-FOG-002` | Map 16 - FLD_Fogfen_Deeper_Marsh_Pocket | Base terrain tiles painted: 480 |
+| found | Map Layout Readiness | `SCR-HOM-FOG-002` | Map 16 - FLD_Fogfen_Deeper_Marsh_Pocket | Required region IDs present: [2, 3, 5] |
+| found | Map Layout Readiness | `SCR-HOM-FOG-002` | Map 16 - FLD_Fogfen_Deeper_Marsh_Pocket | Encounter list populated with troop id(s): [4, 5] |
+| found | Map Layout Readiness | `SCR-HOM-FOG-002` | Map 16 - FLD_Fogfen_Deeper_Marsh_Pocket | Relevant events placed on 3 coordinate(s) |
 
 ### Maps
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| missing | Maps | `SCR-HOM-ASH-001` | TWN_Ashford_Exterior | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-ASH-002` | INT_Ashford_ElaraHouse | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-ASH-003` | INT_Ashford_Shop | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-SKY-001` | DGN_SkyreachHill_Path | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-HCV-001` | DGN_HiddenCave_Entrance | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-HCV-002` | DGN_HiddenCave_Trials | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-HCV-003` | DGN_HiddenCave_Sanctum | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-GLS-001` | DGN_Glassfield_Ruins_Exterior | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-SND-001` | DGN_SealedNode_Upper | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-SND-002` | DGN_SealedNode_CorePath | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-SND-003` | DGN_SealedNode_Guardian | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-SND-004` | DGN_SealedNode_RelayCore | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-RST-001` | TWN_Rustshore_Docks | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-RST-002` | CUT_Mainland_Departure | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-FOG-001` | FLD_Fogfen_Marsh_Field | No MapInfos entry with this map name |
-| missing | Maps | `SCR-HOM-FOG-002` | FLD_Fogfen_Deeper_Marsh_Pocket | No MapInfos entry with this map name |
+| found | Maps | `SCR-HOM-ASH-001` | TWN_Ashford_Exterior | MapInfos id(s): 1 |
+| found | Maps | `SCR-HOM-ASH-002` | INT_Ashford_ElaraHouse | MapInfos id(s): 2 |
+| found | Maps | `SCR-HOM-ASH-003` | INT_Ashford_Shop | MapInfos id(s): 3 |
+| found | Maps | `SCR-HOM-SKY-001` | DGN_SkyreachHill_Path | MapInfos id(s): 4 |
+| found | Maps | `SCR-HOM-HCV-001` | DGN_HiddenCave_Entrance | MapInfos id(s): 5 |
+| found | Maps | `SCR-HOM-HCV-002` | DGN_HiddenCave_Trials | MapInfos id(s): 6 |
+| found | Maps | `SCR-HOM-HCV-003` | DGN_HiddenCave_Sanctum | MapInfos id(s): 7 |
+| found | Maps | `SCR-HOM-GLS-001` | DGN_Glassfield_Ruins_Exterior | MapInfos id(s): 8 |
+| found | Maps | `SCR-HOM-SND-001` | DGN_SealedNode_Upper | MapInfos id(s): 9 |
+| found | Maps | `SCR-HOM-SND-002` | DGN_SealedNode_CorePath | MapInfos id(s): 10 |
+| found | Maps | `SCR-HOM-SND-003` | DGN_SealedNode_Guardian | MapInfos id(s): 11 |
+| found | Maps | `SCR-HOM-SND-004` | DGN_SealedNode_RelayCore | MapInfos id(s): 12 |
+| found | Maps | `SCR-HOM-RST-001` | TWN_Rustshore_Docks | MapInfos id(s): 13 |
+| found | Maps | `SCR-HOM-RST-002` | CUT_Mainland_Departure | MapInfos id(s): 14 |
+| found | Maps | `SCR-HOM-FOG-001` | FLD_Fogfen_Marsh_Field | MapInfos id(s): 15 |
+| found | Maps | `SCR-HOM-FOG-002` | FLD_Fogfen_Deeper_Marsh_Pocket | MapInfos id(s): 16 |
 
 ### Skill
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
 | found | Skill | `Engine default` | Skill 1 - Attack | Skills.json id 1 matches name |
-| present with warning | Skill | `MON-RAT-001` | Skill 101 - Nibble | ID 101 is named 'Fire III'; expected name not found elsewhere |
-| present with warning | Skill | `MON-GEL-002` | Skill 102 - Murk Bubble | ID 102 is named ''; expected name not found elsewhere |
-| present with warning | Skill | `BOS-N07-001` | Skill 110 - Strike | ID 110 is named ''; expected name not found elsewhere |
-| present with warning | Skill | `BOS-N07-001` | Skill 111 - Pulse Guard | ID 111 is named 'Blizzard I'; expected name not found elsewhere |
-| present with warning | Skill | `BOS-N07-001` | Skill 112 - Warning Tone | ID 112 is named 'Blizzard II'; expected name not found elsewhere |
-| present with warning | Skill | `BOS-N07-001` | Skill 113 - Relay Burst | ID 113 is named 'Blizzard III'; expected name not found elsewhere |
+| found | Skill | `MON-RAT-001` | Skill 101 - Nibble | Skills.json id 101 matches name |
+| found | Skill | `MON-GEL-002` | Skill 102 - Murk Bubble | Skills.json id 102 matches name |
+| found | Skill | `BOS-N07-001` | Skill 110 - Strike | Skills.json id 110 matches name |
+| found | Skill | `BOS-N07-001` | Skill 111 - Pulse Guard | Skills.json id 111 matches name |
+| found | Skill | `BOS-N07-001` | Skill 112 - Warning Tone | Skills.json id 112 matches name |
+| found | Skill | `BOS-N07-001` | Skill 113 - Relay Burst | Skills.json id 113 matches name |
 
 ### Skill Details
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Skill Details | `1` | Skill 1 - Attack | animationId is -1, expected '6' |
-| present with warning | Skill Details | `101` | Skill 101 - Nibble | name is 'Fire III'; animationId is 67, expected '16' |
-| present with warning | Skill Details | `102` | Skill 102 - Murk Bubble | name is ''; animationId is 0, expected '35' |
-| present with warning | Skill Details | `110` | Skill 110 - Strike | name is ''; animationId is 0, expected '6' |
-| present with warning | Skill Details | `111` | Skill 111 - Pulse Guard | name is 'Blizzard I'; animationId is 73, expected '51' |
-| present with warning | Skill Details | `112` | Skill 112 - Warning Tone | name is 'Blizzard II'; animationId is 74, expected '106' |
-| present with warning | Skill Details | `113` | Skill 113 - Relay Burst | name is 'Blizzard III'; animationId is 75, expected '115' |
+| found | Skill Details | `1` | Skill 1 - Attack | Name and animation ID match |
+| found | Skill Details | `101` | Skill 101 - Nibble | Name and animation ID match |
+| found | Skill Details | `102` | Skill 102 - Murk Bubble | Name and animation ID match |
+| found | Skill Details | `110` | Skill 110 - Strike | Name and animation ID match |
+| found | Skill Details | `111` | Skill 111 - Pulse Guard | Name and animation ID match |
+| found | Skill Details | `112` | Skill 112 - Warning Tone | Name and animation ID match |
+| found | Skill Details | `113` | Skill 113 - Relay Burst | Name and animation ID match |
 
 ### State
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | State | `Engine default` | State 1 - Knockout | ID 1 is named 'Dead'; expected name not found elsewhere |
-| present with warning | State | `MON-GEL-002` | State 11 - Signal-Slick | ID 11 is named ''; expected name not found elsewhere |
-| present with warning | State | `BOS-N07-001` | State 12 - Pulse Guard | ID 12 is named 'Paralysis'; expected name not found elsewhere |
-| present with warning | State | `BOS-N07-001` | State 13 - Charging | ID 13 is named 'Stun'; expected name not found elsewhere |
+| found | State | `Engine default` | State 1 - Knockout | States.json id 1 matches name |
+| found | State | `MON-GEL-002` | State 11 - Signal-Slick | States.json id 11 matches name |
+| found | State | `BOS-N07-001` | State 12 - Pulse Guard | States.json id 12 matches name |
+| found | State | `BOS-N07-001` | State 13 - Charging | States.json id 13 matches name |
 
 ### Tilesets
 
@@ -221,84 +428,84 @@ The audit is read-only. It does not modify RPG Maker JSON, maps, events, assets,
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| missing | Transfers | `TRN-HOM-001` | SCR-HOM-ASH-002 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-002` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-003` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-003 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-004` | SCR-HOM-ASH-003 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-005` | SCR-HOM-ASH-001 -> SCR-HOM-SKY-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-006` | SCR-HOM-SKY-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-007` | SCR-HOM-ASH-001 -> SCR-HOM-RST-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-008` | SCR-HOM-RST-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-009` | SCR-HOM-SKY-001 -> SCR-HOM-HCV-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-010` | SCR-HOM-HCV-001 -> SCR-HOM-SKY-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-011` | SCR-HOM-HCV-001 -> SCR-HOM-HCV-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-012` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-013` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-003 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-014` | SCR-HOM-HCV-003 -> SCR-HOM-HCV-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-015` | SCR-HOM-ASH-001 -> SCR-HOM-GLS-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-016` | SCR-HOM-GLS-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-017` | SCR-HOM-GLS-001 -> SCR-HOM-SND-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-018` | SCR-HOM-SND-001 -> SCR-HOM-GLS-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-019` | SCR-HOM-SND-001 -> SCR-HOM-SND-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-020` | SCR-HOM-SND-002 -> SCR-HOM-SND-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-021` | SCR-HOM-SND-002 -> SCR-HOM-SND-003 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-022` | SCR-HOM-SND-003 -> SCR-HOM-SND-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-023` | SCR-HOM-SND-003 -> SCR-HOM-SND-004 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-024` | SCR-HOM-SND-004 -> SCR-HOM-SND-003 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-025` | SCR-HOM-RST-001 -> SCR-HOM-RST-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-026` | SCR-HOM-RST-002 -> Journey II start | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-027` | SCR-HOM-ASH-001 -> SCR-HOM-FOG-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-028` | SCR-HOM-FOG-001 -> SCR-HOM-ASH-001 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-029` | SCR-HOM-FOG-001 -> SCR-HOM-FOG-002 | Source screen map is missing from MapInfos.json |
-| missing | Transfers | `TRN-HOM-030` | SCR-HOM-FOG-002 -> SCR-HOM-FOG-001 | Source screen map is missing from MapInfos.json |
+| found | Transfers | `TRN-HOM-001` | SCR-HOM-ASH-002 -> SCR-HOM-ASH-001 | Map 2 transfer command(s): event 3 page 1 |
+| found | Transfers | `TRN-HOM-002` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-002 | Map 1 transfer command(s): event 7 page 1 |
+| found | Transfers | `TRN-HOM-003` | SCR-HOM-ASH-001 -> SCR-HOM-ASH-003 | Map 1 transfer command(s): event 8 page 1 |
+| found | Transfers | `TRN-HOM-004` | SCR-HOM-ASH-003 -> SCR-HOM-ASH-001 | Map 3 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-005` | SCR-HOM-ASH-001 -> SCR-HOM-SKY-001 | Map 1 transfer command(s): event 9 page 2 |
+| found | Transfers | `TRN-HOM-006` | SCR-HOM-SKY-001 -> SCR-HOM-ASH-001 | Map 4 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-007` | SCR-HOM-ASH-001 -> SCR-HOM-RST-001 | Map 1 transfer command(s): event 10 page 1 |
+| found | Transfers | `TRN-HOM-008` | SCR-HOM-RST-001 -> SCR-HOM-ASH-001 | Map 13 transfer command(s): event 4 page 1 |
+| found | Transfers | `TRN-HOM-009` | SCR-HOM-SKY-001 -> SCR-HOM-HCV-001 | Map 4 transfer command(s): event 3 page 2 |
+| found | Transfers | `TRN-HOM-010` | SCR-HOM-HCV-001 -> SCR-HOM-SKY-001 | Map 5 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-011` | SCR-HOM-HCV-001 -> SCR-HOM-HCV-002 | Map 5 transfer command(s): event 3 page 1 |
+| found | Transfers | `TRN-HOM-012` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-001 | Map 6 transfer command(s): event 5 page 1 |
+| found | Transfers | `TRN-HOM-013` | SCR-HOM-HCV-002 -> SCR-HOM-HCV-003 | Map 6 transfer command(s): event 6 page 1 |
+| found | Transfers | `TRN-HOM-014` | SCR-HOM-HCV-003 -> SCR-HOM-HCV-002 | Map 7 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-015` | SCR-HOM-ASH-001 -> SCR-HOM-GLS-001 | Map 1 transfer command(s): event 11 page 1 |
+| found | Transfers | `TRN-HOM-016` | SCR-HOM-GLS-001 -> SCR-HOM-ASH-001 | Map 8 transfer command(s): event 3 page 1 |
+| found | Transfers | `TRN-HOM-017` | SCR-HOM-GLS-001 -> SCR-HOM-SND-001 | Map 8 transfer command(s): event 4 page 2 |
+| found | Transfers | `TRN-HOM-018` | SCR-HOM-SND-001 -> SCR-HOM-GLS-001 | Map 9 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-019` | SCR-HOM-SND-001 -> SCR-HOM-SND-002 | Map 9 transfer command(s): event 3 page 1 |
+| found | Transfers | `TRN-HOM-020` | SCR-HOM-SND-002 -> SCR-HOM-SND-001 | Map 10 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-021` | SCR-HOM-SND-002 -> SCR-HOM-SND-003 | Map 10 transfer command(s): event 3 page 1 |
+| found | Transfers | `TRN-HOM-022` | SCR-HOM-SND-003 -> SCR-HOM-SND-002 | Map 11 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-023` | SCR-HOM-SND-003 -> SCR-HOM-SND-004 | Map 11 transfer command(s): event 3 page 2 |
+| found | Transfers | `TRN-HOM-024` | SCR-HOM-SND-004 -> SCR-HOM-SND-003 | Map 12 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-025` | SCR-HOM-RST-001 -> SCR-HOM-RST-002 | Map 13 transfer command(s): event 5 page 1 |
+| found | Transfers | `TRN-HOM-026` | SCR-HOM-RST-002 -> Journey II start | Map 14 transfer command(s): event 2 page 1 |
+| found | Transfers | `TRN-HOM-027` | SCR-HOM-ASH-001 -> SCR-HOM-FOG-001 | Map 1 transfer command(s): event 12 page 1 |
+| found | Transfers | `TRN-HOM-028` | SCR-HOM-FOG-001 -> SCR-HOM-ASH-001 | Map 15 transfer command(s): event 4 page 1 |
+| found | Transfers | `TRN-HOM-029` | SCR-HOM-FOG-001 -> SCR-HOM-FOG-002 | Map 15 transfer command(s): event 5 page 1 |
+| found | Transfers | `TRN-HOM-030` | SCR-HOM-FOG-002 -> SCR-HOM-FOG-001 | Map 16 transfer command(s): event 3 page 1 |
 
 ### Trial State
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| missing | Trial State | `J1_Trial_Body_Clear` | J1_Trial_Body_Clear | Switch name not found in System.json |
-| missing | Trial State | `J1_Trial_Mind_Clear` | J1_Trial_Mind_Clear | Switch name not found in System.json |
-| missing | Trial State | `J1_Trial_Heart_Clear` | J1_Trial_Heart_Clear | Switch name not found in System.json |
-| missing | Trial State | `Trial_Body_Attempts` | Trial_Body_Attempts | Variable name not found in System.json |
-| missing | Trial State | `Trial_Mind_SequenceStep` | Trial_Mind_SequenceStep | Variable name not found in System.json |
-| missing | Trial State | `Trial_Heart_IntentChoice` | Trial_Heart_IntentChoice | Variable name not found in System.json |
+| found | Trial State | `J1_Trial_Body_Clear` | J1_Trial_Body_Clear | System.json switch 4 |
+| found | Trial State | `J1_Trial_Mind_Clear` | J1_Trial_Mind_Clear | System.json switch 5 |
+| found | Trial State | `J1_Trial_Heart_Clear` | J1_Trial_Heart_Clear | System.json switch 6 |
+| found | Trial State | `Trial_Body_Attempts` | Trial_Body_Attempts | System.json variable 50 |
+| found | Trial State | `Trial_Mind_SequenceStep` | Trial_Mind_SequenceStep | System.json variable 51 |
+| found | Trial State | `Trial_Heart_IntentChoice` | Trial_Heart_IntentChoice | System.json variable 52 |
 
 ### Troop
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Troop | `MON-GEL-001` | Troop 1 - HOM Field 1 | ID 1 is named 'Goblin*2'; expected name not found elsewhere |
-| present with warning | Troop | `MON-GEL-001` | Troop 2 - HOM Field 2 | ID 2 is named 'Gnome*2'; expected name not found elsewhere |
-| present with warning | Troop | `MON-RAT-001, MON-GEL-001` | Troop 3 - HOM Field 3 | ID 3 is named 'Crow*2'; expected name not found elsewhere |
-| present with warning | Troop | `MON-GEL-002` | Troop 4 - HOM Fogfen 1 | ID 4 is named 'Treant'; expected name not found elsewhere |
-| present with warning | Troop | `MON-GEL-002, MON-RAT-001` | Troop 5 - HOM Fogfen 2 | ID 5 is named 'Hi_monster'; expected name not found elsewhere |
-| present with warning | Troop | `BOS-N07-001` | Troop 10 - HOM Node Boss | ID 10 is named 'NEMESIS Dragon Placeholder'; expected name not found elsewhere |
+| found | Troop | `MON-GEL-001` | Troop 1 - HOM Field 1 | Troops.json id 1 matches name |
+| found | Troop | `MON-GEL-001` | Troop 2 - HOM Field 2 | Troops.json id 2 matches name |
+| found | Troop | `MON-RAT-001, MON-GEL-001` | Troop 3 - HOM Field 3 | Troops.json id 3 matches name |
+| found | Troop | `MON-GEL-002` | Troop 4 - HOM Fogfen 1 | Troops.json id 4 matches name |
+| found | Troop | `MON-GEL-002, MON-RAT-001` | Troop 5 - HOM Fogfen 2 | Troops.json id 5 matches name |
+| found | Troop | `BOS-N07-001` | Troop 10 - HOM Node Boss | Troops.json id 10 matches name |
 
 ### Troop Details
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Troop Details | `1` | Troop 1 - HOM Field 1 | Troop row name is 'Goblin*2' |
-| present with warning | Troop Details | `2` | Troop 2 - HOM Field 2 | Troop row name is 'Gnome*2' |
-| present with warning | Troop Details | `3` | Troop 3 - HOM Field 3 | Troop row name is 'Crow*2' |
-| present with warning | Troop Details | `4` | Troop 4 - HOM Fogfen 1 | Troop row name is 'Treant' |
-| present with warning | Troop Details | `5` | Troop 5 - HOM Fogfen 2 | Troop row name is 'Hi_monster' |
-| present with warning | Troop Details | `10` | Troop 10 - HOM Node Boss | Troop row name is 'NEMESIS Dragon Placeholder' |
+| found | Troop Details | `1` | Troop 1 - HOM Field 1 | Troop row name matches |
+| found | Troop Details | `2` | Troop 2 - HOM Field 2 | Troop row name matches |
+| found | Troop Details | `3` | Troop 3 - HOM Field 3 | Troop row name matches |
+| found | Troop Details | `4` | Troop 4 - HOM Fogfen 1 | Troop row name matches |
+| found | Troop Details | `5` | Troop 5 - HOM Fogfen 2 | Troop row name matches |
+| found | Troop Details | `10` | Troop 10 - HOM Node Boss | Troop row name matches |
 
 ### Troop Event Pages
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
 | found | Troop Event Pages | `1-5` | Troop 1-5 event page None | Troops 1-5 have no non-empty event page commands |
-| present with warning | Troop Event Pages | `10` | Troop 10 event page 1 | Optional troop page exists but contains no placeholder commands |
-| missing | Troop Event Pages | `10` | Troop 10 event page 2 | Expected page 2; troop has 1 page(s) |
+| found | Troop Event Pages | `10` | Troop 10 event page 1 | Expected troop page exists and is parseable |
+| found | Troop Event Pages | `10` | Troop 10 event page 2 | Expected troop page exists and is parseable |
 
 ### Weapon
 
 | Status | Category | Atlas / Expected ID | Expected | Detail |
 |---|---|---|---|---|
-| present with warning | Weapon | `CHR-KAI-001` | Weapon 1 - Practice Sword | ID 1 is named 'Short Sword'; expected name not found elsewhere |
-| present with warning | Weapon | `Sword truth layer` | Weapon 2 - Sword / Project Excalibur | ID 2 is named 'Long Sword'; expected name not found elsewhere |
+| found | Weapon | `CHR-KAI-001` | Weapon 1 - Practice Sword | Weapons.json id 1 matches name |
+| found | Weapon | `Sword truth layer` | Weapon 2 - Sword / Project Excalibur | Weapons.json id 2 matches name |
 
 ## Notes
 

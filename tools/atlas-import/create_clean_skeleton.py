@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 import shutil
 
+from map_ownership_guard import LEDGER_FILENAME, WRITABLE_STATE, load_ledger
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_EXPORT = ROOT.parent / "TheLastSwordProtocol-Atlas" / "atlas-exports" / "home-island.json"
@@ -419,6 +421,20 @@ def prepare_target(target: Path, force: bool) -> None:
     if target.exists():
         if not force:
             raise SystemExit(f"Target already exists. Use --force to replace it: {target}")
+        ledger = load_ledger(target)
+        if ledger is None:
+            raise SystemExit(
+                f"OWNERSHIP GUARD: refusing to delete {target}: existing target has no readable "
+                f"{LEDGER_FILENAME} (fail safe: no ledger, no writes). Add a ledger marking every "
+                f"map '{WRITABLE_STATE}' if this project really is fully regenerable."
+            )
+        protected = {map_id: state for map_id, state in ledger.items() if state != WRITABLE_STATE}
+        if protected:
+            listing = ", ".join(f"Map{map_id:03d}={state}" for map_id, state in sorted(protected.items()))
+            raise SystemExit(
+                f"OWNERSHIP GUARD: refusing to delete {target}: ledger marks non-regenerable maps "
+                f"({listing}). Rebuilding the skeleton would destroy hand-authored work."
+            )
         shutil.rmtree(target)
     target.mkdir(parents=True)
 
@@ -575,6 +591,32 @@ def build_maps(export: dict, target: Path) -> None:
     write_json(data_dir / "MapInfos.json", map_infos)
 
 
+def write_ownership_ledger(export: dict, target: Path) -> None:
+    home = export["home_island"]
+    maps = {
+        str(map_id): {
+            "state": WRITABLE_STATE,
+            "atlas_screen": screen["screen_id"],
+            "name": screen["rpg_maker_map_name"],
+        }
+        for map_id, screen in enumerate(home["screens"], 1)
+    }
+    ledger = {
+        "version": 1,
+        "description": (
+            "Per-map ownership ledger. Write-capable atlas-import scripts may only write maps whose "
+            "state is 'generated'. States: 'generated' (pipeline-owned), 'hand_authored' (editor-owned; "
+            "pipeline must never write), 'locked' (frozen). A missing or unreadable ledger means NO map "
+            "writes are permitted (fail safe). Flip a map to 'hand_authored' the moment manual editor "
+            "work on it begins."
+        ),
+        "maps": maps,
+    }
+    (target / LEDGER_FILENAME).write_text(
+        json.dumps(ledger, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+
 def write_manifest(export: dict, target: Path) -> None:
     home = export["home_island"]
     manifest = {
@@ -614,6 +656,7 @@ def main() -> int:
     write_static_project_files(target)
     build_database(export, target)
     build_maps(export, target)
+    write_ownership_ledger(export, target)
     write_manifest(export, target)
 
     print(target)

@@ -7,6 +7,8 @@ import argparse
 import json
 from pathlib import Path
 
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PROJECT = ROOT.parent / "TheLastSwordProtocol-Game"
@@ -164,9 +166,13 @@ def apply_common_events(project_root: Path) -> int:
 def apply_maps(project_root: Path) -> tuple[int, int]:
     maps_changed = 0
     event_hooks = 0
+    ledger = load_ledger(project_root)
     for map_id, assignment in MAP_AUDIO.items():
         path = project_root / "data" / f"Map{map_id:03d}.json"
         if not path.exists():
+            continue
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_audio_hooks"))
             continue
         before = path.read_text(encoding="utf-8")
         map_data = json.loads(before)

@@ -7,6 +7,8 @@ import argparse
 import json
 from pathlib import Path
 
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PROJECT = ROOT.parent / "TheLastSwordProtocol-Game"
@@ -330,7 +332,11 @@ def main() -> int:
     project_root = Path(args.project_root).expanduser().resolve()
     changed = 0
     moved = 0
+    ledger = load_ledger(project_root)
     for map_id in range(1, 17):
+        if not map_write_allowed(ledger, map_id):
+            print(skip_message(ledger, map_id, "apply_map_layouts"))
+            continue
         did_change, moved_count = apply_map(project_root, map_id)
         changed += 1 if did_change else 0
         moved += moved_count

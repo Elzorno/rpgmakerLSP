@@ -8,6 +8,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ATLAS_ROOT = ROOT.parent / "TheLastSwordProtocol-Atlas"
@@ -618,6 +620,9 @@ def main() -> int:
         raise ValueError(f"No supported map generation mapping for {blueprint.get('atlas_screen_id')}.")
 
     map_id = find_target_map_id(project_root, blueprint)
+    ledger = load_ledger(project_root)
+    if not map_write_allowed(ledger, map_id):
+        raise SystemExit(skip_message(ledger, map_id, "generate_map_from_blueprint"))
     map_path = project_root / "data" / f"Map{map_id:03d}.json"
     map_data = load_json(map_path)
     before = json.dumps(map_data, ensure_ascii=False, separators=(",", ":"))
