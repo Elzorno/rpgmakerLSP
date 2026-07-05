@@ -21,6 +21,7 @@ PATH = 3584
 
 SCREEN_TO_MAP_NAME = {
     "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
+    "SCR-HOM-ASH-002": "INT_Ashford_ElaraHouse",
     "SCR-HOM-SKY-001": "DGN_SkyreachHill_Path",
     "SCR-HOM-HCV-001": "DGN_HiddenCave_Entrance",
     "SCR-HOM-HCV-002": "DGN_HiddenCave_Trials",
@@ -37,6 +38,7 @@ SCREEN_TO_MAP_NAME = {
 }
 
 TRANSFER_EVENT_NAMES = {
+    "TRN-HOM-001": "TRN-HOM-001 Elara House exit",
     "TRN-HOM-002": "TRN-HOM-002 Enter Elara House",
     "TRN-HOM-003": "TRN-HOM-003 Enter Ashford Shop",
     "TRN-HOM-005": "TRN-HOM-005 North path to Skyreach",
@@ -80,6 +82,8 @@ TREASURE_EVENT_NAMES = {
 }
 
 ANCHOR_EVENT_NAMES = {
+    "EVT-HOM-001": "Player Start",
+    "EVT-HOM-002": "Elara Intro Dialogue",
     "EVT-HOM-009": "Tremor Trigger",
     "EVT-HOM-010": "Skyreach Gate",
     "EVT-HOM-011": "Hidden Cave First Entry",
@@ -110,6 +114,7 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-031": "Signal Pool / Cable Cluster Examine",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
+    "INT-ASH-ELARA-KEEPSAKE": "INT-ASH-ELARA-KEEPSAKE Keepsake Shelf",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
     "INT-HCV-WALL-CARVING": "INT-HCV-WALL-CARVING Wall Carving",
 }
@@ -118,6 +123,7 @@ TREASURE_EVENT_NAMES["OBJ-HOM-FOG-009"] = "Deeper Marsh Reward Cache"
 
 ENCOUNTER_POLICIES = {
     "SCR-HOM-ASH-001": [],
+    "SCR-HOM-ASH-002": [],
     "SCR-HOM-SKY-001": [
         {"regionSet": [1], "troopId": 1, "weight": 5},
         {"regionSet": [1], "troopId": 2, "weight": 4},
@@ -281,6 +287,10 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "reed_floor",
                 "signal_pool",
                 "cable_landmark",
+                "interior_floor",
+                "cozy_home_floor",
+                "hearth_area",
+                "keepsake_corner",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":

@@ -2177,4 +2177,14 @@ Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-H
 
 Verification: py_compile passed; blueprint JSON and `Map016.json` parse; Deeper Marsh Pocket round-trip audit found 29 missing 0 warning 0; Fogfen Marsh Field, Rustshore Docks, and Relay Core regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
-Open questions / next steps: The Home Island screen registry now has generated blueprints for all 16 registered screens. A next useful order would be an all-blueprints regression audit and map-generation coverage report before generating any more content.
+Open questions / next steps: The Home Island screen registry had 14 generated blueprints out of 16 registered screens at this point. The remaining gaps were `SCR-HOM-ASH-002 / INT_Ashford_ElaraHouse` and `SCR-HOM-ASH-003 / INT_Ashford_Shop`.
+
+## 2026-07-04 23:03 EDT - Codex to User/Claude - T072
+
+Summary: Completed BUILD-0024 by adding the Atlas blueprint for `SCR-HOM-ASH-002` and generating the clean RPG Maker `INT_Ashford_ElaraHouse` map from it.
+
+Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-ASH-002.blueprint.json`, `tools/atlas-import/generate_map_from_blueprint.py`, `../TheLastSwordProtocol-Game/data/Map002.json`, `reports/atlas-import/build-0024-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; blueprint JSON and `Map002.json` parse; Elara House round-trip audit found 29 missing 0 warning 0; Ashford Exterior, Fogfen Marsh Field, and Relay Core regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: One registered Home Island screen remains without a generated blueprint: `SCR-HOM-ASH-003 / INT_Ashford_Shop`.
