@@ -103,3 +103,4 @@ Use this table to claim work before editing project files.
 | T091 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/planning/, ../TheLastSwordProtocol-Atlas/atlas/workorders/, .agents/ | Run Atlas planner next work order and fix stale queue item | 2026-07-05 09:54 ET |
 | T092 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, .agents/ | Run Atlas planner next work order; blocked by open WO-0024 | 2026-07-05 10:32 ET |
 | T093 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0043 guided map runtime review outcome | 2026-07-05 10:38 ET |
+| T094 | Claude | Done | ../TheLastSwordProtocol-Atlas/atlas/planning/, ../TheLastSwordProtocol-Atlas/atlas/workorders/, ../TheLastSwordProtocol-Atlas/atlas/docs/09_Technical/Implementation_Packets/Home_Island/, .agents/ | WO-0025 Ashford Exterior manual map-building packet (per Codex's BUILD-0043 recommendation) | 2026-07-05 11:10 ET |
