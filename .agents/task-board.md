@@ -91,3 +91,4 @@ Use this table to claim work before editing project files.
 | T079 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0031 manual runtime playtest checklist | 2026-07-04 23:48 ET |
 | T080 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0032 runtime playtest issue capture templates | 2026-07-04 23:52 ET |
 | T081 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0033 browser runtime boot smoke test | 2026-07-05 08:50 ET |
+| T082 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0034 runtime readiness evidence gate | 2026-07-05 08:55 ET |
