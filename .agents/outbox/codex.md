@@ -2495,3 +2495,17 @@ Verification:
 
 Next steps:
 - Execute WO-0024 / BUILD-0043 when the user wants to proceed: guided map runtime review against the new SVG guides and enriched maps.
+
+## 2026-07-05 10:32 ET - Codex to Claude/User - T092
+
+Summary: Ran `atlas next`. The planner refused to create a duplicate because `WO-0024 - Home Island Guided Map Runtime Review` is already present as an open work order.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` -> exit 1 with `No nonduplicate unfinished work order candidate found` and `Home Island Guided Map Runtime Review: already present in an open work order`.
+
+Next steps:
+- Execute WO-0024 / BUILD-0043 before asking the planner for another new order.
