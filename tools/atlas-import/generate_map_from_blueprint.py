@@ -33,6 +33,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-RST-001": "TWN_Rustshore_Docks",
     "SCR-HOM-RST-002": "CUT_Mainland_Departure",
     "SCR-HOM-FOG-001": "FLD_Fogfen_Marsh_Field",
+    "SCR-HOM-FOG-002": "FLD_Fogfen_Deeper_Marsh_Pocket",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -63,6 +64,7 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-026": "TRN-HOM-026 Destination TBD: Coalmouth or landing screen",
     "TRN-HOM-028": "TRN-HOM-028 Return from Fogfen to Ashford-side route",
     "TRN-HOM-029": "TRN-HOM-029 Optional deeper marsh branch",
+    "TRN-HOM-030": "TRN-HOM-030 Return from deeper marsh pocket",
 }
 
 NPC_EVENT_NAMES = {
@@ -104,12 +106,15 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-026": "Departure Sequence",
     "EVT-HOM-027": "Fogfen Entry / Exit Transfer",
     "EVT-HOM-029": "Signal-Tick Reed Pool",
+    "EVT-HOM-030": "Deeper Marsh Return Transfer",
+    "EVT-HOM-031": "Signal Pool / Cable Cluster Examine",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
     "INT-HCV-WALL-CARVING": "INT-HCV-WALL-CARVING Wall Carving",
 }
 TREASURE_EVENT_NAMES["EVT-HOM-028"] = "Hidden Item Landmark"
+TREASURE_EVENT_NAMES["OBJ-HOM-FOG-009"] = "Deeper Marsh Reward Cache"
 
 ENCOUNTER_POLICIES = {
     "SCR-HOM-ASH-001": [],
@@ -140,6 +145,10 @@ ENCOUNTER_POLICIES = {
     "SCR-HOM-FOG-001": [
         {"regionSet": [2], "troopId": 4, "weight": 5},
         {"regionSet": [2], "troopId": 5, "weight": 4},
+    ],
+    "SCR-HOM-FOG-002": [
+        {"regionSet": [2], "troopId": 4, "weight": 4},
+        {"regionSet": [2], "troopId": 5, "weight": 5},
     ],
 }
 
