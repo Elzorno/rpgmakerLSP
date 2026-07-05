@@ -27,6 +27,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-HCV-003": "DGN_HiddenCave_Sanctum",
     "SCR-HOM-GLS-001": "DGN_Glassfield_Ruins_Exterior",
     "SCR-HOM-SND-001": "DGN_SealedNode_Upper",
+    "SCR-HOM-SND-002": "DGN_SealedNode_CorePath",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -47,6 +48,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-017": "TRN-HOM-017 Enter Sealed Node",
     "TRN-HOM-018": "TRN-HOM-018 Exit Sealed Node",
     "TRN-HOM-019": "TRN-HOM-019 Proceed deeper",
+    "TRN-HOM-020": "TRN-HOM-020 Return to upper node",
+    "TRN-HOM-021": "TRN-HOM-021 Enter guardian chamber",
 }
 
 NPC_EVENT_NAMES = {
@@ -79,6 +82,7 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-017": "Glassfield Seal",
     "EVT-HOM-018": "Surface Fragment",
     "EVT-HOM-019": "Sealed Node First Entry",
+    "EVT-HOM-020": "Core Path Door",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -100,6 +104,10 @@ ENCOUNTER_POLICIES = {
         {"regionSet": [1], "troopId": 3, "weight": 3},
     ],
     "SCR-HOM-SND-001": [
+        {"regionSet": [4], "troopId": 1, "weight": 3},
+        {"regionSet": [4], "troopId": 2, "weight": 2},
+    ],
+    "SCR-HOM-SND-002": [
         {"regionSet": [4], "troopId": 1, "weight": 3},
         {"regionSet": [4], "troopId": 2, "weight": 2},
     ],
