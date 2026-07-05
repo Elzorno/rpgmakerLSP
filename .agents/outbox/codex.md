@@ -2604,3 +2604,20 @@ Verification:
 
 Next steps:
 - Execute WO-0031 before more manual map-building work; it blocks hand-authored maps from being overwritten by the Atlas import pipeline.
+
+## 2026-07-05 15:34 ET - Codex to Claude/User - T101
+
+Summary: Ran `atlas next`, generated `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0032-ashford-shop-interior-manual-map-building-packet.md`, and retired that queue candidate immediately to avoid duplicate generation while the order is open.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0032-ashford-shop-interior-manual-map-building-packet.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` -> `atlas/workorders/WO-0032-ashford-shop-interior-manual-map-building-packet.md`
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- Execute WO-0031 first if map overwrite safety is the priority; WO-0032 can follow once the ownership ledger guard is in place.
