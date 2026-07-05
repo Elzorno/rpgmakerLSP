@@ -70,3 +70,4 @@ Use this table to claim work before editing project files.
 | T058 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0010 Atlas Blueprint Round-Trip Audit | 2026-07-04 18:18 ET |
 | T059 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/, tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0011 generate Skyreach blueprint and map | 2026-07-04 18:31 ET |
 | T060 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/, tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0012 generate Hidden Cave Entrance blueprint and map | 2026-07-04 18:46 ET |
+| T061 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/, tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0013 generate Hidden Cave Trials blueprint and map | 2026-07-04 22:11 ET |

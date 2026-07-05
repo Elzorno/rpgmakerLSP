@@ -23,6 +23,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
     "SCR-HOM-SKY-001": "DGN_SkyreachHill_Path",
     "SCR-HOM-HCV-001": "DGN_HiddenCave_Entrance",
+    "SCR-HOM-HCV-002": "DGN_HiddenCave_Trials",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -36,6 +37,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-009": "TRN-HOM-009 Enter Hidden Cave",
     "TRN-HOM-010": "TRN-HOM-010 Exit cave",
     "TRN-HOM-011": "TRN-HOM-011 Enter trials",
+    "TRN-HOM-012": "TRN-HOM-012 Return to entrance",
+    "TRN-HOM-013": "TRN-HOM-013 Enter Sword Sanctum",
 }
 
 NPC_EVENT_NAMES = {
@@ -54,6 +57,16 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-009": "Tremor Trigger",
     "EVT-HOM-010": "Skyreach Gate",
     "EVT-HOM-011": "Hidden Cave First Entry",
+    "EVT-HOM-012": "Body Trial",
+    "EVT-HOM-012A": "EVT-HOM-012A Body Trial Reset 1",
+    "EVT-HOM-012B": "EVT-HOM-012B Body Trial Reset 2",
+    "EVT-HOM-012C": "EVT-HOM-012C Body Trial Reset 3",
+    "EVT-HOM-013": "Mind Trial",
+    "EVT-HOM-013A": "EVT-HOM-013A Mind Marker Left",
+    "EVT-HOM-013B": "EVT-HOM-013B Mind Marker Right",
+    "EVT-HOM-013C": "EVT-HOM-013C Mind Marker Center",
+    "EVT-HOM-014": "Heart Trial",
+    "EVT-HOM-015": "Sanctum Gate",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -68,6 +81,7 @@ ENCOUNTER_POLICIES = {
         {"regionSet": [1], "troopId": 3, "weight": 3},
     ],
     "SCR-HOM-HCV-001": [],
+    "SCR-HOM-HCV-002": [],
 }
 
 REGION_EXPORT_IDS = {
@@ -160,7 +174,20 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
         area = terrain.get("area", {})
         terrain_type = terrain.get("terrain_type")
         if area.get("shape") == "rect":
-            value = PATH if terrain_type in {"village_path", "village_ground", "hill_path", "sacred_stone_path", "cave_passage", "carved_stone_threshold"} else ALT_FLOOR
+            value = PATH if terrain_type in {
+                "village_path",
+                "village_ground",
+                "hill_path",
+                "sacred_stone_path",
+                "cave_passage",
+                "carved_stone_threshold",
+                "trial_path",
+                "trial_chamber",
+                "sanctum_threshold",
+                "body_trial_lane",
+                "mind_trial_floor",
+                "heart_trial_floor",
+            } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":
             points = area.get("points", [])
