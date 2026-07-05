@@ -60,9 +60,9 @@ Medium: confusing behavior with workaround.
 
 ## Resolution Notes
 
-Fixed in BUILD-0039, pending user runtime confirmation.
+Partially addressed.
 
-- Added `tools/atlas-import/apply_placeholder_landmark_images.py`.
-- Assigned existing placeholder character graphics to 75 generated events across all 16 Home Island maps.
-- Verified all 99 generated Home Island event pages now have nonblank images and that every referenced character asset exists.
-- No final art, story, lore, quest, or mechanic content was created.
+- BUILD-0039 assigned existing placeholder character graphics to generated events.
+- BUILD-0041 generated SVG map layout guides, which the user confirmed are useful for manual map building.
+- BUILD-0042 regenerated richer placeholder maps, but the user confirmed the RPG Maker maps did not meaningfully change in playtest.
+- Current production recommendation: use Atlas SVG guide images for manual RPG Maker map construction; do not treat automatic final map construction as ready.
