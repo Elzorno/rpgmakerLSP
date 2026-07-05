@@ -31,6 +31,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-SND-003": "DGN_SealedNode_Guardian",
     "SCR-HOM-SND-004": "DGN_SealedNode_RelayCore",
     "SCR-HOM-RST-001": "TWN_Rustshore_Docks",
+    "SCR-HOM-RST-002": "CUT_Mainland_Departure",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -58,6 +59,7 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-023": "TRN-HOM-023 Enter relay core",
     "TRN-HOM-024": "TRN-HOM-024 Return from relay core",
     "TRN-HOM-025": "TRN-HOM-025 Begin departure",
+    "TRN-HOM-026": "TRN-HOM-026 Destination TBD: Coalmouth or landing screen",
 }
 
 NPC_EVENT_NAMES = {
@@ -96,6 +98,7 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-023": "Dockmaster",
     "EVT-HOM-024": "Lighthouse Examine",
     "EVT-HOM-025": "Boat Transfer",
+    "EVT-HOM-026": "Departure Sequence",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -127,6 +130,7 @@ ENCOUNTER_POLICIES = {
     "SCR-HOM-SND-003": [],
     "SCR-HOM-SND-004": [],
     "SCR-HOM-RST-001": [],
+    "SCR-HOM-RST-002": [],
 }
 
 REGION_EXPORT_IDS = {
@@ -248,6 +252,8 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "shoreline_ground",
                 "lighthouse_base",
                 "boat_landing",
+                "cutscene_dock",
+                "departure_boat_path",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":
