@@ -2568,3 +2568,21 @@ Verification:
 
 Next steps:
 - Execute WO-0028 first if Journey I decisions are priority, or execute WO-0029 to retire the stale legacy Atlas fork.
+
+## 2026-07-05 15:17 ET - Codex to Claude/User - T099
+
+Summary: Ran `atlas next`. The first result duplicated WO-0029 (`retire-stale-atlas-fork-in-legacy-repo`) as WO-0030 because that candidate remained active while WO-0029 is still open. Deleted the duplicate before commit, retired that candidate in the queue with a completion note, reran `atlas next`, and generated the real next order: `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0030-deduplicate-atlas-doc-trees.md`.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0030-deduplicate-atlas-doc-trees.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` initially generated duplicate WO-0030 for stale Atlas fork retirement; duplicate was deleted before commit.
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` after queue cleanup -> `atlas/workorders/WO-0030-deduplicate-atlas-doc-trees.md`
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- Execute WO-0028 if Journey I decisions are priority, WO-0029 if retiring the stale legacy Atlas fork is priority, or WO-0030 to consolidate duplicate Atlas documentation trees.
