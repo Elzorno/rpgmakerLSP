@@ -29,6 +29,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-SND-001": "DGN_SealedNode_Upper",
     "SCR-HOM-SND-002": "DGN_SealedNode_CorePath",
     "SCR-HOM-SND-003": "DGN_SealedNode_Guardian",
+    "SCR-HOM-SND-004": "DGN_SealedNode_RelayCore",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -53,6 +54,7 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-021": "TRN-HOM-021 Enter guardian chamber",
     "TRN-HOM-022": "TRN-HOM-022 Return to core path",
     "TRN-HOM-023": "TRN-HOM-023 Enter relay core",
+    "TRN-HOM-024": "TRN-HOM-024 Return from relay core",
 }
 
 NPC_EVENT_NAMES = {
@@ -87,6 +89,7 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-019": "Sealed Node First Entry",
     "EVT-HOM-020": "Core Path Door",
     "EVT-HOM-021": "Node Seven Guardian",
+    "EVT-HOM-022": "Relay Core",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -116,6 +119,7 @@ ENCOUNTER_POLICIES = {
         {"regionSet": [4], "troopId": 2, "weight": 2},
     ],
     "SCR-HOM-SND-003": [],
+    "SCR-HOM-SND-004": [],
 }
 
 REGION_EXPORT_IDS = {
