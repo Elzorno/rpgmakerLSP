@@ -24,6 +24,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-SKY-001": "DGN_SkyreachHill_Path",
     "SCR-HOM-HCV-001": "DGN_HiddenCave_Entrance",
     "SCR-HOM-HCV-002": "DGN_HiddenCave_Trials",
+    "SCR-HOM-HCV-003": "DGN_HiddenCave_Sanctum",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -39,6 +40,7 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-011": "TRN-HOM-011 Enter trials",
     "TRN-HOM-012": "TRN-HOM-012 Return to entrance",
     "TRN-HOM-013": "TRN-HOM-013 Enter Sword Sanctum",
+    "TRN-HOM-014": "TRN-HOM-014 Return from sanctum",
 }
 
 NPC_EVENT_NAMES = {
@@ -67,6 +69,7 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-013C": "EVT-HOM-013C Mind Marker Center",
     "EVT-HOM-014": "Heart Trial",
     "EVT-HOM-015": "Sanctum Gate",
+    "EVT-HOM-016": "Sword Pedestal",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -82,6 +85,7 @@ ENCOUNTER_POLICIES = {
     ],
     "SCR-HOM-HCV-001": [],
     "SCR-HOM-HCV-002": [],
+    "SCR-HOM-HCV-003": [],
 }
 
 REGION_EXPORT_IDS = {
@@ -187,6 +191,9 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "body_trial_lane",
                 "mind_trial_floor",
                 "heart_trial_floor",
+                "sanctum_floor",
+                "sanctum_dais",
+                "geometric_floor",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":

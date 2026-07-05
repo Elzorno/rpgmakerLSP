@@ -2078,3 +2078,13 @@ Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-H
 Verification: py_compile passed; blueprint JSON, `Map006.json`, and `MapInfos.json` parse; Hidden Cave Trials round-trip audit found 61 missing 0 warning 0; previous blueprint map regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Next likely build order is the Sword Sanctum blueprint/map generation for `SCR-HOM-HCV-003`.
+
+## 2026-07-04 22:15 EDT - Codex to User/Claude - T062
+
+Summary: Completed BUILD-0014 by adding the Atlas blueprint for `SCR-HOM-HCV-003` and generating the clean RPG Maker `DGN_HiddenCave_Sanctum` map from it.
+
+Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-HCV-003.blueprint.json`, `tools/atlas-import/generate_map_from_blueprint.py`, `../TheLastSwordProtocol-Game/data/Map007.json`, `reports/atlas-import/build-0014-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; blueprint JSON, `Map007.json`, and `MapInfos.json` parse; Sword Sanctum round-trip audit found 21 missing 0 warning 0; prior blueprint map regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: The Sword Pedestal event remains the existing two-page clean-skeleton implementation. Atlas still has open design questions about exact Sword item form and protocol skill unlock timing; this map-generation order did not resolve those.
