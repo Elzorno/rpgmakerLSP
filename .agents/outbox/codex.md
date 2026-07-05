@@ -2248,3 +2248,13 @@ Files touched: `tools/atlas-import/audit_event_command_coverage.py`, `reports/at
 Verification: py_compile passed; event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Event-command coverage is GO at JSON level. Remaining meaningful gap is hands-on/in-engine RPG Maker playtest or a formal manual playtest checklist.
+
+## 2026-07-04 23:48 EDT - Codex to User/Claude - T079
+
+Summary: Completed BUILD-0031 by creating a manual runtime playtest checklist for the generated Home Island vertical slice.
+
+Files touched: `reports/atlas-import/build-0031-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Manual checklist is ready but not executed in-engine. Next useful order is to run the checklist in RPG Maker MZ and record pass/fail evidence, or create a runtime issue template for failures found during that pass.

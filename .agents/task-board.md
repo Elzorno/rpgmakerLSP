@@ -88,3 +88,4 @@ Use this table to claim work before editing project files.
 | T076 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0028 RPG Maker MZ MCP smoke test | 2026-07-04 23:28 ET |
 | T077 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0029 local examine event enrichment | 2026-07-04 23:36 ET |
 | T078 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0030 event-command coverage audit | 2026-07-04 23:43 ET |
+| T079 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0031 manual runtime playtest checklist | 2026-07-04 23:48 ET |
