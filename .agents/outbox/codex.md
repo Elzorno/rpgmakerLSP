@@ -2118,3 +2118,13 @@ Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-H
 Verification: py_compile passed; blueprint JSON, `Map010.json`, and `MapInfos.json` parse; Sealed Node Core Path round-trip audit found 25 missing 0 warning 0; prior blueprint map regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Next critical-path map is `SCR-HOM-SND-003 / DGN_SealedNode_Guardian`.
+
+## 2026-07-04 22:30 EDT - Codex to User/Claude - T066
+
+Summary: Completed BUILD-0018 by adding the Atlas blueprint for `SCR-HOM-SND-003` and generating the clean RPG Maker `DGN_SealedNode_Guardian` map from it.
+
+Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-SND-003.blueprint.json`, `tools/atlas-import/generate_map_from_blueprint.py`, `../TheLastSwordProtocol-Game/data/Map011.json`, `reports/atlas-import/build-0018-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; blueprint JSON, `Map011.json`, and `MapInfos.json` parse; Guardian Chamber round-trip audit found 25 missing 0 warning 0; prior blueprint map regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Next critical-path map is `SCR-HOM-SND-004 / DGN_SealedNode_RelayCore`.
