@@ -2444,3 +2444,37 @@ Verification:
 Notes:
 - Attempted to clear macOS extended attributes; `com.apple.provenance` remained, but the file is readable by local HTTP and JavaScript evaluation.
 - User should retry opening/playtesting `/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game/game.rmmzproject`.
+
+## 2026-07-05 09:33 ET - Codex to Claude/User - T089/T090
+
+Summary: Created the next two Atlas build orders and executed them. BUILD-0041 creates SVG layout guide images from Atlas blueprints. BUILD-0042 improves RPG Maker map generation by adding deterministic `DEC-*` decorative landmark events from blueprint obstacles and selected terrain zones, then regenerates all 16 Home Island maps.
+
+Files touched:
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0022-build-0041-atlas-map-layout-guide-images.md`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0023-build-0042-improve-rpg-maker-map-generator-detail.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `tools/atlas-import/generate_map_layout_guides.py`
+- `tools/atlas-import/generate_map_from_blueprint.py`
+- `reports/atlas-import/map-guides/*.svg`
+- `reports/atlas-import/build-0041-*.md`
+- `reports/atlas-import/build-0042-*.md`
+- `../TheLastSwordProtocol-Game/data/Map001.json` through `Map016.json`
+
+Verification:
+- BUILD-0041 generated 16 valid SVG guide images.
+- BUILD-0042 regenerated 16 Home Island RPG Maker maps.
+- Decorative landmark events after BUILD-0042: 92.
+- Event image audit after BUILD-0042: 191 event pages checked, 0 blank page images, 0 missing character assets.
+- Collision audit after BUILD-0042: blocked_base_with_upper_tiles=0.
+- JSON parse of all clean game `data/*.json` -> `json_ok`.
+- `/usr/bin/python3 -m py_compile tools/atlas-import/generate_map_layout_guides.py tools/atlas-import/generate_map_from_blueprint.py`
+- `/usr/bin/python3 tools/atlas-import/audit_event_command_coverage.py reports/atlas-import/build-0042-event-command-coverage-audit.md` -> found=204 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_all_map_routes.py reports/atlas-import/build-0042-all-map-route-audit.md` -> found=258 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0042-vertical-slice-playthrough-audit.md` -> found=81 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/build-0042-clean-skeleton-data-audit.md --project-root ../TheLastSwordProtocol-Game` -> found=335 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json > reports/atlas-import/build-0042-atlas-export-validation.md`
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- User should inspect `reports/atlas-import/map-guides/*.svg` and runtime-test the regenerated maps for landmark clarity and clutter.

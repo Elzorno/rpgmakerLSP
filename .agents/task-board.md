@@ -98,4 +98,5 @@ Use this table to claim work before editing project files.
 | T086 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0038 collision and passability audit/fix | 2026-07-05 09:06 ET |
 | T087 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0039 placeholder landmarks and route readability | 2026-07-05 09:07 ET |
 | T088 | Codex | Done | tools/atlas-import/create_clean_skeleton.py, ../TheLastSwordProtocol-Game/js/plugins.js, reports/atlas-import/, .agents/ | BUILD-0040 normalize RPG Maker plugins.js loading | 2026-07-05 09:20 ET |
-| T089 | Codex | Active | ../TheLastSwordProtocol-Atlas/atlas/workorders/, tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0041/0042 map guide and detailed generation orders | 2026-07-05 09:24 ET |
+| T089 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas/workorders/, tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0041/0042 map guide order creation and BUILD-0041 guide images | 2026-07-05 09:28 ET |
+| T090 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0042 improve RPG Maker map generator detail | 2026-07-05 09:33 ET |

@@ -172,6 +172,17 @@ REGION_EXPORT_IDS = {
     "safe": 5,
 }
 
+DECOR_IMAGES = {
+    "default": {"characterIndex": 0, "characterName": "!Other2", "direction": 2, "pattern": 1, "tileId": 0},
+    "building": {"characterIndex": 0, "characterName": "!Door1", "direction": 2, "pattern": 1, "tileId": 0},
+    "control": {"characterIndex": 0, "characterName": "!$ SP CONTROL PANEL-V1-LIGHT", "direction": 2, "pattern": 1, "tileId": 0},
+    "crystal": {"characterIndex": 0, "characterName": "!Crystal", "direction": 2, "pattern": 1, "tileId": 0},
+    "gate": {"characterIndex": 0, "characterName": "!$Gate1", "direction": 2, "pattern": 1, "tileId": 0},
+    "nature": {"characterIndex": 0, "characterName": "Nature", "direction": 2, "pattern": 1, "tileId": 0},
+    "steam": {"characterIndex": 0, "characterName": "!$ SP STEAM 1", "direction": 2, "pattern": 1, "tileId": 0},
+    "switch": {"characterIndex": 0, "characterName": "!Switch1", "direction": 2, "pattern": 1, "tileId": 0},
+}
+
 
 def should_export_safe_regions(blueprint: dict[str, Any]) -> bool:
     return blueprint.get("atlas_screen_id") != "SCR-HOM-ASH-001"
@@ -357,7 +368,7 @@ def open_anchor_tile(map_data: dict[str, Any], x: int, y: int) -> None:
     set_tile(map_data, x, y, 1, PATH)
 
 
-def blank_page(comment: str) -> dict[str, Any]:
+def blank_page(comment: str, *, image: dict[str, Any] | None = None, priority: int = 1, trigger: int = 0) -> dict[str, Any]:
     return {
         "conditions": {
             "actorId": 1,
@@ -375,7 +386,7 @@ def blank_page(comment: str) -> dict[str, Any]:
             "variableValue": 0,
         },
         "directionFix": False,
-        "image": {"characterIndex": 0, "characterName": "", "direction": 2, "pattern": 1, "tileId": 0},
+        "image": image or {"characterIndex": 0, "characterName": "", "direction": 2, "pattern": 1, "tileId": 0},
         "list": [
             {"code": 108, "indent": 0, "parameters": [comment]},
             {"code": 0, "indent": 0, "parameters": []},
@@ -384,10 +395,10 @@ def blank_page(comment: str) -> dict[str, Any]:
         "moveRoute": {"list": [{"code": 0, "indent": 0, "parameters": []}], "repeat": True, "skippable": False, "wait": False},
         "moveSpeed": 3,
         "moveType": 0,
-        "priorityType": 1,
+        "priorityType": priority,
         "stepAnime": False,
         "through": False,
-        "trigger": 0,
+        "trigger": trigger,
         "walkAnime": True,
     }
 
@@ -398,6 +409,17 @@ def make_event(event_id: int, name: str, x: int, y: int, atlas_note: str) -> dic
         "name": name,
         "note": atlas_note,
         "pages": [blank_page(f"Atlas placeholder {atlas_note}: {name}")],
+        "x": x,
+        "y": y,
+    }
+
+
+def make_decor_event(event_id: int, name: str, x: int, y: int, atlas_note: str, image: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "id": event_id,
+        "name": name,
+        "note": atlas_note,
+        "pages": [blank_page(f"Atlas decorative landmark {atlas_note}: {name}", image=image, priority=0)],
         "x": x,
         "y": y,
     }
@@ -439,6 +461,106 @@ def upsert_event(
     next_id = max((event.get("id", 0) for event in events if isinstance(event, dict)), default=0) + 1
     events.append(make_event(next_id, name, x, y, atlas_note))
     created.append(name)
+
+
+def upsert_decor_event(
+    map_data: dict[str, Any],
+    name: str,
+    x: int,
+    y: int,
+    atlas_note: str,
+    image: dict[str, Any],
+    created: list[str],
+    updated: list[str],
+) -> None:
+    events = map_data.setdefault("events", [])
+    by_name = {event.get("name"): event for event in events if isinstance(event, dict)}
+    event = by_name.get(name)
+    if event:
+        event["x"] = x
+        event["y"] = y
+        event["note"] = atlas_note
+        pages = event.setdefault("pages", [])
+        if not pages:
+            pages.append(blank_page(f"Atlas decorative landmark {atlas_note}: {name}", image=image, priority=0))
+        for page in pages:
+            if isinstance(page, dict):
+                page["image"] = dict(image)
+                page["priorityType"] = 0
+                page["trigger"] = 0
+                page["directionFix"] = True
+        ensure_event_comment(event, f"Atlas decorative landmark {atlas_note}")
+        updated.append(name)
+        return
+
+    next_id = max((event.get("id", 0) for event in events if isinstance(event, dict)), default=0) + 1
+    events.append(make_decor_event(next_id, name, x, y, atlas_note, image))
+    created.append(name)
+
+
+def slug(value: str) -> str:
+    allowed = []
+    for char in value.upper():
+        if char.isalnum():
+            allowed.append(char)
+        elif allowed and allowed[-1] != "-":
+            allowed.append("-")
+    return "".join(allowed).strip("-")[:34] or "LANDMARK"
+
+
+def decor_image_for(text: str) -> dict[str, Any]:
+    value = text.lower()
+    if any(word in value for word in ("house", "shop", "door", "interior", "hut")):
+        return DECOR_IMAGES["building"]
+    if any(word in value for word in ("gate", "seal", "threshold", "fence")):
+        return DECOR_IMAGES["gate"]
+    if any(word in value for word in ("panel", "machine", "terminal", "relay", "node", "cable", "core")):
+        return DECOR_IMAGES["control"]
+    if any(word in value for word in ("vent", "steam", "warm-stone", "warm stone")):
+        return DECOR_IMAGES["steam"]
+    if any(word in value for word in ("garden", "reed", "marsh", "bog", "shore", "ground")):
+        return DECOR_IMAGES["nature"]
+    if any(word in value for word in ("crystal", "fragment", "trial", "sanctum", "sword")):
+        return DECOR_IMAGES["crystal"]
+    if any(word in value for word in ("switch", "trigger", "signal")):
+        return DECOR_IMAGES["switch"]
+    return DECOR_IMAGES["default"]
+
+
+def clamp_point(map_data: dict[str, Any], x: int, y: int) -> tuple[int, int]:
+    return max(1, min(map_data["width"] - 2, x)), max(1, min(map_data["height"] - 2, y))
+
+
+def apply_blueprint_decor(map_data: dict[str, Any], blueprint: dict[str, Any]) -> tuple[list[str], list[str]]:
+    created: list[str] = []
+    updated: list[str] = []
+    screen_id = blueprint["atlas_screen_id"]
+
+    for obstacle in blueprint.get("obstacles", []):
+        name = obstacle.get("name") or obstacle.get("obstacle_id") or "landmark"
+        x, y = clamp_point(map_data, *anchor_point(obstacle["area"]))
+        decor_name = f"DEC-{screen_id}-{slug(name)}"
+        atlas_note = obstacle.get("obstacle_id", name)
+        upsert_decor_event(map_data, decor_name, x, y, atlas_note, decor_image_for(name), created, updated)
+
+    decorative_terrain = [
+        terrain for terrain in blueprint.get("terrain", [])
+        if terrain.get("area", {}).get("shape") == "rect"
+        and terrain.get("movement") in {"walkable", "decorative", "conditional"}
+        and terrain.get("terrain_type") not in {
+            "village_path", "hill_path", "cave_passage", "trial_path", "ruin_path",
+            "node_corridor", "coastal_path", "dock_planks", "marsh_path", "interior_floor",
+            "shop_floor", "sanctum_floor",
+        }
+    ][:4]
+    for terrain in decorative_terrain:
+        terrain_id = terrain.get("terrain_id", "terrain")
+        terrain_type = terrain.get("terrain_type", terrain_id)
+        x, y = clamp_point(map_data, *anchor_point(terrain["area"]))
+        decor_name = f"DEC-{screen_id}-{slug(terrain_type)}"
+        upsert_decor_event(map_data, decor_name, x, y, terrain_id, decor_image_for(terrain_type), created, updated)
+
+    return created, updated
 
 
 def apply_blueprint_events(map_data: dict[str, Any], blueprint: dict[str, Any]) -> tuple[list[str], list[str]]:
@@ -503,6 +625,7 @@ def main() -> int:
     paint_blueprint_layout(map_data, blueprint)
     paint_blueprint_regions(map_data, blueprint)
     created, updated = apply_blueprint_events(map_data, blueprint)
+    decor_created, decor_updated = apply_blueprint_decor(map_data, blueprint)
     clear_upper_tiles_above_blocked_base(map_data)
     map_data["encounterList"] = ENCOUNTER_POLICIES.get(blueprint["atlas_screen_id"], [])
     map_data["encounterStep"] = 35 if map_data["encounterList"] else 30
@@ -525,6 +648,12 @@ def main() -> int:
     print(f"events_updated={len(updated)}")
     for name in updated:
         print(f"updated={name}")
+    print(f"decor_created={len(decor_created)}")
+    for name in decor_created:
+        print(f"decor_created_name={name}")
+    print(f"decor_updated={len(decor_updated)}")
+    for name in decor_updated:
+        print(f"decor_updated_name={name}")
     return 0
 
 
