@@ -192,7 +192,7 @@ def audit_region_policy(blueprint: dict[str, Any], map_data: dict[str, Any], gen
     expected_types = set()
     if encounter_regions:
         expected_types.add("encounter")
-    if safe_regions and encounter_regions:
+    if safe_regions and (encounter_regions or generator.should_export_safe_regions(blueprint)):
         expected_types.add("safe")
     expected_region_ids = sorted(generator.REGION_EXPORT_IDS[region_type] for region_type in expected_types)
     finding(findings, "Encounter Policy", "ENC-003", "RPG Maker region IDs match blueprint region types", nonzero_regions == expected_region_ids, f"nonzero region IDs={nonzero_regions}")

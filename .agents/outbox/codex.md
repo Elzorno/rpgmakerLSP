@@ -2023,3 +2023,49 @@ Verification:
 Open questions:
 
 - Recommended next build order: `BUILD-0012 - Generate Hidden Cave Entrance Blueprint and Map`.
+
+## 2026-07-04 18:46 ET - Codex handoff - T060
+
+Task:
+
+- Implemented BUILD-0012, generating the Hidden Cave Entrance blueprint and RPG Maker map from Atlas.
+
+Changed:
+
+- Added `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-HCV-001.blueprint.json`.
+- Extended `tools/atlas-import/generate_map_from_blueprint.py` for Hidden Cave Entrance and refined safe-region export policy.
+- Updated `tools/atlas-import/audit_blueprint_round_trip.py` to use the same safe-region export policy.
+- Generated `../TheLastSwordProtocol-Game/data/Map005.json` from `BP-SCR-HOM-HCV-001-001`.
+- Added BUILD-0012 reports and audits under `reports/atlas-import/`.
+
+Files touched:
+
+- `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-HCV-001.blueprint.json`
+- `tools/atlas-import/generate_map_from_blueprint.py`
+- `tools/atlas-import/audit_blueprint_round_trip.py`
+- `../TheLastSwordProtocol-Game/data/Map005.json`
+- `reports/atlas-import/build-0012-hidden-cave-entrance-blueprint-round-trip-audit.md`
+- `reports/atlas-import/build-0012-skyreach-regression-blueprint-round-trip-audit.md`
+- `reports/atlas-import/build-0012-ashford-regression-blueprint-round-trip-audit.md`
+- `reports/atlas-import/build-0012-vertical-slice-playthrough-audit.md`
+- `reports/atlas-import/build-0012-clean-skeleton-data-audit.md`
+- `reports/atlas-import/build-0012-hidden-cave-entrance-blueprint-map-report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Hidden Cave Entrance blueprint round-trip audit passed with found=29, missing=0, warning=0.
+- Skyreach regression round-trip audit passed with found=29, missing=0, warning=0.
+- Ashford regression round-trip audit passed with found=73, missing=0, warning=0.
+- Vertical-slice playthrough audit passed with found=81, missing=0, warning=0, unknown=1.
+- Clean skeleton data audit passed with found=335, missing=0, warning=0, unknown=1.
+- `/usr/bin/python3 -m py_compile tools/atlas-import/*.py` passed.
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/Map005.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/MapInfos.json` passed.
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` passed with 0 errors and 0 warnings.
+
+Open questions:
+
+- Recommended next build order: `BUILD-0013 - Generate Hidden Cave Trials Blueprint and Map`.

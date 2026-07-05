@@ -22,6 +22,7 @@ PATH = 3584
 SCREEN_TO_MAP_NAME = {
     "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
     "SCR-HOM-SKY-001": "DGN_SkyreachHill_Path",
+    "SCR-HOM-HCV-001": "DGN_HiddenCave_Entrance",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -33,6 +34,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-027": "TRN-HOM-027 Optional east route to Fogfen Marsh Field",
     "TRN-HOM-006": "TRN-HOM-006 Return from Skyreach route",
     "TRN-HOM-009": "TRN-HOM-009 Enter Hidden Cave",
+    "TRN-HOM-010": "TRN-HOM-010 Exit cave",
+    "TRN-HOM-011": "TRN-HOM-011 Enter trials",
 }
 
 NPC_EVENT_NAMES = {
@@ -50,9 +53,11 @@ TREASURE_EVENT_NAMES = {
 ANCHOR_EVENT_NAMES = {
     "EVT-HOM-009": "Tremor Trigger",
     "EVT-HOM-010": "Skyreach Gate",
+    "EVT-HOM-011": "Hidden Cave First Entry",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
+    "INT-HCV-WALL-CARVING": "INT-HCV-WALL-CARVING Wall Carving",
 }
 
 ENCOUNTER_POLICIES = {
@@ -62,12 +67,17 @@ ENCOUNTER_POLICIES = {
         {"regionSet": [1], "troopId": 2, "weight": 4},
         {"regionSet": [1], "troopId": 3, "weight": 3},
     ],
+    "SCR-HOM-HCV-001": [],
 }
 
 REGION_EXPORT_IDS = {
     "encounter": 1,
     "safe": 5,
 }
+
+
+def should_export_safe_regions(blueprint: dict[str, Any]) -> bool:
+    return blueprint.get("atlas_screen_id") != "SCR-HOM-ASH-001"
 
 
 def parse_args() -> argparse.Namespace:
@@ -150,7 +160,7 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
         area = terrain.get("area", {})
         terrain_type = terrain.get("terrain_type")
         if area.get("shape") == "rect":
-            value = PATH if terrain_type in {"village_path", "village_ground", "hill_path", "sacred_stone_path"} else ALT_FLOOR
+            value = PATH if terrain_type in {"village_path", "village_ground", "hill_path", "sacred_stone_path", "cave_passage", "carved_stone_threshold"} else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":
             points = area.get("points", [])
@@ -173,7 +183,7 @@ def paint_blueprint_regions(map_data: dict[str, Any], blueprint: dict[str, Any])
     has_encounter_region = any(region.get("region_type") == "encounter" for region in blueprint.get("enemy_regions", []))
     for region in blueprint.get("enemy_regions", []):
         region_type = region.get("region_type")
-        if region_type == "safe" and not has_encounter_region:
+        if region_type == "safe" and not has_encounter_region and not should_export_safe_regions(blueprint):
             continue
         value = REGION_EXPORT_IDS.get(region_type)
         area = region.get("area", {})
