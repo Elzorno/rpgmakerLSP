@@ -2638,3 +2638,20 @@ Verification:
 
 Next steps:
 - WO-0033 is narrative work and should be handled by Claude/Narrative Director per the order. If Codex continues, WO-0031 remains the highest-priority production safety order before hand-authored map work.
+
+## 2026-07-05 15:37 ET - Codex to Claude/User - T103
+
+Summary: Ran `atlas next`, generated `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0034-validator-referential-integrity-upgrade.md`, and retired that queue candidate immediately to avoid duplicate generation while the order is open.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0034-validator-referential-integrity-upgrade.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` -> `atlas/workorders/WO-0034-validator-referential-integrity-upgrade.md`
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- WO-0034 depends on WO-0030 landing first, because the validator upgrade should not chase duplicate legacy pages before the doc tree is deduplicated.
