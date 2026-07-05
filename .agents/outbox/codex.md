@@ -1979,3 +1979,47 @@ Verification:
 Open questions:
 
 - Recommended next build order: `BUILD-0011 - Generate Next Home Island Blueprint and Map`.
+
+## 2026-07-04 18:31 ET - Codex handoff - T059
+
+Task:
+
+- Implemented BUILD-0011, generating the Skyreach Hill Path blueprint and RPG Maker map from Atlas.
+
+Changed:
+
+- Added `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-SKY-001.blueprint.json`.
+- Generalized `tools/atlas-import/generate_map_from_blueprint.py` for Skyreach and encounter/safe region exporter policy.
+- Updated `tools/atlas-import/audit_blueprint_round_trip.py` for reusable multi-map round-trip audits.
+- Generated `../TheLastSwordProtocol-Game/data/Map004.json` from `BP-SCR-HOM-SKY-001-001`.
+- Added BUILD-0011 reports and audits under `reports/atlas-import/`.
+
+Files touched:
+
+- `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-SKY-001.blueprint.json`
+- `tools/atlas-import/generate_map_from_blueprint.py`
+- `tools/atlas-import/audit_blueprint_round_trip.py`
+- `../TheLastSwordProtocol-Game/data/Map004.json`
+- `reports/atlas-import/build-0011-skyreach-blueprint-round-trip-audit.md`
+- `reports/atlas-import/build-0011-ashford-regression-blueprint-round-trip-audit.md`
+- `reports/atlas-import/build-0011-vertical-slice-playthrough-audit.md`
+- `reports/atlas-import/build-0011-clean-skeleton-data-audit.md`
+- `reports/atlas-import/build-0011-skyreach-blueprint-map-report.md`
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+
+Verification:
+
+- Skyreach blueprint round-trip audit passed with found=29, missing=0, warning=0.
+- Ashford regression round-trip audit passed with found=73, missing=0, warning=0.
+- Vertical-slice playthrough audit passed with found=81, missing=0, warning=0, unknown=1.
+- Clean skeleton data audit passed with found=335, missing=0, warning=0, unknown=1.
+- `/usr/bin/python3 -m py_compile tools/atlas-import/*.py` passed.
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/Map004.json` passed.
+- `/usr/bin/python3 -m json.tool ../TheLastSwordProtocol-Game/data/MapInfos.json` passed.
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` passed with 0 errors and 0 warnings.
+
+Open questions:
+
+- Recommended next build order: `BUILD-0012 - Generate Hidden Cave Entrance Blueprint and Map`.

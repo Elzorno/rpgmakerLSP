@@ -21,6 +21,7 @@ PATH = 3584
 
 SCREEN_TO_MAP_NAME = {
     "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
+    "SCR-HOM-SKY-001": "DGN_SkyreachHill_Path",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -30,6 +31,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-007": "TRN-HOM-007 South/east route to Rustshore",
     "TRN-HOM-015": "TRN-HOM-015 Route to Glassfield",
     "TRN-HOM-027": "TRN-HOM-027 Optional east route to Fogfen Marsh Field",
+    "TRN-HOM-006": "TRN-HOM-006 Return from Skyreach route",
+    "TRN-HOM-009": "TRN-HOM-009 Enter Hidden Cave",
 }
 
 NPC_EVENT_NAMES = {
@@ -46,8 +49,24 @@ TREASURE_EVENT_NAMES = {
 
 ANCHOR_EVENT_NAMES = {
     "EVT-HOM-009": "Tremor Trigger",
+    "EVT-HOM-010": "Skyreach Gate",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
+    "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
+}
+
+ENCOUNTER_POLICIES = {
+    "SCR-HOM-ASH-001": [],
+    "SCR-HOM-SKY-001": [
+        {"regionSet": [1], "troopId": 1, "weight": 5},
+        {"regionSet": [1], "troopId": 2, "weight": 4},
+        {"regionSet": [1], "troopId": 3, "weight": 3},
+    ],
+}
+
+REGION_EXPORT_IDS = {
+    "encounter": 1,
+    "safe": 5,
 }
 
 
@@ -131,7 +150,7 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
         area = terrain.get("area", {})
         terrain_type = terrain.get("terrain_type")
         if area.get("shape") == "rect":
-            value = PATH if terrain_type in {"village_path", "village_ground"} else ALT_FLOOR
+            value = PATH if terrain_type in {"village_path", "village_ground", "hill_path", "sacred_stone_path"} else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":
             points = area.get("points", [])
@@ -148,6 +167,19 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
         elif area["shape"] == "point":
             x, y = anchor_point(area)
             set_tile(map_data, x, y, 0, BLOCK)
+
+
+def paint_blueprint_regions(map_data: dict[str, Any], blueprint: dict[str, Any]) -> None:
+    has_encounter_region = any(region.get("region_type") == "encounter" for region in blueprint.get("enemy_regions", []))
+    for region in blueprint.get("enemy_regions", []):
+        region_type = region.get("region_type")
+        if region_type == "safe" and not has_encounter_region:
+            continue
+        value = REGION_EXPORT_IDS.get(region_type)
+        area = region.get("area", {})
+        if value is None or area.get("shape") != "rect":
+            continue
+        paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 5, value)
 
 
 def open_anchor_tile(map_data: dict[str, Any], x: int, y: int) -> None:
@@ -290,8 +322,8 @@ def main() -> int:
     blueprint_path = Path(args.blueprint).expanduser().resolve()
     project_root = Path(args.project_root).expanduser().resolve()
     blueprint = load_json(blueprint_path)
-    if blueprint.get("atlas_screen_id") != "SCR-HOM-ASH-001":
-        raise ValueError("BUILD-0009 is scoped to SCR-HOM-ASH-001 only.")
+    if blueprint.get("atlas_screen_id") not in SCREEN_TO_MAP_NAME:
+        raise ValueError(f"No supported map generation mapping for {blueprint.get('atlas_screen_id')}.")
 
     map_id = find_target_map_id(project_root, blueprint)
     map_path = project_root / "data" / f"Map{map_id:03d}.json"
@@ -299,12 +331,13 @@ def main() -> int:
     before = json.dumps(map_data, ensure_ascii=False, separators=(",", ":"))
 
     paint_blueprint_layout(map_data, blueprint)
+    paint_blueprint_regions(map_data, blueprint)
     created, updated = apply_blueprint_events(map_data, blueprint)
-    map_data["encounterList"] = []
-    map_data["encounterStep"] = 30
+    map_data["encounterList"] = ENCOUNTER_POLICIES.get(blueprint["atlas_screen_id"], [])
+    map_data["encounterStep"] = 35 if map_data["encounterList"] else 30
     map_data["displayName"] = blueprint["title"]
     note = str(map_data.get("note", ""))
-    marker = f"BUILD-0009 generated from {blueprint['blueprint_id']}."
+    marker = f"Generated from {blueprint['blueprint_id']}."
     if marker not in note:
         map_data["note"] = f"{note} {marker}".strip()
 

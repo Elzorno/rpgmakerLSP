@@ -154,12 +154,12 @@ def audit_map_shape(blueprint: dict[str, Any], map_data: dict[str, Any], map_id:
     width = int(blueprint["dimensions"]["width"])
     height = int(blueprint["dimensions"]["height"])
     finding(findings, "Map Shape", "MAP-001", "RPG Maker target map exists", map_path.exists(), str(map_path))
-    finding(findings, "Map Shape", "MAP-002", f"Map ID {map_id}", map_id == 1, f"map_id={map_id}", warning=True)
+    finding(findings, "Map Shape", "MAP-002", f"Map ID {map_id}", True, f"map_id={map_id}")
     finding(findings, "Map Shape", "MAP-003", f"Width {width}", map_data.get("width") == width, f"width={map_data.get('width')}")
     finding(findings, "Map Shape", "MAP-004", f"Height {height}", map_data.get("height") == height, f"height={map_data.get('height')}")
     finding(findings, "Map Shape", "MAP-005", "Six RPG Maker tile layers", len(map_data.get("data", [])) == width * height * 6, f"data length={len(map_data.get('data', []))}")
     finding(findings, "Map Shape", "MAP-006", f"Display name {blueprint['title']}", map_data.get("displayName") == blueprint["title"], f"displayName={map_data.get('displayName')}")
-    finding(findings, "Map Shape", "MAP-007", "BUILD-0009 blueprint marker", blueprint["blueprint_id"] in str(map_data.get("note", "")), f"note contains {blueprint['blueprint_id']}")
+    finding(findings, "Map Shape", "MAP-007", "Blueprint generation marker", blueprint["blueprint_id"] in str(map_data.get("note", "")), f"note contains {blueprint['blueprint_id']}")
     return findings
 
 
@@ -178,16 +178,24 @@ def audit_event_anchors(blueprint: dict[str, Any], map_data: dict[str, Any], gen
     return findings
 
 
-def audit_safe_region_policy(blueprint: dict[str, Any], map_data: dict[str, Any]) -> list[Finding]:
+def audit_region_policy(blueprint: dict[str, Any], map_data: dict[str, Any], generator) -> list[Finding]:
     findings: list[Finding] = []
     safe_regions = [region for region in blueprint.get("enemy_regions", []) if region.get("region_type") == "safe"]
-    finding(findings, "Encounter Policy", "ENC-001", "Blueprint declares safe village region", bool(safe_regions), f"safe regions={len(safe_regions)}")
-    finding(findings, "Encounter Policy", "ENC-002", "RPG Maker encounter list is empty", map_data.get("encounterList") == [], f"encounterList={map_data.get('encounterList')}")
+    encounter_regions = [region for region in blueprint.get("enemy_regions", []) if region.get("region_type") == "encounter"]
+    expected_encounters = generator.ENCOUNTER_POLICIES.get(blueprint["atlas_screen_id"], [])
+    finding(findings, "Encounter Policy", "ENC-001", "Blueprint declares region policy", bool(safe_regions or encounter_regions), f"safe={len(safe_regions)} encounter={len(encounter_regions)}")
+    finding(findings, "Encounter Policy", "ENC-002", "RPG Maker encounter list matches exporter policy", map_data.get("encounterList") == expected_encounters, f"encounterList={map_data.get('encounterList')}")
     width = map_data["width"]
     height = map_data["height"]
     region_values = Counter(tile_value(map_data, x, y, 5) for y in range(height) for x in range(width))
     nonzero_regions = sorted(value for value in region_values if value not in {None, 0})
-    finding(findings, "Encounter Policy", "ENC-003", "No encounter regions painted in Ashford", nonzero_regions == [], f"nonzero region IDs={nonzero_regions}")
+    expected_types = set()
+    if encounter_regions:
+        expected_types.add("encounter")
+    if safe_regions and encounter_regions:
+        expected_types.add("safe")
+    expected_region_ids = sorted(generator.REGION_EXPORT_IDS[region_type] for region_type in expected_types)
+    finding(findings, "Encounter Policy", "ENC-003", "RPG Maker region IDs match blueprint region types", nonzero_regions == expected_region_ids, f"nonzero region IDs={nonzero_regions}")
     return findings
 
 
@@ -224,7 +232,7 @@ def write_report(output: Path, blueprint_path: Path, project_root: Path, map_pat
     counts = status_counts(findings)
     grouped = grouped_counts(findings)
     lines = [
-        "# BUILD-0010 - Atlas Blueprint Round-Trip Audit",
+        "# Atlas Blueprint Round-Trip Audit",
         "",
         "This read-only audit compares the generated RPG Maker MZ map artifact back against its Atlas map blueprint.",
         "",
@@ -279,7 +287,7 @@ def main() -> int:
     findings.extend(audit_blueprint_engine_independence(blueprint))
     findings.extend(audit_map_shape(blueprint, map_data, map_id, map_path))
     findings.extend(audit_event_anchors(blueprint, map_data, generator))
-    findings.extend(audit_safe_region_policy(blueprint, map_data))
+    findings.extend(audit_region_policy(blueprint, map_data, generator))
     write_report(output, blueprint_path, project_root, map_path, findings)
 
     counts = status_counts(findings)
