@@ -2586,3 +2586,21 @@ Verification:
 
 Next steps:
 - Execute WO-0028 if Journey I decisions are priority, WO-0029 if retiring the stale legacy Atlas fork is priority, or WO-0030 to consolidate duplicate Atlas documentation trees.
+
+## 2026-07-05 15:26 ET - Codex to Claude/User - T100
+
+Summary: Ran `atlas next`. The first result duplicated WO-0030 (`deduplicate-atlas-doc-trees`) as WO-0031 because that candidate remained active while WO-0030 is still open. Deleted the duplicate before commit, retired the doc-tree candidate, reran `atlas next`, generated the real next order `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0031-game-repo-agent-contract-and-map-ownership-ledger.md`, and retired that candidate immediately to prevent another duplicate on the next planner run.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0031-game-repo-agent-contract-and-map-ownership-ledger.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` initially generated duplicate WO-0031 for Atlas doc-tree deduplication; duplicate was deleted before commit.
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` after queue cleanup -> `atlas/workorders/WO-0031-game-repo-agent-contract-and-map-ownership-ledger.md`
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- Execute WO-0031 before more manual map-building work; it blocks hand-authored maps from being overwritten by the Atlas import pipeline.
