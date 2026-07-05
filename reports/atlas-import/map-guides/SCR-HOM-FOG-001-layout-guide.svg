@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1047" height="656" viewBox="0 0 1047 656">
+<rect width="100%" height="100%" fill="#fbf8ef"/>
+<text x="26.0" y="26.0" font-size="18" font-weight="700" fill="#241f1a">SCR-HOM-FOG-001 - Fogfen Marsh Field</text>
+<text x="26.0" y="44.0" font-size="11" font-weight="400" fill="#685f55">optional_side_branch</text>
+<rect x="26" y="56" width="720" height="576" fill="#f7f3e7" stroke="#332b25" stroke-width="2"/>
+<line x1="26.0" y1="56" x2="26.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="44.0" y1="56" x2="44.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="62.0" y1="56" x2="62.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="80.0" y1="56" x2="80.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="98.0" y1="56" x2="98.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="116.0" y1="56" x2="116.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="134.0" y1="56" x2="134.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="152.0" y1="56" x2="152.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="170.0" y1="56" x2="170.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="188.0" y1="56" x2="188.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="206.0" y1="56" x2="206.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="224.0" y1="56" x2="224.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="242.0" y1="56" x2="242.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="260.0" y1="56" x2="260.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="278.0" y1="56" x2="278.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="296.0" y1="56" x2="296.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="314.0" y1="56" x2="314.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="332.0" y1="56" x2="332.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="350.0" y1="56" x2="350.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="368.0" y1="56" x2="368.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="386.0" y1="56" x2="386.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="404.0" y1="56" x2="404.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="422.0" y1="56" x2="422.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="440.0" y1="56" x2="440.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="458.0" y1="56" x2="458.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="476.0" y1="56" x2="476.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="494.0" y1="56" x2="494.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="512.0" y1="56" x2="512.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="530.0" y1="56" x2="530.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="548.0" y1="56" x2="548.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="566.0" y1="56" x2="566.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="584.0" y1="56" x2="584.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="602.0" y1="56" x2="602.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="620.0" y1="56" x2="620.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="638.0" y1="56" x2="638.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="656.0" y1="56" x2="656.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="674.0" y1="56" x2="674.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="692.0" y1="56" x2="692.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="710.0" y1="56" x2="710.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="728.0" y1="56" x2="728.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="746.0" y1="56" x2="746.0" y2="632" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="56.0" x2="746" y2="56.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="74.0" x2="746" y2="74.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="92.0" x2="746" y2="92.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="110.0" x2="746" y2="110.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="128.0" x2="746" y2="128.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="146.0" x2="746" y2="146.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="164.0" x2="746" y2="164.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="182.0" x2="746" y2="182.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="200.0" x2="746" y2="200.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="218.0" x2="746" y2="218.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="236.0" x2="746" y2="236.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="254.0" x2="746" y2="254.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="272.0" x2="746" y2="272.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="290.0" x2="746" y2="290.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="308.0" x2="746" y2="308.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="326.0" x2="746" y2="326.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="344.0" x2="746" y2="344.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="362.0" x2="746" y2="362.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="380.0" x2="746" y2="380.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="398.0" x2="746" y2="398.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="416.0" x2="746" y2="416.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="434.0" x2="746" y2="434.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="452.0" x2="746" y2="452.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="470.0" x2="746" y2="470.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="488.0" x2="746" y2="488.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="506.0" x2="746" y2="506.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="524.0" x2="746" y2="524.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="542.0" x2="746" y2="542.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="560.0" x2="746" y2="560.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="578.0" x2="746" y2="578.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="596.0" x2="746" y2="596.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="614.0" x2="746" y2="614.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<line x1="26" y1="632.0" x2="746" y2="632.0" stroke="#d8d0bd" stroke-width="0.5"/>
+<polyline points="26.0,524.0 116.0,524.0 224.0,488.0 314.0,416.0 404.0,362.0 512.0,290.0 638.0,218.0 728.0,200.0" fill="none" stroke="#d9e9c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.58"/>
+<rect x="98.0" y="146.0" width="558.0" height="414.0" fill="#d9e9c8" fill-opacity="0.58" stroke="none" stroke-width="1"/>
+<rect x="170.0" y="416.0" width="144.0" height="90.0" fill="#d9e9c8" fill-opacity="0.58" stroke="none" stroke-width="1"/>
+<rect x="440.0" y="218.0" width="126.0" height="108.0" fill="#d9e9c8" fill-opacity="0.58" stroke="none" stroke-width="1"/>
+<rect x="314.0" y="380.0" width="144.0" height="90.0" fill="#d9d2c3" fill-opacity="0.58" stroke="none" stroke-width="1"/>
+<rect x="494.0" y="308.0" width="90.0" height="54.0" fill="#d9e9c8" fill-opacity="0.58" stroke="none" stroke-width="1"/>
+<rect x="62.0" y="128.0" width="648.0" height="450.0" fill="#76a9e0" fill-opacity="0.14" stroke="#76a9e0" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="134.0" y="164.0" width="468.0" height="360.0" fill="#d0b2e8" fill-opacity="0.24" stroke="#d0b2e8" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="314.0" y="380.0" width="144.0" height="90.0" fill="#d0b2e8" fill-opacity="0.24" stroke="#d0b2e8" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="26.0" y="470.0" width="126.0" height="126.0" fill="#bde3c4" fill-opacity="0.24" stroke="#bde3c4" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="638.0" y="146.0" width="108.0" height="126.0" fill="#bde3c4" fill-opacity="0.24" stroke="#bde3c4" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="62.0" y="74.0" width="630.0" height="72.0" fill="#5b4c42" fill-opacity="0.82" stroke="#2b241f" stroke-width="1"/>
+<rect x="98.0" y="560.0" width="576.0" height="54.0" fill="#5b4c42" fill-opacity="0.82" stroke="#2b241f" stroke-width="1"/>
+<rect x="44.0" y="218.0" width="126.0" height="162.0" fill="#5b4c42" fill-opacity="0.82" stroke="#2b241f" stroke-width="1"/>
+<rect x="620.0" y="308.0" width="90.0" height="162.0" fill="#5b4c42" fill-opacity="0.82" stroke="#2b241f" stroke-width="1"/>
+<polyline points="26.0,524.0 116.0,524.0 224.0,488.0 314.0,416.0 404.0,362.0 512.0,290.0 638.0,218.0 728.0,200.0" fill="none" stroke="#8a6f47" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+<polygon points="26.0,516.0 34.0,531.0 18.0,531.0" fill="#225ea8" stroke="#1b1714" stroke-width="1"/>
+<rect x="34.0" y="515.0" width="68.2" height="14" rx="2" fill="#fffaf0" fill-opacity="0.86"/>
+<text x="37.0" y="526.0" font-size="10" font-weight="400" fill="#241f1a">TRN-HOM-028</text>
+<polygon points="728.0,192.0 736.0,207.0 720.0,207.0" fill="#225ea8" stroke="#1b1714" stroke-width="1"/>
+<rect x="736.0" y="191.0" width="68.2" height="14" rx="2" fill="#fffaf0" fill-opacity="0.86"/>
+<text x="739.0" y="202.0" font-size="10" font-weight="400" fill="#241f1a">TRN-HOM-029</text>
+<rect x="236.0" y="446.0" width="12" height="12" rx="1" fill="#c47f00" stroke="#1b1714" stroke-width="1"/>
+<rect x="250.0" y="443.0" width="68.2" height="14" rx="2" fill="#fffaf0" fill-opacity="0.86"/>
+<text x="253.0" y="454.0" font-size="10" font-weight="400" fill="#241f1a">EVT-HOM-028</text>
+<polygon points="62.0,516.0 70.0,524.0 62.0,532.0 54.0,524.0" fill="#7b2cbf" stroke="#1b1714" stroke-width="1"/>
+<rect x="70.0" y="515.0" width="68.2" height="14" rx="2" fill="#fffaf0" fill-opacity="0.86"/>
+<text x="73.0" y="526.0" font-size="10" font-weight="400" fill="#241f1a">EVT-HOM-027</text>
+<polygon points="494.0,264.0 502.0,272.0 494.0,280.0 486.0,272.0" fill="#7b2cbf" stroke="#1b1714" stroke-width="1"/>
+<rect x="502.0" y="263.0" width="68.2" height="14" rx="2" fill="#fffaf0" fill-opacity="0.86"/>
+<text x="505.0" y="274.0" font-size="10" font-weight="400" fill="#241f1a">EVT-HOM-029</text>
+<text x="774.0" y="60.0" font-size="16" font-weight="700" fill="#241f1a">Legend</text>
+<rect x="774" y="73" width="14" height="14" fill="#d9e9c8" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="84.0" font-size="11" font-weight="400" fill="#241f1a">Walkable</text>
+<rect x="774" y="95" width="14" height="14" fill="#726658" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="106.0" font-size="11" font-weight="400" fill="#241f1a">Blocked</text>
+<rect x="774" y="117" width="14" height="14" fill="#eddc91" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="128.0" font-size="11" font-weight="400" fill="#241f1a">Conditional</text>
+<rect x="774" y="139" width="14" height="14" fill="#76a9e0" fill-opacity="0.25" stroke="#76a9e0" stroke-width="2" stroke-dasharray="3 2"/>
+<text x="798.0" y="150.0" font-size="11" font-weight="400" fill="#241f1a">Traversable zone</text>
+<rect x="774" y="161" width="14" height="14" fill="#e8a6a1" fill-opacity="0.25" stroke="#e8a6a1" stroke-width="2" stroke-dasharray="3 2"/>
+<text x="798.0" y="172.0" font-size="11" font-weight="400" fill="#241f1a">Encounter / special region</text>
+<polygon points="781,181 789,195 773,195" fill="#225ea8" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="194.0" font-size="11" font-weight="400" fill="#241f1a">Transfer</text>
+<circle cx="781" cy="211" r="7" fill="#2a9d8f" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="216.0" font-size="11" font-weight="400" fill="#241f1a">NPC</text>
+<rect x="775" y="226" width="13" height="13" fill="#c47f00" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="238.0" font-size="11" font-weight="400" fill="#241f1a">Treasure</text>
+<polygon points="781,246 789,254 781,262 773,254" fill="#7b2cbf" stroke="#1b1714" stroke-width="1"/>
+<text x="798.0" y="260.0" font-size="11" font-weight="400" fill="#241f1a">Event anchor</text>
+<text x="774.0" y="296.0" font-size="14" font-weight="700" fill="#241f1a">Intent</text>
+<text x="774.0" y="314.0" font-size="10" font-weight="400" fill="#685f55">Provide the main optional Fogfen</text>
+<text x="774.0" y="332.0" font-size="10" font-weight="400" fill="#685f55">exploration screen with low-level</text>
+<text x="774.0" y="350.0" font-size="10" font-weight="400" fill="#685f55">combat practice, a hidden reward, and</text>
+<text x="774.0" y="368.0" font-size="10" font-weight="400" fill="#685f55">a restrained signal clue.</text>
+<text x="774.0" y="396.0" font-size="14" font-weight="700" fill="#241f1a">Visual Tone</text>
+<text x="774.0" y="414.0" font-size="10" font-weight="400" fill="#685f55">misty wetland with reeds, shallow</text>
+<text x="774.0" y="428.0" font-size="10" font-weight="400" fill="#685f55">water, mud paths, bent posts, exposed</text>
+<text x="774.0" y="442.0" font-size="10" font-weight="400" fill="#685f55">cable, and faint signal glow</text>
+<text x="26.0" y="648.0" font-size="10" font-weight="400" fill="#685f55">Generated from BP-SCR-HOM-FOG-001-001 - guide only, not final art</text>
+</svg>
