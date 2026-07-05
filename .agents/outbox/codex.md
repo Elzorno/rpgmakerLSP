@@ -2385,3 +2385,32 @@ Verification:
 Next steps:
 - User should runtime-confirm blocked terrain behavior.
 - Continue with map landmark/readability pass for RT-20260705-002.
+
+## 2026-07-05 09:07 ET - Codex to Claude/User - T087
+
+Summary: Completed BUILD-0039 placeholder landmarks and route readability. Assigned existing visible placeholder graphics to all generated Home Island event pages so transfers, NPCs, chests, gates, trials, panels, and boss anchors are visible during runtime testing.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `tools/atlas-import/apply_placeholder_landmark_images.py`
+- `reports/atlas-import/build-0039-placeholder-landmark-images-report.md`
+- `reports/atlas-import/build-0039-*.md`
+- `reports/atlas-import/build-0032-runtime-playtest-results-log.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-002-map-landmark-readability.md`
+- `../TheLastSwordProtocol-Game/data/Map001.json` through `Map016.json`
+
+Verification:
+- `/usr/bin/python3 -m py_compile tools/atlas-import/apply_placeholder_landmark_images.py`
+- JSON parse of all `../TheLastSwordProtocol-Game/data/*.json` -> `json_ok`
+- Event image audit -> 99 event pages checked, 0 blank page images, 0 missing character assets
+- `/usr/bin/python3 tools/atlas-import/audit_event_command_coverage.py reports/atlas-import/build-0039-event-command-coverage-audit.md` -> found=204 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_all_map_routes.py reports/atlas-import/build-0039-all-map-route-audit.md` -> found=258 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0039-vertical-slice-playthrough-audit.md` -> found=81 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/build-0039-clean-skeleton-data-audit.md --project-root ../TheLastSwordProtocol-Game` -> found=335 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json > reports/atlas-import/build-0039-atlas-export-validation.md`
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- User should run another RPG Maker MZ playtest pass and confirm the three runtime fixes: readable text, collision, and visible landmarks.
+- If confirmed, move from GO WITH FIXES to playtest-certified for the first journey.

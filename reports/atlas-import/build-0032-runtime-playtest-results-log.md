@@ -32,7 +32,7 @@ Run in progress. First user playtest pass completed after BUILD-0035.
 | Issue ID | Severity | Checklist Reference | Summary | Status |
 |---|---|---|---|---|
 | RT-20260705-001 | High | Runtime event interaction | Events show text IDs instead of readable runtime event text. | Fixed in BUILD-0037; needs runtime confirmation |
-| RT-20260705-002 | Medium | Map readability / player guidance | Maps lack landmarks, so the player cannot reliably infer what to do. | Open |
+| RT-20260705-002 | Medium | Map readability / player guidance | Maps lack landmarks, so the player cannot reliably infer what to do. | Fixed in BUILD-0039; needs runtime confirmation |
 | RT-20260705-003 | High | Collision / passability | Collision is inconsistent; some blocks are passable and others are not. | Fixed in BUILD-0038; needs runtime confirmation |
 
 ## Passing Findings
@@ -44,7 +44,11 @@ Run in progress. First user playtest pass completed after BUILD-0035.
 
 NO GO.
 
-The build now boots and accepts player movement. BUILD-0037 removes visible placeholder text IDs, and BUILD-0038 removes passable upper-layer tiles over blocked terrain. The first journey is still not production-playable until map landmark/readability is addressed and the two data-level fixes receive runtime confirmation.
+The build now boots and accepts player movement. BUILD-0037 removes visible placeholder text IDs, BUILD-0038 removes passable upper-layer tiles over blocked terrain, and BUILD-0039 assigns visible placeholder graphics to all generated Home Island event pages.
+
+GO WITH FIXES.
+
+No known data-level blocker remains from the first user runtime report, but all three fixes need runtime confirmation in RPG Maker MZ before the first journey can be called playtest-certified.
 
 Use one of:
 

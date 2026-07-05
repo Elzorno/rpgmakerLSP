@@ -60,4 +60,9 @@ Medium: confusing behavior with workaround.
 
 ## Resolution Notes
 
-Open. Preferred next fix after text/collision is a placeholder landmark and route-readability pass grounded in Atlas screen objects.
+Fixed in BUILD-0039, pending user runtime confirmation.
+
+- Added `tools/atlas-import/apply_placeholder_landmark_images.py`.
+- Assigned existing placeholder character graphics to 75 generated events across all 16 Home Island maps.
+- Verified all 99 generated Home Island event pages now have nonblank images and that every referenced character asset exists.
+- No final art, story, lore, quest, or mechanic content was created.
