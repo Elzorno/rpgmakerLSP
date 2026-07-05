@@ -2534,3 +2534,19 @@ Verification:
 Next steps:
 - Recommend next order: manual map-building packet for Ashford Exterior using Atlas SVG guide as the production source.
 - Keep automatic final map construction as a future research/prototype track until tile semantics, authored templates, or map-generation models improve.
+
+## 2026-07-05 15:12 ET - Codex to Claude/User - T097
+
+Summary: Ran `atlas next` after T096 cleared. The planner generated `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0028-journey-i-open-questions-decision-record.md`.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0028-journey-i-open-questions-decision-record.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` -> `atlas/workorders/WO-0028-journey-i-open-questions-decision-record.md`
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- Execute WO-0028: decide Journey I open questions and create/update the decision record.
