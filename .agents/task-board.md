@@ -84,3 +84,4 @@ Use this table to claim work before editing project files.
 | T072 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/, tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0024 generate Elara House Interior blueprint and map | 2026-07-04 23:03 ET |
 | T073 | Codex | Done | ../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/, tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0025 generate Ashford Shop Interior blueprint and map | 2026-07-04 23:09 ET |
 | T074 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0026 all Home Island blueprint coverage and regression gate | 2026-07-04 23:15 ET |
+| T075 | Codex | Done | tools/atlas-import/, reports/atlas-import/, .agents/ | BUILD-0027 all-map playtest route audit | 2026-07-04 23:22 ET |

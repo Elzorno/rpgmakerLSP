@@ -2208,3 +2208,13 @@ Files touched: `reports/atlas-import/build-0026-*`, `.agents/task-board.md`, `.a
 Verification: Registry-vs-blueprint coverage found 16 registered Home Island screens and 16 prototype blueprints, with 0 missing and 0 extra; all 16 blueprint round-trip audits passed with 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Coverage gate result is GO. Recommended next order: all-map playtest route audit, local examine event enrichment, or RPG Maker project launch smoke test.
+
+## 2026-07-04 23:22 EDT - Codex to User/Claude - T075
+
+Summary: Completed BUILD-0027 by adding a read-only all-map transfer route audit and running it against the Atlas Home Island export and clean RPG Maker project.
+
+Files touched: `tools/atlas-import/audit_all_map_routes.py`, `reports/atlas-import/build-0027-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; all-map route audit found 258 missing 0 warning 0; all 30 Atlas transfers resolved to expected target maps with in-bounds destinations; all 16 registered Home Island screens are reachable from `SCR-HOM-ASH-002`; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: This is still JSON-level verification. Next useful order is local examine event enrichment for the generated local anchors or an RPG Maker launch smoke test through MCP/local tooling.
