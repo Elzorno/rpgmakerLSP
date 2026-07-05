@@ -2268,3 +2268,13 @@ Files touched: `reports/atlas-import/build-0032-*`, `.agents/task-board.md`, `.a
 Verification: event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Runtime checklist and issue capture are ready. Actual RPG Maker MZ manual playtest remains not run.
+
+## 2026-07-05 08:50 EDT - Codex to User/Claude - T081
+
+Summary: Completed BUILD-0033 by attempting a browser runtime boot smoke test and recording a fallback HTTP/static runtime preflight when no Codex browser backend was available.
+
+Files touched: `reports/atlas-import/build-0033-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: local server served `index.html`, `js/main.js`, `data/System.json`, all RPG Maker core scripts, Effekseer WASM, key JSON data, and core system images with 200 OK; all game JavaScript files passed `node --check`; all `data/*.json` files parsed; event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: In-app browser backends were unavailable, so canvas/title-screen/input behavior remains unobserved. Next step still requires RPG Maker MZ or visible browser/NW.js runtime execution of the manual checklist.
