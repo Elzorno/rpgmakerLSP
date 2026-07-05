@@ -26,6 +26,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-HCV-002": "DGN_HiddenCave_Trials",
     "SCR-HOM-HCV-003": "DGN_HiddenCave_Sanctum",
     "SCR-HOM-GLS-001": "DGN_Glassfield_Ruins_Exterior",
+    "SCR-HOM-SND-001": "DGN_SealedNode_Upper",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -44,6 +45,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-014": "TRN-HOM-014 Return from sanctum",
     "TRN-HOM-016": "TRN-HOM-016 Return from Glassfield",
     "TRN-HOM-017": "TRN-HOM-017 Enter Sealed Node",
+    "TRN-HOM-018": "TRN-HOM-018 Exit Sealed Node",
+    "TRN-HOM-019": "TRN-HOM-019 Proceed deeper",
 }
 
 NPC_EVENT_NAMES = {
@@ -75,6 +78,7 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-016": "Sword Pedestal",
     "EVT-HOM-017": "Glassfield Seal",
     "EVT-HOM-018": "Surface Fragment",
+    "EVT-HOM-019": "Sealed Node First Entry",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -95,10 +99,15 @@ ENCOUNTER_POLICIES = {
         {"regionSet": [1], "troopId": 1, "weight": 4},
         {"regionSet": [1], "troopId": 3, "weight": 3},
     ],
+    "SCR-HOM-SND-001": [
+        {"regionSet": [4], "troopId": 1, "weight": 3},
+        {"regionSet": [4], "troopId": 2, "weight": 2},
+    ],
 }
 
 REGION_EXPORT_IDS = {
     "encounter": 1,
+    "node_encounter": 4,
     "safe": 5,
 }
 
@@ -207,6 +216,9 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "glassfield_ground",
                 "cracked_glass_panel",
                 "sealed_threshold",
+                "node_corridor",
+                "cave_machine_floor",
+                "unstable_light_path",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":
@@ -227,7 +239,10 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
 
 
 def paint_blueprint_regions(map_data: dict[str, Any], blueprint: dict[str, Any]) -> None:
-    has_encounter_region = any(region.get("region_type") == "encounter" for region in blueprint.get("enemy_regions", []))
+    has_encounter_region = any(
+        region.get("region_type") in REGION_EXPORT_IDS and region.get("region_type") != "safe"
+        for region in blueprint.get("enemy_regions", [])
+    )
     for region in blueprint.get("enemy_regions", []):
         region_type = region.get("region_type")
         if region_type == "safe" and not has_encounter_region and not should_export_safe_regions(blueprint):
