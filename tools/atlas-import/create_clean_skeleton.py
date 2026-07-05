@@ -433,7 +433,7 @@ def copy_runtime_files(target: Path) -> None:
     ):
         shutil.copy2(ROOT / "js" / file_name, target / "js" / file_name)
     (target / "js" / "plugins").mkdir(parents=True, exist_ok=True)
-    write_json(target / "js" / "plugins.js", [])
+    (target / "js" / "plugins.js").write_text("var $plugins = [];\n", encoding="utf-8")
     (target / "save").mkdir(exist_ok=True)
 
 

@@ -2288,3 +2288,13 @@ Files touched: `reports/atlas-import/build-0034-*`, `.agents/task-board.md`, `.a
 Verification: Atlas validation reported 0 errors and 0 warnings; Atlas export validation passed; clean skeleton data audit found 335 missing 0 warning 0 unknown 1; vertical-slice audit found 81 missing 0 warning 0 unknown 1; all-map route audit found 258 missing 0 warning 0; event-command coverage audit found 204 missing 0 warning 0.
 
 Open questions / next steps: Gate decision is GO for Atlas/RPG Maker JSON/data readiness, NO GO for final runtime-visible readiness until the manual runtime checklist is executed in RPG Maker MZ or a visible browser/NW.js runtime.
+
+## 2026-07-05 09:08 EDT - Codex to User/Claude - T083
+
+Summary: Completed BUILD-0035 by fixing the reported RPG Maker boot blocker `$plugins is not defined`.
+
+Files touched: `tools/atlas-import/create_clean_skeleton.py`, `../TheLastSwordProtocol-Game/js/plugins.js`, `reports/atlas-import/build-0035-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: `js/plugins.js` now defines `var $plugins = [];`; Node VM check confirms `$plugins` exists and is an array; all RPG Maker JS files passed `node --check`; all game `data/*.json` parsed; HTTP check served `/js/plugins.js` with the fixed content; event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Retry RPG Maker playtest. If another runtime error appears, capture the exact message and continue with the next focused boot/runtime blocker.
