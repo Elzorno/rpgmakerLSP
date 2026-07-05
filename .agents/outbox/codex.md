@@ -2258,3 +2258,13 @@ Files touched: `reports/atlas-import/build-0031-*`, `.agents/task-board.md`, `.a
 Verification: event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Manual checklist is ready but not executed in-engine. Next useful order is to run the checklist in RPG Maker MZ and record pass/fail evidence, or create a runtime issue template for failures found during that pass.
+
+## 2026-07-04 23:52 EDT - Codex to User/Claude - T080
+
+Summary: Completed BUILD-0032 by creating runtime playtest issue capture templates and an empty results log tied to the BUILD-0031 manual checklist.
+
+Files touched: `reports/atlas-import/build-0032-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Runtime checklist and issue capture are ready. Actual RPG Maker MZ manual playtest remains not run.
