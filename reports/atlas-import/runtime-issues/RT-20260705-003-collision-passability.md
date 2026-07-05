@@ -61,4 +61,9 @@ High: breaks map trust and can invalidate routes or barriers.
 
 ## Resolution Notes
 
-Open. Preferred next fix is a read-only passability audit of all generated tile IDs against RPG Maker tileset flags, followed by targeted generator tile selection or tileset flag correction.
+Fixed in BUILD-0038, pending user runtime confirmation.
+
+- Added `tools/atlas-import/apply_collision_passability_cleanup.py`.
+- Updated map layout and blueprint map generators to clear upper-layer tiles above blocked base terrain.
+- Applied the cleanup to the clean game project; 490 upper-layer tiles were cleared across 10 maps.
+- Verified zero blocked base cells still have upper-layer tiles on Home Island maps 1-16.

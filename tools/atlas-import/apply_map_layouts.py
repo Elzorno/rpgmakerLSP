@@ -16,6 +16,7 @@ ALT_FLOOR = 2836
 BLOCK = 1536
 WATER = 2048
 PATH = 3584
+BLOCKING_BASE_TILES = {BLOCK, WATER}
 
 
 EVENT_POSITIONS = {
@@ -163,6 +164,22 @@ def set_tile(map_data: dict, x: int, y: int, z: int, value: int) -> None:
         map_data["data"][index(map_data["width"], map_data["height"], x, y, z)] = value
 
 
+def clear_upper_tiles_above_blocked_base(map_data: dict) -> int:
+    cleared = 0
+    width = map_data["width"]
+    height = map_data["height"]
+    for y in range(height):
+        for x in range(width):
+            if map_data["data"][index(width, height, x, y, 0)] not in BLOCKING_BASE_TILES:
+                continue
+            for z in range(1, 4):
+                tile_index = index(width, height, x, y, z)
+                if map_data["data"][tile_index]:
+                    map_data["data"][tile_index] = 0
+                    cleared += 1
+    return cleared
+
+
 def paint_rect(map_data: dict, x1: int, y1: int, x2: int, y2: int, z: int, value: int) -> None:
     for y in range(y1, y2 + 1):
         for x in range(x1, x2 + 1):
@@ -295,6 +312,7 @@ def apply_map(project_root: Path, map_id: int) -> tuple[bool, int]:
     path_pass(map_id, map_data)
     region_pass(map_id, map_data)
     open_event_tiles(map_id, map_data)
+    clear_upper_tiles_above_blocked_base(map_data)
     apply_encounters(map_id, map_data)
     moved = move_events(map_id, map_data)
     note = str(map_data.get("note", ""))

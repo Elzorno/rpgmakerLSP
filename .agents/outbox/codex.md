@@ -2354,3 +2354,34 @@ Verification:
 Next steps:
 - User should runtime-confirm event text now displays readable placeholder copy.
 - Continue with collision/passability audit/fix, then map landmark/readability pass.
+
+## 2026-07-05 09:06 ET - Codex to Claude/User - T086
+
+Summary: Completed BUILD-0038 collision/passability audit and fix. Root cause was passable upper-layer tiles above blocked base terrain, which can override collision in RPG Maker MZ. Added a repeatable cleanup applier and patched both map layout generation paths to clear upper layers above blocked base terrain.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `tools/atlas-import/apply_collision_passability_cleanup.py`
+- `tools/atlas-import/apply_map_layouts.py`
+- `tools/atlas-import/generate_map_from_blueprint.py`
+- `reports/atlas-import/build-0038-collision-passability-cleanup-report.md`
+- `reports/atlas-import/build-0038-*.md`
+- `reports/atlas-import/build-0032-runtime-playtest-results-log.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-003-collision-passability.md`
+- `../TheLastSwordProtocol-Game/data/Map001.json`, `Map002.json`, `Map003.json`, `Map004.json`, `Map006.json`, `Map008.json`, `Map009.json`, `Map013.json`, `Map015.json`, `Map016.json`
+
+Verification:
+- `/usr/bin/python3 -m py_compile tools/atlas-import/apply_collision_passability_cleanup.py tools/atlas-import/apply_map_layouts.py tools/atlas-import/generate_map_from_blueprint.py`
+- JSON parse of all `../TheLastSwordProtocol-Game/data/*.json` -> `json_ok`
+- Targeted blocked-base audit -> `blocked_base_with_upper_tiles=0`
+- `/usr/bin/python3 tools/atlas-import/audit_event_command_coverage.py reports/atlas-import/build-0038-event-command-coverage-audit.md` -> found=204 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_all_map_routes.py reports/atlas-import/build-0038-all-map-route-audit.md` -> found=258 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0038-vertical-slice-playthrough-audit.md` -> found=81 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/build-0038-clean-skeleton-data-audit.md --project-root ../TheLastSwordProtocol-Game` -> found=335 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json > reports/atlas-import/build-0038-atlas-export-validation.md`
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- User should runtime-confirm blocked terrain behavior.
+- Continue with map landmark/readability pass for RT-20260705-002.

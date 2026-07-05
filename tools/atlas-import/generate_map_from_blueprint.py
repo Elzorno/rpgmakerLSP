@@ -18,6 +18,7 @@ FLOOR = 2816
 ALT_FLOOR = 2836
 BLOCK = 1536
 PATH = 3584
+BLOCKING_BASE_TILES = {BLOCK}
 
 SCREEN_TO_MAP_NAME = {
     "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
@@ -198,6 +199,22 @@ def tile_index(width: int, height: int, x: int, y: int, z: int) -> int:
 def set_tile(map_data: dict[str, Any], x: int, y: int, z: int, value: int) -> None:
     if 0 <= x < map_data["width"] and 0 <= y < map_data["height"]:
         map_data["data"][tile_index(map_data["width"], map_data["height"], x, y, z)] = value
+
+
+def clear_upper_tiles_above_blocked_base(map_data: dict[str, Any]) -> int:
+    cleared = 0
+    width = map_data["width"]
+    height = map_data["height"]
+    for y in range(height):
+        for x in range(width):
+            if map_data["data"][tile_index(width, height, x, y, 0)] not in BLOCKING_BASE_TILES:
+                continue
+            for z in range(1, 4):
+                index = tile_index(width, height, x, y, z)
+                if map_data["data"][index]:
+                    map_data["data"][index] = 0
+                    cleared += 1
+    return cleared
 
 
 def paint_rect(map_data: dict[str, Any], x: int, y: int, w: int, h: int, z: int, value: int) -> None:
@@ -486,6 +503,7 @@ def main() -> int:
     paint_blueprint_layout(map_data, blueprint)
     paint_blueprint_regions(map_data, blueprint)
     created, updated = apply_blueprint_events(map_data, blueprint)
+    clear_upper_tiles_above_blocked_base(map_data)
     map_data["encounterList"] = ENCOUNTER_POLICIES.get(blueprint["atlas_screen_id"], [])
     map_data["encounterStep"] = 35 if map_data["encounterList"] else 30
     map_data["displayName"] = blueprint["title"]

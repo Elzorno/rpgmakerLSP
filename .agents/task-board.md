@@ -95,3 +95,4 @@ Use this table to claim work before editing project files.
 | T083 | Codex | Done | tools/atlas-import/create_clean_skeleton.py, ../TheLastSwordProtocol-Game/js/plugins.js, reports/atlas-import/, .agents/ | BUILD-0035 fix RPG Maker plugins global boot blocker | 2026-07-05 09:08 ET |
 | T084 | Codex | Done | reports/atlas-import/, .agents/ | BUILD-0036 runtime playtest findings triage | 2026-07-05 09:04 ET |
 | T085 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0037 readable runtime placeholder text | 2026-07-05 09:05 ET |
+| T086 | Codex | Done | tools/atlas-import/, ../TheLastSwordProtocol-Game/data/, reports/atlas-import/, .agents/ | BUILD-0038 collision and passability audit/fix | 2026-07-05 09:06 ET |
