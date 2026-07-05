@@ -2188,3 +2188,13 @@ Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-H
 Verification: py_compile passed; blueprint JSON and `Map002.json` parse; Elara House round-trip audit found 29 missing 0 warning 0; Ashford Exterior, Fogfen Marsh Field, and Relay Core regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: One registered Home Island screen remains without a generated blueprint: `SCR-HOM-ASH-003 / INT_Ashford_Shop`.
+
+## 2026-07-04 23:09 EDT - Codex to User/Claude - T073
+
+Summary: Completed BUILD-0025 by adding the Atlas blueprint for `SCR-HOM-ASH-003` and generating the clean RPG Maker `INT_Ashford_Shop` map from it.
+
+Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-ASH-003.blueprint.json`, `tools/atlas-import/generate_map_from_blueprint.py`, `../TheLastSwordProtocol-Game/data/Map003.json`, `reports/atlas-import/build-0025-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; blueprint JSON and `Map003.json` parse; Ashford Shop round-trip audit found 25 missing 0 warning 0; Elara House, Ashford Exterior, and Relay Core regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: All 16 registered Home Island screens now have prototype map blueprints. Next useful order is a full all-blueprints coverage/regression gate before any further map content is generated.
