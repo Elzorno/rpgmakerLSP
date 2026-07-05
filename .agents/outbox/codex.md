@@ -2238,3 +2238,13 @@ Files touched: `tools/atlas-import/apply_local_examine_event_logic.py`, `../TheL
 Verification: py_compile passed; local event applier updated 7 events; local examine anchors now show traceable `PH-EXAMINE-*` text; Deeper Marsh Reward Cache now has a two-page Potion reward flow with Self Switch A; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Local anchors are executable placeholders. Next useful order is an in-engine/manual playtest checklist or an automated event-command coverage audit for non-local placeholder events.
+
+## 2026-07-04 23:43 EDT - Codex to User/Claude - T078
+
+Summary: Completed BUILD-0030 by adding a read-only event-command coverage audit for Atlas events, Atlas transfers, and generated local anchors.
+
+Files touched: `tools/atlas-import/audit_event_command_coverage.py`, `reports/atlas-import/build-0030-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Event-command coverage is GO at JSON level. Remaining meaningful gap is hands-on/in-engine RPG Maker playtest or a formal manual playtest checklist.
