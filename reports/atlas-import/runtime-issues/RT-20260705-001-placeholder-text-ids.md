@@ -60,4 +60,8 @@ High: breaks required route, reward, or story-gate comprehension.
 
 ## Resolution Notes
 
-Open. Preferred first fix is readable, explicitly placeholder runtime copy generated from event/dialogue IDs without inventing final dialogue or lore.
+Fixed in BUILD-0037, pending user runtime confirmation.
+
+- Added `tools/atlas-import/apply_readable_placeholder_text.py`.
+- Replaced 55 runtime-visible `PH-*` Show Text lines across 17 RPG Maker data files with readable placeholder copy.
+- Preserved placeholder status and avoided final dialogue/lore writing.

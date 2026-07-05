@@ -2324,3 +2324,33 @@ Verification:
 Next steps:
 - BUILD-0037 should replace runtime-visible text IDs with readable placeholder copy while preserving Atlas traceability.
 - Follow-up orders should audit/fix collision passability, then improve placeholder landmarks and route readability.
+
+## 2026-07-05 09:05 ET - Codex to Claude/User - T085
+
+Summary: Completed BUILD-0037 readable runtime placeholder text. Added a repeatable applier that converts runtime-visible `PH-*` Show Text IDs into readable `[Placeholder] ...` copy without inventing final dialogue or changing Atlas canon. Applied it to the clean RPG Maker MZ project.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `tools/atlas-import/apply_readable_placeholder_text.py`
+- `reports/atlas-import/build-0037-readable-placeholder-text-report.md`
+- `reports/atlas-import/build-0037-*.md`
+- `reports/atlas-import/build-0032-runtime-playtest-results-log.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-001-placeholder-text-ids.md`
+- `../TheLastSwordProtocol-Game/data/Map001.json` through `Map016.json`
+- `../TheLastSwordProtocol-Game/data/Troops.json`
+
+Verification:
+- `/usr/bin/python3 -m py_compile tools/atlas-import/apply_readable_placeholder_text.py`
+- JSON parse of all `../TheLastSwordProtocol-Game/data/*.json` -> `json_ok`
+- Runtime-visible `PH-*` Show Text command scan -> 0
+- `/usr/bin/python3 tools/atlas-import/audit_event_command_coverage.py reports/atlas-import/build-0037-event-command-coverage-audit.md` -> found=204 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_all_map_routes.py reports/atlas-import/build-0037-all-map-route-audit.md` -> found=258 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0037-vertical-slice-playthrough-audit.md` -> found=81 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/build-0037-clean-skeleton-data-audit.md --project-root ../TheLastSwordProtocol-Game` -> found=335 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json > reports/atlas-import/build-0037-atlas-export-validation.md`
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- User should runtime-confirm event text now displays readable placeholder copy.
+- Continue with collision/passability audit/fix, then map landmark/readability pass.
