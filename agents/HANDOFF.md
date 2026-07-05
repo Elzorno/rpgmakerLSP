@@ -1,19 +1,25 @@
 # Last Sword Protocol — Agent Handoff Note
 
-**Last updated:** 2026-06-29  
+**Last updated:** 2026-07-05 (WO-0029 canon correction)  
 **Session:** Act II Towns 1–2 implementation complete
+
+> **SUPERSEDED CANON NOTICE (WO-0029, 2026-07-05).** This note describes the legacy v1.0 prototype in this repository. Story canon now lives exclusively in the sibling repo `../TheLastSwordProtocol-Atlas/`. The Act I–IV structure used throughout this document is superseded by the Atlas **Journeys** (Journey I = the Home Island arc; later acts map to Journey II+). Do not derive world state, relay numbering, or story structure from this file.
 
 ---
 
 ## Where We Are
 
-Act I is fully implemented. Act II has two towns complete.
+Act I is fully implemented. Act II has two towns complete. *(Prototype state — see the superseded-canon notice above.)*
 
 ### Relay Node Count
-NEMESIS has 7 total relay nodes in its network.
-- **Node 7 (Coalmouth mine):** OFFLINE — Sword shuts it down; Vera joins party
-- **Node 6 (Athenaeum Signal Tower):** OFFLINE — Sword shuts it down; Eldon joins party
-- **Nodes 1–5:** ACTIVE — locations are Towns 3–5 + two in Act III (Dead Circuit)
+
+**Corrected canon (ATLAS-DDR-0003):** the network has 7 relay nodes total. **Relay Node Seven (REL-007) is beneath Home Island**, inside the Sealed Node — it is the first relay the player encounters and the first shutdown, the climax of Journey I. **Coalmouth's relay is Node Six (REL-006)** — the first *mainland* relay and the second shutdown overall. The Athenaeum's node designation is not yet assigned in Atlas.
+
+The v1.0 prototype in this repo implemented the old, now-superseded numbering and must not be used as a canon source:
+
+- ~~**Node 7 (Coalmouth mine):** OFFLINE~~ — prototype only; superseded (Coalmouth is Node Six)
+- ~~**Node 6 (Athenaeum Signal Tower):** OFFLINE~~ — prototype only; superseded (Athenaeum's node is unassigned in Atlas)
+- Party joins (Vera at Coalmouth, Eldon at Athenaeum) remain accurate as prototype implementation records.
 
 ---
 
@@ -125,6 +131,8 @@ Next tilesets start at **16**. Reserve 16–18 for Town 3 (Irongate).
 
 ## What to Build Next
 
+> **Superseded (WO-0029).** Current production direction is set by `../TheLastSwordProtocol-Atlas/atlas/planning/Journey_I_Completion_Plan.md` and its work-order queue, not by the options below. They are kept as prototype-era planning history only. (Option A's "Relay Node 5 goes offline" also predates the DDR-0003 numbering lock.)
+
 ### Option A — Town 3: Irongate (recommended next)
 Military settlement. The commander takes orders from "The Voice" (NEMESIS via Herald). Kai exposes the Herald for the first time. The Herald escapes.
 
@@ -154,9 +162,12 @@ Add "Data" as a custom element in the database (currently not in elements list).
 ---
 
 ## Story Bible
-Full scene-by-scene breakdowns exist for:
+
+> **Superseded (WO-0029).** The legacy bible files in this repo are marked superseded; the canonical Story Bible is `../TheLastSwordProtocol-Atlas/atlas/docs/03_Story/Story_Bible.md` (`ATLAS-STY-002`), structured as Journeys rather than Acts.
+
+Legacy scene-by-scene breakdowns (prototype reference only) exist for:
 - Act I (all scenes)
 - Act II Town 1: Coalmouth (11 scenes, lines 108–320)
 - Act II Town 2: The Athenaeum (11 scenes, lines 323–510 approx.)
 
-Towns 3–5 and Acts III–IV have summary-level content only. Expand before implementing.
+Towns 3–5 and Acts III–IV have summary-level content only. Expand in Atlas before implementing.
