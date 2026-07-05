@@ -32,6 +32,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-SND-004": "DGN_SealedNode_RelayCore",
     "SCR-HOM-RST-001": "TWN_Rustshore_Docks",
     "SCR-HOM-RST-002": "CUT_Mainland_Departure",
+    "SCR-HOM-FOG-001": "FLD_Fogfen_Marsh_Field",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -60,6 +61,8 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-024": "TRN-HOM-024 Return from relay core",
     "TRN-HOM-025": "TRN-HOM-025 Begin departure",
     "TRN-HOM-026": "TRN-HOM-026 Destination TBD: Coalmouth or landing screen",
+    "TRN-HOM-028": "TRN-HOM-028 Return from Fogfen to Ashford-side route",
+    "TRN-HOM-029": "TRN-HOM-029 Optional deeper marsh branch",
 }
 
 NPC_EVENT_NAMES = {
@@ -99,11 +102,14 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-024": "Lighthouse Examine",
     "EVT-HOM-025": "Boat Transfer",
     "EVT-HOM-026": "Departure Sequence",
+    "EVT-HOM-027": "Fogfen Entry / Exit Transfer",
+    "EVT-HOM-029": "Signal-Tick Reed Pool",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
     "INT-HCV-WALL-CARVING": "INT-HCV-WALL-CARVING Wall Carving",
 }
+TREASURE_EVENT_NAMES["EVT-HOM-028"] = "Hidden Item Landmark"
 
 ENCOUNTER_POLICIES = {
     "SCR-HOM-ASH-001": [],
@@ -131,10 +137,16 @@ ENCOUNTER_POLICIES = {
     "SCR-HOM-SND-004": [],
     "SCR-HOM-RST-001": [],
     "SCR-HOM-RST-002": [],
+    "SCR-HOM-FOG-001": [
+        {"regionSet": [2], "troopId": 4, "weight": 5},
+        {"regionSet": [2], "troopId": 5, "weight": 4},
+    ],
 }
 
 REGION_EXPORT_IDS = {
     "encounter": 1,
+    "marsh_encounter": 2,
+    "slow_bog": 3,
     "node_encounter": 4,
     "safe": 5,
 }
@@ -254,6 +266,12 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "boat_landing",
                 "cutscene_dock",
                 "departure_boat_path",
+                "marsh_path",
+                "marsh_ground",
+                "shallow_bog",
+                "reed_floor",
+                "signal_pool",
+                "cable_landmark",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":

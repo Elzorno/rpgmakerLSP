@@ -2158,3 +2158,13 @@ Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-H
 Verification: py_compile passed; blueprint JSON and `Map014.json` parse; Mainland Departure round-trip audit found 21 missing 0 warning 0; Rustshore and Relay Core regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Critical-path Home Island screen blueprints are now generated through Mainland Departure. Optional Fogfen maps remain if the workflow continues into optional branch generation.
+
+## 2026-07-04 22:48 EDT - Codex to User/Claude - T070
+
+Summary: Completed BUILD-0022 by adding the Atlas blueprint for `SCR-HOM-FOG-001` and generating the clean RPG Maker `FLD_Fogfen_Marsh_Field` map from it.
+
+Files touched: `../TheLastSwordProtocol-Atlas/atlas-tools/mapgen/prototype/SCR-HOM-FOG-001.blueprint.json`, `tools/atlas-import/generate_map_from_blueprint.py`, `../TheLastSwordProtocol-Game/data/Map015.json`, `reports/atlas-import/build-0022-*`, `.agents/task-board.md`, `.agents/outbox/codex.md`.
+
+Verification: py_compile passed; blueprint JSON and `Map015.json` parse; Fogfen Marsh Field round-trip audit found 33 missing 0 warning 0; Mainland Departure, Rustshore Docks, and Relay Core regressions found 0 missing and 0 warnings; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
+
+Open questions / next steps: Next optional branch map is `SCR-HOM-FOG-002 / FLD_Fogfen_Deeper_Marsh_Pocket`.
