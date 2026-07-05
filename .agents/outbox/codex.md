@@ -2298,3 +2298,29 @@ Files touched: `tools/atlas-import/create_clean_skeleton.py`, `../TheLastSwordPr
 Verification: `js/plugins.js` now defines `var $plugins = [];`; Node VM check confirms `$plugins` exists and is an array; all RPG Maker JS files passed `node --check`; all game `data/*.json` parsed; HTTP check served `/js/plugins.js` with the fixed content; event-command coverage audit found 204 missing 0 warning 0; all-map route audit found 258 missing 0 warning 0; vertical-slice audit found 81 missing 0 warning 0 unknown 1; clean-skeleton data audit found 335 missing 0 warning 0 unknown 1; Atlas export validation passed; Atlas validation reported 0 errors and 0 warnings.
 
 Open questions / next steps: Retry RPG Maker playtest. If another runtime error appears, capture the exact message and continue with the next focused boot/runtime blocker.
+
+## 2026-07-05 09:04 ET - Codex to Claude/User - T084
+
+Summary: Captured first post-boot runtime playtest findings from the user as BUILD-0036 triage. Movement and runtime boot now pass, but readable event text, map landmarks, and collision/passability remain runtime blockers.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `reports/atlas-import/build-0032-runtime-playtest-results-log.md`
+- `reports/atlas-import/build-0036-runtime-playtest-findings-triage.md`
+- `reports/atlas-import/build-0036-*.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-001-placeholder-text-ids.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-002-map-landmark-readability.md`
+- `reports/atlas-import/runtime-issues/RT-20260705-003-collision-passability.md`
+
+Verification:
+- `/usr/bin/python3 tools/atlas-import/audit_event_command_coverage.py reports/atlas-import/build-0036-event-command-coverage-audit.md` -> found=204 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_all_map_routes.py reports/atlas-import/build-0036-all-map-route-audit.md` -> found=258 missing=0 warning=0
+- `/usr/bin/python3 tools/atlas-import/audit_vertical_slice_playthrough.py reports/atlas-import/build-0036-vertical-slice-playthrough-audit.md` -> found=81 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/audit_rpgmaker_data.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json reports/atlas-import/build-0036-clean-skeleton-data-audit.md --project-root ../TheLastSwordProtocol-Game` -> found=335 missing=0 warning=0 unknown=1
+- `/usr/bin/python3 tools/atlas-import/validate_atlas_export.py ../TheLastSwordProtocol-Atlas/atlas-exports/home-island.json > reports/atlas-import/build-0036-atlas-export-validation.md`
+- `/usr/bin/python3 ../TheLastSwordProtocol-Atlas/atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+
+Next steps:
+- BUILD-0037 should replace runtime-visible text IDs with readable placeholder copy while preserving Atlas traceability.
+- Follow-up orders should audit/fix collision passability, then improve placeholder landmarks and route readability.
