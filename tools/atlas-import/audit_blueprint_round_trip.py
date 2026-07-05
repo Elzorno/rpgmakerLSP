@@ -181,13 +181,14 @@ def audit_event_anchors(blueprint: dict[str, Any], map_data: dict[str, Any], gen
 def audit_region_policy(blueprint: dict[str, Any], map_data: dict[str, Any], generator) -> list[Finding]:
     findings: list[Finding] = []
     safe_regions = [region for region in blueprint.get("enemy_regions", []) if region.get("region_type") == "safe"]
+    no_region_zones = [region for region in blueprint.get("enemy_regions", []) if region.get("region_type") == "none"]
     encounter_regions = [
         region
         for region in blueprint.get("enemy_regions", [])
         if region.get("region_type") in generator.REGION_EXPORT_IDS and region.get("region_type") != "safe"
     ]
     expected_encounters = generator.ENCOUNTER_POLICIES.get(blueprint["atlas_screen_id"], [])
-    finding(findings, "Encounter Policy", "ENC-001", "Blueprint declares region policy", bool(safe_regions or encounter_regions), f"safe={len(safe_regions)} encounter={len(encounter_regions)}")
+    finding(findings, "Encounter Policy", "ENC-001", "Blueprint declares region policy", bool(safe_regions or encounter_regions or no_region_zones), f"safe={len(safe_regions)} encounter={len(encounter_regions)} none={len(no_region_zones)}")
     finding(findings, "Encounter Policy", "ENC-002", "RPG Maker encounter list matches exporter policy", map_data.get("encounterList") == expected_encounters, f"encounterList={map_data.get('encounterList')}")
     width = map_data["width"]
     height = map_data["height"]

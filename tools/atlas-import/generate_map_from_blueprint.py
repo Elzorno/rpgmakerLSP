@@ -30,6 +30,7 @@ SCREEN_TO_MAP_NAME = {
     "SCR-HOM-SND-002": "DGN_SealedNode_CorePath",
     "SCR-HOM-SND-003": "DGN_SealedNode_Guardian",
     "SCR-HOM-SND-004": "DGN_SealedNode_RelayCore",
+    "SCR-HOM-RST-001": "TWN_Rustshore_Docks",
 }
 
 TRANSFER_EVENT_NAMES = {
@@ -40,6 +41,7 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-015": "TRN-HOM-015 Route to Glassfield",
     "TRN-HOM-027": "TRN-HOM-027 Optional east route to Fogfen Marsh Field",
     "TRN-HOM-006": "TRN-HOM-006 Return from Skyreach route",
+    "TRN-HOM-008": "TRN-HOM-008 Return from Rustshore route",
     "TRN-HOM-009": "TRN-HOM-009 Enter Hidden Cave",
     "TRN-HOM-010": "TRN-HOM-010 Exit cave",
     "TRN-HOM-011": "TRN-HOM-011 Enter trials",
@@ -55,6 +57,7 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-022": "TRN-HOM-022 Return to core path",
     "TRN-HOM-023": "TRN-HOM-023 Enter relay core",
     "TRN-HOM-024": "TRN-HOM-024 Return from relay core",
+    "TRN-HOM-025": "TRN-HOM-025 Begin departure",
 }
 
 NPC_EVENT_NAMES = {
@@ -90,6 +93,9 @@ ANCHOR_EVENT_NAMES = {
     "EVT-HOM-020": "Core Path Door",
     "EVT-HOM-021": "Node Seven Guardian",
     "EVT-HOM-022": "Relay Core",
+    "EVT-HOM-023": "Dockmaster",
+    "EVT-HOM-024": "Lighthouse Examine",
+    "EVT-HOM-025": "Boat Transfer",
     "INT-ASH-WARM-STONE-VENT": "INT-ASH-WARM-STONE-VENT Warm-Stone Vent",
     "INT-ASH-OLD-PANEL": "INT-ASH-OLD-PANEL Old Panel",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
@@ -120,6 +126,7 @@ ENCOUNTER_POLICIES = {
     ],
     "SCR-HOM-SND-003": [],
     "SCR-HOM-SND-004": [],
+    "SCR-HOM-RST-001": [],
 }
 
 REGION_EXPORT_IDS = {
@@ -236,6 +243,11 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
                 "node_corridor",
                 "cave_machine_floor",
                 "unstable_light_path",
+                "coastal_path",
+                "dock_planks",
+                "shoreline_ground",
+                "lighthouse_base",
+                "boat_landing",
             } else ALT_FLOOR
             paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 1, value)
         elif area.get("shape") == "polyline":
