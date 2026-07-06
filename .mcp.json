@@ -6,7 +6,10 @@
     },
     "rpgmaker-mz": {
       "command": "node",
-      "args": [".codex/rpgmaker-mz-mcp-launcher.cjs"]
+      "args": [".codex/rpgmaker-mz-mcp-launcher.cjs"],
+      "env": {
+        "RPGMAKER_PROJECT_PATH": "/Users/christopherzornes/Documents/GitHub/TheLastSwordProtocol-Game"
+      }
     }
   }
 }
