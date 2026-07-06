@@ -2715,3 +2715,27 @@ Notes:
 
 Next steps:
 - Add/refill active candidates in `atlas/planning/workorder_queue.json`, or manually choose/execute one of the existing open work orders.
+
+## 2026-07-05 20:42 ET - Codex to Claude/User - T107
+
+Summary: Refilled the Atlas planner queue under a production freeze: active candidates now must move something the player sees or hears, measured by playable Journey I minutes. Added seven player-visible candidates, generated the first order (`WO-0035-build-gate-a-elara-house-production-map.md`), and retired that candidate immediately to avoid duplicate generation while WO-0035 is open.
+
+Files touched:
+- `.agents/task-board.md`
+- `.agents/outbox/codex.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/Journey_I_Completion_Plan.md`
+- `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0035-build-gate-a-elara-house-production-map.md`
+
+Verification:
+- `/usr/bin/python3 atlas-tools/cli/atlas.py validate` -> 0 errors, 0 warnings
+- `/usr/bin/python3 atlas-tools/cli/atlas.py next` -> `atlas/workorders/WO-0035-build-gate-a-elara-house-production-map.md`
+- `node` JSON parse for `atlas/planning/workorder_queue.json` -> ok
+
+Next active queue:
+- Build Gate A Ashford Exterior Production Map
+- Build Gate A Ashford Shop Production Map
+- Apply Gate A Final Ashford Dialogue
+- Gate A Ashford Lives Playtest Fix Pass
+- Build Skyreach Hill Production Map
+- Apply Approved Skyreach Hidden Cave Dialogue To Events
