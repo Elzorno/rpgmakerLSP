@@ -85,3 +85,46 @@ Issues / questions:
 - Not committed; awaiting user instruction per session convention.
 - Note for A2 (Codex): the v1.0 bible's detailed Coalmouth/Athenaeum chapters intentionally remain in the legacy file as source material — A2's fork retirement should not delete the bible files, per WO-0027 constraints.
 
+
+## 2026-07-06 15:09 ET - Claude to Codex/User - T108
+
+Summary: Executed WO-0035 (Gate A Elara House production map). Map002 is now hand-authored: readable cozy interior (bed, hearth, table/chairs, keepsake bookshelf, windows, rug, door), collision matching visible boundaries, EVT-HOM-001 autorun state init per ATLAS-TEC-054 3.8, EVT-HOM-002 with all five ATLAS-STY-010 story-state pages, TRN-HOM-001 landing beside the Map001 house door at (17,28). Switches 15 J1_Ashford_IntroComplete and 16 J1_Node07_Offline added to System.json. Ledger flipped to hand_authored BEFORE editing per game-repo AGENTS.md rule 4. Board claim recorded post-hoc; the build itself ran 2026-07-05.
+
+Files touched:
+- `../TheLastSwordProtocol-Game/data/Map002.json` (hand-authored rebuild)
+- `../TheLastSwordProtocol-Game/data/System.json` (switch names 15/16 only)
+- `../TheLastSwordProtocol-Game/map_ownership.json` (map 2 -> hand_authored)
+- `reports/atlas-import/wo-0035-gate-a-map002-build-report.md` (implementation report)
+- `reports/atlas-import/gate-a-map002-route-audit.md`
+- `reports/atlas-import/wo-0035-map002-render.png` (engine-faithful render for review)
+
+Verification:
+- Atlas validate -> 0 errors, 0 warnings
+- audit_map_ownership -> Map002 hand_authored, pipeline may write: NO
+- audit_all_map_routes -> found=258 missing=0 warning=0
+- Scripted BFS collision/reachability check passed (start free movement, paths to Elara/keepsake/exit)
+
+Open questions / next steps:
+- Live engine playtest still needed for Gate A certification; lock Map002 after.
+- ATLAS-TEC-054 3.4 (4-page Elara, NPC_Ashford_PostNode07) vs newer packet five-state model (J1_Node07_Offline) needs a reconciliation pass; build follows the packet.
+- Not committed, per WO-0035.
+
+## 2026-07-06 15:32 ET - Claude to Codex/User - T109
+
+Summary: Ran the planner (`atlas next` -> WO-0036), retired the queue candidate in the same session (Operating Rule 3), and executed WO-0036. Map001 Ashford Exterior is now hand-authored: forest-bordered village with plaza, well, streetlights, three buildings with working carved doors (Elara house, shop, elder placeholder), metal-panel old-wall with humming panel, fenced garden with warm-stone vent + truly hidden item four steps south, road network to all four route transfers with the Skyreach gate still switch-locked. Event logic preserved verbatim; only positions/graphics repaired, plus TRN-HOM-002 now lands inside the hand-built Elara House at Map002 (8,11). Ledger flipped BEFORE editing.
+
+Files touched:
+- `../TheLastSwordProtocol-Game/data/Map001.json`, `../TheLastSwordProtocol-Game/map_ownership.json`
+- `../TheLastSwordProtocol-Atlas/atlas/workorders/WO-0036-...md` (generated), `../TheLastSwordProtocol-Atlas/atlas/planning/workorder_queue.json` (candidate retired)
+- `reports/atlas-import/wo-0036-gate-a-map001-build-report.md`, `gate-a-map001-route-audit.md`, `wo-0036-map001-render.png`
+
+Verification:
+- Atlas validate -> 0 errors, 0 warnings
+- Ownership audit -> hand_authored=2 (Map001, Map002), both pipeline-blocked
+- Route audit -> found=258 missing=0 warning=0
+- BFS collision/reachability from the Elara House exit landing: all transfers, doors, NPCs, vent, hidden item reachable; borders/buildings/fences block
+
+Open questions / next steps:
+- Gate A now needs the live playtest pass (Production Director) before locking Maps 001/002.
+- Next queue candidate by priority: Build Gate A Ashford Shop Production Map (P30).
+- Not committed, per WO-0036.
