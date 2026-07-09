@@ -30,22 +30,18 @@ BLOCKING_BASE_TILES = {BLOCK}
 # and default deep-water behavior. Never override these via Tilesets.json
 # itself - per bridges/rpg-maker-mz/passability-rule.md's Core Rule, passage
 # comes from which kind is painted, not from editing tileset flags.
-FLOOR_KIND = autotile_kind(FLOOR)  # grass, kind 0
-WATER_BASE = TILE_ID_A1  # A1 kind 0 - impassable deep water
+FLOOR_KIND = autotile_kind(FLOOR)  # grass, kind 0 - shared by both Outside and World tilesets
+WATER_BASE = TILE_ID_A1  # A1 kind 0 - impassable deep water (Outside tileset)
 WATER_KIND = autotile_kind(WATER_BASE)
-MARSH_BASE = 3920  # A2 kind 23 - passable, mossy dense-vegetation ground
+MARSH_BASE = 3920  # A2 kind 23 - Outside tileset, passable, mossy dense-vegetation ground
 MARSH_KIND = autotile_kind(MARSH_BASE)
-# Mountain highland deliberately does NOT use an A2 ground-autotile kind: this
-# tileset's only impassable A2 kinds (6, 14, 21, 22, 29, 30) render as fences,
-# spike barriers, or pits when actually viewed - not a rock/cliff mass - per
-# a direct visual crop check of img/tilesets/Outside_A2.png (this asset pack
-# has no proper mountain-mass ground autotile; a real one would need the A4
-# wall-autotile system, which is a different, unvalidated compositing
-# algorithm - a named follow-up, not attempted here). Mountain highland uses
-# the same solid BLOCK void tile already used for every map's outer border
-# in this project, which is guaranteed correct (it's already proven, in use
-# everywhere) and is thematically consistent with IMP-HOM-024's own "mysterious
-# toward the north" tone target for this exact zone.
+# Legacy Outside-tileset mountain: this tileset's only impassable A2 kinds (6,
+# 14, 21, 22, 29, 30) render as fences, spike barriers, or pits when actually
+# viewed - not a rock/cliff mass - per a direct visual crop check of
+# img/tilesets/Outside_A2.png. Retained only for backward compatibility with
+# any blueprint still using BIOME_BLOCK_TERRAIN_TYPES; new overworld
+# blueprints should use the World-tileset biome kinds below instead, which
+# have real mountain art.
 
 # Outside_B.png single-column tree stamp (row6/row7, col8): a real, existing
 # tileset graphic, not a synthesized shape - confirmed by direct crop
@@ -54,12 +50,73 @@ MARSH_KIND = autotile_kind(MARSH_BASE)
 TREE_TOP = 6 * 16 + 8  # 104
 TREE_BASE = 7 * 16 + 8  # 120
 
+# World tileset (id 7) biome kinds - this project's own World_A1/A2/B/C.png,
+# present but unused until this work order. Kind numbers and passability
+# confirmed directly against data/Tilesets.json's tileset-7 flags, and the
+# construction technique (biome richness as a LAYER-1 OVERLAY on a plain
+# grass/water base, not a layer-0 fill) confirmed against the official RPG
+# Maker sample overworld's own real construction - see
+# AtlasStudio/academy/observations/OBS-MVSAMPLE-001.json. All World_A2 kinds
+# below are on the same tile-ID grid as the Outside tileset (2816 + kind*48),
+# since both tilesets share the standard A1/A2 addressing scheme - only the
+# artwork at each kind index differs per tileset.
+WORLD_TILESET_ID = 7
+WORLD_OCEAN_DEEP = TILE_ID_A1 + 0 * 48  # A1 kind 0, impassable
+WORLD_OCEAN_SHALLOW = TILE_ID_A1 + 1 * 48  # A1 kind 1, impassable, coastline transition overlay
+WORLD_MARSH = TILE_ID_A1 + 4 * 48  # A1 kind 4 'toxic-swamp', passable
+WORLD_MARSH_KIND = autotile_kind(WORLD_MARSH)
+WORLD_MOUNTAIN_ROCK = 2816 + 7 * 48  # A2 kind 7 'rock-mtn', impassable - primary mountain mass
+WORLD_MOUNTAIN_ROCK_KIND = autotile_kind(WORLD_MOUNTAIN_ROCK)
+WORLD_MOUNTAIN_FROST = 2816 + 31 * 48  # A2 kind 31 'frost-mtn', impassable - snow-capped variant
+WORLD_MOUNTAIN_FROST_KIND = autotile_kind(WORLD_MOUNTAIN_FROST)
+WORLD_MOUNTAIN_FOOTHILL = 2816 + 6 * 48  # A2 kind 6 'green-mtn', PASSABLE grassy foothill fringe
+WORLD_MOUNTAIN_FOOTHILL_KIND = autotile_kind(WORLD_MOUNTAIN_FOOTHILL)
+WORLD_FOREST = 2816 + 4 * 48  # A2 kind 4, passable deciduous canopy
+WORLD_FOREST_KIND = autotile_kind(WORLD_FOREST)
+WORLD_FOREST_PINE = 2816 + 5 * 48  # A2 kind 5, passable pine canopy
+WORLD_FOREST_PINE_KIND = autotile_kind(WORLD_FOREST_PINE)
+WORLD_ROAD = 2816 + 8 * 48  # A2 kind 8 'tan-cobble', passable - repurposed as overworld road
+
+# World_B.png single-tile landmark icons, confirmed by direct crop inspection
+# (not guessed from a thumbnail - see world_b_16to47.png crop check):
+WORLD_ICON_BUILDING_A = 38  # small stone building, impassable
+WORLD_ICON_BUILDING_B = 39  # small building variant, impassable
+WORLD_ICON_CAVE_ARCH = 32  # rock cave-mouth arch, passable (walk-through entrance)
+WORLD_ICON_RUIN_ARCH = 33  # rock arch variant, passable
+WORLD_ICON_GATE = 37  # stone archway/gate, impassable
+
 BIOME_TERRAIN_TYPES = {
     "coastal_water": (WATER_KIND, False),
     "marsh_wetland": (MARSH_KIND, True),
     "open_grassland": (FLOOR_KIND, True),
 }
 BIOME_BLOCK_TERRAIN_TYPES = {"mountain_highland"}
+
+# World-tileset (id 7) overlay biomes, painted on layer 1 over a plain grass/
+# water layer-0 base - see the WORLD_* constants above and
+# academy/observations/OBS-MVSAMPLE-001.json for why layer 1, not layer 0.
+WORLD_OVERLAY_TERRAIN_TYPES = {
+    "world_ocean_deep": WORLD_OCEAN_DEEP,
+    "world_ocean_shallow": WORLD_OCEAN_SHALLOW,
+    "world_marsh": WORLD_MARSH,
+    "world_mountain_rock": WORLD_MOUNTAIN_ROCK,
+    "world_mountain_frost": WORLD_MOUNTAIN_FROST,
+    "world_mountain_foothill": WORLD_MOUNTAIN_FOOTHILL,
+    "world_forest": WORLD_FOREST,
+    "world_forest_pine": WORLD_FOREST_PINE,
+    "world_road": WORLD_ROAD,
+}
+WORLD_ICON_NAMES = {
+    "building_a": WORLD_ICON_BUILDING_A,
+    "building_b": WORLD_ICON_BUILDING_B,
+    "cave_arch": WORLD_ICON_CAVE_ARCH,
+    "ruin_arch": WORLD_ICON_RUIN_ARCH,
+    "gate": WORLD_ICON_GATE,
+}
+
+SCREEN_TO_TILESET_ID = {
+    "SCR-HOM-OVW-001": WORLD_TILESET_ID,
+}
 
 SCREEN_TO_MAP_NAME = {
     "SCR-HOM-OVW-001": "FLD_HomeIsland_Overworld",
@@ -334,10 +391,18 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
     map_data["height"] = height
     map_data["data"] = [0 for _ in range(width * height * 6)]
     paint_rect(map_data, 0, 0, width, height, 0, FLOOR)
-    paint_rect(map_data, 2, 3, width - 4, height - 6, 0, ALT_FLOOR)
+    if blueprint.get("atlas_screen_id") not in SCREEN_TO_TILESET_ID:
+        # ALT_FLOOR (kind 0 shape 20, an "edge" shape, not a solid fill) as a
+        # uniform interior fill is visually harmless on the Outside tileset's
+        # grass art but renders as a repeating horizontal line artifact on
+        # the World tileset's grass art - confirmed by direct visual render
+        # inspection. World-tileset screens skip this inner-rect fill and get
+        # their ground variety entirely from layer-1 biome overlays instead.
+        paint_rect(map_data, 2, 3, width - 4, height - 6, 0, ALT_FLOOR)
     paint_border(map_data)
 
     biome_cells: dict[int, set[tuple[int, int]]] = {}
+    world_overlay_cells: dict[int, set[tuple[int, int]]] = {}
     for terrain in blueprint.get("terrain", []):
         area = terrain.get("area", {})
         terrain_type = terrain.get("terrain_type")
@@ -347,6 +412,15 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
         if terrain_type in BIOME_TERRAIN_TYPES and area.get("shape") == "rect":
             kind, _passable = BIOME_TERRAIN_TYPES[terrain_type]
             cells = biome_cells.setdefault(kind, set())
+            for yy in range(int(area["y"]), int(area["y"]) + int(area["h"])):
+                for xx in range(int(area["x"]), int(area["x"]) + int(area["w"])):
+                    if 0 <= xx < width and 0 <= yy < height:
+                        cells.add((xx, yy))
+            continue
+        if terrain_type in WORLD_OVERLAY_TERRAIN_TYPES and area.get("shape") == "rect":
+            tile_id = WORLD_OVERLAY_TERRAIN_TYPES[terrain_type]
+            kind = autotile_kind(tile_id)
+            cells = world_overlay_cells.setdefault(kind, set())
             for yy in range(int(area["y"]), int(area["y"]) + int(area["h"])):
                 for xx in range(int(area["x"]), int(area["x"]) + int(area["w"])):
                     if 0 <= xx < width and 0 <= yy < height:
@@ -418,6 +492,29 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
             0,
             treat_off_map_as_same=touches_edge,
         )
+
+    for kind, cells in world_overlay_cells.items():
+        # Overlay biomes paint on layer 1, over the plain grass/water layer-0
+        # base painted above - this is the technique that reads as blended
+        # rather than blocky, per OBS-MVSAMPLE-001's finding. Ocean overlays
+        # touch the map edge like the legacy coastal_water biome does above;
+        # interior overlays (mountain, forest, marsh, road) get a clean edge.
+        touches_edge = kind in (autotile_kind(WORLD_OCEAN_DEEP), autotile_kind(WORLD_OCEAN_SHALLOW))
+        paint_region(
+            lambda x, y, z, v: set_tile(map_data, x, y, z, v),
+            cells,
+            kind,
+            1,
+            treat_off_map_as_same=touches_edge,
+        )
+
+    for icon in blueprint.get("landmark_icons", []):
+        name = icon.get("icon")
+        tile_id = WORLD_ICON_NAMES.get(name)
+        if tile_id is None:
+            continue
+        x, y = anchor_point(icon["anchor"])
+        set_tile(map_data, x, y, 1, tile_id)
 
     for vegetation in blueprint.get("vegetation_scatter", []):
         area = vegetation.get("area", {})
@@ -661,6 +758,9 @@ def apply_blueprint_decor(map_data: dict[str, Any], blueprint: dict[str, Any]) -
             "node_corridor", "coastal_path", "dock_planks", "marsh_path", "interior_floor",
             "shop_floor", "sanctum_floor",
         }
+        and terrain.get("terrain_type") not in WORLD_OVERLAY_TERRAIN_TYPES
+        and terrain.get("terrain_type") not in BIOME_TERRAIN_TYPES
+        and terrain.get("terrain_type") not in BIOME_BLOCK_TERRAIN_TYPES
     ][:4]
     for terrain in decorative_terrain:
         terrain_id = terrain.get("terrain_id", "terrain")
@@ -733,6 +833,9 @@ def main() -> int:
     map_path = project_root / "data" / f"Map{map_id:03d}.json"
     map_data = load_json(map_path)
     before = json.dumps(map_data, ensure_ascii=False, separators=(",", ":"))
+
+    if blueprint["atlas_screen_id"] in SCREEN_TO_TILESET_ID:
+        map_data["tilesetId"] = SCREEN_TO_TILESET_ID[blueprint["atlas_screen_id"]]
 
     paint_blueprint_layout(map_data, blueprint)
     paint_blueprint_regions(map_data, blueprint)
