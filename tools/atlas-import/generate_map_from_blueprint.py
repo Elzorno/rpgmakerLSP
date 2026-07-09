@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from map_ownership_guard import load_ledger, map_write_allowed, skip_message
+from autotile import TILE_ID_A1, autotile_kind, paint_region
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -22,7 +23,46 @@ BLOCK = 1536
 PATH = 3584
 BLOCKING_BASE_TILES = {BLOCK}
 
+# Biome ground-autotile kinds (A2 unless noted), confirmed against
+# TheLastSwordProtocol-Game/data/Tilesets.json's tileset 2 (Outside) flags
+# before use: FLOOR/MARSH/PATH are passable, MOUNTAIN/WATER are not, matching
+# the reference poster's "mountain impassable unless pass or story event"
+# and default deep-water behavior. Never override these via Tilesets.json
+# itself - per bridges/rpg-maker-mz/passability-rule.md's Core Rule, passage
+# comes from which kind is painted, not from editing tileset flags.
+FLOOR_KIND = autotile_kind(FLOOR)  # grass, kind 0
+WATER_BASE = TILE_ID_A1  # A1 kind 0 - impassable deep water
+WATER_KIND = autotile_kind(WATER_BASE)
+MARSH_BASE = 3920  # A2 kind 23 - passable, mossy dense-vegetation ground
+MARSH_KIND = autotile_kind(MARSH_BASE)
+# Mountain highland deliberately does NOT use an A2 ground-autotile kind: this
+# tileset's only impassable A2 kinds (6, 14, 21, 22, 29, 30) render as fences,
+# spike barriers, or pits when actually viewed - not a rock/cliff mass - per
+# a direct visual crop check of img/tilesets/Outside_A2.png (this asset pack
+# has no proper mountain-mass ground autotile; a real one would need the A4
+# wall-autotile system, which is a different, unvalidated compositing
+# algorithm - a named follow-up, not attempted here). Mountain highland uses
+# the same solid BLOCK void tile already used for every map's outer border
+# in this project, which is guaranteed correct (it's already proven, in use
+# everywhere) and is thematically consistent with IMP-HOM-024's own "mysterious
+# toward the north" tone target for this exact zone.
+
+# Outside_B.png single-column tree stamp (row6/row7, col8): a real, existing
+# tileset graphic, not a synthesized shape - confirmed by direct crop
+# inspection before use. Two tiles tall (top canopy + base), placed on the
+# object layer (z=1) like any other B-sheet decoration.
+TREE_TOP = 6 * 16 + 8  # 104
+TREE_BASE = 7 * 16 + 8  # 120
+
+BIOME_TERRAIN_TYPES = {
+    "coastal_water": (WATER_KIND, False),
+    "marsh_wetland": (MARSH_KIND, True),
+    "open_grassland": (FLOOR_KIND, True),
+}
+BIOME_BLOCK_TERRAIN_TYPES = {"mountain_highland"}
+
 SCREEN_TO_MAP_NAME = {
+    "SCR-HOM-OVW-001": "FLD_HomeIsland_Overworld",
     "SCR-HOM-ASH-001": "TWN_Ashford_Exterior",
     "SCR-HOM-ASH-002": "INT_Ashford_ElaraHouse",
     "SCR-HOM-ASH-003": "INT_Ashford_Shop",
@@ -72,6 +112,11 @@ TRANSFER_EVENT_NAMES = {
     "TRN-HOM-028": "TRN-HOM-028 Return from Fogfen to Ashford-side route",
     "TRN-HOM-029": "TRN-HOM-029 Optional deeper marsh branch",
     "TRN-HOM-030": "TRN-HOM-030 Return from deeper marsh pocket",
+    "TRN-HOM-033": "TRN-HOM-033 Overworld to Ashford",
+    "TRN-HOM-034": "TRN-HOM-034 Overworld to Rustshore Docks",
+    "TRN-HOM-035": "TRN-HOM-035 Overworld to Fogfen Marsh",
+    "TRN-HOM-036": "TRN-HOM-036 Overworld to Glassfield Ruins",
+    "TRN-HOM-037": "TRN-HOM-037 Overworld to Skyreach Hill",
 }
 
 NPC_EVENT_NAMES = {
@@ -124,11 +169,21 @@ ANCHOR_EVENT_NAMES = {
     "INT-ASH-SHOP-CABINET": "INT-ASH-SHOP-CABINET Metal Cabinet",
     "INT-SKY-GEOMETRIC-STONES": "INT-SKY-GEOMETRIC-STONES Geometric Stones",
     "INT-HCV-WALL-CARVING": "INT-HCV-WALL-CARVING Wall Carving",
+    "TRN-HOM-038": "TRN-HOM-038 Hidden Cave Reveal Stub",
+    "TRN-HOM-039": "TRN-HOM-039 Sealed Node Gate Stub",
+    "GATE-HOM-MAINLAND": "GATE-HOM-Mainland Departure Stub",
+    "DOC-HOM-OVERWORLD": "DOC-HOM-Overworld Reference",
 }
 TREASURE_EVENT_NAMES["EVT-HOM-028"] = "Hidden Item Landmark"
 TREASURE_EVENT_NAMES["OBJ-HOM-FOG-009"] = "Deeper Marsh Reward Cache"
 
 ENCOUNTER_POLICIES = {
+    "SCR-HOM-OVW-001": [
+        {"regionSet": [1], "troopId": 1, "weight": 3},
+        {"regionSet": [1], "troopId": 3, "weight": 2},
+        {"regionSet": [2], "troopId": 4, "weight": 3},
+        {"regionSet": [2], "troopId": 5, "weight": 2},
+    ],
     "SCR-HOM-ASH-001": [],
     "SCR-HOM-ASH-002": [],
     "SCR-HOM-ASH-003": [],
@@ -282,9 +337,21 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
     paint_rect(map_data, 2, 3, width - 4, height - 6, 0, ALT_FLOOR)
     paint_border(map_data)
 
+    biome_cells: dict[int, set[tuple[int, int]]] = {}
     for terrain in blueprint.get("terrain", []):
         area = terrain.get("area", {})
         terrain_type = terrain.get("terrain_type")
+        if terrain_type in BIOME_BLOCK_TERRAIN_TYPES and area.get("shape") == "rect":
+            paint_rect(map_data, int(area["x"]), int(area["y"]), int(area["w"]), int(area["h"]), 0, BLOCK)
+            continue
+        if terrain_type in BIOME_TERRAIN_TYPES and area.get("shape") == "rect":
+            kind, _passable = BIOME_TERRAIN_TYPES[terrain_type]
+            cells = biome_cells.setdefault(kind, set())
+            for yy in range(int(area["y"]), int(area["y"]) + int(area["h"])):
+                for xx in range(int(area["x"]), int(area["x"]) + int(area["w"])):
+                    if 0 <= xx < width and 0 <= yy < height:
+                        cells.add((xx, yy))
+            continue
         if area.get("shape") == "rect":
             value = PATH if terrain_type in {
                 "village_path",
@@ -337,6 +404,46 @@ def paint_blueprint_layout(map_data: dict[str, Any], blueprint: dict[str, Any]) 
             for start, end in zip(points, points[1:]):
                 for x, y in line_points(start, end):
                     set_tile(map_data, x, y, 1, PATH)
+
+    for kind, cells in biome_cells.items():
+        # A coastal-water ring is the one biome deliberately meant to touch
+        # the map's outer edge (an island coastline), so it reads as
+        # continuing past the border instead of showing a hard interior
+        # edge there. Interior biomes (mountain, marsh) get a clean edge.
+        touches_edge = kind == WATER_KIND
+        paint_region(
+            lambda x, y, z, v: set_tile(map_data, x, y, z, v),
+            cells,
+            kind,
+            0,
+            treat_off_map_as_same=touches_edge,
+        )
+
+    for vegetation in blueprint.get("vegetation_scatter", []):
+        area = vegetation.get("area", {})
+        if area.get("shape") != "rect":
+            continue
+        density = float(vegetation.get("density", 0.25))
+        step = max(1, round(1 / max(density, 0.01) ** 0.5))
+        x0, y0 = int(area["x"]), int(area["y"])
+        w0, h0 = int(area["w"]), int(area["h"])
+        for yy in range(y0, y0 + h0, step):
+            for xx in range(x0, x0 + w0, step):
+                # Deterministic offset (not random) so regeneration is
+                # reproducible, per this project's "recommend/generate,
+                # never opaque randomness" convention.
+                px = xx + ((yy // step) % 2) * (step // 2)
+                if px >= x0 + w0 or px - 1 < 0 or yy + 1 >= height:
+                    continue
+                ground = map_data["data"][tile_index(width, height, px, yy, 0)]
+                if ground < TILE_ID_A1 or autotile_kind(ground) != FLOOR_KIND:
+                    continue  # never plant a tree on mountain/water/marsh ground
+                if map_data["data"][tile_index(width, height, px, yy, 1)]:
+                    continue  # never plant a tree on top of an existing road/path tile
+                if map_data["data"][tile_index(width, height, px, yy + 1, 1)]:
+                    continue  # or where the tree's own base tile would cover one
+                set_tile(map_data, px, yy, 1, TREE_TOP)
+                set_tile(map_data, px, yy + 1, 1, TREE_BASE)
 
     for obstacle in blueprint.get("obstacles", []):
         if not obstacle.get("blocking"):
