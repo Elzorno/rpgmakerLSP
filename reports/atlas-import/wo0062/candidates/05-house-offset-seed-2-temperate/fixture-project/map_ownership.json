@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "maps": {
+    "1": {
+      "state": "generated",
+      "atlas_screen": null,
+      "name": "05-house-offset-seed-2-temperate"
+    }
+  }
+}

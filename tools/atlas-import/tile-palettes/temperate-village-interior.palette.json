@@ -1,0 +1,370 @@
+{
+  "schema_version": "0.1",
+  "tile_palette_id": "PAL-TEMPERATE-VILLAGE-INTERIOR",
+  "version": "0.1",
+  "style_pack_ref": "STY-ASHFORD-COZY-INTERIOR",
+  "target_engine": "rpg_maker_mz",
+  "tileset_id": 3,
+  "tileset_name": "Inside",
+  "status": "generated_pending_live_review",
+  "bindings": [
+    {
+      "visual_tag": "hearth_focal_feature",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 195
+      },
+      "role": "landmark",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 195 is the brick hearth/fireplace identified in the labeled contact sheet."
+      },
+      "tile_id": 195,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "wall_mounted_flame",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 104
+      },
+      "role": "lighting",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 104 is the isolated flame/sconce accent visible in the labeled contact sheet."
+      },
+      "tile_id": 104,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "shelf_wall_run",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 157
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 157 is a wall-facing filled bookshelf in the labeled contact sheet."
+      },
+      "tile_id": 157,
+      "flags": 1552,
+      "passage": "passable",
+      "layer": "upper_star",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "picture_and_cabinet_nook",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 130
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 130 is the framed landscape furnishing identified in the labeled contact sheet."
+      },
+      "tile_id": 130,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "bed_alcove",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 168
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 168 is the upper half of the quilted blue bed in the labeled contact sheet."
+      },
+      "component": "top",
+      "tile_id": 168,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "bed_alcove",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 176
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 176 is the lower half of the quilted blue bed in the labeled contact sheet."
+      },
+      "component": "bottom",
+      "tile_id": 176,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "back_wall_shelf_run",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 157
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 157 is the verified filled bookshelf reused for a back-wall shelf run."
+      },
+      "tile_id": 157,
+      "flags": 1552,
+      "passage": "passable",
+      "layer": "upper_star",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "hearth_accent",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 195
+      },
+      "role": "landmark",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 195 is the verified brick hearth reused for the optional hearth accent."
+      },
+      "tile_id": 195,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "counter_service_point",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 112
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 112 is the left half of the plain wooden counter/table visible in the labeled contact sheet."
+      },
+      "component": "left",
+      "tile_id": 112,
+      "flags": 1679,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "counter_service_point",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 113
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 113 is the right half of the plain wooden counter/table visible in the labeled contact sheet."
+      },
+      "component": "right",
+      "tile_id": 113,
+      "flags": 1679,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "display_table",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 208
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 208 is a plain horizontal wooden display table visible in the labeled contact sheet."
+      },
+      "tile_id": 208,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "floor_rug_focal_accent",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 80
+      },
+      "role": "edge_dressing",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 80 is a red-gold rug panel visible in the labeled contact sheet."
+      },
+      "tile_id": 80,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "warm_wood_plank_floor",
+      "asset_sheet": "Inside_A2",
+      "source_index": {
+        "addressing": "autotile_kind",
+        "index": 16
+      },
+      "role": "floor",
+      "provenance": {
+        "contact_sheet": "inside_a2_kinds.png",
+        "notes": "Autotile kind 16 is the warm wood floor cited by the WO-0060 study."
+      },
+      "tile_id": 2816,
+      "flags": 1536,
+      "passage": "passable",
+      "layer": "base",
+      "adjacency": "autotile_48",
+      "source_sha256": "10b25ac4d636cfa528bb898b6fdbf9b7d37479180653c41bd6d6f0c710d20bb2"
+    },
+    {
+      "visual_tag": "rustic_brick_wall",
+      "asset_sheet": "Inside_A4",
+      "source_index": {
+        "addressing": "autotile_kind",
+        "index": 85
+      },
+      "role": "wall",
+      "provenance": {
+        "contact_sheet": "inside_a4_kinds.png",
+        "notes": "Autotile kind 85 is the visibly brick member of the study's cited rustic 84-87 family, confirmed in the composited candidate render."
+      },
+      "tile_id": 6128,
+      "flags": 3584,
+      "passage": "passable",
+      "layer": "base",
+      "adjacency": "autotile_48",
+      "source_sha256": "6e8260154b121f5d3e42b266b9f0cba94b5cef13483f51f089c2ecb19830e34d"
+    },
+    {
+      "visual_tag": "warm_wood_paneling",
+      "asset_sheet": "Inside_A4",
+      "source_index": {
+        "addressing": "autotile_kind",
+        "index": 97
+      },
+      "role": "wall",
+      "provenance": {
+        "contact_sheet": "inside_a4_kinds.png",
+        "notes": "Autotile kind 97 is the warm-panel member of the study's cited 96-98 family."
+      },
+      "tile_id": 6704,
+      "flags": 3584,
+      "passage": "passable",
+      "layer": "base",
+      "adjacency": "autotile_48",
+      "source_sha256": "6e8260154b121f5d3e42b266b9f0cba94b5cef13483f51f089c2ecb19830e34d"
+    },
+    {
+      "visual_tag": "warm_wood_plank_threshold",
+      "asset_sheet": "Inside_A5",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 1
+      },
+      "role": "threshold",
+      "provenance": {
+        "contact_sheet": "inside_a5_tiles.png",
+        "notes": "Normal tile 1 is the warm plank threshold cited by the WO-0060 study."
+      },
+      "tile_id": 1537,
+      "flags": 1536,
+      "passage": "passable",
+      "layer": "base",
+      "adjacency": "none",
+      "source_sha256": "970f401689b4e89de3e3e226b3ee0444a138b4e37b31e84a06439053afe2c839"
+    },
+    {
+      "visual_tag": "quilted_wood_frame_bed",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 168
+      },
+      "role": "furniture",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 168 is the quilted wood-frame bed top identified in the contact sheet."
+      },
+      "tile_id": 168,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    },
+    {
+      "visual_tag": "red_curtain_accent",
+      "asset_sheet": "Inside_B",
+      "source_index": {
+        "addressing": "normal_tile",
+        "index": 57
+      },
+      "role": "edge_dressing",
+      "provenance": {
+        "contact_sheet": "inside_b_tiles.png",
+        "notes": "Tile 57 is the deep red curtain panel visible in the labeled contact sheet."
+      },
+      "tile_id": 57,
+      "flags": 1551,
+      "passage": "blocked",
+      "layer": "object",
+      "adjacency": "none",
+      "source_sha256": "3e6c9d97980e62dde51c1b94c0e709f52b4ea9abd633fe34870d89b8ba7c7cb9"
+    }
+  ],
+  "owner_repo": "rpgmakerLSP",
+  "provenance": {
+    "target_tilesets_sha256": "ca8633de14521d07ec68aa5865225326a65e3426ffc986d0cabdc5bde2a1e464",
+    "contact_sheet_root": "atlas-tools/mapgen/compiler/style_study/wo0060/contact_sheets",
+    "notes": "Generated from labeled WO-0060 contact-sheet selections and verified against the clean target project's exact Inside tileset flags. Not approved until Chris records live RPG Maker review."
+  },
+  "human_review": {
+    "rpg_maker_live_confirmed": false,
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": null
+  }
+}

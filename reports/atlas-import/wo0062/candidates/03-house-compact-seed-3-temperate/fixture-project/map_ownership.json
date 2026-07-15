@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "maps": {
+    "1": {
+      "state": "generated",
+      "atlas_screen": null,
+      "name": "03-house-compact-seed-3-temperate"
+    }
+  }
+}

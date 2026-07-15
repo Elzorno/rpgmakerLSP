@@ -2,6 +2,30 @@
 
 These tools let the RPG Maker MZ project consume structured exports from the Atlas repository.
 
+## Verified Tile Palettes (WO-0060)
+
+WO-0060 palettes live in `tile-palettes/` and remain
+`generated_pending_live_review` until Chris confirms them in RPG Maker. Rebuild
+them with `generate_wo0060_palettes.py`; validate them with
+`validate_tile_palette.py` against the clean target project and the labeled
+contact sheets in AtlasStudio.
+
+The verifier is read-only and fails closed on guessed semantics, incomplete
+StylePack coverage, missing provenance, stale source hashes, tile-address
+errors, and passability/layer/adjacency drift. It does not write map data.
+
+WO-0061's `mapplan_candidate_compiler.py` consumes those verified palettes and
+writes only to a target project whose ownership ledger marks the requested map
+`generated`. `generate_wo0061_fixtures.py` rebuilds the disposable temperate
+and coastal comparison candidates under `reports/atlas-import/wo0061/`; there
+is intentionally no production-promotion command.
+
+WO-0062 extends AtlasStudio's existing `QualityAuditor` with non-bypassable
+candidate hard gates and a separate advisory classic-JRPG rubric.
+`generate_wo0062_gallery.py` produces the ten-candidate labeled contact sheet
+under `reports/atlas-import/wo0062/`. `record_wo0062_review.py` records a human
+accept/reject decision without changing scores or applying production promotion.
+
 ## Map Ownership Guard (WO-0031)
 
 Every write-capable script in this toolchain (`apply_*.py`, `create_clean_skeleton.py`, `generate_map_from_blueprint.py`) consults the per-map ownership ledger `map_ownership.json` at the target project root (via `map_ownership_guard.py`) before writing any `data/MapXXX.json`:
@@ -140,3 +164,19 @@ Run from the legacy RPG Maker repository after animation feedback exists:
 ```
 
 The audit is read-only. It checks the machine-visible Home Island critical path from new game start through the Journey II placeholder, including transfer targets, gated route switches, trial completion switches, Sword acquisition, Node Seven boss/relay state, and Rustshore departure.
+
+## Generate the WO-0063 Settlement Slice
+
+Generate labeled `Outside` tileset contact sheets, then compile the disposable
+temperate/coastal settlement candidates:
+
+```bash
+python3 tools/atlas-import/generate_wo0063_contact_sheets.py
+python3 tools/atlas-import/generate_wo0063_settlement.py
+```
+
+Outputs live only under `reports/atlas-import/wo0063/`. Each recorded seed has
+the engine-neutral MapPlan, ASCII/SVG structural previews, isolated RPG Maker
+fixture candidate, manifest, route diagnostics, quality result, and render.
+`settlement-gallery.png` compares all six candidates. These are non-canon,
+remain `generated_pending_review`, and have no production-promotion path.

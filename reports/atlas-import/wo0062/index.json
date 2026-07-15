@@ -1,0 +1,228 @@
+{
+  "schema_version": "0.1",
+  "candidate_count": 10,
+  "hard_pass_count": 10,
+  "human_review_boundary": "Scores never accept, reject, or promote candidates. Record human decisions separately.",
+  "candidates": [
+    {
+      "candidate_id": "01-house-compact-seed-1-temperate",
+      "seed": 11089075493222367100,
+      "archetype": "ARCH-INTERIOR-HOUSE@1.0",
+      "layout_family": "LAY-INTERIOR-HOUSE-COMPACT@1.0",
+      "variant": "no_accent",
+      "style_pack": "STY-ASHFORD-COZY-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/01-house-compact-seed-1-temperate/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/01-house-compact-seed-1-temperate/quality.json"
+    },
+    {
+      "candidate_id": "02-house-compact-seed-2-coastal",
+      "seed": 9497537872014373179,
+      "archetype": "ARCH-INTERIOR-HOUSE@1.0",
+      "layout_family": "LAY-INTERIOR-HOUSE-COMPACT@1.0",
+      "variant": "no_accent",
+      "style_pack": "STY-COASTAL-SETTLEMENT-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/02-house-compact-seed-2-coastal/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/02-house-compact-seed-2-coastal/quality.json"
+    },
+    {
+      "candidate_id": "03-house-compact-seed-3-temperate",
+      "seed": 17687655639384649211,
+      "archetype": "ARCH-INTERIOR-HOUSE@1.0",
+      "layout_family": "LAY-INTERIOR-HOUSE-COMPACT@1.0",
+      "variant": "no_accent",
+      "style_pack": "STY-ASHFORD-COZY-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/03-house-compact-seed-3-temperate/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/03-house-compact-seed-3-temperate/quality.json"
+    },
+    {
+      "candidate_id": "04-house-offset-seed-1-coastal",
+      "seed": 16499788695352105453,
+      "archetype": "ARCH-INTERIOR-HOUSE@1.0",
+      "layout_family": "LAY-INTERIOR-HOUSE-OFFSET@1.0",
+      "variant": "accent_offset_right",
+      "style_pack": "STY-COASTAL-SETTLEMENT-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/04-house-offset-seed-1-coastal/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/04-house-offset-seed-1-coastal/quality.json"
+    },
+    {
+      "candidate_id": "05-house-offset-seed-2-temperate",
+      "seed": 5683160677420106472,
+      "archetype": "ARCH-INTERIOR-HOUSE@1.0",
+      "layout_family": "LAY-INTERIOR-HOUSE-OFFSET@1.0",
+      "variant": "accent_offset_right",
+      "style_pack": "STY-ASHFORD-COZY-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/05-house-offset-seed-2-temperate/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/05-house-offset-seed-2-temperate/quality.json"
+    },
+    {
+      "candidate_id": "06-house-offset-seed-3-coastal",
+      "seed": 2137336572853274812,
+      "archetype": "ARCH-INTERIOR-HOUSE@1.0",
+      "layout_family": "LAY-INTERIOR-HOUSE-OFFSET@1.0",
+      "variant": "accent_offset_right",
+      "style_pack": "STY-COASTAL-SETTLEMENT-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/06-house-offset-seed-3-coastal/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/06-house-offset-seed-3-coastal/quality.json"
+    },
+    {
+      "candidate_id": "07-shop-compact-seed-1-temperate",
+      "seed": 7319118564751684431,
+      "archetype": "ARCH-INTERIOR-SHOP@1.0",
+      "layout_family": "LAY-INTERIOR-SHOP-BILATERAL@1.0",
+      "variant": "single_aisle",
+      "style_pack": "STY-ASHFORD-COZY-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/07-shop-compact-seed-1-temperate/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/07-shop-compact-seed-1-temperate/quality.json"
+    },
+    {
+      "candidate_id": "08-shop-compact-seed-2-coastal",
+      "seed": 18132416747595077077,
+      "archetype": "ARCH-INTERIOR-SHOP@1.0",
+      "layout_family": "LAY-INTERIOR-SHOP-BILATERAL@1.0",
+      "variant": "single_aisle",
+      "style_pack": "STY-COASTAL-SETTLEMENT-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/08-shop-compact-seed-2-coastal/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/08-shop-compact-seed-2-coastal/quality.json"
+    },
+    {
+      "candidate_id": "09-shop-compact-seed-3-temperate",
+      "seed": 6265639819595693752,
+      "archetype": "ARCH-INTERIOR-SHOP@1.0",
+      "layout_family": "LAY-INTERIOR-SHOP-BILATERAL@1.0",
+      "variant": "single_aisle",
+      "style_pack": "STY-ASHFORD-COZY-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/09-shop-compact-seed-3-temperate/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/09-shop-compact-seed-3-temperate/quality.json"
+    },
+    {
+      "candidate_id": "10-shop-offset-seed-1-coastal",
+      "seed": 3331122194287600771,
+      "archetype": "ARCH-INTERIOR-SHOP@1.0",
+      "layout_family": "LAY-INTERIOR-SHOP-OFFSET@1.0",
+      "variant": "l_extension_right",
+      "style_pack": "STY-COASTAL-SETTLEMENT-INTERIOR",
+      "palette_version": "0.1",
+      "hard_passed": true,
+      "advisory_score": 100.0,
+      "rejection_reasons": [],
+      "human_review": {
+        "status": "pending",
+        "decision": null,
+        "reviewer": null,
+        "reviewed_at": null,
+        "notes": null
+      },
+      "promotion": "not_applied",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/10-shop-offset-seed-1-coastal/candidate.render.png",
+      "quality_report": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0062/candidates/10-shop-offset-seed-1-coastal/quality.json"
+    }
+  ]
+}

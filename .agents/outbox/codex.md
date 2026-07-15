@@ -2739,3 +2739,98 @@ Next active queue:
 - Gate A Ashford Lives Playtest Fix Pass
 - Build Skyreach Hill Production Map
 - Apply Approved Skyreach Hidden Cave Dialogue To Events
+## 2026-07-13 ET - Codex to Claude/User - T110
+
+Summary: Completed Codex's WO-0060 scope. Added reproducible temperate/coastal
+TilePalette generation, fail-closed verification against the clean target's
+real Inside tileset flags and PNG hashes, 18/19-binding palettes, and five
+persisted negative fixtures. Both palettes remain pending live RPG Maker
+review. No map or RPG Maker database file was modified.
+
+Files touched: `tools/atlas-import/{generate_wo0060_palettes.py,validate_tile_palette.py,README.md}`,
+`tools/atlas-import/tile-palettes/`, `tools/atlas-import/tests/test_tile_palette.py`,
+AtlasStudio TilePalette schema/StylePacks, Atlas WO-0060 report, and coordination files.
+
+Verification: adapter tests 3/3; palettes 18/18 and 19/19 bindings; contract
+examples 30/30; contract tests 5/5; compiler tests 34/34; Atlas validation 0
+errors and 0 warnings. Blue-checkered A5 tile 78 is correctly recorded as
+blocked-only dressing. Next step is WO-0061 rendering followed by Chris's live
+RPG Maker visual/passability approval.
+## 2026-07-13 ET - Codex to Claude/User - T111
+
+Summary: Completed WO-0061. Added a guarded MapPlan-to-RPG-Maker candidate
+adapter, reproducible disposable fixture generator, manifests/diagnostics,
+route and interaction audits, engine-faithful renders, and ownership-refusal
+tests. Generated temperate and coastal Map001 candidates from the identical
+shop MapPlan without touching the clean game.
+
+Render review caught a false WO-0060 citation: A5 tile 78 is yellow brick, not
+blue check. Corrected the coastal semantic accent to visibly blue, passable
+tile 42 and regenerated palettes, fixtures, provenance, and tests.
+
+Verification: adapter 6/6, contract fixtures 30/30, contract tests 5/5,
+compiler 34/34, deterministic JSON/PNG regeneration, Atlas 0 errors/warnings.
+Protected `hand_authored`, `locked`, missing-ledger and unlisted targets refuse
+before writes. No production promotion command exists.
+## 2026-07-13 ET - Codex to Claude/User - T112
+
+Summary: Completed WO-0062 by extending AtlasStudio's existing QualityAuditor
+with ten hard candidate gates and seven falsifiable classic-JRPG advisory
+checks. Generated a deterministic labeled ten-candidate contact sheet and
+persisted ten known-bad controls. Added human review recording that never
+changes scores or promotion state.
+
+Verification: gallery 10/10 hard-pass; negative controls 10/10 fail with their
+intended codes; adapter/palette/quality tests 11/11; contract 30/30 and 5/5;
+compiler 34/34; Atlas 0 errors/warnings. Tests explicitly prove a high advisory
+score cannot bypass a hard failure or a human rejection. Production game and
+promotion state remain untouched.
+## 2026-07-13 ET - Codex to Claude/User - T113
+
+Summary: Completed the agent implementation for WO-0063. Generated a disposable
+non-canon JRPG settlement vertical slice for seeds 6301-6303 in temperate and
+coastal exterior styles. Each candidate includes an identical semantic MapPlan,
+ASCII/SVG structural previews, isolated RPG Maker fixture, manifest, route
+diagnostics, hard/advisory quality report, render, and combined gallery.
+
+Visual QA confirms three readable service façades, a compact civic road/spine,
+dominant well plaza, and optional curiosity garden. The slice uses an
+evidence-backed `Outside` palette rather than incorrectly reusing WO-0060's
+interior palette. Verification: 6/6 candidate hard-pass; adapter suite 15/15;
+contract 30/30 and 5/5; compiler 34/34; Atlas 0 errors/warnings; deterministic
+gallery hash reproduced exactly. Production Game remains clean and no promotion
+was applied. WO status is Awaiting Human Review because live RPG Maker inspection
+by Chris is still required before GO.
+## 2026-07-14 ET - Codex to Claude/User - T114
+
+Summary: Completed the canon-first Ashford exterior reconciliation before any
+Map001 rebuild. Updated SCR-HOM-ASH-001 and IMP-HOM-017 to v0.2 and recorded a
+full adopted/adapted/deferred/rejected matrix. Ashford remains 40x32 with all
+canonical north/east/south routes, events, hidden-item relationship, and Inn
+round trip. The supplied guide contributes the central well square, curved road
+hierarchy, partial valley framing, richer residential/farm dressing, and Inn/
+Shop exterior detail. White-plaster primacy, south-only enclosure, generic
+ancient pillars, natural river, blacksmith role/service, and local day/night
+systems were either adapted to Ashford's factory-remnant identity or deferred.
+
+Files touched: Atlas SCR-HOM-ASH-001, Atlas IMP-HOM-017,
+`reports/atlas-import/ashford-exterior-rebuild-reconciliation.md`, and agent
+coordination files. Verification: Atlas validation 0 errors/0 warnings; Map001
+remains 40x32, tileset 2, hand_authored, and byte-untouched during this pass.
+Next step: execute the narrowly scoped hand-authored Map001 terrain/façade
+rebuild while preserving event behavior, then route/render/live-editor review.
+## 2026-07-14 ET - Codex to Claude/User - T115
+
+Summary: Built a review-only reconciled Ashford Exterior candidate without
+overwriting protected production Map001. The 40x32 render now has a central
+well square, branching dirt roads, largest/signed northwestern Inn, distinct
+Shop and Elara House, two residential shells, southwest farm/garden/orchard,
+partial forest valley framing, east drainage, and restrained repair/factory
+dressing. All canonical exit corridors remain open.
+
+Verification: candidate renders successfully; conservative collision BFS passes
+with 849 reachable cells and zero event failures; all 27 source events remain;
+event page/command payloads compare equal to production. Production Game status
+for Map001 and ownership remains clean. Candidate and review evidence live under
+`reports/atlas-import/ashford-exterior-rebuild-v2/`. T115 is Review pending
+Chris's visual decision; do not install over hand_authored Map001 before that.

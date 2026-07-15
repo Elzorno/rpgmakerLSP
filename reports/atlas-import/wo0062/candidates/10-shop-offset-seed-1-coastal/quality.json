@@ -1,0 +1,28 @@
+{
+  "target": "Generic Small Retail Shop Interior (Contract Example) - generated structural candidate",
+  "hard_passed": true,
+  "hard_findings": [],
+  "advisory": {
+    "score": 100.0,
+    "checks": {
+      "immediate_place_identity": true,
+      "dominant_landmark": true,
+      "route_legibility": true,
+      "compact_meaningful_travel": true,
+      "curiosity_hook": true,
+      "compression_release": true,
+      "selective_density": true
+    },
+    "evidence": {
+      "obstacle_density": 0.0242
+    }
+  },
+  "human_review": {
+    "status": "pending",
+    "decision": null,
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": null
+  },
+  "promotion": "not_applied"
+}

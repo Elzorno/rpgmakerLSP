@@ -1,0 +1,41 @@
+{
+  "schema_version": "0.1",
+  "base_palette": "coastal-settlement-interior.palette.json",
+  "cases": [
+    {
+      "case_id": "guessed-semantics",
+      "binding_tag": "hearth_focal_feature",
+      "field": "provenance.notes",
+      "value": "Guessed placeholder with no visual confirmation.",
+      "expected_code": "unverified_semantics"
+    },
+    {
+      "case_id": "unknown-tile-meaning",
+      "binding_tag": "hearth_focal_feature",
+      "field": "visual_tag",
+      "value": "unknown_nautical_prop",
+      "expected_code": "unknown_visual_tag"
+    },
+    {
+      "case_id": "incompatible-passability",
+      "binding_tag": "blue_patterned_floor_accent",
+      "field": "passage",
+      "value": "blocked",
+      "expected_code": "passage_mismatch"
+    },
+    {
+      "case_id": "incompatible-layer",
+      "binding_tag": "whitewashed_plaster_wall",
+      "field": "layer",
+      "value": "object",
+      "expected_code": "layer_mismatch"
+    },
+    {
+      "case_id": "missing-contact-sheet",
+      "binding_tag": "pale_stone_threshold",
+      "field": "provenance.contact_sheet",
+      "value": "not-a-real-contact-sheet.png",
+      "expected_code": "missing_contact_sheet"
+    }
+  ]
+}

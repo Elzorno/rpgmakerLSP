@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1",
+  "controls": [
+    {"id": "reachability", "expected_code": "reachability_failed"},
+    {"id": "interaction_ring", "expected_code": "interaction_ring_failed"},
+    {"id": "isolated_pockets", "expected_code": "isolated_pockets"},
+    {"id": "connector_alignment", "expected_code": "connector_alignment_failed"},
+    {"id": "clearance", "expected_code": "clearance_failed"},
+    {"id": "transfer_round_trip", "expected_code": "transfer_round_trip_failed"},
+    {"id": "event_anchor", "expected_code": "event_anchor_failed"},
+    {"id": "rpgmaker_shape", "expected_code": "rpgmaker_shape_failed"},
+    {"id": "tile_family", "expected_code": "tile_family_failed"},
+    {"id": "manifest_completeness", "expected_code": "manifest_incomplete"}
+  ]
+}

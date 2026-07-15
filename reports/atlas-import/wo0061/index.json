@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1",
+  "source_map_plan": "/Users/christopherzornes/Documents/GitHub/AtlasStudio/atlas-tools/mapgen/compiler/prototypes/wo0059/shop-compact-seed-1.map_plan.json",
+  "candidates": [
+    {
+      "style": "temperate",
+      "map": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0061/temperate/fixture-project/data/Map001.json",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0061/temperate/candidate.render.png",
+      "dimensions": [
+        11,
+        14
+      ],
+      "events": 48,
+      "data_length": 924,
+      "route_audit": {
+        "origin": [
+          1,
+          6
+        ],
+        "reachable_cells": 107,
+        "interaction_ring_failures": [],
+        "result": "pass"
+      }
+    },
+    {
+      "style": "coastal",
+      "map": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0061/coastal/fixture-project/data/Map001.json",
+      "render": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/wo0061/coastal/candidate.render.png",
+      "dimensions": [
+        11,
+        14
+      ],
+      "events": 48,
+      "data_length": 924,
+      "route_audit": {
+        "origin": [
+          1,
+          6
+        ],
+        "reachable_cells": 108,
+        "interaction_ring_failures": [],
+        "result": "pass"
+      }
+    }
+  ]
+}
