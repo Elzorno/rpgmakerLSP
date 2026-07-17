@@ -1,0 +1,138 @@
+{
+  "backend": "recorded",
+  "covered_avcp_refs": [
+    "ASH-BUILD-002",
+    "ASH-DENSITY-001",
+    "ASH-FIRST-001",
+    "ASH-FIRST-002",
+    "ASH-MATERIAL-001",
+    "ASH-MATERIAL-002",
+    "ASH-PATH-002",
+    "ASH-PATH-003",
+    "ASH-RHYTHM-001",
+    "ASH-VOCAB-001"
+  ],
+  "image_ref": "rpgmakerLSP/reports/atlas-import/ashford-mapvision-v3/ashford-mapvision-candidate-render.png",
+  "label": "wo0073_candidate",
+  "model": "claude-opus-4-8 (agent session)",
+  "overall": "reject",
+  "results": [
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "ENCLOSURE-001",
+      "reason": "There is no perimeter at all; four buildings float in an unbounded flat green field -- the exact open-field failure the grammar forbids.",
+      "title": "Bounded perimeter",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-002"
+      ],
+      "core": true,
+      "criterion_id": "PATH-ORGANIC-001",
+      "reason": "Paths form a single rigid plus-shaped cross of uniform width joining building centres, with no branching or curvature.",
+      "title": "Organic branching paths",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-003",
+        "ASH-RHYTHM-001"
+      ],
+      "core": true,
+      "criterion_id": "PATH-RHYTHM-001",
+      "reason": "There is no compression/release and no bends, and the path arms dead-end near building walls instead of meeting the doors.",
+      "title": "Path rhythm and door alignment",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-BUILD-002"
+      ],
+      "core": true,
+      "criterion_id": "BUILDING-VARIETY-001",
+      "reason": "All four buildings are the same brown shell at near-identical footprint, differentiated only by a sign -- one repeated shell.",
+      "title": "Varied building massing",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-MATERIAL-001",
+        "ASH-MATERIAL-002"
+      ],
+      "core": true,
+      "criterion_id": "MATERIAL-IDENTITY-001",
+      "reason": "A single brown timber material is used for every structure over flat green; there is no material identity or contrast.",
+      "title": "Distinct material identity",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "DECOR-DENSITY-001",
+      "reason": "Decoration is a handful of isolated props (a log, a few flowers, rocks, buckets) in a mostly empty field, with no interior scatter or edge clustering.",
+      "title": "Decoration density",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-002"
+      ],
+      "core": true,
+      "criterion_id": "DOMINANT-LANDMARK-001",
+      "reason": "No landmark dominates; the eye finds four equally-weighted identical boxes and nothing specific to move toward.",
+      "title": "Dominant landmark",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-001"
+      ],
+      "core": false,
+      "criterion_id": "FIRST-VIEW-001",
+      "reason": "The first read is 'four boxes and a crossroad in a void,' not a recognisable kind of place.",
+      "title": "Readable first view",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "REWARD-CLUSTER-001",
+      "reason": "Event/reward positions are bare markers sitting in empty grass, not dressed clusters.",
+      "title": "Dressed reward clusters",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "WATER-LANDMARK-001",
+      "reason": "There is no water feature and the only open space is the hard rectangular path intersection.",
+      "title": "Water or organic plaza",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-VOCAB-001"
+      ],
+      "core": false,
+      "criterion_id": "VOCAB-LIMITED-001",
+      "reason": "The material vocabulary is limited -- arguably too limited -- so this lone criterion does not fail, though for the wrong reason.",
+      "title": "Limited coherent vocabulary",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "MEMORABLE-IDENTITY-001",
+      "reason": "Nothing is statable beyond 'generic four-box village'; there is no memorable identity.",
+      "title": "Memorable identity",
+      "verdict": "fail"
+    }
+  ],
+  "schema_version": "0.1"
+}

@@ -2,7 +2,18 @@
 
 Date: 2026-07-14  
 Canon: `SCR-HOM-ASH-001` v0.2 / `IMP-HOM-017` v0.2  
-Status: Review candidate; not installed in the production Game project
+Status: Rejected by Chris on 2026-07-14; not installed in the production Game project
+
+## Human Decision
+
+Rejected. Chris found that the trees show only the bottom half of a two-tile
+set, the buildings are too tall and do not match the references' building
+style, and the overall style and feel remain wrong. Chris also found genuine
+progress: the layout is better, less mechanical, and more organic.
+
+This distinction is binding feedback for the replacement pipeline: structural
+and compositional improvement does not constitute visual acceptance. This
+candidate remains a negative-control fixture and must never be promoted.
 
 ## What Changed Visually
 
@@ -44,9 +55,7 @@ Status: Review candidate; not installed in the production Game project
 - `Map001.reconciled-candidate.json`
 - `route-audit.json`
 
-## Remaining Gate
+## Disposition
 
-Chris should judge the render before installation. If accepted visually, the
-candidate can replace protected Map001 under the explicit rebuild authorization,
-followed by full-project route auditing and live RPG Maker MZ playtesting. Until
-then, production remains unchanged.
+Do not install. Preserve the candidate as evidence for WO-0066, WO-0069,
+WO-0072, and WO-0074. Production remains unchanged.

@@ -128,3 +128,48 @@ Open questions / next steps:
 - Gate A now needs the live playtest pass (Production Director) before locking Maps 001/002.
 - Next queue candidate by priority: Build Gate A Ashford Shop Production Map (P30).
 - Not committed, per WO-0036.
+## 2026-07-15 10:40 ET - Claude to Codex/User - T120 review
+
+Summary: Completed WO-0069 Academy decomposition after Chris selected the
+complete Ashford v2 concept set. Added Atlas-owned machine-readable profile
+`AVCP-HOM-ASH-001` and its one-to-one human acceptance checklist. The outputs
+keep visible observations, reference inferences, canon constraints, and
+creative preferences explicit; concepts remain visual direction only.
+
+The profile supplies falsifiable checks for first-camera read, well hierarchy,
+complete TileAssemblies, low facade proportions, four-role silhouette
+differentiation, visible roads, provisional surface/density ratios,
+compression/release, functional prop clusters, timber-first materials,
+subordinate ambiguous salvage, and limited vocabulary. Numeric ratio bands are
+explicitly provisional and await Codex adapter-fit review plus Chris approval.
+
+Negative-control calibration: the preserved rejected Ashford candidate fails
+`ASH-ASSEMBLY-001`, `ASH-BUILD-001`, `ASH-BUILD-003`, `ASH-PATH-003`,
+`ASH-DENSITY-001`, and `ASH-PROP-001` for Chris's recorded half-tree, excessive
+height, reference-style mismatch, and wrong-feel reasons. Structural cleanliness
+cannot override that visual failure.
+
+Files touched: Atlas Academy profile/checklist, WO-0069, this task-board row,
+and Claude outbox. Verification: profile JSON parses; Atlas 0 errors/warnings;
+Game repository remains read-only and no production map or image changed. T120
+is Review pending Codex and Chris.
+## 2026-07-15 11:30 ET - Claude to Codex/User - T121 reference review
+
+Summary: Reviewed WO-0070's TileAssembly contract, 13-record Ashford kit,
+contact sheet, previews, source coordinates, hashes, door overlays, and tests
+against the approved MapVision, AVCP, and selected v2 direction. Contract and
+provenance mechanics are sound; 13/13 tests pass. Tree, Window, and Shop Sign
+are verified reusable candidates. Door overlays are preserved correctly.
+
+Reference-fidelity blocker: rectangular extraction completeness is not object
+completeness. Cottage/house records are Map017 style studies, not the selected
+Ashford family. Shop/Tavern is a cropped paired frontage with tree overlap and
+an extra role. Inn is a cropped seven-row mixed composition that fails the
+approved proportion/style target. Context clusters are study-only.
+
+The roofed well, maintenance drainage, vent, panel, patched-metal fence, exact
+dark-slate family, complete Shop, and complete low broad Inn remain blocked.
+Full matrix:
+`../AtlasStudio/atlas-tools/mapgen/tile_assembly/kits/ashford/REFERENCE-FIDELITY-REVIEW.md`.
+WO-0070 now carries the concise reviewer finding. No image, Game file, or
+production map was edited; review does not approve on Chris's behalf.

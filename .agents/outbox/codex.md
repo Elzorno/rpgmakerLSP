@@ -2834,3 +2834,166 @@ event page/command payloads compare equal to production. Production Game status
 for Map001 and ownership remains clean. Candidate and review evidence live under
 `reports/atlas-import/ashford-exterior-rebuild-v2/`. T115 is Review pending
 Chris's visual decision; do not install over hand_authored Map001 before that.
+## 2026-07-15 ET - Codex to Claude/User - T116
+
+Summary: Recorded Chris's Ashford v2 rejection as binding negative-control
+evidence and created the Map Vision pipeline program with nine dependency-ordered
+work orders, WO-0066 through WO-0074. Assignments split canon synthesis and
+Academy learning to Claude Code; concept generation, TileAssembly extraction,
+compiler/adapter integration, validation, and RPG Maker candidate building to
+Codex; and every subjective/canonical/production decision to Chris.
+
+The chain is: MapVision contract -> approved Ashford vision -> selected concept
+views -> Academy decomposition -> verified TileAssembly kit -> compiler
+integration -> dual structural/visual gate -> Ashford rebuild -> paired Academy
+learning. Production Map001 remains untouched. Claude independently reviewed the
+proposed architecture/assignment split and highlighted the same authority,
+negative-control, and no-self-grading boundaries incorporated into the orders.
+## 2026-07-15 ET - Codex to Claude/User - T117
+
+Summary: WO-0066 primary implementation by Claude and independent feasibility
+review by Codex are complete. MapVision 0.1 is now an additive eleventh contract
+type with authority/confidence labels, exact human conflict trigger, semantic
+validator, valid/invalid fixtures, migration guidance, and updated ownership
+architecture. Concept art cannot establish canon or structural evidence; raw
+engine bindings fail; required-canon claims require Atlas provenance.
+
+Codex's full-suite review found and fixed one real integration regression: the
+new semantic validator used a top-level import that worked as a direct script
+but broke existing compiler package imports. Relative import plus direct-script
+fallback restored both modes. Final verification: 31/31 fixtures, 10/10
+contract tests, 34/34 compiler tests, 17/17 existing MapPlans compatible, Atlas
+0 errors/warnings, Game clean. WO-0066 awaits Chris approval; Ashford generation
+remains frozen meanwhile.
+## 2026-07-15 ET - Codex to Claude/User - T117 approval
+
+Chris approved the WO-0066 work completed so far. Recorded the human approval,
+marked WO-0066 Completed, and closed T117. This releases only the authority-
+contract prerequisite. The canonical Ashford MapVision, selected concept,
+verified TileAssemblies, candidate, and production promotion retain their own
+later gates. WO-0067 is now authorized to begin.
+
+## 2026-07-15 09:18 ET - Codex to Claude/User - T118 review
+
+WO-0067 implementation and independent review are complete. Chris's option 2
+is locked in ATLAS-DDR-0007: Ashford has an enterable Elder House, with reserved
+screen SCR-HOM-ASH-005 and transfer pair TRN-HOM-040/041. The interior is
+contract-only and remains unbuilt. MI-HOM-ASH-001 and MV-HOM-ASH-001@0.1 were
+added; the MapVision is canon-reconciled with no open conflicts but remains
+pending_human_approval. Codex independently verified its schema and semantics,
+the 10 contract tests, 34 compiler tests, Atlas at 0 errors/warnings, clean
+diff checks, and an untouched production Game repository. T118 is in Review;
+WO-0068 remains blocked until Chris explicitly approves the MapVision.
+
+## 2026-07-15 09:25 ET - Codex to Claude/User - T118 approval / T119 start
+
+Chris approved MV-HOM-ASH-001@0.1. WO-0067 and T118 are complete, the MapVision
+is marked approved with its human approval metadata, and WO-0068/T119 have
+started. The next outputs are four generated concept-direction candidates only:
+overhead composition, RPG Maker-like orthographic town view, building
+silhouette sheet, and material/color sheet. They cannot establish canon,
+structural evidence, tile identity, collision, or production-map authority.
+
+## 2026-07-15 09:45 ET - Codex to Claude/User - T119 review
+
+WO-0068 produced all four required v1 concept directions, preserved them as
+revision evidence, and then generated a targeted v2 set from Claude's canon and
+tone review. The v2 overhead, orthographic town, building silhouette, and
+material/color views all pass the follow-up canon/tone review with no blocker.
+They remain non-canonical visual direction only. Exact routes, building-role
+mapping, geometry, collision, and TileAssemblies remain downstream proof. T119
+is in Review awaiting Chris's explicit v2 selection; no concept passes onward
+without that choice.
+
+## 2026-07-15 10:00 ET - Codex to Claude/User - T119 approval / T120 start
+
+Chris approved the complete Ashford v2 concept set. WO-0068 and T119 are
+complete. The selected overhead, orthographic, silhouette, and material views
+remain non-canonical visual direction and release only WO-0069 Academy
+decomposition. T120 is active under Claude ownership; it must translate the
+selected direction and approved JRPG corpus into falsifiable constraints while
+keeping observation, inference, canon, and preference separate.
+
+## 2026-07-15 10:20 ET - Codex to Claude/User - T120 review
+
+WO-0069 Academy decomposition and Codex adapter-fit review are complete. The
+machine profile and keyed checklist separate canon, direct observation,
+reference inference, and creative preference; every rule states measurement,
+pass/fail evidence, severity, and sources. The rejected map fails for Chris's
+exact half-tree, excessive-height, and wrong-building-family reasons, with
+additional visible path/density/cluster failures recorded separately. Codex
+clarified that numeric building-row, prop-count, and old-world-share thresholds
+are provisional operational preferences rather than silent canon. T120 awaits
+Chris approval; no production or Game write occurred.
+
+## 2026-07-15 11:00 ET - Codex to Claude/User - T120 approval / T121 start
+
+Chris approved WO-0069 and its provisional visual thresholds. WO-0070/T121 is
+active. TileAssembly 0.1 now pins complete layered cells, placement anchors,
+optional real connectors, collision masks, source coordinates, map/tileset and
+individual image hashes, variations, previews, and RPG Maker door-event
+overlays. Read-only extraction/render tooling and a 13-assembly Map017-derived
+Ashford reference kit are implemented. The contact sheet also exposes honest
+gaps: Map017 does not prove the selected dark-slate Ashford family, roofed well,
+maintenance drainage, vent/panel, or patched-metal fence. Claude is reviewing
+each assembly as reusable, study-only, or blocked before the human gate.
+
+## 2026-07-15 12:15 ET - Codex to Claude/User - T121 authored-pack decision
+
+Chris approved the recommended separately authored RPG Maker MZ assembly-pack
+path. WO-0070/T121 resumed. The adapter will build a non-production source
+fixture and render the missing low broad building family, roofed well,
+maintenance drainage, warm vent, humming panel, and patched-metal fence. Every
+authored record is labeled human-approval-required and disabled downstream
+until its completeness, proportions, provenance, contact-sheet appearance, and
+Ashford fit are explicitly approved. Production Game data remains out of scope.
+
+## 2026-07-15 13:00 ET - Codex to Claude/User - T121 authored-pack result
+
+The separately authored default-Outside pack was implemented, rendered, and
+reviewed. Codex rejected and repaired the first proxy pass before fidelity
+review. Final result: Warm-Stone Vent is suitable for Chris selection; four
+buildings plus Panel/Fence need revision; Roofed Well and Maintenance Drainage
+are impossible with the current Outside vocabulary. All nine remain disabled
+and the index fails closed by review state. The remaining blocker is custom art
+vocabulary, not compiler behavior. T121 awaits Chris authorization for a custom
+Ashford tileset extension or supplied equivalent source art.
+
+## 2026-07-15 - Codex to Claude/User - T121 partial human approval
+
+Chris approved the four building directions and the Warm-Stone Vent. The Shop
+and Inn were revised to use two wall-tile rows; Elara's Cottage and the Elder's
+House retain one. The Roofed Well, Panel, and Fence are human-rejected and
+remain disabled. The item previously labeled Maintenance Drainage was corrected
+to a Bridge reference and cannot satisfy the drainage requirement. The authored
+kit remains globally disabled pending replacement art for the rejected/missing
+vocabulary; only the approved individual candidates permit downstream use.
+
+## 2026-07-15 - Codex to Claude/User - T121 custom extension candidate
+
+Chris authorized the custom-art path. Codex produced a 768x768, 48-pixel-grid
+Ashford B-sheet with roofed well, actual maintenance drainage, grounded utility
+panel, and patched-metal fence candidates. Generated source, alpha source,
+deterministic crop/grid builder, manifest hashes, and review sheet are retained
+under AtlasStudio's Ashford custom_extension folder. All four assets fail
+closed pending Chris visual approval; no production Game files were changed.
+
+## 2026-07-15 - Codex to Claude/User - T121 scale revision
+
+Chris approved preserving the custom master artwork while rescaling its tile
+bindings. Well and Drainage are now 3x3, Panel 1x2, and Fence 6x2. A continuous
+48-pixel scale-context preview compares them with the approved Elara House,
+approved vent, and a one-tile actor. All remain disabled pending visual review.
+
+## 2026-07-15 - Codex to Claude/User - T121 second scale revision
+
+Chris approved the Panel and Fence scale. Their individual bindings now permit
+downstream use while the extension remains globally disabled. Well and
+Drainage were reduced again to 2x2 and remain fail-closed pending human review.
+
+## 2026-07-15 - Codex to Claude/User - T121 final approval
+
+Chris approved the final 2x2 Well and Drainage scale. All four custom extension
+bindings now record `human_approved`, permit downstream adapter use, and the
+extension is enabled. WO-0070 is complete and WO-0071 is unblocked. This does
+not authorize a production Game map write.

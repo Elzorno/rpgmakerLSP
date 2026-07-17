@@ -1,0 +1,138 @@
+{
+  "backend": "ollama",
+  "covered_avcp_refs": [
+    "ASH-BUILD-002",
+    "ASH-DENSITY-001",
+    "ASH-FIRST-001",
+    "ASH-FIRST-002",
+    "ASH-MATERIAL-001",
+    "ASH-MATERIAL-002",
+    "ASH-PATH-002",
+    "ASH-PATH-003",
+    "ASH-RHYTHM-001",
+    "ASH-VOCAB-001"
+  ],
+  "image_ref": "/Users/christopherzornes/Documents/GitHub/rpgmakerLSP/reports/atlas-import/ashford-mapvision-v3/ashford-mapvision-candidate-render.png",
+  "label": "wo0073_candidate",
+  "model": "llava",
+  "overall": "reject",
+  "results": [
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "ENCLOSURE-001",
+      "reason": "The settlement is enclosed by a wall, which serves as a natural boundary.",
+      "title": "Bounded perimeter",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-002"
+      ],
+      "core": true,
+      "criterion_id": "PATH-ORGANIC-001",
+      "reason": "The paths do not branch and curve around buildings with varied width. They appear to be uniform straight geometric spines.",
+      "title": "Organic branching paths",
+      "verdict": "partial"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-003",
+        "ASH-RHYTHM-001"
+      ],
+      "core": true,
+      "criterion_id": "PATH-RHYTHM-001",
+      "reason": "Path rhythm and door alignment are not present in the image. The paths do not have compression/release and bends, nor do they meet building fronts at their doors.",
+      "title": "Path rhythm and door alignment",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-BUILD-002"
+      ],
+      "core": true,
+      "criterion_id": "BUILDING-VARIETY-001",
+      "reason": "The building footprints are uniform and do not differ in massing. There is no clear icon-differentiated material identity.",
+      "title": "Varied building massing",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-MATERIAL-001",
+        "ASH-MATERIAL-002"
+      ],
+      "core": true,
+      "criterion_id": "MATERIAL-IDENTITY-001",
+      "reason": "There is a single re-tinted material over flat ground, which does not provide real contrast.",
+      "title": "Distinct material identity",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "DECOR-DENSITY-001",
+      "reason": "Decoration scatters through the walkable interior, but it is sparse and does not cluster at walls, path edges, or pockets.",
+      "title": "Decoration density",
+      "verdict": "partial"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-002"
+      ],
+      "core": true,
+      "criterion_id": "DOMINANT-LANDMARK-001",
+      "reason": "There is no dominant landmark that clearly dominates the first read; the eye has nothing specific to move toward.",
+      "title": "Dominant landmark",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-001"
+      ],
+      "core": false,
+      "criterion_id": "FIRST-VIEW-001",
+      "reason": "The first view does not immediately say what kind of place this is and does not promise something beyond the current screen.",
+      "title": "Readable first view",
+      "verdict": "partial"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "REWARD-CLUSTER-001",
+      "reason": "Reward / curiosity objects are lone unstyled markers in empty space, rather than dressed reward clusters.",
+      "title": "Dressed reward clusters",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "WATER-LANDMARK-001",
+      "reason": "There is no water or organic plaza present in the image.",
+      "title": "Water or organic plaza",
+      "verdict": "partial"
+    },
+    {
+      "avcp_refs": [
+        "ASH-VOCAB-001"
+      ],
+      "core": false,
+      "criterion_id": "VOCAB-LIMITED-001",
+      "reason": "A limited, inconsistent material vocabulary is reused throughout the map, rather than each area introducing unrelated materials.",
+      "title": "Limited coherent vocabulary",
+      "verdict": "fail"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "MEMORABLE-IDENTITY-001",
+      "reason": "backend did not address this criterion",
+      "title": "Memorable identity",
+      "verdict": "partial"
+    }
+  ],
+  "schema_version": "0.1"
+}

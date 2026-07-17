@@ -1,0 +1,42 @@
+{
+  "candidate_ref": "BP-GEN-MI-ASHFORD-PRODUCTION-CANDIDATE-001",
+  "concept_refs": [
+    "TheLastSwordProtocol-Atlas/atlas/docs/09_Technical/Map_Generation/Concepts/Ashford/ashford-overhead-composition-v2.png",
+    "TheLastSwordProtocol-Atlas/atlas/docs/09_Technical/Map_Generation/Concepts/Ashford/ashford-orthographic-town-v2.png"
+  ],
+  "human_decision": {
+    "decided_at": "2026-07-15",
+    "decided_by": "Chris",
+    "decision": "rejected",
+    "notes": "Rejected: still reads as mechanical/procedural, no organic flow, \"built by a machine, no soul.\" Paths do not line up with building doors. Not close to the reference maps when compared directly.",
+    "status": "recorded"
+  },
+  "not_yet_automatable": [
+    "ASH-FIRST-001",
+    "ASH-FIRST-002",
+    "ASH-BUILD-002",
+    "ASH-PATH-002",
+    "ASH-PATH-003",
+    "ASH-RHYTHM-001",
+    "ASH-DENSITY-001",
+    "ASH-MATERIAL-001",
+    "ASH-MATERIAL-002",
+    "ASH-VOCAB-001"
+  ],
+  "recommendation": "candidate_for_human_review",
+  "render_refs": [
+    "rpgmakerLSP/reports/atlas-import/ashford-mapvision-v3/ashford-mapvision-candidate-render.png",
+    "rpgmakerLSP/reports/atlas-import/ashford-mapvision-v3/structural_preview.txt"
+  ],
+  "schema_version": "0.1",
+  "structural": {
+    "findings": [],
+    "passed": true,
+    "target": "BP-GEN-MI-ASHFORD-PRODUCTION-CANDIDATE-001"
+  },
+  "visual_proxy": {
+    "findings": [],
+    "passed": true,
+    "target": "BP-GEN-MI-ASHFORD-PRODUCTION-CANDIDATE-001"
+  }
+}

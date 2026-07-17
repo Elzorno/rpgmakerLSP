@@ -1,0 +1,138 @@
+{
+  "backend": "recorded",
+  "covered_avcp_refs": [
+    "ASH-BUILD-002",
+    "ASH-DENSITY-001",
+    "ASH-FIRST-001",
+    "ASH-FIRST-002",
+    "ASH-MATERIAL-001",
+    "ASH-MATERIAL-002",
+    "ASH-PATH-002",
+    "ASH-PATH-003",
+    "ASH-RHYTHM-001",
+    "ASH-VOCAB-001"
+  ],
+  "image_ref": "rpgmakerLSP/reports/atlas-import/wo-0036-map001-render.png",
+  "label": "map001",
+  "model": "claude-opus-4-8 (agent session)",
+  "overall": "pass",
+  "results": [
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "ENCLOSURE-001",
+      "reason": "A continuous dense tree-line rings the whole settlement; it is a clearly bounded place, not open field.",
+      "title": "Bounded perimeter",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-002"
+      ],
+      "core": true,
+      "criterion_id": "PATH-ORGANIC-001",
+      "reason": "Stone paths branch organically: a main spine splits into irregular offshoots that wrap around the buildings.",
+      "title": "Organic branching paths",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-003",
+        "ASH-RHYTHM-001"
+      ],
+      "core": true,
+      "criterion_id": "PATH-RHYTHM-001",
+      "reason": "Paths branch well and reach the building fronts, but the central paved area is a large open expanse so compression/release is softer than Map017.",
+      "title": "Path rhythm and door alignment",
+      "verdict": "partial"
+    },
+    {
+      "avcp_refs": [
+        "ASH-BUILD-002"
+      ],
+      "core": true,
+      "criterion_id": "BUILDING-VARIETY-001",
+      "reason": "Buildings use genuinely different materials (pink, yellow-stone, brown, tan) with some sharing walls into a cluster.",
+      "title": "Varied building massing",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-MATERIAL-001",
+        "ASH-MATERIAL-002"
+      ],
+      "core": true,
+      "criterion_id": "MATERIAL-IDENTITY-001",
+      "reason": "Several distinct build materials give a strong varied settlement palette rather than a re-tinted ground.",
+      "title": "Distinct material identity",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "DECOR-DENSITY-001",
+      "reason": "A fenced farm plot with crops, wells, lampposts, barrels and NPCs are distributed through the interior and clustered in pockets.",
+      "title": "Decoration density",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-002"
+      ],
+      "core": true,
+      "criterion_id": "DOMINANT-LANDMARK-001",
+      "reason": "The central well-and-lamppost plaza anchors the first read.",
+      "title": "Dominant landmark",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-001"
+      ],
+      "core": false,
+      "criterion_id": "FIRST-VIEW-001",
+      "reason": "It reads immediately as an enclosed village with a civic centre.",
+      "title": "Readable first view",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "REWARD-CLUSTER-001",
+      "reason": "Searchable barrels and crates are grouped beside buildings rather than isolated.",
+      "title": "Dressed reward clusters",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "WATER-LANDMARK-001",
+      "reason": "A well provides a landmark but there is no open water feature, so this reads softer than Map017's river.",
+      "title": "Water or organic plaza",
+      "verdict": "partial"
+    },
+    {
+      "avcp_refs": [
+        "ASH-VOCAB-001"
+      ],
+      "core": false,
+      "criterion_id": "VOCAB-LIMITED-001",
+      "reason": "Grass, stone path, timber and stone-wall vocabulary is reused coherently across the map.",
+      "title": "Limited coherent vocabulary",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "MEMORABLE-IDENTITY-001",
+      "reason": "The walled village with the central plaza and farm is easy to recall and state.",
+      "title": "Memorable identity",
+      "verdict": "pass"
+    }
+  ],
+  "schema_version": "0.1"
+}

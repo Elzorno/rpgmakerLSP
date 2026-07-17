@@ -1,0 +1,138 @@
+{
+  "backend": "recorded",
+  "covered_avcp_refs": [
+    "ASH-BUILD-002",
+    "ASH-DENSITY-001",
+    "ASH-FIRST-001",
+    "ASH-FIRST-002",
+    "ASH-MATERIAL-001",
+    "ASH-MATERIAL-002",
+    "ASH-PATH-002",
+    "ASH-PATH-003",
+    "ASH-RHYTHM-001",
+    "ASH-VOCAB-001"
+  ],
+  "image_ref": "rpgmakerLSP/reports/atlas-import/academy-inspection-002-map017-render.png",
+  "label": "map017",
+  "model": "claude-opus-4-8 (agent session)",
+  "overall": "pass",
+  "results": [
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "ENCLOSURE-001",
+      "reason": "A river down the west edge plus a continuous dense tree-line on the north and east bound the village; it is clearly not open field.",
+      "title": "Bounded perimeter",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-002"
+      ],
+      "core": true,
+      "criterion_id": "PATH-ORGANIC-001",
+      "reason": "Stone paths wind and branch at irregular angles around the buildings and farm, with varied width and no single straight spine.",
+      "title": "Organic branching paths",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-PATH-003",
+        "ASH-RHYTHM-001"
+      ],
+      "core": true,
+      "criterion_id": "PATH-RHYTHM-001",
+      "reason": "The narrow bridge compresses movement then releases into the statue plaza, and paths meet each building at its door.",
+      "title": "Path rhythm and door alignment",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-BUILD-002"
+      ],
+      "core": true,
+      "criterion_id": "BUILDING-VARIETY-001",
+      "reason": "Six-plus buildings of visibly different massing and roof pitch, several sharing walls into clusters rather than one repeated shell.",
+      "title": "Varied building massing",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-MATERIAL-001",
+        "ASH-MATERIAL-002"
+      ],
+      "core": true,
+      "criterion_id": "MATERIAL-IDENTITY-001",
+      "reason": "A coherent warm-timber building set reads against grass, stone path, and water as one place, distinct from the ground.",
+      "title": "Distinct material identity",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-DENSITY-001"
+      ],
+      "core": true,
+      "criterion_id": "DECOR-DENSITY-001",
+      "reason": "Barrels, crates, a fenced crop plot, lily pads, stumps and ivy scatter through the interior and cluster at path edges and water.",
+      "title": "Decoration density",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-002"
+      ],
+      "core": true,
+      "criterion_id": "DOMINANT-LANDMARK-001",
+      "reason": "The pedestal statue at the central crossroads is the unambiguous first-read focal point.",
+      "title": "Dominant landmark",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-FIRST-001"
+      ],
+      "core": false,
+      "criterion_id": "FIRST-VIEW-001",
+      "reason": "It instantly reads as a riverside farming village with a clear place to move toward.",
+      "title": "Readable first view",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "REWARD-CLUSTER-001",
+      "reason": "Barrels and crates are grouped and dressed beside buildings, not lone unstyled markers.",
+      "title": "Dressed reward clusters",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "WATER-LANDMARK-001",
+      "reason": "The river-and-bridge crossing plus a lily-pad pond act as a water landmark and organic plaza.",
+      "title": "Water or organic plaza",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [
+        "ASH-VOCAB-001"
+      ],
+      "core": false,
+      "criterion_id": "VOCAB-LIMITED-001",
+      "reason": "A small reused material set (grass, dirt, stone, water, timber) runs throughout with no unrelated materials.",
+      "title": "Limited coherent vocabulary",
+      "verdict": "pass"
+    },
+    {
+      "avcp_refs": [],
+      "core": false,
+      "criterion_id": "MEMORABLE-IDENTITY-001",
+      "reason": "'The farming village with the river, the bridge, and the statue' is immediately statable.",
+      "title": "Memorable identity",
+      "verdict": "pass"
+    }
+  ],
+  "schema_version": "0.1"
+}
